@@ -20,6 +20,7 @@ isOverworld = false
 ---Registers an event in the event loop. The libraryTable is the table which is contains the bound event.
 ---@param eventName string
 function triggerEvent(eventName) end
+
 ---Registers an event in the event loop.
 ---## Usage
 ---```
@@ -34,6 +35,7 @@ function triggerEvent(eventName) end
 ---@param alias string?
 ---@param beforeMainCall boolean? # If set to false, the event will execute after the main call to luna.lua's handler of the event.
 function registerEvent(libraryTable, eventName, alias, beforeMainCall) end
+
 ---Registers a custom event. Once registered, other codes can register it like any other event, and this library is able
 ---to call it manually (like any other function call), causing it to be executed on listening endpoints.
 ---@param libraryTable table # Contains the bound event.

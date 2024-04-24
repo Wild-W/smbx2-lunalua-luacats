@@ -1,5 +1,6 @@
 ---@meta
 
+
 ---The Color class streamlines working with colors.
 ---@class Color
 ---@field r number # Red component [0,1]
