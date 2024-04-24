@@ -74,11 +74,11 @@ onPostEventDirect = nil
 onMessageBox = nil
 
 ---Executes <b>immediately</b> when a block is hit. Passes the block, whether or not it was hit from above, the player if it was the culprit, and a token that can be used to cancel the hit event. 
----@type fun(eventToken: EventToken, hitBlock: Block, fromUpper: bool, playerOrNil: Player)
+---@type fun(eventToken: EventToken, hitBlock: Block, fromUpper: boolean, playerOrNil: Player)
 onBlockHit = nil
 
 ---Executes <b>immediately</b> when a block is hit, just after onBlockHit goes through. Passes the block, whether or not it was hit from above and the player if it was the culprit. Since this event runs only when onBlockHit was not cancelled, it is useful for running code that should happen only when blocks were actually hit.
----@type fun(hitBlock: Block, fromUpper: bool, playerOrNil: Player|nil)
+---@type fun(hitBlock: Block, fromUpper: boolean, playerOrNil: Player|nil)
 onPostBlockHit = nil
 
 ---Executes <b>immediately</b> when a block is removed. Passes the block and a token that can be used to cancel the hit event. 
@@ -93,8 +93,8 @@ onPostBlockRemove = nil
 ---@type fun(color: number)
 onColorSwitch = nil
 
----Executes when synced switch state changes and passes the new state as a bool.
----@type fun(active: bool)
+---Executes when synced switch state changes and passes the new state as a boolean.
+---@type fun(active: boolean)
 onSyncSwitch = nil
 
 ---Executes when a warp completes (the moment of teleportation).
@@ -113,8 +113,8 @@ onPostWarpEnter = nil
 ---@type fun(beepsLeft: number)
 onBeatWarn = nil
 
----Executes when beat state changes and passes the new state as a bool.
----@type fun(active: bool)
+---Executes when beat state changes and passes the new state as a boolean.
+---@type fun(active: boolean)
 onBeatStateChange = nil
 
 ---Executes <b>immediately</b> when any NPC takes damage. Passes the NPC, the harm type causing the damage, and any culprit if it exists. Additionally, a token that can be used to cancel the hit event is passed.

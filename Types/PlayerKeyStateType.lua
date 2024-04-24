@@ -10,8 +10,12 @@
 ---| `KEYS_UNPRESSED` # The frame the key is released.
 ---| `KEYS_UP` # Every frame the key is not pressed.
 
+---The frame the key is pressed.
 KEYS_PRESSED = 1
+---Every frame the key is held.
 KEYS_DOWN = true
+---The frame the key is released.
 ---@type nil
 KEYS_UNPRESSED = nil
+---Every frame the key is not pressed.
 KEYS_UP = false

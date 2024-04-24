@@ -18,9 +18,9 @@
 ---Extended harm types may be passed to `NPC:harm()` as a method of harming an NPC. They are not used in other contexts.
 ---@alias ExtendedEnemyHarmType
 ---| EnemyHarmType
----| `HARM_TYPE_EXT_FIRE` Damaging an NPC with player-thrown fire balls.
----| `HARM_TYPE_EXT_ICE` Damaging an NPC with player-thrown ice balls.
----| `HARM_TYPE_EXT_HAMMER` Damaging an NPC with player-thrown hammers.
+---| `HARM_TYPE_EXT_FIRE` # Damaging an NPC with player-thrown fire balls.
+---| `HARM_TYPE_EXT_ICE` # Damaging an NPC with player-thrown ice balls.
+---| `HARM_TYPE_EXT_HAMMER` # Damaging an NPC with player-thrown hammers.
 
 HARM_TYPE_JUMP = 1
 HARM_TYPE_FROMBELOW = 2
