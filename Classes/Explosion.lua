@@ -31,7 +31,7 @@ function Explosion.register(id, radius, effectID, sound, isstrong, isfriendly) e
 ---@param y number
 ---@param id number # ID of the explosion
 ---@param player Player
----@return Explosion|nil newExplosion
+---@return Explosion? newExplosion
 function Explosion.spawn(x, y, id, player) end
 
 ---@param id? number|number[] # ID or IDs of the explosion(s)
