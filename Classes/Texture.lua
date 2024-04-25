@@ -1,0 +1,21 @@
+---@meta
+
+
+---Variables that store a texture can be used in draw functions to draw the texture to the screen.
+---The dimensions of a texture can also be accessed.
+---
+---The variables of [SpriteOverride](/reference/graphics.md#spriteoverride) are also textures.
+---
+---In most cases, textures are best drawn in a [Lunalua Event](/reference/lunalua-events.md)
+---that also runs while the game is paused, such as onDraw.
+---## Usage
+---```lua
+---local myImage = Graphics.loadImageResolved("myTexture.png")
+---
+---function onDraw()
+---    Graphics.drawImage(myImage, 0, 0)
+---end
+---```
+---@class Texture
+---@field width number # The width of the texture.
+---@field height number # The height of the texture.

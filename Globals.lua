@@ -41,3 +41,14 @@ function registerEvent(libraryTable, eventName, alias, beforeMainCall) end
 ---@param libraryTable table # Contains the bound event.
 ---@param eventName string
 function registerCustomEvent(libraryTable, eventName) end
+
+---**WARNING:** Be careful when manipulating memory offsets directly! Doing so may yield unexpected results.
+---## Usage
+---```
+---local mouseX = mem(0x00B2D6BC, FIELD_DFLOAT) -- Sets mouseX to the mouse's current X position on the screen
+---mem(0x00B2C5A8, FIELD_WORD, 0) -- Sets coin count to 0
+---```
+---@param memoryAddress number
+---@param fieldType MemoryFieldType
+---@return number|string
+function mem(memoryAddress, fieldType) end
