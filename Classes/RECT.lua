@@ -17,3 +17,5 @@
 ---@field right number # The right edge of the rectangle.
 ---@field top number # The top edge of the rectangle.
 ---@field bottom number # The bottom edge of the rectangle.
+
+---@class RECTd : RECT
