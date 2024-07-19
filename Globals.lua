@@ -1,18 +1,6 @@
 ---@meta
 
 
----The first Player object.
----@type Player
-player = {}
----The second Player object (or `nil`).
----@type Player?
-player2 = {}
----The first Camera object.
----@type Camera
-camera = {}
----The second Camera object (or `nil`).
----@type Camera?
-camera2 = {}
 ---True if on the world map.
 ---@type boolean
 isOverworld = false
