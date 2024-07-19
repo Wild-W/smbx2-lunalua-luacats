@@ -17,6 +17,12 @@ camera2 = {}
 ---@type boolean
 isOverworld = false
 
+---SaveData is a table that persistently stores information and saves this information into a save file whenever SMBX would internally save or `Misc.saveGame()` is called. SaveData should be used for information that is useful across play sessions, such as currency, high scores and completion progress.
+SaveData = {}
+
+---GameData is a table that persistently stores information. However unlike Savedata, GameData will never save this information into a save file, and the information will be lost once the game is closed. GameData should be used for information that doesn't need to be kept for future play sessions but is critical to have across level loads, such as whether a minigame is active, or whether something has already occured in this play session.
+GameData = {}
+
 ---Registers an event in the event loop. The libraryTable is the table which is contains the bound event.
 ---@param eventName string
 function triggerEvent(eventName) end

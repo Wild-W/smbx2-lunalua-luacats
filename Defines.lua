@@ -1,5 +1,6 @@
 ---@meta
 
+
 ---Contains fields that manipulate global game settings, such as gravity.
 Defines = {
 	---The current earthquake effect intensity. Decreases by 1 every tick while above 0.
