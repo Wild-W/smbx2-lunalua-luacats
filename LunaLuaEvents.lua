@@ -308,4 +308,3 @@ onKeyDown = nil
 ---@deprecated
 ---@type fun(keyCode: KeyCode, playerIdx: number)
 onKeyUp = nil
-
