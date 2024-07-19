@@ -69,5 +69,16 @@ function getSMBXPath() end
 ---```lua
 ---local result = checkLunaVersion(0, 7, 3, 0) -- Would return 0 if the LunaLua build was 0.7.3
 ---```
+---@param ... integer
 ---@return number|-1|0|1 result If the version number is older then -1 is returned. If the given version number is newer then 1 is returned. If the given version number are the same, then 0 is returned.
 function checkLunaVersion(...) end
+
+---Checks if a library is loaded by the lunalua API, using the return value of the API.load call to check.
+---@param libraryObject table
+---@return boolean
+function isAPILoaded(libraryObject) end
+
+---Checks if a library is loaded by the lunalua API, using the name of the library to check.
+---@param libraryName string
+---@return boolean
+function isAPILoaded(libraryName) end

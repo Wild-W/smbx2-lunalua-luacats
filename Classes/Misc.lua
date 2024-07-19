@@ -1,6 +1,12 @@
 ---@meta
 
 
+--- The Misc namespace exposes miscellaneous helper functions that don't fit into other classes.
+--- Functions in this class work in levels as well as on the overworld, unless otherwise noted.
+---## Usage
+---```lua
+---Misc.doPOW()
+---```
 Misc = {}
 
 --- Will do a bomb explosion.
@@ -188,3 +194,417 @@ function Misc.triggerEvent(eventName) end
 ---
 --- SMBX2 Beta 4+
 function Misc.setLoadScreenTimeout(seconds) end
+
+--### Static gameplay manipulation functions
+
+--- Toggles the synced switch state.
+--- 
+--- Level only
+function Misc.toggleSyncSwitch() end
+
+--- Adds the given value of points to the current score. By adding negative points, you can subtract score.
+--- @param score number The value of points to add to the current score.
+function Misc.score(score) end
+
+--- Returns the current value of the coin counter.
+--- @return number coins The current coin counter value.
+function Misc.coins() end
+
+--- Adds the given value of coins to the coin counter. When the coin counter exceeds 100, 1-ups are granted until the coin counter is below 100 again. If playCoinSound is set to true, it plays the default coin sound.
+--- @param coins number The value of coins to add to the coin counter.
+--- @param playCoinSound boolean Whether to play the coin sound.
+function Misc.coins(coins, playCoinSound) end
+
+--- Spawns a score effect at the given position. Plays the coin or 1-up sound if not suppressed.
+--- @param index number The score value index.
+--- @param position Vector2 The position where the score effect should appear.
+--- @param suppressSound boolean Whether to suppress the sound.
+function Misc.givePoints(index, position, suppressSound) end
+
+--- Triggers a POW effect of a given type at a given position with a given radius for the pulse effect.
+--- @param powtype string The type of POW effect.
+--- @param x number The x-coordinate of the POW effect.
+--- @param y number The y-coordinate of the POW effect.
+--- @param radius number The radius of the POW effect.
+--- 
+--- Level only
+function Misc.doPOW(powtype, x, y, radius) end
+
+--- Returns the cheat buffer text.
+--- @return string cheatBufferText The current cheat buffer text.
+function Misc.cheatBuffer() end
+
+--- Sets the cheat buffer text to the provided value.
+--- @param value string The new cheat buffer text.
+function Misc.cheatBuffer(value) end
+
+--- Legacy method of creating bomb explosions.
+--- @param x number The x-coordinate of the explosion.
+--- @param y number The y-coordinate of the explosion.
+--- @param type number The type of bomb explosion.
+--- 
+--- Level only
+--- @note Use Explosion.spawn instead.
+function Misc.doBombExplosion(x, y, type) end
+
+--- Returns the cursor position in framebuffer space.
+--- @return number x The x-coordinate of the cursor.
+--- @return number y The y-coordinate of the cursor.
+function Misc.getCursorPosition() end
+
+--- Sets the cursor appearance.
+--- @param image Texture The cursor image. Set to nil to reset to default, or false to hide the cursor.
+--- @param xHotspot number The x-coordinate of the cursor hotspot.
+--- @param yHotspot number The y-coordinate of the cursor hotspot.
+function Misc.setCursor(image, xHotspot, yHotspot) end
+
+--- Returns the state of the given key by the key code.
+--- @param vk number The virtual-key code.
+--- @return boolean isPressed True if the key is pressed, false otherwise.
+function Misc.GetKeyState(vk) end
+
+--### Static Beat Timer functions
+
+--- Sets the BPM for the beat timer.
+--- @param bpm number The beats per minute.
+function Misc.setBPM(bpm) end
+
+--- Gets the current BPM for the beat timer.
+--- @return number bpm The current BPM.
+function Misc.getBPM() end
+
+--- Sets the current length of a beat.
+--- @param beatLength number The length of a beat.
+function Misc.setBeatTime(beatLength) end
+
+--- Sets the number of beeps before a beat block state change.
+--- @param startTime number The normalized (0-1) point between two beats when the beeps start.
+--- @param numBeeps number The number of beeps.
+function Misc.setBeepCount(startTime, numBeeps) end
+
+--- Gets the current length of a beat.
+--- @return number beatLength The current length of a beat.
+function Misc.getBeatTime() end
+
+--- Gets the current beat timer value.
+--- @return number beatTime The current beat timer value.
+function Misc.getBeatClock() end
+
+--- Sets the beat signature.
+--- @param signature number The beat signature.
+function Misc.setBeatSignature(signature) end
+
+--- Gets the current beat signature.
+--- @return number signature The current beat signature.
+function Misc.getBeatSignature() end
+
+--### Static Beat Timer variables
+
+--- Whether or not the beat uses the current song's music clock as the beat timer.
+--- @type boolean
+Misc.beatUsesMusicClock = nil
+
+--- Offset of the beat timer relative to the song.
+--- @type number
+Misc.beatOffset = nil
+
+--### Static glitch fix manipulation functions
+
+--- Sets the state of the NPC downward clip fix (enabled by default).
+--- @param enabled boolean Whether to enable the fix.
+function Misc.SetNPCDownwardClipFix(enabled) end
+
+--- Sets the state of the Link clowncar fairy fix (enabled by default).
+--- @param enabled boolean Whether to enable the fix.
+function Misc.SetLinkClowncarFairyFix(enabled) end
+
+--- Sets the state of the fix for powerup/powerdown animation causing jitters in player position (enabled by default).
+--- @param enabled boolean Whether to enable the fix.
+function Misc.SetPowerupPowerdownPositionFix(enabled) end
+
+--- Sets the state of the Player downward clip fix (enabled by default).
+--- @param enabled boolean Whether to enable the fix.
+function Misc.SetPlayerDownwardClipFix(enabled) end
+
+--- Sets the state of the Player filter block bounce glitch fix (enabled by default).
+--- @param enabled boolean Whether to enable the fix.
+function Misc.SetPlayerFilterBounceFix(enabled) end
+
+--- Sets the state of the NPC section setting fix (enabled by default).
+--- @param enabled boolean Whether to enable the fix.
+function Misc.SetNPCSectionFix(enabled) end
+
+--- Sets the state of the slide jump fix (enabled by default).
+--- @param enabled boolean Whether to enable the fix.
+function Misc.SetSlideJumpFix(enabled) end
+
+--- Sets the state of the fence speed fix (enabled by default).
+--- @param enabled boolean Whether to enable the fix.
+--- 
+--- *Note*: `Player` field `climbingBGO` won't work and player offset 0x2C is always -1 if this fix is disabled!
+function Misc.SetFenceBugFix(enabled) end
+
+--### Static Time functions
+
+--- Sets the ticks per second for the engine.
+--- @param tps number The ticks per second.
+function Misc.SetEngineTPS(tps) end
+
+--- Returns the current ticks per second.
+--- @return number tps The current ticks per second.
+function Misc.GetEngineTPS() end
+
+--- Sets the speed for the engine.
+--- @param ratio number The speed ratio.
+function Misc.SetEngineSpeed(ratio) end
+
+--- Gets the current engine speed.
+--- @return number ratio The current engine speed ratio.
+function Misc.GetEngineSpeed() end
+
+--- Sets the duration of a tick in milliseconds.
+--- @param duration number The duration of a tick.
+function Misc.SetEngineTickDuration(duration) end
+
+--- Sets the ticks per second for lunatime calculations.
+--- @param tps number The ticks per second.
+--- @note The nominal TPS should not be altered after the level started, as it could break timing calculations.
+function Misc.SetNominalTPS(tps) end
+
+--- Returns the current ticks per second for lunatime calculations.
+--- @return number tps The current ticks per second.
+function Misc.GetEngineTPS() end
+
+--- Sets the speed for lunatime calculations.
+--- @param ratio number The speed ratio.
+--- @note The nominal TPS should not be altered after the level started, as it could break timing calculations.
+function Misc.SetNominalSpeed(ratio) end
+
+--- Gets the current engine speed.
+--- @return number ratio The current engine speed ratio.
+function Misc.GetEngineSpeed() end
+
+--- Sets the duration of a tick in milliseconds.
+--- @param duration number The duration of a tick.
+function Misc.SetNominalTickDuration(duration) end
+
+--- Gets the current duration of a tick in milliseconds.
+--- @return number duration The current tick duration in milliseconds.
+function Misc.GetEngineTickDuration() end
+
+--### Static game state manipulation functions
+
+--- Opens the pause menu.
+function Misc.openPauseMenu() end
+
+--- Pauses the entire game. If waitForDrawingQueue is set to true, it will wait for the graphics drawing queue to be empty before pausing.
+--- @param waitForDrawingQueue boolean Whether to wait for the drawing queue to be empty before pausing.
+function Misc.pause(waitForDrawingQueue) end
+
+--- Unpauses the game.
+function Misc.unpause() end
+
+--- Returns whether the game is paused, either by Lua or natively.
+--- @return boolean isPaused True if the game is paused, false otherwise.
+function Misc.isPaused() end
+
+--- Returns whether the game is paused by Lua.
+--- @return boolean isPaused True if the game is paused by Lua, false otherwise.
+function Misc.isPausedByLua() end
+
+--- Instantly shuts down SMBX.
+function Misc.exitEngine() end
+
+--- Returns true if the game is currently being played from the editor.
+--- @return boolean inEditor True if the game is in the editor, false otherwise.
+function Misc.inEditor() end
+
+--- Returns true if the Mario Challenge is currently active.
+--- @return boolean inMarioChallenge True if the Mario Challenge is active, false otherwise.
+function Misc.inMarioChallenge() end
+
+--- Returns true if the GIF recorder is currently active.
+--- @return boolean isRecordingGif True if the GIF recorder is active, false otherwise.
+function Misc.isGifRecording() end
+
+--- Returns true if the game is currently in full screen mode.
+--- @return boolean isFullscreen True if the game is in full screen mode, false otherwise.
+function Misc.isFullscreen() end
+
+--- Sets the full screen mode of the game.
+--- @param fullscreen boolean Whether to enable full screen mode.
+function Misc.setFullscreen(fullscreen) end
+
+--- Returns the current save slot.
+--- @return number slot The current save slot.
+function Misc.saveSlot() end
+
+--- Sets the current save slot to the given value. Future saving will record to the new save slot.
+--- @param slot number The save slot value.
+--- @note This won't reload any save data, so use carefully!
+function Misc.saveSlot(slot) end
+
+--- Loads another episode given by the episode title. If the episode was not found then false is returned. If succeeded, true is returned.
+--- @param episodeTitle string The title of the episode to load.
+--- @return boolean didLoad True if the episode was loaded successfully, false otherwise.
+--- @note The actual switch is done during the next internal SMBX code execution (after the next onTick event finishes). Additional code may run between calling this function and the game loading the new episode. Holding the run button may interrupt this process and the game may stay at the title screen.
+function Misc.loadEpisode(episodeTitle) end
+
+--### Static controller state functions
+
+--- Rumbles the selected player's controller for the set length with the set strength. The arguments default to 1, 1000, and 1.0.
+--- @param playerIndex number The index of the player.
+--- @param milliseconds number The duration of the rumble in milliseconds.
+--- @param strength number The strength of the rumble.
+function Misc.RumbleSelectedController(playerIndex, milliseconds, strength) end
+
+--- Returns the selected player's controller's power level (between 0 for empty and 4 for full).
+--- @param playerIndex number The index of the player.
+--- @return number powerLevel The power level of the controller.
+function Misc.GetSelectedControllerPowerLevel(playerIndex) end
+
+--- Returns the selected player's controller's name ("Unknown" if none).
+--- @param playerIndex number The index of the player.
+--- @return string name The name of the controller.
+function Misc.GetSelectedControllerName(playerIndex) end
+
+--### Static loadscreen functions
+
+--- Forces the load screen to be alive for a minimum amount of time. By default, the load screen finishes as soon as it's able to, but using this function, a minimum length can be enforced (for example, 0.5 for half a second).
+--- @param seconds number The minimum load screen time in seconds.
+--- @note Static loadscreen functions can only be called from loadscreen.lua!
+function Misc.setLoadScreenTimeout(seconds) end
+
+--- Returns whether loading has finished.
+--- @return boolean isFinished True if loading has finished, false otherwise.
+--- @note Static loadscreen functions can only be called from loadscreen.lua!
+function Misc.getLoadingFinished() end
+
+--### Static debug functions
+
+--- Spawns a popup dialog message with each argument in its own line. Useful for debugging code that doesn't run every frame.
+--- @param ... vararg The debug information to display.
+function Misc.dialog(...) end
+
+--- Spawns a more fancy popup dialog message.
+--- @param title string The title of the dialog.
+--- @param content object The content of the dialog.
+--- @param readOnly boolean Whether the dialog is read-only.
+function Misc.richDialog(title, content, readOnly) end
+
+--- Sets the depth (verbosity) of Misc.dialog and Misc.richDialog printouts.
+--- @param depth number The depth of the dialog printouts.
+function Misc.setDialogDepth(depth) end
+
+--- Live monitors a list of fields that belong to the given object. A title can be provided to organize the printed data.
+--- @param object object The object to monitor.
+--- @param fields table A list of fields to monitor.
+--- @param title string The title of the monitor.
+function Misc.monitor(object, fields, title) end
+
+--- Stops monitoring an object.
+--- @param object object The object to stop monitoring.
+function Misc.stopMonitoring(object) end
+
+--- Spawns a little red warning in the corner of the screen during edit mode. Once the level is reloaded, it will display a more elaborate call stack dialog with the warning message.
+--- @param warningMessage string The warning message.
+--- @param severity number The severity of the warning.
+--- @note Useful for notifying users of deprecated code or unintended situations.
+function Misc.warn(warningMessage, severity) end
+
+--### Static game window functions
+
+--- Sets the title of the game window.
+--- @param title string The title of the game window.
+function Misc.setWindowTitle(title) end
+
+--- Sets the icon of the game window.
+--- @param icon Texture The icon of the game window.
+function Misc.setWindowIcon(icon) end
+
+--### Static file path and name functions
+
+--- Returns the absolute path to the given file.
+--- @param file string The file name.
+--- @return string filePath The absolute file path.
+function Misc.getFullPath(file) end
+
+--- Returns the name of the current level folder. If there is none, nil is returned.
+--- @return string|nil path The name of the current level folder.
+--- @note Level only
+function Misc.levelFolder() end
+
+--- Returns the path of the current level folder. If there is none, nil is returned.
+--- @return string|nil path The path of the current level folder.
+--- @note Level only
+function Misc.levelPath() end
+
+--- Returns the path to the current episode. If not called from within an episode, the SMBX root path is returned.
+--- @return string path The path to the current episode.
+function Misc.episodePath() end
+
+--- Returns the name of the current episode. If not called from within an episode, "SMBX2" is returned.
+--- @return string name The name of the current episode.
+function Misc.episodeName() end
+
+--- Returns a list of files in the given path. The path can start from the SMBX Directory, or can be an absolute path.
+--- @param path string The path to list files from.
+--- @return table fileNames The list of file names.
+function Misc.listFiles(path) end
+
+--- Returns a list of files in the given path. The path starts from the current level folder (when in a level) or the current episode folder (when on the overworld). If the path is an empty string, then all files from that directory will be returned. If you wish to access the episode folder from a level, you must specify ".." as the path.
+--- @param path string The path to list files from.
+--- @return table fileNames The list of file names.
+function Misc.listLocalFiles(path) end
+
+--- Returns a list of folder names in the given folder. The path can start from the SMBX Directory, or can be an absolute path.
+--- @param path string The path to list directories from.
+--- @return table folderNames The list of folder names.
+function Misc.listDirectories(path) end
+
+--- Searches for a file given by the path in the following directories: Custom level folder -> Episode folder -> {SMBX}/data/scripts folder -> {SMBX}/data folder. The absolute path will be returned (or nil if nothing was found).
+--- @param path string The path to search for.
+--- @return string|nil filePath The absolute file path, or nil if not found.
+function Misc.resolveFile(path) end
+
+--- Searches for multiple files given by the path in the following directories: Custom level folder (if called in a level) -> Episode folder -> {SMBX}/data/scripts folder -> {SMBX}/data folder. The absolute path will be returned (or nil if nothing was found). This function differs from the other resolveFile functions in that it takes multiple file strings as arguments. All strings are searched for in one directory (in the order they're passed as arguments) before the next one is searched in.
+--- @param ... vararg The file paths to search for.
+--- @return string|nil filePath The absolute file path, or nil if not found.
+function Misc.multiResolveFile(...) end
+
+--- Searches for a graphics file given by the path in the following directories: Custom level folder -> Episode folder -> {SMBX}/data/graphics folder. The absolute path will be returned (or nil if nothing was found).
+--- @param path string The path to search for.
+--- @return string|nil filePath The absolute file path, or nil if not found.
+function Misc.resolveGraphicsFile(path) end
+
+--- Searches for a sound file given by the path in the following directories: Custom level folder -> Episode folder -> {SMBX}/data/sounds folder -> {SMBX}/data/sounds/extended folder. The absolute path will be returned (or nil if nothing was found).
+--- @param path string The path to search for.
+--- @return string|nil filePath The absolute file path, or nil if not found.
+function Misc.resolveSoundFile(path) end
+
+--- Searches for a directory given by the path in the following directories: Custom level folder -> Episode folder -> {SMBX}/data/scripts folder -> {SMBX}/data folder. The absolute path will be returned (or nil if nothing was found).
+--- @param path string The path to search for.
+--- @return string|nil filePath The absolute directory path, or nil if not found.
+function Misc.resolveDirectory(path) end
+
+--### Static collision group functions
+
+--- Checks whether two objects collide with each other.
+--- @param first Block|NPC|Player The first object.
+--- @param second Block|NPC|Player The second object.
+--- @return boolean canCollide True if the objects can collide, false otherwise.
+function Misc.canCollideWith(first, second) end
+
+--- Checks whether an object collides with objects in a given collision group.
+--- @param object Block|NPC|Player The object to check.
+--- @param collisionGroup string The collision group to check against.
+--- @return boolean canCollide True if the object can collide with the group, false otherwise.
+function Misc.collidesWithGroup(object, collisionGroup) end
+
+--### Static collision group variables
+
+--- The collision matrix. Misc.groupsCollide\[a\]\[b\] contains whether groups a and b collide and can be modified.
+--- @type table<any, table<any, boolean>>
+---
+--- *Note*: It is ill-advised to use this variable with only one index!
+Misc.groupsCollide = nil

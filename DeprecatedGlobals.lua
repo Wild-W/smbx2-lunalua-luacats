@@ -255,3 +255,17 @@ function spawnEffect(effectID, x, y) end
 --- @deprecated Use Effect.spawn instead.
 --- @note This Animation frame (as parameter) is not the same as Animation.animationFrame!
 function spawnEffect(effectID, x, y, animationFrame) end
+
+---Loads the library packagename.lua. **Do load it outside every other function! (Recommended at the top of your scriptfile).**
+---@param packageName string
+---@return table api
+---@return boolean newLoaded `false` if the library is already loaded
+---@deprecated Use "require" for SMBX2 Beta 4 or later
+function loadAPI(packageName) end
+
+---Loads the library packagename.lua and shares it with lunadll.lua and lunaworld.lua. **Do load it outside every other function! (Recommended at the top of your scriptfile).**
+---@param packageName string
+---@return table api
+---@return boolean newLoaded `false` if the library is already loaded
+---@deprecated Use "require" for SMBX2 Beta 4 or later
+function loadSharedAPI(packageName) end
