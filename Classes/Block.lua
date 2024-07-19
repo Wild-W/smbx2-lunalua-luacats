@@ -123,13 +123,13 @@ local BlockInstance = {}
 
 --- Returns a value of the Block struct at a specific memory address-offset.
 --- @param offset number|BlockMemoryOffset The memory address-offset.
---- @param type FieldType The type of the field.
+--- @param type MemoryFieldType The type of the field.
 --- @return any value The value at the specified memory address-offset.
 function BlockInstance:mem(offset, type) end
 
 --- Sets a value of the Block struct at a specific memory address-offset.
 --- @param offset number|BlockMemoryOffset The memory address-offset.
---- @param type FieldType The type of the field.
+--- @param type MemoryFieldType The type of the field.
 --- @param value any The value to set at the specified memory address-offset.
 --- @return nil
 function BlockInstance:mem(offset, type, value) end

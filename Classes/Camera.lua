@@ -20,15 +20,14 @@ local CameraInstance = {}
 
 --- Returns a value of the Camera struct at a specific memory address-offset.
 --- @param offset number|CameraMemoryOffset The memory address-offset.
---- @param type FieldType The type of the field.
+--- @param type MemoryFieldType The type of the field.
 --- @return any value The value at the specified memory address-offset.
 function CameraInstance:mem(offset, type) end
 
 --- Sets a value of the Camera struct at a specific memory address-offset.
 --- @param offset number|CameraMemoryOffset The memory address-offset.
---- @param type FieldType The type of the field.
+--- @param type MemoryFieldType The type of the field.
 --- @param value any The value to set at the specified memory address-offset.
---- @return nil
 function CameraInstance:mem(offset, type, value) end
 
 ---	Validates that the camera object exists.
