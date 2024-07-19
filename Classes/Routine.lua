@@ -15,44 +15,44 @@ function Routine.run(f, ...) end
 --- Exits the current coroutine, resuming it after the specified number of seconds. If `whilePaused` is set to `true`, this timer will continue to count down even while the game is paused. By default, `whilePaused` is false.
 --- @param seconds number The number of seconds to wait.
 --- @param whilePaused boolean Whether to continue counting down while the game is paused.
---- @return Yield yield The yield object.
+--- @return any yield The yield object.
 function Routine.wait(seconds, whilePaused) end
 
 --- Exits the current coroutine, resuming it after the specified number of frames. If `whilePaused` is set to `true`, this timer will continue to count down even while the game is paused. By default, `whilePaused` is false.
 --- @param frames number The number of frames to wait.
 --- @param whilePaused boolean Whether to continue counting down while the game is paused.
---- @return Yield yield The yield object.
+--- @return any yield The yield object.
 function Routine.waitFrames(frames, whilePaused) end
 
 --- Exits the current coroutine, resuming it on the next frame. If `whilePaused` is set to `true`, the coroutine will resume even if the game is paused. By default, `whilePaused` is false.
 --- @param whilePaused boolean Whether to resume even if the game is paused.
---- @return Yield yield The yield object.
+--- @return any yield The yield object.
 function Routine.skip(whilePaused) end
 
 --- Exits the current coroutine, resuming it after the specified number of seconds, adjusted for frame rate. If `whilePaused` is set to `true`, this timer will continue to count down even while the game is paused. By default, `whilePaused` is false. This should not be used for gameplay, as it can cause things to go out of sync, and should be reserved for purely decorative elements.
 --- @param seconds number The number of seconds to wait, adjusted for frame rate.
 --- @param whilePaused boolean Whether to continue counting down while the game is paused.
---- @return Yield yield The yield object.
+--- @return any yield The yield object.
 function Routine.waitRealSeconds(seconds, whilePaused) end
 
 --- Exits the current coroutine, resuming it after the specified key is pressed.
 --- @param key keycode The key to wait for.
---- @return Yield yield The yield object.
+--- @return any yield The yield object.
 function Routine.waitInput(key) end
 
 --- Exits the current coroutine, resuming it after the `Routine.signal` is called. If a table is passed as the `signal`, by default it will be considered a list of signals, all of which must be signalled before the coroutine resumes. If `isTable` is set to `true`, the `signal` argument will always be considered a single object, even if it is a table.
 --- @param signal any The signal to wait for.
 --- @param isTable boolean Whether to consider the signal as a single object even if it is a table.
---- @return Yield yield The yield object.
+--- @return any yield The yield object.
 function Routine.waitSignal(signal, isTable) end
 
 --- Exits the current coroutine, resuming it after the specified vanilla SMBX event is triggered.
 --- @param name string The name of the event to wait for.
---- @return Yield yield The yield object.
+--- @return any yield The yield object.
 function Routine.waitEvent(name) end
 
 --- Exits the current coroutine.
---- @return Yield yield The yield object.
+--- @return any yield The yield object.
 function Routine.yield() end
 
 --- Resumes a coroutine that was yielded via `Routine.yield`.
@@ -166,14 +166,14 @@ function RoutineInstance:pause() end
 --- Resumes the coroutine timer that was paused using `pause`.
 function RoutineInstance:resume() end
 
----@type boolean Returns `true` if the coroutine is waiting.
+---@type boolean `true` if the coroutine is waiting.
 RoutineInstance.waiting = false
 
----@type boolean Returns `true` if the coroutine was yielded using `Routine.yield`.
+---@type boolean `true` if the coroutine was yielded using `Routine.yield`.
 RoutineInstance.yielded = false
 
----@type boolean Returns `true` if the coroutine was paused using `Routine.pause` or `myRoutine:pause()`.
+---@type boolean `true` if the coroutine was paused using `Routine.pause` or `myRoutine:pause()`.
 RoutineInstance.paused = false
 
----@type boolean Returns `false` if the coroutine has finished or has been abandoned.
+---@type boolean `false` if the coroutine has finished or has been abandoned.
 RoutineInstance.isValid = false

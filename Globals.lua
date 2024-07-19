@@ -56,5 +56,18 @@ function registerCustomEvent(libraryTable, eventName) end
 ---```
 ---@param memoryAddress number
 ---@param fieldType MemoryFieldType
+---@param newValue any
 ---@return number|string
-function mem(memoryAddress, fieldType) end
+function mem(memoryAddress, fieldType, newValue) end
+
+---Returns the absolute path to smbx.exe.
+---@return string path
+function getSMBXPath() end
+
+---Compares the given luna version if it is older or newer than the current build.
+---## Usage
+---```lua
+---local result = checkLunaVersion(0, 7, 3, 0) -- Would return 0 if the LunaLua build was 0.7.3
+---```
+---@return number|-1|0|1 result If the version number is older then -1 is returned. If the given version number is newer then 1 is returned. If the given version number are the same, then 0 is returned.
+function checkLunaVersion(...) end
