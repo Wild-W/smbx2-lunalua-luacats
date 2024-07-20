@@ -42,6 +42,10 @@ function Checkpoint.reset() end
 --- @param id number|number[] The NPC ID or list of IDs to register as checkpoints.
 function Checkpoint.registerNPC(id) end
 
+function Checkpoint.onExitLevel() end
+function Checkpoint.onInitAPI() end
+function Checkpoint.onStart() end
+
 -- Instance
 
 ---@class Checkpoint

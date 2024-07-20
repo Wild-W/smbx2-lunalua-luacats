@@ -308,6 +308,15 @@ Misc.beatUsesMusicClock = nil
 --- @type number
 Misc.beatOffset = nil
 
+---@type boolean
+Misc.logWarnings = nil
+
+---@type boolean
+Misc._fenceFixEnabled = nil
+
+---@type boolean
+Misc.showWarnings = nil
+
 --### Static glitch fix manipulation functions
 
 --- Sets the state of the NPC downward clip fix (enabled by default).
@@ -483,12 +492,12 @@ function Misc.getLoadingFinished() end
 --### Static debug functions
 
 --- Spawns a popup dialog message with each argument in its own line. Useful for debugging code that doesn't run every frame.
---- @param ... vararg The debug information to display.
+--- @param ... any The debug information to display.
 function Misc.dialog(...) end
 
 --- Spawns a more fancy popup dialog message.
 --- @param title string The title of the dialog.
---- @param content object The content of the dialog.
+--- @param content table The content of the dialog.
 --- @param readOnly boolean Whether the dialog is read-only.
 function Misc.richDialog(title, content, readOnly) end
 
@@ -497,13 +506,13 @@ function Misc.richDialog(title, content, readOnly) end
 function Misc.setDialogDepth(depth) end
 
 --- Live monitors a list of fields that belong to the given object. A title can be provided to organize the printed data.
---- @param object object The object to monitor.
+--- @param object table The object to monitor.
 --- @param fields table A list of fields to monitor.
 --- @param title string The title of the monitor.
 function Misc.monitor(object, fields, title) end
 
 --- Stops monitoring an object.
---- @param object object The object to stop monitoring.
+--- @param object table The object to stop monitoring.
 function Misc.stopMonitoring(object) end
 
 --- Spawns a little red warning in the corner of the screen during edit mode. Once the level is reloaded, it will display a more elaborate call stack dialog with the warning message.
@@ -601,6 +610,147 @@ function Misc.canCollideWith(first, second) end
 --- @return boolean canCollide True if the object can collide with the group, false otherwise.
 function Misc.collidesWithGroup(object, collisionGroup) end
 
+---@param ... unknown
+function Misc._SetVanillaBackgroundRenderFlag(...) end
+
+---@param ... unknown
+---@return ...
+function Misc.warning(...) end
+
+---@param ... unknown
+---@return ...
+function Misc.__getPerfTrackerData(...) end
+
+---@param ... unknown
+---@return ...
+function Misc.getBasegameEnvironment(...) end
+
+---@param ... unknown
+function Misc._setWeakLava(...) end
+
+---@param ... unknown
+---@return ...
+function Misc.__GetFrameTimes(...) end
+
+---@param ... unknown
+---@return ...
+function Misc._getWeakLava(...) end
+
+---@param ... unknown
+---@return ...
+function Misc.getCustomEnvironment(...) end
+
+---@param ... unknown
+---@return ...
+function Misc._GetCollisionGroupFromIndex(...) end
+
+---@param ... unknown
+---@return ...
+function Misc.suppressWarnings(...) end
+
+---@param ... unknown
+---@return ...
+function Misc.registerPOWType(...) end
+
+---@param ... unknown
+---@return ...
+function Misc._ModifyCollisionGroup(...) end
+
+---@param ... unknown
+---@return ...
+function Misc.listLocalDirectories(...) end
+
+---@param ... unknown
+---@return ...
+function Misc.GetNominalSpeed(...) end
+
+---@param ... unknown
+---@return ...
+function Misc._npcHarmComboWithDamage(...) end
+
+---@param ... unknown
+---@return boolean
+function Misc.isSamePath(...) end
+
+---@param ... unknown
+---@return ...
+function Misc.GetNominalTPS(...) end
+
+---@param ... unknown
+---@return boolean
+function Misc.didGameOver(...) end
+
+---@param ... unknown
+---@return ...
+function Misc._getPatchedRanges(...) end
+
+---@param ... unknown
+function Misc.SetNominaleTPS(...) end
+
+---@param ... unknown
+---@return ...
+function Misc.GetNominalTickDuration(...) end
+
+---@param ... unknown
+---@return ...
+function Misc.getEditorPlacedItem(...) end
+
+---@param ... unknown
+---@return ...
+function Misc.__getNPCPropertyTableAddress(...) end
+
+---@param ... unknown
+---@return ...
+function Misc.__getBlockPropertyTableAddress(...) end
+
+---@param ... unknown
+---@return ...
+function Misc.GetMemUsage(...) end
+
+---@param ... unknown
+---@return ...
+function Misc.registerCharacterId(...) end
+
+---@param ... unknown
+---@return ...
+function Misc.showRichDialog(...) end
+
+---@param ... unknown
+---@return ...
+function Misc.loadCharacterHitBoxes(...) end
+
+---@param ... unknown
+---@return ...
+function Misc.__disablePerfTracker(...) end
+
+---@param ... unknown
+---@return ...
+function Misc.__enablePerfTracker(...) end
+
+---@param ... unknown
+---@return ...
+function Misc._setSemisolidCollidingFlyType(...) end
+
+---@param ... unknown
+---@return ...
+function Misc.clock(...) end
+
+---@param ... unknown
+---@return ...
+function Misc._npcHarmCombo(...) end
+
+---@param ... unknown
+---@return ...
+function Misc._playerKill(...) end
+
+---@param ... unknown
+---@return ...
+function Misc._npcCollect(...) end
+
+---@param ... unknown
+---@return ...
+function Misc._playerHarm(...) end
+
 --### Static collision group variables
 
 --- The collision matrix. Misc.groupsCollide\[a\]\[b\] contains whether groups a and b collide and can be modified.
@@ -608,3 +758,481 @@ function Misc.collidesWithGroup(object, collisionGroup) end
 ---
 --- *Note*: It is ill-advised to use this variable with only one index!
 Misc.groupsCollide = nil
+
+---@alias PowType
+---|`Misc.powType.LEGACY`
+---|`Misc.powType.SMB2`
+---|`Misc.powType.SMW`
+
+Misc.powType = {}
+Misc.powType.LEGACY = 1
+Misc.powType.SMB2 = 2
+Misc.powType.SMW = 3
+
+Misc.LUNALUA_EVENTS = {}
+Misc.LUNALUA_EVENTS[1] = "onStart"
+Misc.LUNALUA_EVENTS[2] = "onLoad"
+Misc.LUNALUA_EVENTS[3] = "onTick"
+Misc.LUNALUA_EVENTS[4] = "onTickEnd"
+Misc.LUNALUA_EVENTS[5] = "onDraw"
+Misc.LUNALUA_EVENTS[6] = "onDrawUnfocusOverlay"
+Misc.LUNALUA_EVENTS[7] = "onDrawEnd"
+Misc.LUNALUA_EVENTS[8] = "onLoop"
+Misc.LUNALUA_EVENTS[9] = "onLoopSection0"
+Misc.LUNALUA_EVENTS[10] = "onLoopSection1"
+Misc.LUNALUA_EVENTS[11] = "onLoopSection2"
+Misc.LUNALUA_EVENTS[12] = "onLoopSection3"
+Misc.LUNALUA_EVENTS[13] = "onLoopSection4"
+Misc.LUNALUA_EVENTS[14] = "onLoopSection5"
+Misc.LUNALUA_EVENTS[15] = "onLoopSection6"
+Misc.LUNALUA_EVENTS[16] = "onLoopSection7"
+Misc.LUNALUA_EVENTS[17] = "onLoopSection8"
+Misc.LUNALUA_EVENTS[18] = "onLoopSection9"
+Misc.LUNALUA_EVENTS[19] = "onLoopSection10"
+Misc.LUNALUA_EVENTS[20] = "onLoopSection11"
+Misc.LUNALUA_EVENTS[21] = "onLoopSection12"
+Misc.LUNALUA_EVENTS[22] = "onLoopSection13"
+Misc.LUNALUA_EVENTS[23] = "onLoopSection14"
+Misc.LUNALUA_EVENTS[24] = "onLoopSection15"
+Misc.LUNALUA_EVENTS[25] = "onLoopSection16"
+Misc.LUNALUA_EVENTS[26] = "onLoopSection17"
+Misc.LUNALUA_EVENTS[27] = "onLoopSection18"
+Misc.LUNALUA_EVENTS[28] = "onLoopSection19"
+Misc.LUNALUA_EVENTS[29] = "onLoopSection20"
+Misc.LUNALUA_EVENTS[30] = "onLoadSection"
+Misc.LUNALUA_EVENTS[31] = "onLoadSection0"
+Misc.LUNALUA_EVENTS[32] = "onLoadSection1"
+Misc.LUNALUA_EVENTS[33] = "onLoadSection2"
+Misc.LUNALUA_EVENTS[34] = "onLoadSection3"
+Misc.LUNALUA_EVENTS[35] = "onLoadSection4"
+Misc.LUNALUA_EVENTS[36] = "onLoadSection5"
+Misc.LUNALUA_EVENTS[37] = "onLoadSection6"
+Misc.LUNALUA_EVENTS[38] = "onLoadSection7"
+Misc.LUNALUA_EVENTS[39] = "onLoadSection8"
+Misc.LUNALUA_EVENTS[40] = "onLoadSection9"
+Misc.LUNALUA_EVENTS[41] = "onLoadSection10"
+Misc.LUNALUA_EVENTS[42] = "onLoadSection11"
+Misc.LUNALUA_EVENTS[43] = "onLoadSection12"
+Misc.LUNALUA_EVENTS[44] = "onLoadSection13"
+Misc.LUNALUA_EVENTS[45] = "onLoadSection14"
+Misc.LUNALUA_EVENTS[46] = "onLoadSection15"
+Misc.LUNALUA_EVENTS[47] = "onLoadSection16"
+Misc.LUNALUA_EVENTS[48] = "onLoadSection17"
+Misc.LUNALUA_EVENTS[49] = "onLoadSection18"
+Misc.LUNALUA_EVENTS[50] = "onLoadSection19"
+Misc.LUNALUA_EVENTS[51] = "onLoadSection20"
+Misc.LUNALUA_EVENTS[52] = "onSectionChange"
+Misc.LUNALUA_EVENTS[53] = "onJump"
+Misc.LUNALUA_EVENTS[54] = "onJumpEnd"
+Misc.LUNALUA_EVENTS[55] = "onKeyDown"
+Misc.LUNALUA_EVENTS[56] = "onKeyUp"
+Misc.LUNALUA_EVENTS[57] = "onFramebufferResize"
+Misc.LUNALUA_EVENTS[58] = "onEvent"
+Misc.LUNALUA_EVENTS[59] = "onEventDirect"
+Misc.LUNALUA_EVENTS[60] = "onExitLevel"
+Misc.LUNALUA_EVENTS[61] = "onInputUpdate"
+Misc.LUNALUA_EVENTS[62] = "onMessageBox"
+Misc.LUNALUA_EVENTS[63] = "onColorSwitch"
+Misc.LUNALUA_EVENTS[64] = "onSyncSwitch"
+Misc.LUNALUA_EVENTS[65] = "onBeatWarn"
+Misc.LUNALUA_EVENTS[66] = "onBeatStateChange"
+Misc.LUNALUA_EVENTS[67] = "onBlockHit"
+Misc.LUNALUA_EVENTS[68] = "onBlockRemove"
+Misc.LUNALUA_EVENTS[69] = "onHUDDraw"
+Misc.LUNALUA_EVENTS[70] = "onNPCKill"
+Misc.LUNALUA_EVENTS[71] = "onCameraUpdate"
+Misc.LUNALUA_EVENTS[72] = "onCameraDraw"
+Misc.LUNALUA_EVENTS[73] = "onKeyboardPress"
+Misc.LUNALUA_EVENTS[74] = "onKeyboardPressDirect"
+Misc.LUNALUA_EVENTS[75] = "onKeyboardKeyPress"
+Misc.LUNALUA_EVENTS[76] = "onKeyboardKeyRelease"
+Misc.LUNALUA_EVENTS[77] = "onPause"
+Misc.LUNALUA_EVENTS[78] = "onExit"
+Misc.LUNALUA_EVENTS[79] = "onNPCHarm"
+Misc.LUNALUA_EVENTS[80] = "onNPCCollect"
+Misc.LUNALUA_EVENTS[81] = "onCheckpoint"
+Misc.LUNALUA_EVENTS[82] = "onExplosion"
+Misc.LUNALUA_EVENTS[83] = "onRunEffectInternal"
+Misc.LUNALUA_EVENTS[84] = "onExplosionInternal"
+Misc.LUNALUA_EVENTS[85] = "onPostNPCRearrangeInternal"
+Misc.LUNALUA_EVENTS[86] = "onBlockInvalidateForReuseInternal"
+Misc.LUNALUA_EVENTS[87] = "onWarpEnter"
+Misc.LUNALUA_EVENTS[88] = "onWarp"
+Misc.LUNALUA_EVENTS[89] = "onGroupDeallocationInternal"
+Misc.LUNALUA_EVENTS[90] = "onPasteText"
+Misc.LUNALUA_EVENTS[91] = "onChangeController"
+Misc.LUNALUA_EVENTS[92] = "onControllerButtonPress"
+Misc.LUNALUA_EVENTS[93] = "onControllerButtonRelease"
+Misc.LUNALUA_EVENTS[94] = "onPostNPCKill"
+Misc.LUNALUA_EVENTS[95] = "onPostNPCHarm"
+Misc.LUNALUA_EVENTS[96] = "onPostNPCCollect"
+Misc.LUNALUA_EVENTS[97] = "onPostExplosion"
+Misc.LUNALUA_EVENTS[98] = "onPostEventDirect"
+Misc.LUNALUA_EVENTS[99] = "onPostWarpEnter"
+Misc.LUNALUA_EVENTS[100] = "onPostBlockHit"
+Misc.LUNALUA_EVENTS[101] = "onPostBlockRemove"
+Misc.LUNALUA_EVENTS[102] = "onNPCGenerated"
+Misc.LUNALUA_EVENTS[103] = "onNPCTransform"
+Misc.LUNALUA_EVENTS[104] = "onNPCConfigChange"
+Misc.LUNALUA_EVENTS[105] = "onBlockConfigChange"
+Misc.LUNALUA_EVENTS[106] = "onBGOConfigChange"
+Misc.LUNALUA_EVENTS[107] = "onPlayerKill"
+Misc.LUNALUA_EVENTS[108] = "onPlayerHarm"
+Misc.LUNALUA_EVENTS[109] = "onPostPlayerKill"
+Misc.LUNALUA_EVENTS[110] = "onPostPlayerHarm"
+Misc.LUNALUA_EVENTS[111] = "onPOW"
+Misc.LUNALUA_EVENTS[112] = "onPostPOW"
+Misc.LUNALUA_EVENTS[113] = "onMouseButtonEvent"
+Misc.LUNALUA_EVENTS[114] = "onMouseWheelEvent"
+Misc.LUNALUA_EVENTS[115] = "onCollide"
+Misc.LUNALUA_EVENTS[116] = "onIntersect"
+
+Misc.LUNALUA_EVENTS_TBL = {}
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onLoadSection14 = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onDrawUnfocusOverlay = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onDrawEnd = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onDraw = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onTick = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onTickEnd = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onStart = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onLoop = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onLoopSection1 = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onLoopSection4 = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onLoopSection0 = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onLoopSection3 = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onLoopSection2 = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onLoopSection5 = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onMessageBox = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onCollide = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onPlayerKill = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onPlayerHarm = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onBGOConfigChange = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onNPCConfigChange = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onBlockConfigChange = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onIntersect = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onPostPlayerKill = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onPOW = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onMouseWheelEvent = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onPostPlayerHarm = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onMouseButtonEvent = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onPostPOW = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onNPCTransform = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onLoopSection6 = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onLoopSection8 = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onLoadSection4 = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onLoadSection5 = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onLoadSection3 = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onLoadSection1 = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onLoadSection2 = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onLoadSection0 = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onLoadSection6 = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onLoadSection8 = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onLoadSection11 = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onLoadSection7 = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onLoadSection10 = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onLoadSection9 = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onLoopSection7 = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onLoadSection = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onLoopSection19 = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onLoopSection11 = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onLoopSection12 = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onLoopSection10 = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onLoopSection9 = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onLoopSection20 = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onLoopSection13 = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onLoopSection15 = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onLoopSection18 = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onLoopSection14 = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onLoopSection17 = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onLoopSection16 = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onLoadSection12 = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onNPCGenerated = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onPostBlockHit = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onColorSwitch = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onSyncSwitch = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onLoad = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onExitLevel = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onInputUpdate = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onEventDirect = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onBeatWarn = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onBlockHit = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onNPCKill = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onBeatStateChange = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onHUDDraw = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onBlockRemove = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onCameraUpdate = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onEvent = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onKeyUp = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onLoadSection17 = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onLoadSection18 = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onLoadSection16 = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onLoadSection15 = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onFramebufferResize = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onLoadSection19 = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onSectionChange = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onKeyDown = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onLoadSection20 = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onJumpEnd = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onJump = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onPostBlockRemove = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onCameraDraw = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onKeyboardPressDirect = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onControllerButtonPress = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onControllerButtonRelease = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onChangeController = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onGroupDeallocationInternal = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onPasteText = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onWarp = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onPostNPCKill = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onPostNPCCollect = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onPostWarpEnter = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onPostNPCHarm = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onPostEventDirect = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onPostExplosion = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onKeyboardPress = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onWarpEnter = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onPostNPCRearrangeInternal = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onPause = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onExit = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onKeyboardKeyRelease = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onKeyboardKeyPress = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onBlockInvalidateForReuseInternal = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onNPCHarm = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onCheckpoint = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onExplosionInternal = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onNPCCollect = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onRunEffectInternal = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onExplosion = nil
+
+---@type boolean
+Misc.LUNALUA_EVENTS_TBL.onLoadSection13 = nil

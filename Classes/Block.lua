@@ -118,7 +118,7 @@ Block.EDIBLEBYVINE = nil
 ---@type table<number, BlockClassification>
 Block.classifications = {}
 
----@class Block
+---@class Block : CollisionObject
 local BlockInstance = {}
 
 --- Returns a value of the Block struct at a specific memory address-offset.

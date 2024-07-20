@@ -1,6 +1,8 @@
 ---@meta
 
 
+---@class CollisionObject
+
 ---The Colliders class provides functionality for checking for collision between objects or custom collision zones.
 ---## Usage
 ---```lua
@@ -16,11 +18,11 @@
 Colliders = {}
 
 ---@type integer
-Colliders.COLLIDER = 1
+Colliders.COLLIDER = -1
 ---@type integer
-Colliders.NPC = 2
+Colliders.NPC = -2
 ---@type integer
-Colliders.BLOCK = 3
+Colliders.BLOCK = -3
 
 --- Creates a new point collider.
 --- @param x number The x coordinate of the point collider.
@@ -72,6 +74,34 @@ function Colliders.Poly(x, y, ...) end
 --- @param object CollisionObject The object to get the bounding box for.
 --- @return BoxCollider boxCollider The box collider axis-aligned bounding box.
 function Colliders.getAABB(object) end
+
+---@param block1 Block
+---@param block2 Block
+---@return boolean
+function Colliders.FILTER_BLOCK_BLOCK_DEF(block1, block2) end
+
+---@param collider Collider
+---@param block Block
+---@return boolean
+function Colliders.FILTER_COL_BLOCK_DEF(collider, block) end
+
+---@param collider Collider
+---@param npc NPC
+---@return boolean
+function Colliders.FILTER_COL_NPC_DEF(collider, npc) end
+
+---@param npc NPC
+---@param block Block
+---@return boolean
+function Colliders.FILTER_NPC_BLOCK_DEF(npc, block) end
+
+---@param npc1 NPC
+---@param npc2 NPC
+---@return boolean
+function Colliders.FILTER_NPC_NPC_DEF(npc1, npc2) end
+
+function Colliders.onInitAPI() end
+function Colliders.onDraw() end
 
 --- Gets the collider associated with the collision object.
 --- @param object CollisionObject The object to get the collider for.
@@ -156,7 +186,32 @@ function Colliders.tail(player, object) end
 --- @return boolean isSwiping Whether the player has performed a Yoshi tongue attack and hit the object.
 function Colliders.tongue(player, object) end
 
----@class Collider
+---@type table
+Colliders.BLOCK_HURT = nil
+---@type table
+Colliders.BLOCK_HURT_MAP = nil
+---@type table
+Colliders.BLOCK_LAVA = nil
+---@type table
+Colliders.BLOCK_LAVA_MAP = nil
+---@type table
+Colliders.BLOCK_NONSOLID = nil
+---@type table
+Colliders.BLOCK_NONSOLID_MAP = nil
+---@type table
+Colliders.BLOCK_PLAYER = nil
+---@type table
+Colliders.BLOCK_PLAYER_MAP = nil
+---@type table
+Colliders.BLOCK_SEMISOLID = nil
+---@type table
+Colliders.BLOCK_SEMISOLID_MAP = nil
+---@type table
+Colliders.BLOCK_SOLID = nil
+---@type table
+Colliders.BLOCK_SOLID_MAP = nil
+
+---@class Collider : CollisionObject
 local Collider = {}
 
 --- Draws the collider to the screen with the specified color.
