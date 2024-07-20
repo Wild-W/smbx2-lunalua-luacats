@@ -4,6 +4,10 @@
 ---@class APIListener
 local APIListener = {}
 
+---Library table
+---@type table
+APIListener.api = nil
+
 ---@type string
 APIListener.eventName = nil
 
