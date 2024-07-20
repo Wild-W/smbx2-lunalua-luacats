@@ -227,7 +227,7 @@ onControllerButtonRelease = nil
 onChangeController = nil
 
 ---Executes when a player touches a checkpoint. Passes the checkpoint object (not the NPC) and the player that touched the checkpoint.
----@type fun(checkpoint: CheckPoint, player: Player)
+---@type fun(checkpoint: Checkpoint, player: Player)
 onCheckpoint = nil
 
 ---Executes just before the level or world map unloads.

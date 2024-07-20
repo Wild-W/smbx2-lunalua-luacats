@@ -3,20 +3,21 @@
 
 ---Effects are visual effects that happen when NPCs die, blocks break, and various other actions are performed.
 ---Currently, effects are split into two systems: The SMBX 1.3 system, used for effect IDs 1-161, and the SMBX2 effects system, used for effect IDs 162 onwards.
+---@class EffectManager
 ---@field config table<number, EffectConfig> Lua representation of all Effect config. The way to access individual fields is as follows: Effect.config[id].field. (ex. Effect.config[1].width = 5). Fields can be read and set.
 Effect = {}
 
 ---Returns the number of 1.3 effects currently active.
----@return number Number of effects
+---@return number count Number of effects
 function Effect.count() end
 
 ---Returns a table of references to all 1.3 effects in the level.
----@return table<number, Effect> Effects
+---@return table<number, Effect> effects
 function Effect.get() end
 
 ---Returns a table of references to all 1.3 effects of the given id(s).
 ---@param ids number|number[] The ID(s) of the effects to retrieve.
----@return Effect[] Effects
+---@return Effect[] effects
 function Effect.get(ids) end
 
 ---Returns a table of references to all 1.3 effects that are within the rectangle defined by the 4 coordinates.
@@ -24,7 +25,7 @@ function Effect.get(ids) end
 ---@param y1 number The y coordinate of the top-left corner of the rectangle.
 ---@param x2 number The x coordinate of the bottom-right corner of the rectangle.
 ---@param y2 number The y coordinate of the bottom-right corner of the rectangle.
----@return Effect[] Effects
+---@return Effect[] effects
 function Effect.getIntersecting(x1, y1, x2, y2) end
 
 ---Spawns a new effect at the given location.
@@ -34,7 +35,7 @@ function Effect.getIntersecting(x1, y1, x2, y2) end
 ---@param variant number|nil The variant of the effect to use (optional).
 ---@param npcID number|nil The NPC ID to set on the effect (optional).
 ---@param drawOnlyMask boolean|nil If true, makes the effect silhouette render (only 1.3 effects).
----@return Effect Effect
+---@return Effect effect
 function Effect.spawn(id, x, y, variant, npcID, drawOnlyMask) end
 
 ---Spawns a new effect at the location of the given object with x, y, width, and height fields (Player, NPC, Block, or other).
@@ -43,7 +44,7 @@ function Effect.spawn(id, x, y, variant, npcID, drawOnlyMask) end
 ---@param variant number|nil The variant of the effect to use (optional).
 ---@param npcID number|nil The NPC ID to set on the effect (optional).
 ---@param drawOnlyMask boolean|nil If true, makes the effect silhouette render (only 1.3 effects).
----@return Effect Effect
+---@return Effect effect
 function Effect.spawn(id, target, variant, npcID, drawOnlyMask) end
 
 ---@class Effect
