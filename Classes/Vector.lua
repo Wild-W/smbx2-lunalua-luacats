@@ -310,15 +310,31 @@ function vector.randomDir3() end
 ---@operator add(Vector2): Vector2
 ---@operator add(Vector3): Vector3
 ---@operator add(Vector4): Vector4
+---@operator add(Mat2): Mat2
+---@operator add(Mat3): Mat3
+---@operator add(Mat4): Mat4
+---@operator add(Quaternion): Quaternion
 ---@operator sub(Vector2): Vector2
 ---@operator sub(Vector3): Vector3
 ---@operator sub(Vector4): Vector4
+---@operator sub(Mat2): Mat2
+---@operator sub(Mat3): Mat3
+---@operator sub(Mat4): Mat4
+---@operator sub(Quaternion): Quaternion
 ---@operator mul(Vector2): Vector2
 ---@operator mul(Vector3): Vector3
 ---@operator mul(Vector4): Vector4
+---@operator mul(Mat2): Mat2
+---@operator mul(Mat3): Mat3
+---@operator mul(Mat4): Mat4
+---@operator mul(Quaternion): Quaternion
 ---@operator div(Vector2): Vector2
 ---@operator div(Vector3): Vector3
 ---@operator div(Vector4): Vector4
+---@operator div(Mat2): Mat2
+---@operator div(Mat3): Mat3
+---@operator div(Mat4): Mat4
+---@operator div(Quaternion): Quaternion
 
 ---@class Vector2
 ---@field x number
@@ -382,6 +398,16 @@ local Vector4 = {}
 ---@field trace number
 ---@field inverse Mat2
 ---@field transpose Mat2
+---@operator add(Mat2): Mat2
+---@operator add(number): Mat2
+---@operator sub(Mat2): Mat2
+---@operator sub(number): Mat2
+---@operator mul(Mat2): Mat2
+---@operator mul(number): Mat2
+---@operator mul(Vector2): Mat2
+---@operator div(Vector2): Mat2
+---@operator div(number): Mat2
+---@operator div(Mat2): Mat2
 local Mat2 = {}
 
 ---@class Mat3
@@ -389,6 +415,16 @@ local Mat2 = {}
 ---@field trace number
 ---@field inverse Mat3
 ---@field transpose Mat3
+---@operator add(Mat3): Mat3
+---@operator add(number): Mat3
+---@operator sub(Mat3): Mat3
+---@operator sub(number): Mat3
+---@operator mul(Mat3): Mat3
+---@operator mul(number): Mat3
+---@operator mul(Vector3): Mat3
+---@operator div(Vector3): Mat3
+---@operator div(number): Mat3
+---@operator div(Mat3): Mat3
 local Mat3 = {}
 
 ---@class Mat4
@@ -396,6 +432,16 @@ local Mat3 = {}
 ---@field trace number
 ---@field inverse Mat4
 ---@field transpose Mat4
+---@operator add(Mat3): Mat3
+---@operator add(number): Mat3
+---@operator sub(Mat3): Mat3
+---@operator sub(number): Mat3
+---@operator mul(Mat3): Mat3
+---@operator mul(number): Mat3
+---@operator mul(Vector3): Mat3
+---@operator div(Vector3): Mat3
+---@operator div(number): Mat3
+---@operator div(Mat3): Mat3
 local Mat4 = {}
 
 ---@class Quaternion
@@ -404,6 +450,16 @@ local Mat4 = {}
 ---@field norm number
 ---@field euler Vector3
 ---@field normalized Quaternion
+---@operator add(Quaternion): Quaternion
+---@operator add(number): Quaternion
+---@operator sub(Quaternion): Quaternion
+---@operator sub(number): Quaternion
+---@operator mul(Quaternion): Quaternion
+---@operator mul(number): Quaternion
+---@operator mul(Vector3): Quaternion
+---@operator div(Quaternion): Quaternion
+---@operator div(number): Quaternion
+---@operator concat(Quaternion): Quaternion
 local Quaternion = {}
 
 ---@return Vector2

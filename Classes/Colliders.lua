@@ -66,7 +66,7 @@ function Colliders.Tri(x, y, point1, point2, point3) end
 --- Creates a new polygon collider.
 --- @param x number The x coordinate of the anchor point.
 --- @param y number The y coordinate of the anchor point.
---- @param points Vector2[] The vertices of the polygon.
+--- @param ... Vector2[] The vertices of the polygon.
 --- @return PolyCollider polyCollider The created polygon collider.
 function Colliders.Poly(x, y, ...) end
 
@@ -280,7 +280,6 @@ TriCollider.maxX = 0
 TriCollider.minY = 0
 ---@type number
 TriCollider.maxY = 0
----@type number
 
 ---@class PolyCollider : Collider
 local PolyCollider = {}
