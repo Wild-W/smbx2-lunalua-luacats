@@ -19,3 +19,9 @@
 ---@field bottom number # The bottom edge of the rectangle.
 
 ---@class RECTd : RECT
+
+---@return RECT
+function newRECT() end
+
+---@return RECTd
+function newRECTd() end

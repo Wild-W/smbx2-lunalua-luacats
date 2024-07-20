@@ -70,3 +70,97 @@ function isAPILoaded(libraryObject) end
 ---@param libraryName string
 ---@return boolean
 function isAPILoaded(libraryName) end
+
+---@type boolean
+__isLuaError = nil
+
+GAME_ENGINE = "LunaLua"
+
+---@type string
+LUNALUA_VERSION = nil
+
+---@type string
+LUNALUA_VER = nil
+
+---@type string
+__LUNALUA = nil
+
+---@type string
+chunkname = nil
+
+---@type string
+__episodePath = nil
+
+---@type string
+__customFolderPath = nil
+
+---@param ... unknown
+---@return ...
+function simulateError(...) end
+
+---@param ... unknown
+---@return ...
+function unregisterEvent(...) end
+
+---@param ... unknown
+---@return ...
+function property(...) end
+
+---@param ... unknown
+---@return string version
+function getSMBXVersionString(...) end
+
+---@param ... unknown
+---@return ...
+function readmem(...) end
+
+---@param ... unknown
+---@return ...
+function class(...) end
+
+---@param ... unknown
+function writemem(...) end
+
+---@param ... unknown
+---@return ...
+function super(...) end
+
+---@param ... unknown
+function rawprint(...) end
+
+---@param ... unknown
+---@return ...
+function gcinfo(...) end
+
+---@param ... unknown
+---@return ...
+function showMessageBox(...) end
+
+---@param ... unknown
+---@return ...
+function findlayer(...) end
+
+---@param obj any
+---@return "string"|"table"|"number"|"userdata"|"function"|"boolean"|"thread"
+function rawtype(obj) end
+
+---@param ... unknown
+---@return ...
+function clearEvents(...) end
+
+---@param ... unknown
+---@return ...
+function unpack_here(...) end
+
+lowLevelLibraryContext = _G
+
+__LUNA_VERSION_TABLE = {
+    ---@type number
+    [1] = nil,
+    ---@type number
+    [2] = nil,
+    ---@type number
+    [3] = nil,
+    ---@type number
+    [4] = nil
+}
