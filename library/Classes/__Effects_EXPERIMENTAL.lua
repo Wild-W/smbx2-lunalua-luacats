@@ -3,22 +3,14 @@
 
 __Effects_EXPERIMENTAL = {}
 
----@param ... unknown
----@return ...
-function __Effects_EXPERIMENTAL.screenGlow(...) end
+---@param color integer Unsigned integer.
+function __Effects_EXPERIMENTAL.screenGlow(color) end
 
----@param ... unknown
----@return ...
 function __Effects_EXPERIMENTAL.flipY(...) end
 
----@param ... unknown
----@return ...
 function __Effects_EXPERIMENTAL.flipX(...) end
 
----@param ... unknown
----@return ...
-function __Effects_EXPERIMENTAL.screenGlowNegative(...) end
+---@param color integer Unsigned integer.
+function __Effects_EXPERIMENTAL.screenGlowNegative(color) end
 
----@param ... unknown
----@return ...
 function __Effects_EXPERIMENTAL.flipXY(...) end
