@@ -69,6 +69,7 @@ PlayerInstance.data = {
     _basegame = {}
 }
 
+---@type WeightContainer[]
 PlayerInstance._weightContainers = {}
 
 ---@type number

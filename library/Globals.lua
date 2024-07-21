@@ -36,17 +36,30 @@ function registerEvent(libraryTable, eventName, alias, beforeMainCall) end
 ---@param eventName string
 function registerCustomEvent(libraryTable, eventName) end
 
+---## Usage
+---```
+----- Sets mouseX to the mouse's current X position on the screen
+---local mouseX = mem(0x00B2D6BC, FIELD_DFLOAT)
+---```
+--- ---
+---@param memoryAddress number|GlobalMemoryOffset
+---@param fieldType MemoryFieldType
+---@nodiscard
+---@return any
+function mem(memoryAddress, fieldType, newValue) end
+
 ---**WARNING:** Be careful when manipulating memory offsets directly! Doing so may yield unexpected results.
 ---## Usage
 ---```
----local mouseX = mem(0x00B2D6BC, FIELD_DFLOAT) -- Sets mouseX to the mouse's current X position on the screen
----mem(0x00B2C5A8, FIELD_WORD, 0) -- Sets coin count to 0
+----- Sets coin count to 0
+---mem(0x00B2C5A8, FIELD_WORD, 0)
 ---```
----@param memoryAddress number
+--- ---
+---@param memoryAddress number|GlobalMemoryOffset
 ---@param fieldType MemoryFieldType
----@param newValue any
----@return number|string
-function mem(memoryAddress, fieldType, newValue) end
+---@param value any
+---@nodiscard
+function mem(memoryAddress, fieldType, value) end
 
 ---Returns the absolute path to smbx.exe.
 ---@return string path
@@ -164,3 +177,44 @@ __LUNA_VERSION_TABLE = {
     ---@type number
     [4] = nil
 }
+
+---@alias GlobalMemoryOffset
+--- | `0x00B2C59E` # 0 if not winning, else representative of the current `LevelEndState`. `FIELD_WORD`
+--- | `0x00B2C5D4` # 0 if not winning, else representative of the current `LevelWinType`. `FIELD_WORD`
+--- | `0x00B2C62C` # P-Switch Timer. `FIELD_WORD`
+--- | `0x00B2C62E` # Stopwatch Timer. `FIELD_WORD`
+--- | `0x00B2C630` # Index of the player that triggered the most recent P-Switch or Stopwatch effect. `FIELD_WORD`
+--- | `0x00B2C87C` # P-Switch/Stopwatch Length. `FIELD_WORD`
+--- | `0x00B2BEBC` # Pointer to block animation timer array. `FIELD_DWORD`
+--- | `0x00B2BEA0` # Pointer to block animation frame array. `FIELD_DWORD`
+--- | `0x00B2D6BC` # Mouse Cursor X-Coordinate. `FIELD_DFLOAT`
+--- | `0x00B2D6C4` # Mouse Cursor Y-Coordinate. `FIELD_DFLOAT`
+--- | `0x00B2D6D2` # Whether the mouse cursor is moving. `FIELD_BOOL`
+--- | `0x00B2D6CC` # Whether a mouse button is being pressed. `FIELD_BOOL`
+--- | `0x00B2D6D0` # Whether a mouse button is being released. `FIELD_BOOL`
+--- | `0x00B2C884` # Whether a keyboard key is being released. `FIELD_BOOL`
+--- | `0x00B2C6E8` # The rising speed of player jumps (while player offset 0x11C > 0). `FIELD_FLOAT`
+--- | `0x00B251E0` # The current star count. WARNING: Changing this value can break save files. `FIELD_WORD`
+--- | `0x00B2C8A8` # The star count in the current level. `FIELD_WORD`
+--- | `0x00B2C5A8` # The current coin count. `FIELD_WORD`
+--- | `0x00B2C5AC` # The current lives count. `FIELD_FLOAT`
+--- | `0x00B2C8E4` # The current points count. NO LONGER USED: Use `Misc.score` and `Misc.givePoints` instead! `FIELD_DWORD`
+--- | `0x00B250E2` # Whether or not the pause menu or a text box is visible. `FIELD_BOOL`
+--- | `0x00B2C880` # The currently chosen option on the vanilla pause menu. `FIELD_WORD`
+--- | `0x00B2C624` # The name of the current episode. `FIELD_STRING`
+--- | `0x00B25724` # The filename of the episode's intro level, or if it is a hub-styled episode, its hub level. `FIELD_STRING`
+--- | `0x00B25728` # Whether this is a hub-styled episode (skips world map). `FIELD_BOOL`
+--- | `0x00B2572A` # Whether or not the "Restart Last Level on Death" flag is active. `FIELD_BOOL`
+--- | `0x00B2C906` # The total number of stars in the episode. `FIELD_WORD`
+--- | `0x00B258D4` # Pointer to the overworld path array. `FIELD_DWORD`
+--- | `0x00B25910` # Pointer to the overworld tile array. `FIELD_DWORD`
+--- | `0x00B2592C` # Pointer to the overworld scenery array. `FIELD_DWORD`
+--- | `0x00B25974` # Pointer to the overworld music box array. `FIELD_DWORD`
+--- | `0x00B25994` # Pointer to the overworld level array. `FIELD_DWORD`
+--- | `0x00B2C620` # Whether or not the game is on the title screen. `FIELD_BOOL`
+--- | `0x00B2C89C` # Whether or not the game is in the credits. `FIELD_BOOL`
+--- | `0x00B2D760` # If greater than 0, the Battle Mode Text "Mario VS Luigi" is displayed. `FIELD_WORD`
+--- | `0x00B2D762` # If greater than 0, the Battle Mode Text "Wins!" is displayed. `FIELD_WORD`
+--- | `0x00B25108` # If true, the FPS counter is visible. `FIELD_BOOL`
+--- | `0x00B2510C` # Must be set to 0 when disabling the FPS counter. `FIELD_DFLOAT`
+--- | `0x00B25130` # Screen Type. `FIELD_WORD`
