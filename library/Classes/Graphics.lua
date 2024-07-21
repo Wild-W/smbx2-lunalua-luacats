@@ -1,9 +1,8 @@
 ---@meta
 
+-- This file needs much work.
+-- If you're contributing please help here.
 
----@class LuaImageResource
----@field width integer The image width.
----@field height integer the image height.
 
 Graphics = {}
 
@@ -122,7 +121,7 @@ function Graphics.getFrameStats() end
 
 --- Places a sprite from the resource memory at 'xPos', 'yPos'.
 --- @param type number
---- @param img LuaImageResource
+--- @param img Texture
 --- @param xPos number
 --- @param yPos number
 --- @deprecated Use Graphics.draw or Graphics.drawImageWP instead.
@@ -130,7 +129,7 @@ function Graphics.placeSprite(type, img, xPos, yPos) end
 
 --- Places a sprite from the resource memory at 'xPos', 'yPos'.
 --- @param type number
---- @param img LuaImageResource
+--- @param img Texture
 --- @param xPos number
 --- @param yPos number
 --- @param extra string
@@ -139,7 +138,7 @@ function Graphics.placeSprite(type, img, xPos, yPos, extra) end
 
 --- Places a sprite from the resource memory at 'xPos', 'yPos'.
 --- @param type number
---- @param img LuaImageResource
+--- @param img Texture
 --- @param xPos number
 --- @param yPos number
 --- @param extra string
@@ -149,15 +148,62 @@ function Graphics.placeSprite(type, img, xPos, yPos, extra, time) end
 
 ---@param ... unknown
 ---@return ...
+function Graphics.glDrawTriangles(...) end
+
+---@param ... unknown
+---@return ...
+function Graphics.glGetComponentSize(...) end
+
+---@param ... unknown
+---@return ...
+function Graphics.getMainFramebufferSize(...) end
+
+---@param ... unknown
+---@return ...
+function Graphics.getBits32(...) end
+
+---@param ... unknown
+---@return ...
+function Graphics.redirectCameraFB(...) end
+
+---@param ... unknown
+function Graphics.setMainFramebufferSize(...) end
+
+---@param ... unknown
+---@return ...
+function Graphics.loadAnimatedImage(...) end
+
+---@param ... unknown
+---@return ...
+function Graphics.drawImageWP(...) end
+
+---@param ... unknown
+---@return ...
+function Graphics.glSetTexture(...) end
+
+---@param ... unknown
+---@return ...
+function Graphics.glSetTextureRGBA(...) end
+
+---@param ... unknown
+---@return ...
+function Graphics.isOpenGLEnabled(...) end
+
+---@param ... unknown
+---@return ...
+function Graphics.drawImageToSceneWP(...) end
+
+---@param ... unknown
+---@return ...
 function Graphics.__copyDrawTable(...) end
 
 --- Removes all placed sprites with the same img resource.
---- @param img LuaImageResource
+--- @param img Texture
 --- @deprecated
 function Graphics.unplaceSprites(img) end
 
 --- Removes all placed sprites with the same img resource and x-pos, y-pos.
---- @param img LuaImageResource
+--- @param img Texture
 --- @param xPos number
 --- @param yPos number
 --- @deprecated
@@ -205,14 +251,14 @@ function CaptureBuffer:clear(priority) end
 ---@return CaptureBuffer
 function Graphics.CaptureBuffer(width, height) end
 
----@class SMBXMaskedImage
-
 ---@class SpriteOverride
----@field img LuaImageResource | SMBXMaskedImage
+---@field img Texture
 
 --- Contains references to images currently used by the game.
 ---@type table<string, SpriteOverride[]>
 Graphics.sprites = {}
+
+Graphics.Shader = {}
 
 ---@type string
 Graphics.GL_VERSION = nil
