@@ -38,18 +38,6 @@ function Misc.npcToCoins() end
 --- Level only
 function Misc.doPOW() end
 
---- Gets the current cheat buffer text.
---- @return string
----
---- Overworld and Level
-function Misc.cheatBuffer() end
-
---- Sets the current cheat buffer text.
---- @param cheatBufferText string
----
---- Overworld and Level
-function Misc.cheatBuffer(cheatBufferText) end
-
 --- Returns a list of files in the given 'path'. The paths start from the SMBX-Directory. If the path is an empty string, then the files in the SMBX-Directory are returned.
 --- @param path string
 --- @return table<number, string>

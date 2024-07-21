@@ -55,9 +55,6 @@ function Block.iterateByFilterMap(idMap) end
 --- @return Block block The spawned Block.
 function Block.spawn(id, x, y) end
 
----@type table<number, BlockConfig>
-Block.config = {}
-
 ---@alias BlockClassification
 --- | `Block.SOLID`
 --- | `Block.NONSOLID`
@@ -119,155 +116,234 @@ Block.EDIBLEBYVINE = nil
 Block.classifications = {}
 
 ---@class Block : CollisionObject
-local BlockInstance = {}
+local Block = {}
+
+---@param ... unknown
+---@return ...
+function Block.countSizable(...) end
+
+---@param ... unknown
+---@return ...
+function Block.makeDefaultSettings(...) end
+
+---@param ... unknown
+---@return ...
+function Block.getColliding(...) end
+
+---@param ... unknown
+---@return ...
+function Block.registerEvent(...) end
+
+---@param ... unknown
+---@return ...
+function Block.count(...) end
 
 --- Returns a value of the Block struct at a specific memory address-offset.
 --- @param offset number|BlockMemoryOffset The memory address-offset.
 --- @param type MemoryFieldType The type of the field.
 --- @return any value The value at the specified memory address-offset.
-function BlockInstance:mem(offset, type) end
+function Block:mem(offset, type) end
 
 --- Sets a value of the Block struct at a specific memory address-offset.
 --- @param offset number|BlockMemoryOffset The memory address-offset.
 --- @param type MemoryFieldType The type of the field.
 --- @param value any The value to set at the specified memory address-offset.
 --- @return nil
-function BlockInstance:mem(offset, type, value) end
+function Block:mem(offset, type, value) end
 
 --- Checks collision with the given player and returns a number corresponding to the collision direction.
 --- 0, 1, 2, 3 and 4 correspond to "no collision", "player on block", "player on the right", "player below" and "player on the left" respectively.
 --- @param collidingPlayer Player The player to check collision with.
 --- @return number collidingDir The direction of the collision.
-function BlockInstance:collidesWith(collidingPlayer) end
+function Block:collidesWith(collidingPlayer) end
 
 --- Causes the block to be destroyed. If playSoundAndEffect is true, the brick effect and sound are played.
 --- This method moves the block onto the Destroyed Blocks layer.
 --- @param playSoundAndEffect boolean Whether to play the sound and effect.
---- @return nil
-function BlockInstance:remove(playSoundAndEffect) end
+function Block:remove(playSoundAndEffect) end
 
 --- Deletes the block entirely.
---- @return nil
-function BlockInstance:delete() end
+function Block:delete() end
 
 --- Causes the block to be hit. The three optional arguments allow the block to be hit from above, let you configure which player is causing the hit, and the number of times the block gets hit.
 --- Even if the player is nil, this event will default to the first player.
 --- @param fromUpSide boolean Whether the block is hit from above.
 --- @param hittingPlayer Player The player hitting the block.
 --- @param hitCount number The number of times the block is hit.
---- @return nil
-function BlockInstance:hit(fromUpSide, hittingPlayer, hitCount) end
+function Block:hit(fromUpSide, hittingPlayer, hitCount) end
 
 --- Causes the block to be hit. The optional arguments allow the block to be hit from above and the number of times the block gets hit.
 --- @param fromUpSide boolean Whether the block is hit from above.
 --- @param hitCount number The number of times the block is hit.
---- @return nil
-function BlockInstance:hitWithoutPlayer(fromUpSide, hitCount) end
+function Block:hitWithoutPlayer(fromUpSide, hitCount) end
+
+---@param ... unknown
+---@return ...
+function Block.iterateSizeable(...) end
+
+---@param ... unknown
+---@return ...
+function Block.iterateSizable(...) end
+
+---@param ... unknown
+---@return ...
+function Block.countSizeable(...) end
+
+---@param ... unknown
+---@return ...
+function Block.collide(...) end
+
+---@param ... unknown
+---@return ...
+function Block._SetVanillaSizableRenderFlag(...) end
 
 --- Bumps the block. May optionally be bumped from the top. A strong bump causes the block to be bumped twice as strongly.
 --- @param fromUpSide boolean Whether the block is bumped from the top.
 --- @param strong boolean Whether the bump is strong.
---- @return nil
-function BlockInstance:bump(fromUpSide, strong) end
+function Block:bump(fromUpSide, strong) end
 
 --- Moves the block by dx on the x-axis and dy on the y-axis. Returns the block.
 --- @param dx number The distance to move the block on the x-axis.
 --- @param dy number The distance to move the block on the y-axis.
 --- @return Block block The moved block.
-function BlockInstance:translate(dx, dy) end
+function Block:translate(dx, dy) end
 
 --- Transforms the Block into a Block of a different ID. Centered defaults to true and will cause the transformation to happen relative to the center of the old and new Block sizes.
 --- @param newID number The new Block ID.
 --- @param centered boolean Whether to transform centered. Defaults to true.
---- @return nil
-function BlockInstance:transform(newID, centered) end
+function Block:transform(newID, centered) end
 
 --- Changes the height of the block while correctly setting the block array unsorted flag (prevents collision glitches that occur when setting .width and .height).
 --- @param width number The new width of the block.
 --- @param height number The new height of the block.
 --- @return Block thisBlock The resized block.
-function BlockInstance:setSize(width, height) end
+function Block:setSize(width, height) end
 
 --- Prints the current state of a Block's memory addresses to the screen for debugging. If the arguments are not specified, they default to the minimum and maximum values respectively.
 --- @param lowerBound number The lower bound of the memory addresses.
 --- @param upperBound number The upper bound of the memory addresses.
---- @return nil
-function BlockInstance:memdump(lowerBound, upperBound) end
+function Block:memdump(lowerBound, upperBound) end
 
 --- Logs the current state of a Block's memory addresses into a file in the data/logs directory. If the arguments are not specified, they default to the minimum and maximum values respectively.
 --- @param lowerBound number The lower bound of the memory addresses.
 --- @param upperBound number The upper bound of the memory addresses.
---- @return nil
-function BlockInstance:memlog(lowerBound, upperBound) end
+function Block:memlog(lowerBound, upperBound) end
+
+Block.SOLID_MAP = {}
+
+Block.bumpable = {}
+
+Block.EDIBLEBYVINE_MAP = {}
+
+Block.COLLIDABLE_MAP = {}
+
+Block.INTERSECTABLE_MAP = {}
+
+Block.MEGA_STURDY_MAP = {}
+
+Block.SEMISOLID_MAP = {}
+
+Block.HURT_MAP = {}
+
+Block.MEGA_SMASH_MAP = {}
+
+Block.PLAYER_MAP = {}
+
+---@type table<number, BlockConfig>
+Block.config = {}
+
+Block.MEGA_HIT_MAP = {}
+
+Block.maskFilter = {}
+
+Block.SLOPE_MAP = {}
+
+Block.NONSOLID_MAP = {}
+
+Block.LAVA_MAP = {}
+
+Block.SLOPE_LR_FLOOR_MAP = {}
+
+Block.SLOPE_RL_FLOOR_MAP = {}
+
+Block.PLAYERSOLID_MAP = {}
+
+Block.SIZEABLE_MAP = {}
+
+Block.SLOPE_RL_CEIL_MAP = {}
+
+Block.SLOPE_LR_CEIL_MAP = {}
 
 ---@type boolean
-BlockInstance.isValid = false
+Block.isValid = false
 
 ---@type number
-BlockInstance.idx = 0
+Block.idx = 0
 
 ---@type number
-BlockInstance.id = 0
+Block.id = 0
 
 ---@type table
-BlockInstance.data = {}
+Block.data = {}
 
 ---@type number
-BlockInstance.x = 0
+Block.x = 0
 
 ---@type number
-BlockInstance.y = 0
+Block.y = 0
 
 ---@type number
-BlockInstance.width = 0
+Block.width = 0
 
 ---@type number
-BlockInstance.height = 0
+Block.height = 0
 
 ---@type number
-BlockInstance.speedX = 0
+Block.speedX = 0
 
 ---@type number
-BlockInstance.speedY = 0
+Block.speedY = 0
 
 ---@type number
-BlockInstance.contentID = 0
+Block.contentID = 0
 
 ---@type Layer
-BlockInstance.layerObj = nil
+Block.layerObj = nil
 
 ---@type string
-BlockInstance.layerName = ""
+Block.layerName = ""
 
 ---@type boolean
-BlockInstance.isHidden = false
+Block.isHidden = false
 
 ---@type boolean
-BlockInstance.invisible = false
+Block.invisible = false
 
 ---@type boolean
-BlockInstance.slippery = false
+Block.slippery = false
 
 ---@type number
-BlockInstance.layerSpeedX = 0
+Block.layerSpeedX = 0
 
 ---@type number
-BlockInstance.layerSpeedY = 0
+Block.layerSpeedY = 0
 
 ---@type number
-BlockInstance.extraSpeedX = 0
+Block.extraSpeedX = 0
 
 ---@type number
-BlockInstance.extraSpeedY = 0
+Block.extraSpeedY = 0
 
----@type LightSource
-BlockInstance.lightSource = nil
+---@type Light
+Block.lightSource = nil
 
 ---@type string
-BlockInstance.collisionGroup = ""
+Block.collisionGroup = ""
 
 ---@type number
-BlockInstance.collisionGroupIndex = 0
+Block.collisionGroupIndex = 0
+
+Block.__type = "Block"
 
 ---@alias BlockMemoryOffset
 --- | `0x00` # Toggles block slipperiness. Use field slippery.
@@ -299,3 +375,38 @@ BlockInstance.collisionGroupIndex = 0
 --- | `0x62` # Set by NPCs standing on the block.
 --- | `0x64` # Related to block collisions with NPCs. Possibly used to counteract an obscure glitch (?)
 --- | `0x66` # Index of the NPC this block belongs to in the NPC array.
+
+--- Configuration class for customizing block behavior and appearance in-game.
+---@class BlockConfig
+---@field frames number Number of frames of the block animation. For blocks, frames are defined to be a fixed 32 pixels tall. Default: 1
+---@field framespeed number The amount of ticks it takes for the block animation frame to change. Lower numbers = faster animation. Default: 8
+---@field width number The width of the block. Default: Inferred from sprite
+---@field height number The height of the block. Default: Inferred from sprite
+---@field sizable boolean Whether or not the block is sizable. Sizables are always considered semisolid. Default: false
+---@field semisolid boolean Whether or not the block is a semisolid. Default: false
+---@field passthrough boolean If true, the block has no collision. Default: false
+---@field lava boolean If true, the block acts as lava. Default: false
+---@field floorslope number -1, 0, and 1 depending on the direction of the floor slope. Default: 0
+---@field ceilingslope number -1, 0, and 1 depending on the direction of the ceiling slope. Default: 0
+---@field walkpaststair boolean A player approaching a semisolid slope setting this flag to true will not ascend the slope if the slope is touching ground. Default: false
+---@field bumpable boolean If true, the block can be bumped by players and NPCs. Default: false
+---@field playerfilter CharacterType Character ID that is allowed to pass through this block. -1 means all character IDs. Default: 0
+---@field npcfilter number NPC ID that is allowed to pass through this block. -1 means all NPC IDs. Default: 0
+---@field pswitchable boolean If true, the block turns into a coin when a P-Switch is hit. Default: false
+---@field smashable number Determines how durable the block should be with regards to certain NPCs that break blocks. Can be a number between 0 and 3. Default: 0
+---@field customhurt boolean Set to true to register your block as part of the list of harmful blocks. Default: false
+---@field noshadows boolean If set to true, the block will not be able to cast shadows in dark sections. Default: false
+---@field ediblebyvine boolean If set to true, the block can be eaten by Mutant Vine NPCs. Default: false
+---@field flashcolor Color The color the TNT or Nitro block flashes in. Default: white
+---@field randomflashes boolean Whether flashes should randomly occur during gameplay. Default: false
+---@field randomjumps boolean Whether the block should randomly appear to jump in place. Default: false
+---@field speed number A positive value representing the conveyor speed. Default: 0
+---@field direction DirectionType The direction the conveyor should push. Default: 0
+---@field ignoreplayers boolean If true, players are unable to trigger the brittle block. Default: false
+---@field ignorenpcs boolean If true, NPCs are unable to trigger the brittle block. Default: false
+---@field triggerweight number The minimum weight an object needs to trigger the destruction animation. Default: 2
+---@field effectid number The ID of the effect to spawn once the block is removed. Default: 0
+---@field hitid number The Block ID to turn into once hit. Default: No change
+---@field offswitchid number The Block ID of the "off" switch state. Default: /
+---@field onswitchid number The Block ID of the "on" switch state. Default: /
+---@field color string String representation of the color to use. Unrecognized color names will be registered as new colors. Default: /

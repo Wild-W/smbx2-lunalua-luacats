@@ -101,5 +101,5 @@ BGOInstance.layerName = ""
 ---@type boolean
 BGOInstance.isHidden = false
 
----@type LightSource
+---@type Light
 BGOInstance.lightSource = nil

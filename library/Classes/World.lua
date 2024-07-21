@@ -36,7 +36,7 @@ world.levelTitle = ""
 ---
 ---**Read only**
 ---@type Level?
-world.levelObj = {}
+world.levelObj = nil
 
 --- Returns a value of the Player struct at a specific memory address-offset.
 --- @param offset number The memory address-offset.
