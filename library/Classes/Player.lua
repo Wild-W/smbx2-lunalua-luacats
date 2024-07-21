@@ -327,7 +327,7 @@ PlayerInstance.deathTimer = 0
 PlayerInstance.frame = 0
 
 --- The player's current forced state.
----@type PlayerKeyState
+---@type PlayerForcedState
 PlayerInstance.forcedState = nil
 
 --- The timer related to the player's current forced state.

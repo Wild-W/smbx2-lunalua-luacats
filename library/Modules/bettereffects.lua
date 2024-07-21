@@ -8,8 +8,12 @@ local bfx = {}
 -- Set this to false to enable the full overriding of vanilla effect support (experimental)
 bfx.restricted = true
 
+---@param path string
+---@param id number
+---@param fdef any
 function ParseIni(path, id, fdef) end
 
+--- Internal event
 function bfx.onInitAPI() end
 
 --postpone loading to onStart to allow custom defined imports

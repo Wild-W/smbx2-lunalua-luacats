@@ -136,23 +136,23 @@ function LevelManager.winState() end
 
 --- Level instance metadata.
 --- @class Level
---- @field public x number X-Coordinate of the level on the overworld.
---- @field public y number Y-Coordinate of the level on the overworld.
---- @field public goToX number X-Coordinate of the destination (if set to warp to a map coordinate).
---- @field public goToY number Y-Coordinate of the destination (if set to warp to a map coordinate).
---- @field public topExitType LevelWinType The exit type that triggers the top path.
---- @field public leftExitType LevelWinType The exit type that triggers the left path.
---- @field public bottomExitType LevelWinType The exit type that triggers the bottom path.
---- @field public rightExitType LevelWinType The exit type that triggers the right path.
---- @field public levelWarpNumber number The index of the warp at which to enter the level.
---- @field public isPathBackground boolean Whether the level has a path background behind it.
---- @field public isBigBackground boolean Whether the level has a big path background behind it.
---- @field public isGameStartPoint boolean Whether the level is where the game begins.
---- @field public isAlwaysVisible boolean Whether the level is always visible.
---- @field public visible boolean Whether the level is currently visible.
---- @field public title string The title that shows up in the world map HUD.
---- @field public filename string The filename of the level file to load on enter.
---- @field public idx number The level's index within the internal list of levels.
+--- @field x number X-Coordinate of the level on the overworld.
+--- @field y number Y-Coordinate of the level on the overworld.
+--- @field goToX number X-Coordinate of the destination (if set to warp to a map coordinate).
+--- @field goToY number Y-Coordinate of the destination (if set to warp to a map coordinate).
+--- @field topExitType LevelWinType The exit type that triggers the top path.
+--- @field leftExitType LevelWinType The exit type that triggers the left path.
+--- @field bottomExitType LevelWinType The exit type that triggers the bottom path.
+--- @field rightExitType LevelWinType The exit type that triggers the right path.
+--- @field levelWarpNumber number The index of the warp at which to enter the level.
+--- @field isPathBackground boolean Whether the level has a path background behind it.
+--- @field isBigBackground boolean Whether the level has a big path background behind it.
+--- @field isGameStartPoint boolean Whether the level is where the game begins.
+--- @field isAlwaysVisible boolean Whether the level is always visible.
+--- @field visible boolean Whether the level is currently visible.
+--- @field title string The title that shows up in the world map HUD.
+--- @field filename string The filename of the level file to load on enter.
+--- @field idx number The level's index within the internal list of levels.
 local Level = {}
 
 --- Returns a value of the Level struct at a specific memory address-offset.
