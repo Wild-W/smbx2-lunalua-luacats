@@ -8,7 +8,7 @@
 ---t.position = vector(1,2)
 ---t:rotate(5)
 ---```
----@class Transforms
+---@class TransformManager
 Transform = {}
 
 --- Creates a new 2D or 3D transform object, automatically creating the one that matches the provided arguments.
@@ -40,6 +40,7 @@ function Transform.new2d(position, rotation, scale) end
 function Transform.new3d(position, rotation, scale) end
 
 ---@class Transform
+---@operator len: number
 local Transform = {}
 
 --- Gets the global transformation matrix for this transform.
@@ -189,6 +190,7 @@ Transform.root = nil
 --- Transform3D Class
 
 ---@class Transform3D
+---@operator len: number
 local Transform3D = {}
 
 --- Gets the global transformation matrix for this transform.
