@@ -1,7 +1,7 @@
 ---@meta
 
 
----@class VBStr
+---@class VBStr : string
 local VBStr = {}
 
 ---Reads/Writes the string pointer.

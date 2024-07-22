@@ -16,7 +16,7 @@
 Layer = {}
 
 --- Returns all existing layers.
----@return table layers A table containing all layer objects.
+---@return Layer[] layers A table containing all layer objects.
 function Layer.get() end
 
 --- Returns the Layer object for the specified name.
@@ -43,8 +43,9 @@ function Layer.count() end
 function Layer.isPaused() end
 
 --- The Layer class in SMBX for manipulating layer properties.
----@class Layer
----@field name string The name of the layer.
+---@class Layer : userdata
+---@field name VBStr The name of the layer.
+---@field layerName VBStr The name of the layer.
 ---@field idx number The index of the layer in the internal list.
 ---@field isHidden boolean Whether the layer is currently hidden.
 ---@field speedX number Horizontal speed of the layer.

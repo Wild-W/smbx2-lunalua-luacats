@@ -38,6 +38,30 @@ function Liquid.getIntersecting(x1, y1, x2, y2) end
 ---@field isHidden boolean Whether the liquid box is hidden.
 ---@field isValid boolean Whether the liquid box is currently a valid object.
 ---@field isQuicksand boolean Whether the box is quicksand (true) or water (false).
----@field layerName string The name of the layer the liquid is part of.
+---@field layerName VBStr The name of the layer the liquid is part of.
 ---@field layer Layer The layer object the liquid is part of.
 local Liquid = {}
+
+--- Returns a value of the Liquid struct at a specific memory address-offset.
+--- @param offset number|LiquidMemoryOffset The memory address-offset.
+--- @param type MemoryFieldType The type of the field.
+--- @return any value The value at the specified memory address-offset.
+function Liquid:mem(offset, type) end
+
+--- Sets a value of the Liquid struct at a specific memory address-offset.
+--- @param offset number|LiquidMemoryOffset The memory address-offset.
+--- @param type MemoryFieldType The type of the field.
+--- @param value any The value to set at the specified memory address-offset.
+function Liquid:mem(offset, type, value) end
+
+---@alias LiquidMemoryOffset
+---| `0x00` # Name of the layer the liquid box belongs to. `FIELD_STRING`
+---| `0x04` # Whether or not this liquid box is hidden. `FIELD_BOOL`
+---| `0x06` # Unused. `FIELD_FLOAT`
+---| `0x0C` # Whether or not this liquid box is quicksand. `FIELD_WORD`
+---| `0x10` # Current x-position. `FIELD_DFLOAT`
+---| `0x18` # Current y-position. `FIELD_DFLOAT`
+---| `0x20` # Height. `FIELD_DFLOAT`
+---| `0x28` # Width. `FIELD_DFLOAT`
+---| `0x30` # Current x-speed. `FIELD_DFLOAT`
+---| `0x38` #` Current y-speed. `FIELD_DFLOAT

@@ -75,42 +75,114 @@ function Block.spawn(id, x, y) end
 --- | `Block.COLLIDABLE`
 --- | `Block.EDIBLEBYVINE`
 
----@type boolean
+---@type number[]
 Block.SOLID = nil
----@type boolean
+---@type number[]
 Block.NONSOLID = nil
----@type boolean
+---@type number[]
 Block.SEMISOLID = nil
----@type boolean
+---@type number[]
 Block.SIZEABLE = nil
----@type boolean
+---@type number[]
 Block.HURT = nil
----@type boolean
+---@type number[]
 Block.LAVA = nil
----@type boolean
+---@type number[]
 Block.PLAYER = nil
----@type boolean
+---@type number[]
 Block.PLAYERSOLID = nil
----@type boolean
+---@type number[]
 Block.MEGA_SMASH = nil
----@type boolean
+---@type number[]
 Block.MEGA_HIT = nil
----@type boolean
+---@type number[]
 Block.MEGA_STURDY = nil
----@type boolean
+---@type number[]
 Block.SLOPE_LR_FLOOR = nil
----@type boolean
+---@type number[]
 Block.SLOPE_RL_FLOOR = nil
----@type boolean
+---@type number[]
 Block.SLOPE_LR_CEIL = nil
----@type boolean
+---@type number[]
 Block.SLOPE_RL_CEIL = nil
----@type boolean
+---@type number[]
 Block.SLOPE = nil
----@type boolean
+---@type number[]
 Block.COLLIDABLE = nil
----@type boolean
+---@type number[]
 Block.EDIBLEBYVINE = nil
+
+---@type table<number, boolean>
+Block.SOLID_MAP = {}
+
+---@type table<number, boolean>
+Block.bumpable = {}
+
+---@type table<number, boolean>
+Block.EDIBLEBYVINE_MAP = {}
+
+---@type table<number, boolean>
+Block.COLLIDABLE_MAP = {}
+
+---@type table<number, boolean>
+Block.INTERSECTABLE_MAP = {}
+
+---@type table<number, boolean>
+Block.MEGA_STURDY_MAP = {}
+
+---@type table<number, boolean>
+Block.SEMISOLID_MAP = {}
+
+---@type table<number, boolean>
+Block.HURT_MAP = {}
+
+---@type table<number, boolean>
+Block.MEGA_SMASH_MAP = {}
+
+---@type table<number, boolean>
+Block.PLAYER_MAP = {}
+
+---@type table<number, BlockConfig|table<string, any>>
+Block.config = {}
+
+---@type table<number, boolean>
+Block.MEGA_HIT_MAP = {}
+
+Block.maskFilter = {
+    ---@type boolean
+    solid = true,
+    ---@type boolean
+    sizable = true,
+    ---@type boolean
+    noshadows = true
+}
+
+---@type table<number, boolean>
+Block.SLOPE_MAP = {}
+
+---@type table<number, boolean>
+Block.NONSOLID_MAP = {}
+
+---@type table<number, boolean>
+Block.LAVA_MAP = {}
+
+---@type table<number, boolean>
+Block.SLOPE_LR_FLOOR_MAP = {}
+
+---@type table<number, boolean>
+Block.SLOPE_RL_FLOOR_MAP = {}
+
+---@type table<number, boolean>
+Block.PLAYERSOLID_MAP = {}
+
+---@type table<number, boolean>
+Block.SIZEABLE_MAP = {}
+
+---@type table<number, boolean>
+Block.SLOPE_RL_CEIL_MAP = {}
+
+---@type table<number, boolean>
+Block.SLOPE_LR_CEIL_MAP = {}
 
 ---@type table<number, BlockClassification>
 Block.classifications = {}
@@ -229,51 +301,6 @@ function Block:memdump(lowerBound, upperBound) end
 --- @param upperBound number The upper bound of the memory addresses.
 function Block:memlog(lowerBound, upperBound) end
 
-Block.SOLID_MAP = {}
-
-Block.bumpable = {}
-
-Block.EDIBLEBYVINE_MAP = {}
-
-Block.COLLIDABLE_MAP = {}
-
-Block.INTERSECTABLE_MAP = {}
-
-Block.MEGA_STURDY_MAP = {}
-
-Block.SEMISOLID_MAP = {}
-
-Block.HURT_MAP = {}
-
-Block.MEGA_SMASH_MAP = {}
-
-Block.PLAYER_MAP = {}
-
----@type table<number, BlockConfig|table<string, any>>
-Block.config = {}
-
-Block.MEGA_HIT_MAP = {}
-
-Block.maskFilter = {}
-
-Block.SLOPE_MAP = {}
-
-Block.NONSOLID_MAP = {}
-
-Block.LAVA_MAP = {}
-
-Block.SLOPE_LR_FLOOR_MAP = {}
-
-Block.SLOPE_RL_FLOOR_MAP = {}
-
-Block.PLAYERSOLID_MAP = {}
-
-Block.SIZEABLE_MAP = {}
-
-Block.SLOPE_RL_CEIL_MAP = {}
-
-Block.SLOPE_LR_CEIL_MAP = {}
-
 ---@type boolean
 Block.isValid = false
 
@@ -310,8 +337,8 @@ Block.contentID = 0
 ---@type Layer
 Block.layerObj = nil
 
----@type string
-Block.layerName = ""
+---@type VBStr
+Block.layerName = nil
 
 ---@type boolean
 Block.isHidden = false
@@ -337,8 +364,8 @@ Block.extraSpeedY = 0
 ---@type Light
 Block.lightSource = nil
 
----@type string
-Block.collisionGroup = ""
+---@type VBStr
+Block.collisionGroup = nil
 
 ---@type number
 Block.collisionGroupIndex = 0

@@ -1,7 +1,7 @@
 ---@meta
 
 
----@class World
+---@class World : userdata
 world = {}
 ---The player's x-coordinate on the world map
 ---@type number
@@ -30,7 +30,7 @@ world.playerIsCurrentlyWalking = false
 ---The name of the level the player currently is standing on. Nil if the player is moving.
 ---
 ---**Read only**
----@type string?
+---@type VBStr?
 world.levelTitle = ""
 ---The level object the player currently is standing on. Nil if the player is moving.
 ---
