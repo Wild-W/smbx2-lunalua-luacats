@@ -100,7 +100,9 @@ function Colliders.FILTER_NPC_BLOCK_DEF(npc, block) end
 ---@return boolean
 function Colliders.FILTER_NPC_NPC_DEF(npc1, npc2) end
 
+--- Internal event
 function Colliders.onInitAPI() end
+--- Internal event
 function Colliders.onDraw() end
 
 --- Gets the collider associated with the collision object.

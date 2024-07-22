@@ -35,6 +35,16 @@ git push origin your-branch-name
 * [Graphics.lua](/Wild-W/smbx2-lunalua-luacats/library/Classes/Graphics.lua)
 * [Sprite.lua](/Wild-W/smbx2-lunalua-luacats/library/Classes/Sprite.lua)
 * [Darkness.lua](/Wild-W/smbx2-lunalua-luacats/library/Classes/Darkness.lua)
+* [Particles.lua](/Wild-W/smbx2-lunalua-luacats/library/Classes/Particles.lua)
+* [require_utils.lua](/Wild-W/smbx2-lunalua-luacats/library/Classes/require_utils.lua)
+* [json.lua](/Wild-W/smbx2-lunalua-luacats/library/Classes/json.lua)
+* [FileFormats.lua](/Wild-W/smbx2-lunalua-luacats/library/Classes/FileFormats.lua)
+* [Events.lua](/Wild-W/smbx2-lunalua-luacats/library/Classes/Events.lua)
+* [EventManager.lua](/Wild-W/smbx2-lunalua-luacats/library/Classes/EventManager.lua)
+* [Block.lua](/Wild-W/smbx2-lunalua-luacats/library/Classes/Block.lua) (Field offsets don't state the FIELD_TYPE like other field offset types do)
+* [BGO.lua](/Wild-W/smbx2-lunalua-luacats/library/Classes/BGO.lua) (Descriptions for the fields)
+* [Background.lua](/Wild-W/smbx2-lunalua-luacats/library/Classes/Background.lua)
+* [API.lua](/Wild-W/smbx2-lunalua-luacats/library/Classes/API.lua)
 * Anywhere else you see functions or fields that are undocumented
 
 ### Unimplemented
