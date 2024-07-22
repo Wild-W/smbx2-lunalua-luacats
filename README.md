@@ -10,6 +10,6 @@
 
 > ![image](https://github.com/user-attachments/assets/7cdd010a-c2ae-4136-b1c5-ce71d945a3c0)
 
-The codebase is pretty massive so there's definitely places for improvement. Don't be too shy to open a pull request.
+The codebase is pretty massive so there's definitely places for improvement. Don't be too shy to [open a pull request](/CONTRIBUTORS.md).
 
 Enjoy!

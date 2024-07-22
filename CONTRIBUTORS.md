@@ -7,10 +7,10 @@ You're probably here because of something new being added to SMBX2, or you found
 *For if you're unfamiliar with git or LuaCATS*
 
 1. Read the documentation at https://luals.github.io/wiki/ to understand how the language server and type system works.
-2. Fork the repository: Click the "Fork" button in the top-right corner of the [main page](/Wild-W/smbx2-lunalua-luacats). This creates a copy of the repository under your GitHub account.
+2. Fork the repository: Click the "Fork" button in the top-right corner of the [main page](). This creates a copy of the repository under your GitHub account.
 3. Clone your fork: Clone the forked repository to your local machine by clicking the "Code" button on your fork's GitHub page and copying the URL. Then, run the following command in your terminal: (Make sure you have git installed)
 ```bash
-git clone https://github.com/Wild-W/smbx2-lunalua-luacats.git
+git clone https://github.com.git
 ```
 4. Create a branch: Navigate into the cloned directory and create a new branch for your changes: (You can also use VSCode to handle this part and onwards)
 ```bash
@@ -32,21 +32,21 @@ git push origin your-branch-name
 
 ### Unfinished
 
-* [Graphics.lua](/Wild-W/smbx2-lunalua-luacats/library/Classes/Graphics.lua)
-* [Sprite.lua](/Wild-W/smbx2-lunalua-luacats/library/Classes/Sprite.lua)
-* [Darkness.lua](/Wild-W/smbx2-lunalua-luacats/library/Classes/Darkness.lua)
-* [Particles.lua](/Wild-W/smbx2-lunalua-luacats/library/Classes/Particles.lua)
-* [require_utils.lua](/Wild-W/smbx2-lunalua-luacats/library/Classes/require_utils.lua)
-* [json.lua](/Wild-W/smbx2-lunalua-luacats/library/Classes/json.lua)
-* [FileFormats.lua](/Wild-W/smbx2-lunalua-luacats/library/Classes/FileFormats.lua)
-* [Events.lua](/Wild-W/smbx2-lunalua-luacats/library/Classes/Events.lua)
-* [EventManager.lua](/Wild-W/smbx2-lunalua-luacats/library/Classes/EventManager.lua)
-* [Block.lua](/Wild-W/smbx2-lunalua-luacats/library/Classes/Block.lua) (Field offsets don't state the FIELD_TYPE like other field offset types do)
-* [BGO.lua](/Wild-W/smbx2-lunalua-luacats/library/Classes/BGO.lua) (Descriptions for the fields)
-* [Background.lua](/Wild-W/smbx2-lunalua-luacats/library/Classes/Background.lua)
-* [API.lua](/Wild-W/smbx2-lunalua-luacats/library/Classes/API.lua)
+* [Graphics.lua](/library/Classes/Graphics.lua)
+* [Sprite.lua](/library/Classes/Sprite.lua)
+* [Darkness.lua](/library/Classes/Darkness.lua)
+* [Particles.lua](/library/Classes/Particles.lua)
+* [require_utils.lua](/library/Classes/require_utils.lua)
+* [json.lua](/library/Classes/json.lua)
+* [FileFormats.lua](/library/Classes/FileFormats.lua)
+* [Events.lua](/library/Classes/Events.lua)
+* [EventManager.lua](/library/Classes/EventManager.lua)
+* [Block.lua](/library/Classes/Block.lua) (Field offsets don't state the FIELD_TYPE like other field offset types do)
+* [BGO.lua](/library/Classes/BGO.lua) (Descriptions for the fields)
+* [Background.lua](/library/Classes/Background.lua)
+* [API.lua](/library/Classes/API.lua)
 * Anywhere else you see functions or fields that are undocumented
 
 ### Unimplemented
 
-* Most [Modules](/Wild-W/smbx2-lunalua-luacats/library/Modules) (Only add modules that exist in the SMBX2 base game and that are able to be loaded from level/world scripts)
+* Most [Modules](/library/Modules) (Only add modules that exist in the SMBX2 base game and that are able to be loaded from level/world scripts)
