@@ -289,7 +289,7 @@ NPC.LISTS = {}
 ---@type table<number, EnemyHarmType>
 NPC.vulnerableHarmTypes = {}
 
----@type table<number, NPCConfig>
+---@type table<number, NPCConfig|table<string, any>>
 NPC.config = {}
 
 ---@type table<number, boolean>

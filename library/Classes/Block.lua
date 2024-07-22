@@ -249,7 +249,7 @@ Block.MEGA_SMASH_MAP = {}
 
 Block.PLAYER_MAP = {}
 
----@type table<number, BlockConfig>
+---@type table<number, BlockConfig|table<string, any>>
 Block.config = {}
 
 Block.MEGA_HIT_MAP = {}
@@ -377,7 +377,7 @@ Block.__type = "Block"
 --- | `0x66` # Index of the NPC this block belongs to in the NPC array.
 
 --- Configuration class for customizing block behavior and appearance in-game.
----@class BlockConfig
+---@class BlockConfig : LightConfig
 ---@field frames number Number of frames of the block animation. For blocks, frames are defined to be a fixed 32 pixels tall. Default: 1
 ---@field framespeed number The amount of ticks it takes for the block animation frame to change. Lower numbers = faster animation. Default: 8
 ---@field width number The width of the block. Default: Inferred from sprite

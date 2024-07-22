@@ -1,3 +1,4903 @@
 ---@meta
 
 
+---@class NPCConfig : LightConfig
+---**Animation:**
+---
+---> Number of frames of the NPC animation loop. This value is per direction, so for framestyle=1 it's half the total number of frames on the sheet, and for framestyle=2 it's a quarter.
+---
+---Default: 1
+---@field frames number?
+---**Animation:**
+---
+---> The amount of ticks it takes for the NPC animation frame to change. Lower numbers = faster animation.
+---
+---Default: 8
+---@field framespeed number?
+---**Animation:**
+---
+---> The spritesheet layout preset. 0 = Goomba-like; 1 = Koopa-like; 2 = Shy Guy-like.
+---
+---Default: 0
+---@field framestyle number?
+---**Animation:**
+---
+---> The width of one frame on the NPC's spritesheet. Note: Should you need to change this value, make sure to also specify gfxheight, even if it's unchanged.
+---
+---Default: 32
+---@field gfxwidth number?
+---**Animation:**
+---
+---> The height of one frame on the NPC's spritesheet. Note: Should you need to change this value, make sure to also specify gfxwidth, even if it's unchanged.
+---
+---Default: 32
+---@field gfxheight number?
+---**Animation:**
+---
+---> Horizontal offset of the sprite relative to the hitbox anchor (middle).
+---
+---Default: 0
+---@field gfxoffsetx number?
+---**Animation:**
+---
+---> Vertcal offset of the sprite relative to the hitbox anchor (bottom).
+---
+---Default: 0
+---@field gfxoffsety number?
+---**Animation:**
+---
+---> If true, the NPC is rendered to a higher priority (usually -15).
+---
+---Default: false
+---@field foreground boolean?
+---**Collision:**
+---
+---> The width of the NPC's hitbox (anchored to center of sprite).
+---
+---Default: 32
+---@field width number?
+---**Collision:**
+---
+---> The height of the NPC's hitbox (anchored to bottom of sprite).
+---
+---Default: 32
+---@field height number?
+---**Collision:**
+---
+---> If true, the NPC will no longer be able to interact with other blocks and NPCs (unless thrown).
+---
+---Default: false
+---@field noblockcollision boolean?
+---**Collision:**
+---
+---> Whether or not this NPC blocks the movement of other NPCs.
+---
+---Default: false
+---@field npcblock boolean?
+---**Collision:**
+---
+---> Whether or not thrown NPCs bounce off this NPC (i.e. collide with it from the top like with a block).
+---
+---Default: false
+---@field npcblocktop boolean?
+---**Collision:**
+---
+---> Whether or not the NPC blocks player movement.
+---
+---Default: false
+---@field playerblock boolean?
+---**Collision:**
+---
+---> Whether or not players and NPCs can stand on the NPC.
+---
+---Default: false
+---@field playerblocktop boolean?
+---**Interaction:**
+---
+---> If true, it is impossible to bounce off the NPC with a regular jump. NPCs without nohurt will also inflict damage when jumped on.
+---
+---Default: false
+---@field jumphurt boolean?
+---**Interaction:**
+---
+---> If true, the NPC will not be able to harm players.
+---
+---**Boss Bass, Big Slurp [ID 653, 718]:**
+---
+---> If false, players take regular damage from Boss Bass. If true, Boss Bass can kill them. If eatingkillsplayer is false and nohurt is true, Boss Bass can carry players in its mouth.
+---
+---Default: false
+---@field nohurt boolean?
+---**Interaction:**
+---
+---> If true, the NPC can be spinjumped on safely.
+---
+---Default: false
+---@field spinjumpsafe boolean?
+---**Interaction:**
+---
+---> Whether or not the NPC can be grabbed from the side.
+---
+---Default: false
+---@field grabside boolean?
+---**Interaction:**
+---
+---> Whether or not the NPC can be grabbed from the top.
+---
+---Default: false
+---@field grabtop boolean?
+---**Interaction:**
+---
+---> If true, the NPC is unable to hit other NPCs while held.
+---
+---Default: false
+---@field harmlessgrab boolean?
+---**Interaction:**
+---
+---> If true, the NPC is unable to hit other NPCs while thrown.
+---
+---Default: false
+---@field harmlessthrown boolean?
+---**Interaction:**
+---
+---> If true, the NPC is unaffected by thrown NPCs.
+---
+---Default: false
+---@field ignorethrownnpcs boolean?
+---**Interaction:**
+---
+---> If true, Yoshi cannot swallow this NPC.
+---
+---Default: false
+---@field noyoshi boolean?
+---**Interaction:**
+---
+---> If true, renders the NPC immune to fireballs.
+---
+---Default: false
+---@field nofireball boolean?
+---**Interaction:**
+---
+---> If true, renders the NPC immune to iceballs.
+---
+---Default: false
+---@field noiceball boolean?
+---**Interaction:**
+---
+---> If true, the NPC ignores gliding blocks.
+---
+---Default: false
+---@field nogliding boolean?
+---**Interaction:**
+---
+---> If true, the NPC can be shielded by Link.
+---
+---Default: false
+---@field linkshieldable boolean?
+---**Interaction:**
+---
+---> If true, there will be no fire effect spawned when the NPC is shielded by Link.
+---
+---Default: false
+---@field noshieldfireeffect boolean?
+---**Interaction:**
+---
+---> If true, collecting a goal will not transform the NPC into coins.
+---
+---Default: false
+---@field notcointransformable boolean?
+---**Interaction:**
+---
+---> Disables the NPC's reaction to a POW effect.
+---
+---Default: false
+---@field nopowblock boolean?
+---**Interaction:**
+---
+---> Prevents the NPC from dying when released in a wall.
+---
+---Default: false
+---@field nowalldeath boolean?
+---**Interaction:**
+---
+---> Whether the NPC is able to enter clear pipes.
+---
+---Default: false
+---@field useclearpipe boolean?
+---**Interaction:**
+---
+---> Registers the NPC to one of several clear pipe interaction groups. Currently supported are: "fireballs", "iceballs" and "iceblocks". Interactions determine death and ID transformation on collision, mirroring what would happen if an ice ball hit a Goomba outside of a clear pipe.
+---
+---Default: ""
+---@field clearpipegroup string?
+---**Behaviour:**
+---
+---> Whether or not the NPC will turn around on ledges.
+---
+---Default: false
+---@field cliffturn boolean?
+---**Behaviour:**
+---
+---> The NPC's horizontal movement speed multiplier.
+---
+---Default: 1
+---@field speed number?
+---**Behaviour:**
+---
+---> The NPC's maximum vertical speed.
+---
+---Default: 8
+---@field terminalvelocity number?
+---**Behaviour:**
+---
+---> Forces changes to the NPC's direction to be done explicitly.
+---
+---Default: false
+---@field staticdirection boolean?
+---**Behaviour:**
+---
+---> Causes built-in SMBX code to ignore the 'speed' config, in favor of letting an NPC's Lua code handle it.
+---
+---Default: false
+---@field luahandlesspeed boolean?
+---**Behaviour:**
+---
+---> If true, the NPC is unaffected by gravity.
+---
+---Default: false
+---@field nogravity boolean?
+---**Behaviour:**
+---
+---> If true, the NPC is unaffected by water and quicksand.
+---
+---Default: false
+---@field nowaterphysics boolean?
+---**Behaviour:**
+---
+---> If true, the NPC will stay on a player-controlled clown car.
+---
+---Default: false
+---@field standsonclowncar boolean?
+---**Behaviour:**
+---
+---> Determines the NPC's weight. If greater than 0, the NPC is able to trigger things like brittle blocks or donut blocks from above.
+---
+---Default: false
+---@field weight number?
+---**Behaviour:**
+---
+---> True if a NPC's weight is nonzero. Setting this to true sets weight to 2.
+---
+---Default: false
+---@field isheavy boolean?
+---**Behaviour:**
+---
+---> Whether or not the NPC is able to melt cold turn blocks.
+---
+---Default: false
+---@field ishot boolean?
+---**Behaviour:**
+---
+---> Whether or not the NPC is able to extinguish hot turn blocks.
+---
+---Default: false
+---@field iscold boolean?
+---**Behaviour:**
+---
+---> Whether or not the NPC carries electric properties.
+---
+---Default: false
+---@field iselectric boolean?
+---**Behaviour:**
+---
+---> Number of hits the NPC can survive against elemental blocks. -1 = infinite.
+---
+---Default: 0
+---@field durability number?
+---**Behaviour:**
+---
+---> The score value given by the NPC when killed.
+---
+---Default: 1
+---@field score number?
+---**Behaviour:**
+---
+---> A table of harm type enums (e.g. {HARM_TYPE_JUMP, HARM_TYPE_SPINJUMP}). For 1.3-NPCs, the specified harm types are added. For new NPCs, this replaces the existing harm types. Can only be set through lua.
+---
+---Default: None
+---@field vulnerableharmtypes table?
+---**Behaviour:**
+---
+---> Applies the movement logic of held items like Mushroom Blocks and SMW Keys.
+---
+---**Springs (Red) [IDs 455, 456, 457, 458]:**
+---
+---> If true, disables the SMW bounce physics.
+---
+---Default: false
+---@field isstationary boolean?
+---**Behaviour:**
+---
+---> If true, the NPC is slippery when the player stands on it.
+---
+---Default: false
+---@field slippery boolean?
+---**Category:**
+---
+---> Used by switch NPCs to define the NPC_SWITCH list in lua. No inherent behaviour.
+---
+---Default: false
+---@field iscustomswitch boolean?
+---**Category:**
+---
+---> Used by powerups to define the NPC_POWERUP list in lua. No inherent behaviour.
+---
+---Default: false
+---@field powerup boolean?
+---**Category:**
+---
+---> If true, the NPC acts like a walker (such as Goombas, Koopas, Spinies...)
+---
+---Default: false
+---@field iswalker boolean?
+---**Category:**
+---
+---> If true, the NPC acts like a Zelda 2 Bot.
+---
+---Default: false
+---@field isbot boolean?
+---**Category:**
+---
+---> If true, the NPC acts like a vegetable.
+---
+---Default: false
+---@field isvegetable boolean?
+---**Category:**
+---
+---> If true, the NPC acts like a boot mount.
+---
+---Default: false
+---@field isshoe boolean?
+---**Category:**
+---
+---> If true, the NPC acts like a yoshi mount.
+---
+---Default: false
+---@field isyoshi boolean?
+---**Category:**
+---
+---> If true, the NPC can be collected.
+---
+---Default: false
+---@field isinteractable boolean?
+---**Category:**
+---
+---> If true, the NPC acts like a coin.
+---
+---Default: false
+---@field iscoin boolean?
+---**Category:**
+---
+---> If true, the NPC can be climbed on.
+---
+---Default: false
+---@field isvine boolean?
+---**Category:**
+---
+---> If true, the NPC acts like a collectable goal.
+---
+---Default: false
+---@field iscollectablegoal boolean?
+---**Category:**
+---
+---> If true, the NPC acts like a flying NPC (Parakoopa AI).
+---
+---Default: false
+---@field isflying boolean?
+---**Category:**
+---
+---> If true, the NPC acts like an underwater NPC (Cheep Cheep AI).
+---
+---Default: false
+---@field iswaternpc boolean?
+---**Category:**
+---
+---> If true, the NPC acts like a shell.
+---
+---Default: false
+---@field isshell boolean?
+---**Category:**
+---
+---> If true, the NPC acts like a Toad NPC and will grant a mushroom when "eaten".
+---
+---Default: false
+---@field istoad boolean?
+---**Line Guide:**
+---
+---> If true, the NPC will interact with line guides. Some NPCs may not work properly on line guides.
+---
+---Default: false
+---@field lineguided boolean?
+---**Line Guide:**
+---
+---> The speed, in pixels per tick, at which the NPC moves while on a line guide.
+---
+---Default: 2
+---@field linespeed number?
+---**Line Guide:**
+---
+---> The speed, in pixels per tick, at which the NPC will "jump off" the end of a line guide if it is moving upward.
+---
+---Default: 4
+---@field linejumpspeed number?
+---**Line Guide:**
+---
+---> If true, this NPC won't lose collision when attached to line guides.
+---
+---Default: false
+---@field collideswhenattached boolean?
+---**Line Guide:**
+---
+---> If true, the NPC will interact with line guides that are on hidden layers.
+---
+---Default: false
+---@field usehiddenlines boolean?
+---**Line Guide:**
+---
+---> If true, the NPC starts active by default ("active" refers to an NPC that is moving along a line guide. An inactive "lineguided" NPC will still attach to line guides, but will not move along them until activated).
+---
+---Default: true
+---@field lineactivebydefault boolean?
+---**Line Guide:**
+---
+---> If true, the NPC is activated when a player stands on it.
+---
+---Default: false
+---@field lineactivateonstanding boolean?
+---**Line Guide:**
+---
+---> If true, the NPC activates all adjacent NPCs with the same ID when it is activated.
+---
+---Default: false
+---@field lineactivatenearby boolean?
+---**Line Guide:**
+---
+---> If true, the NPC is affected by gravity when inactive.
+---
+---Default: false
+---@field linefallwheninactive boolean?
+---**Line Guide:**
+---
+---> The horizontal alignment of the sensor (the part of the NPC that attaches to the line guides). 0 = left edge, 1 = right edge
+---
+---Default: 0.5 (center)
+---@field linesensoralignh number?
+---**Line Guide:**
+---
+---> The vertical alignment of the sensor. 0 = top edge, 1 = bottom edge
+---
+---Default: 0.5 (center)
+---@field linesensoralignv number?
+---**Line Guide:**
+---
+---> The horizontal offset of the sensor.
+---
+---Default: 0
+---@field linesensoroffsetx number?
+---**Line Guide:**
+---
+---> The vertical offset of the sensor.
+---
+---Default: 0
+---@field linesensoroffsety number?
+---**Line Guide:**
+---
+---> If true, the NPC will take 3000 ticks to despawn when offscreen instead of the usual 180.
+---
+---Default: false
+---@field extendeddespawntimer boolean?
+---**Line Guide:**
+---
+---> If true, the NPC floats on water.
+---
+---Default: false
+---@field buoyant boolean?
+---**Semi-Global:**
+---
+---> Sets the health of the NPC. By default only supported by boss NPCs (Boom Boom, Birdo, Big Boo, SMB3 Bowser, SMB1 Bowser, Wart, Mother Brain, Mouser, Larry, Ludwig, Fry Guy), Clawgrip, but can be used by your own NPCs for the purposes of handling customizable HP. Extended per-npc uses are specified per ID in the specifics section below.
+---
+---**Big Goombas (Splitters) [IDs 466, 467]:**
+---
+---> Number of fireballs before a split.
+---
+---**Chucks (all) [IDs 311, 312, 313, 314, 315, 316, 317, 318]:**
+---
+---> Initial HP.
+---
+---**Uncle Broadsword's Boomerang [ID 436]:**
+---
+---> The Boomerang loses health with every impact. This defines the initial health.
+---
+---Default: /
+---@field health number?
+---**Semi-Global:**
+---
+---> Defines the grIDsnap offset. Often set to 16 or 32 for half- and full-block offsets.
+---
+---Default: 32
+---@field grid number?
+---**Semi-Global:**
+---
+---> Defines the NPC's placement offset relative to the grid.
+---
+---Default: 0
+---@field gridoffsetx number?
+---**Semi-Global:**
+---
+---> Defines the NPC's placement offset relative to the grid.
+---
+---Default: 0
+---@field gridoffsety number?
+---**Semi-Global:**
+---
+---> Defines align mode: 0 - at center of the global cell, 1 - at edge of the global cell.
+---
+---Default: 0
+---@field gridalign number?
+---**Semi-Global:**
+---
+---> Relative path to an image file to override the NPC's editor appearance.
+---
+---Default: /
+---@field image string?
+---**2-3 Arrow Lift (Tilt Lift) [IDs 556, 557]:**
+---
+---> Laziness when switching directions. Higher is lazier.
+---
+---Default: /
+---@field inertia number?
+---**2-3 Arrow Lift (Tilt Lift) [IDs 556, 557]:**
+---
+---> Which arrow to default to when the player steps off. -1 = keep moving, 0 = none
+---
+---Default: 0
+---@field defaultarrow number?
+---**2-3 Arrow Lift (Tilt Lift) [IDs 556, 557]:**
+---
+---> Does the player need to step on it once before it moves?
+---
+---Default: true
+---@field needsactivation boolean?
+---**2-3 Arrow Lift (Tilt Lift) [IDs 556, 557]:**
+---
+---> Number of pixels the outer arrows are moved towards the center of the sprite.
+---
+---**Lineguided Saws [IDs 533, 534]:**
+---
+---> Inset to prevent cutoff with the engine block NPC.
+---
+---Default: 0
+---@field inset number?
+---**2-3 Arrow Lift (Tilt Lift) [IDs 556, 557]:**
+---
+---> Effect ID from which the arrow sprites are pulled.
+---
+---**Cannons [IDs 685, 686, 687, 688, 689, 690, 691, 692, 693, 694]:**
+---
+---> ID of the poof effect when shooting.
+---
+---**Fireball (SMB2) [ID 348]:**
+---
+---> ID of the death effect.
+---
+---**Flying Dry Bones [IDs 388, 417]:**
+---
+---> Effect ID when killed.
+---
+---**Icicles [IDs 541, 542, 543]:**
+---
+---> ID of the death effect.
+---
+---**Pansers [IDs 345, 346, 347]:**
+---
+---> ID of the death effect.
+---
+---**Twister [ID 655]:**
+---
+---> Id of the tornado effect.
+---
+---Default: /
+---@field effectid number?
+---**SMB3 Arrow Lift [ID 419]:**
+---
+---> ID of the lift ghost spawned.
+---
+---**Walking Bobomb (SMW) [ID 408]:**
+---
+---> ID of the stunned variant.
+---
+---**Bombshell Koopa [ID 578]:**
+---
+---> ID of the shell to spawn.
+---
+---**Bunbun [ID 580]:**
+---
+---> ID of the spawned NPC.
+---
+---**Cobrat [IDs 371, 372, 373]:**
+---
+---> ID of the projectile fired.
+---
+---**Dry Bones (bone-throwing) [ID 415]:**
+---
+---> ID of the projectile to throw.
+---
+---**Fliprus [ID 539]:**
+---
+---> ID of the spawned NPC.
+---
+---**Flying Spiny [ID 380]:**
+---
+---> ID of the spawned spikes.
+---
+---**Hopping Flame [ID 358]:**
+---
+---> ID of the trail to spawn.
+---
+---**Lakitu (SMB1) [ID 610]:**
+---
+---> ID of the NPC to spawn.
+---
+---**Minigame Cloud [ID 410]:**
+---
+---> ID of the reward spawned after successful minigame completion.
+---
+---**Rocky Wrench [ID 395]:**
+---
+---> ID of the NPC to spawn.
+---
+---**Scuttlebug (Hanging) [ID 509]:**
+---
+---> ID to turn into when losing the string.
+---
+---**Spike (SMB3) [ID 365]:**
+---
+---> ID of the spawned NPC.
+---
+---**Sumo Bro [ID 360]:**
+---
+---> ID of the NPC to spawn.
+---
+---**Sumo Bro Lightning [ID 361]:**
+---
+---> ID of the NPC to spawn.
+---
+---**Torpedo Ted Spawner [ID 306]:**
+---
+---> Id of the NPC spawned.
+---
+---**Walking Rinka Shooter [ID 666]:**
+---
+---> ID of the NPC to spawn while held. Will always spawn a Rinka (210) when not held.
+---
+---Default: /
+---@field spawnid number?
+---**SMB3 Arrow Lift [ID 419]:**
+---
+---> Ticks of lifetime of the spawned ghost.
+---
+---**SMB3 Arrow Lift Ghost [ID 418]:**
+---
+---> Ticks of lifetime.
+---
+---Default: 500
+---@field life number?
+---**SMB3 Arrow Lift [ID 419]:**
+---
+---> Disables special animation handling.
+---
+---**SMB3 Arrow Lift Ghost [ID 418]:**
+---
+---> Disables special animation handling.
+---
+---**Bombshell Koopa Shell [ID 579]:**
+---
+---> Disables special animation handling.
+---
+---**Bunbun [ID 580]:**
+---
+---> Disables special animation handling.
+---
+---**Hot Foot [ID 402]:**
+---
+---> Disables special animation handling.
+---
+---**Lakitu (SMB1) [ID 610]:**
+---
+---> Disables special animation handling.
+---
+---Default: false
+---@field nospecialanimation boolean?
+---**SMB3 Arrow Lift Ghost [ID 418]:**
+---
+---> Order in which the directions are chosen when jumping repeatedly.
+---
+---Default: {0, 1, 0, 2}
+---@field dirlist table?
+---**Asteron[ID 499]:**
+---
+---> Activation Radius.
+---
+---Default: /
+---@field searchradius number?
+---**Asteron[ID 499]:**
+---
+---> Ticks between activation and explosion.
+---
+---Default: /
+---@field warningtime number?
+---**Asteron[ID 499]:**
+---
+---> ID of the spike NPC.
+---
+---Default: /
+---@field spikeid number?
+---**Asteron[ID 499]:**
+---
+---> Table of X-Speed values for the spawned spikes. Only editable through lua.
+---
+---Default: /
+---@field spikexspeeds table?
+---**Asteron[ID 499]:**
+---
+---> Table of Y-Speed values for the spawned spikes. Only editable through lua.
+---
+---Default: /
+---@field spikeyspeeds table?
+---**Baby Yoshis [IDs 325-332]:**
+---
+---> Blinking frequency in ticks.
+---
+---Default: 25
+---@field blinktimer number?
+---**Baby Yoshis [IDs 325-332]:**
+---
+---> The length of a blink in ticks.
+---
+---Default: 8
+---@field blinklength number?
+---**Baby Yoshis [IDs 325-332]:**
+---
+---> The height of idle bounces.
+---
+---**Rock [ID 320]:**
+---
+---> Height of the rock's bounce.
+---
+---**Spike Ball (SMM), Spike Snowball [IDs 641, 643, 645, 647]:**
+---
+---> Vertical speed when bouncing on the ground.
+---
+---Default: -2
+---@field bounceheight number?
+---**Baby Yoshis [IDs 325-332]:**
+---
+---> Number of NPCs that have to be eaten before the Yoshi grows into an adult. Negative = infinite.
+---
+---Default: 5
+---@field hunger number?
+---**Baby Yoshis (Cyan, Pink) [IDs 331, 332]:**
+---
+---> ID of the NPC spawned when an NPC is eaten.
+---
+---Default: /
+---@field spawnnpc number?
+---**Baby Yoshi (Purple) [ID 330]:**
+---
+---> Delay of the pow effect.
+---
+---Default: 20
+---@field slamdelay number?
+---**Baby Yoshi (Purple) [ID 330]:**
+---
+---> Radius of the pow effect.
+---
+---**POW Blocks [IDs 720, 721, 722]:**
+---
+---> Radius of the pow effect.
+---
+---**Tantrunt [ID 564]:**
+---
+---> Radius of the pow effect.
+---
+---Default: 150
+---@field powradius number?
+---**Baby Yoshi (Purple) [ID 330]:**
+---
+---> Type of pow effect.
+---
+---**POW Blocks [IDs 720, 721, 722]:**
+---
+---> Type of pow effect.
+---
+---**Tantrunt [ID 564]:**
+---
+---> Type of pow effect.
+---
+---Default: SMW
+---@field powtype string?
+---**Berries [IDs 397, 398, 399]:**
+---
+---> Number of berries that have to be eaten by Yoshi before the reward routine activates.
+---
+---**Cherries [ID 558]:**
+---
+---> Number of cherries necessary to collect for the star to spawn.
+---
+---Default: /
+---@field limit number?
+---**Walking Bobomb (SMW) [ID 408]:**
+---
+---> Chase interval in seconds.
+---
+---**Sine Enemies (Blurp, Green Bubble) [IDs 302, 322]:**
+---
+---> If true, the NPC turns to face the player when spawning.
+---
+---Default: 2
+---@field chase number?
+---**Stunned Bobomb (SMW) [ID 409]:**
+---
+---> Time before exploding in seconds.
+---
+---Default: 4
+---@field fuse number?
+---**Big Goombas (Splitters) [IDs 466, 467]:**
+---
+---> Number of NPCs to split into.
+---
+---**Chuck (Splittin') [ID 314]:**
+---
+---> Number of additional NPCs to split into.
+---
+---**Fry Guy [ID 351]:**
+---
+---> Number of Sizzle Guys to explode into.
+---
+---Default: 2
+---@field splits number?
+---**Big Goombas (Splitters) [IDs 466, 467]:**
+---
+---> NPC ID to split into.
+---
+---Default: /
+---@field splitid number?
+---**Big (Palace) Switch [IDs 440, 441, 442, 443, 445]:**
+---
+---> Height of the NPC after it has been pressed.
+---
+---Default: /
+---@field pressedheight number?
+---**Big (Palace) Switch [IDs 440, 441, 442, 443, 445]:**
+---
+---> If true, the state of the switch is synced across all switches of this ID.
+---
+---Default: /
+---@field synchronize boolean?
+---**Big (Palace) Switch [IDs 440, 441, 442, 443, 445]:**
+---
+---> If true, the NPC can turn "off" blocks into "on" blocks.
+---
+---**Small Switches [IDs 451, 452, 453, 454, 606, 607]:**
+---
+---> If true, the NPC can turn "off" blocks into "on" blocks.
+---
+---Default: /
+---@field switchon boolean?
+---**Big (Palace) Switch [IDs 440, 441, 442, 443, 445]:**
+---
+---> If true, the NPC can turn "on" blocks into "off" blocks.
+---
+---**Small Switches [IDs 451, 452, 453, 454, 606, 607]:**
+---
+---> If true, the NPC can turn "on" blocks into "off" blocks.
+---
+---Default: /
+---@field switchoff boolean?
+---**Big (Palace) Switch [IDs 440, 441, 442, 443, 445]:**
+---
+---> String representation of the switch color. Unrecognized names will be interpreted as new switch colors.
+---
+---**Small Switches [IDs 451, 452, 453, 454, 606, 607]:**
+---
+---> String representation of the switch color. Unrecognized names will be interpreted as new switch colors.
+---
+---Default: /
+---@field color string?
+---**Big (Palace) Switch [IDs 440, 441, 442, 443, 445]:**
+---
+---> Whether pressing the switch exits the level.
+---
+---Default: true
+---@field exitlevel boolean?
+---**Big (Palace) Switch [IDs 440, 441, 442, 443, 445]:**
+---
+---> Whether pressing the switch saves across levels.
+---
+---Default: /
+---@field save boolean?
+---**Big (Palace) Switch [IDs 440, 441, 442, 443, 445]:**
+---
+---> Number of effect bursts after hitting the switch. Recommended to be 11 when exitlevel is true, 1 otherwise.
+---
+---Default: 11
+---@field bursts number?
+---**Big (Palace) Switch [IDs 440, 441, 442, 443, 445]:**
+---
+---> Ticks between effect bursts.
+---
+---Default: 50
+---@field burstinterval number?
+---**Big (Palace) Switch [IDs 440, 441, 442, 443, 445]:**
+---
+---> ID of the affected "on" block.
+---
+---**Small Switches [IDs 451, 452, 453, 454, 606, 607]:**
+---
+---> ID of the affected "on" block.
+---
+---Default: /
+---@field blockon number?
+---**Big (Palace) Switch [IDs 440, 441, 442, 443, 445]:**
+---
+---> ID of the affected "off" block.
+---
+---**Small Switches [IDs 451, 452, 453, 454, 606, 607]:**
+---
+---> ID of the affected "off" block.
+---
+---Default: /
+---@field blockoff number?
+---**Bird (Grounded) [IDs 501, 502, 503, 504]:**
+---
+---> ID of flying bird to transform into.
+---
+---Default: /
+---@field toflying number?
+---**Bird (Flying) [IDs 505, 506, 507, 508]:**
+---
+---> ID of grounded bird variant.
+---
+---Default: /
+---@field togrounded number?
+---**Bird (Flying) [IDs 505, 506, 507, 508]:**
+---
+---> Acceleration when beginning to fly.
+---
+---Default: /
+---@field takeoffspeed number?
+---**Bombshell Koopa Shell [ID 579]:**
+---
+---> Ticks until the NPC starts flashing.
+---
+---Default: Explosiondelay - 120
+---@field warningdelay number?
+---**Bombshell Koopa Shell [ID 579]:**
+---
+---> Ticks until the NPC explodes.
+---
+---Default: 320
+---@field explosiondelay number?
+---**Bombshell Koopa Shell [ID 579]:**
+---
+---> Number of frames used for the non-warning period of the shell animation.
+---
+---**Hot Foot [ID 402]:**
+---
+---> Number of animation frames per direction used for resting. The rest is used for walking.
+---
+---Default: /
+---@field restingframes number?
+---**Boo Circle [ID 294]:**
+---
+---> Speed multiplier for the boo circle's editor speed.
+---
+---Default: /
+---@field defaultspeed number?
+---**Boo Circle Boo [ID 469]:**
+---
+---> Number of appearances to choose from.
+---
+---Default: 3
+---@field bootypes number?
+---**Boo Snake [ID 298]:**
+---
+---> Number of boos on the tail.
+---
+---Default: 5
+---@field taillength number?
+---**Boohemoth [ID 444]:**
+---
+---> Speed multiplier while shuffling.
+---
+---Default: 0.7
+---@field shufflespeedmultiplier number?
+---**Boohemoth [ID 444]:**
+---
+---> Seconds spent being shy when looked at.
+---
+---Default: 2
+---@field shytime number?
+---**Boohemoth [ID 444]:**
+---
+---> Seconds spent peeking before shuffling when looked at.
+---
+---**Rocky Wrench [ID 395]:**
+---
+---> Ticks spent peeking before appearing fully.
+---
+---Default: 2
+---@field peektime number?
+---**Boohemoth [ID 444]:**
+---
+---> Strength of the bounce when hurting the player.
+---
+---**Bumpers [IDs 582, 583, 584, 585, 594, 595, 596, 597, 598, 599, 604, 605]:**
+---
+---> Bounce force.
+---
+---Default: 6
+---@field bouncestrength number?
+---**Boomerang [ID 615]:**
+---
+---> How much higher than spawn-y the boomerang rises.
+---
+---Default: /
+---@field riseheight number?
+---**Boomerang [ID 615]:**
+---
+---> How much lower than spawn-y the boomerang rises.
+---
+---Default: /
+---@field fallheight number?
+---**Boomerang [ID 615]:**
+---
+---> Horizontal range of the boomerang's flight path.
+---
+---Default: /
+---@field trajectorywidth number?
+---**Boos (Lua-implemented) [ID 586]:**
+---
+---> Maximum horizontal speed.
+---
+---**Flutter [ID 613]:**
+---
+---> Maximum horizontal velocity.
+---
+---Default: /
+---@field maxspeedx number?
+---**Boos (Lua-implemented) [ID 586]:**
+---
+---> Maximum vertical speed.
+---
+---**Flutter [ID 613]:**
+---
+---> Maximum vertical velocity.
+--->
+--->Default: /
+---
+---**Venus Fire Trap Fireball [ID 511]:**
+---
+---> Limits the fireball's vertical speed.
+--->
+--->Default: 2
+---@field maxspeedy number?
+---**Boos (Lua-implemented) [ID 586]:**
+---
+---> Horizontal acceleration.
+---
+---Default: /
+---@field accelx number?
+---**Boos (Lua-implemented) [ID 586]:**
+---
+---> Vertical acceleration.
+---
+---Default: /
+---@field accely number?
+---**Boos (Lua-implemented) [ID 586]:**
+---
+---> Horizontal deceleration.
+---
+---Default: /
+---@field decelx number?
+---**Boos (Lua-implemented) [ID 586]:**
+---
+---> Vertical deceleration.
+---
+---Default: /
+---@field decely number?
+---**Boss Bass, Big Slurp [ID 653, 718]:**
+---
+---> Number of frames in the swimming animation.
+---
+---Default: 2
+---@field swimframes number?
+---**Boss Bass, Big Slurp [ID 653, 718]:**
+---
+---> Number of frames in the jumping animation. Frames counted in "frames" but not in swimframes and jumpframes will count as the landing animation
+---**Bros [IDs 614, 616, 618]:**
+---
+---> Delay between jumps.
+---
+---**Salsa Nipper [IDs 708]:**
+---
+---> Number of animation frames for jumping. Remainder of "frames" defines number of idle frames.
+---
+---Default: 2
+---@field jumpframes number?
+---**Boss Bass, Big Slurp [ID 653, 718]:**
+---
+---> If true, Boss Bass tries to leap at players to eat them.
+---
+---Default: true
+---@field canjump boolean?
+---**Boss Bass, Big Slurp [ID 653, 718]:**
+---
+---> If true, Boss Bass chases players.
+---
+---Default: true
+---@field followsplayer boolean?
+---**Boss Bass, Big Slurp [ID 653, 718]:**
+---
+---> Offset of the mouth hitbox from the top of the NPC's hitbox in pixels.
+---
+---Default: 8
+---@field hitboxoffsettop number?
+---**Boss Bass, Big Slurp [ID 653, 718]:**
+---
+---> Height of the mouth hitbox in pixels.
+---
+---Default: 8
+---@field hitboxheight number?
+---**Boss Bass, Big Slurp [ID 653, 718]:**
+---
+---> Width of the jump detection range hitbox.
+---
+---Default: 100
+---@field jumpboxwidth number?
+---**Boss Bass, Big Slurp [ID 653, 718]:**
+---
+---> Height of the jump detection range hitbox.
+---
+---Default: 180
+---@field jumpboxheight number?
+---**Boss Bass, Big Slurp [ID 653, 718]:**
+---
+---> Offset of the jump hitbox from the top of the NPC's hitbox in pixels.
+---
+---Default: -140
+---@field jumpboxtop number?
+---**Boss Bass, Big Slurp [ID 653, 718]:**
+---
+---> If true, Boss Bass ignore its eating cooldown.
+---
+---Default: false
+---@field alwayseats boolean?
+---**Boss Bass, Big Slurp [ID 653, 718]:**
+---
+---> If true, players instantly die to being eaten.
+---
+---Default: true
+---@field eatingkillsplayer boolean?
+---**Boss Bass, Big Slurp [ID 653, 718]:**
+---
+---> Horizontal speed when jumping.
+---
+---Default: 3
+---@field jumpspeedx number?
+---**Boss Bass, Big Slurp [ID 653, 718]:**
+---
+---> Vertical speed when jumping.
+---
+---Default: 7.5
+---@field jumpspeedy number?
+---**Boss Bass, Big Slurp [ID 653, 718]:**
+---
+---> Force with which players who were in Boss Bass' mouth get ejected when they press jump.
+---
+---Default: 20
+---@field eatenplayerejectforce number?
+---**Boss Bass, Big Slurp [ID 653, 718]:**
+---
+---> ID of the sound effect to play when Boss Bass eats something.
+---
+---Default: 55
+---@field eatsound number?
+---**Boss Bass, Big Slurp [ID 653, 718]:**
+---
+---> Frames after eating during which Boss Bass can't eat.
+---
+---Default: 20
+---@field eattimer number?
+---**Bowser Statue (SMW) [ID 355]:**
+---
+---> Ticks between volleys.
+---
+---Default: 140
+---@field fireinterval number?
+---**Bowser Statue (SMW) [ID 355]:**
+---
+---> Id of the NPC to spawn.
+---
+---Default: /
+---@field firenpc number?
+---**Bowser Statue (SMW) [ID 355]:**
+---
+---> Horizontal speed of the spawned NPC.
+---
+---Default: 1.5
+---@field firespeed number?
+---**Bowser Statue (Jumping SMW) [ID 357]:**
+---
+---> Ticks between jumps.
+---
+---Default: 30
+---@field jumpinterval number?
+---**Breaking Turn Block [ID 364]:**
+---
+---> Optional default content ID.
+---
+---Default: 0
+---@field defaultcontent number?
+---**Breaking Turn Block [ID 364]:**
+---
+---> Width of the activation trigger box.
+--->
+---> Default: /
+---
+---**Salsa Nipper [IDs 708]:**
+---
+---> Width of the jump trigger box.
+--->
+---> Default: 30
+---@field triggerwidth number?
+---**Breaking Turn Block [ID 364]:**
+---
+---> Height of the activation trigger box.
+--->
+---> Default: /
+---
+---**Salsa Nipper [IDs 708]:**
+---
+---> Height of the jump trigger box.
+--->
+---> Default: 256
+---@field triggerheight number?
+---**Bros [IDs 614, 616, 618]:**
+---
+---> Horizontal offset of thrown npc while held.
+---
+---Default: /
+---@field holdoffsetx number?
+---**Bros [IDs 614, 616, 618]:**
+---
+---> Vertical offset of thrown npc while held.
+---
+---Default: /
+---@field holdoffsety number?
+---**Bros [IDs 614, 616, 618]:**
+---
+---> Horizontal offset of thrown npc when thrown.
+---
+---Default: /
+---@field throwoffsetx number?
+---**Bros [IDs 614, 616, 618]:**
+---
+---> Vertical offset of thrown npc when thrown.
+---
+---Default: /
+---@field throwoffsety number?
+---**Bros [IDs 614, 616, 618]:**
+---
+---> Time spent walking in a direction before turning around.
+---
+---Default: /
+---@field walkframes number?
+---**Bros [IDs 614, 616, 618]:**
+---
+---> Upwards jump force.
+---
+---**Salsa Nipper [IDs 708]:**
+---
+---> Jump speed.
+---
+---**Thwimp [ID 301]:**
+---
+---> Upwards jump force.
+---
+---**Water Leaper (Trouter, Podoboo, Dolphin) [IDs 350, 459, 460, 461, 589, 590]:**
+---
+---> Default jump force for fixed-type leapers.
+---
+---Default: /
+---@field jumpspeed number?
+---**Bros [IDs 614, 616, 618]:**
+---
+---> A number of frames that may be added to the jump delay.
+---
+---Default: /
+---@field jumptimerange number?
+---**Bros [IDs 614, 616, 618]:**
+---
+---> Initial horizontal speed of the thrown NPC.
+---
+---Default: /
+---@field thowspeedx number?
+---**Bros [IDs 614, 616, 618]:**
+---
+---> Initial vertical speed of the thrown NPC.
+---
+---Default: /
+---@field thowspeedy number?
+---**Bros [IDs 614, 616, 618]:**
+---
+---> Lower bound for the throwing cooldown.
+---
+---Default: /
+---@field waitframeslow number?
+---**Bros [IDs 614, 616, 618]:**
+---
+---> Upper bound for the throwing cooldown.
+---
+---Default: /
+---@field waitframeshigh number?
+---**Bros [IDs 614, 616, 618]:**
+---
+---> Initial value for the throwing cooldown, to accelerate the first throw.
+---
+---Default: /
+---@field initialtimer number?
+---**Bros [IDs 614, 616, 618]:**
+---
+---> Number of ticks for which the NPC is held before being thrown.
+---
+---Default: /
+---@field holdframes number?
+---**Bros [IDs 614, 616, 618]:**
+---
+---> ID of the thrown NPC.
+---
+---**Spike (SMM), Snow Spike [IDs 640, 642, 644, 646]:**
+---
+---> ID of the spawned NPC.
+---
+---Default: /
+---@field throwid number?
+---**Bros [IDs 614, 616, 618]:**
+---
+---> Whether or not landing after a jump causes an earthquake.
+---
+---Default: false
+---@field quake boolean?
+---**Bros [IDs 614, 616, 618]:**
+---
+---> How long the quake stuns the player for.
+---
+---**Flutter [ID 613]:**
+---
+---> Number of ticks after getting hit before turning angry.
+---
+---**Snailicorn [IDs 623, 624]:**
+---
+---> Subset of the frames config dedicated to the hurt animation.
+---
+---Default: /
+---@field stunframes number?
+---**Bros [IDs 614, 616, 618]:**
+---
+---> Intensity of the visual quake effect.
+---
+---Default: /
+---@field quakeintensity number?
+---**Bros [IDs 614, 616, 618]:**
+---
+---> If true, the NPC will always face the closest player. Otherwise, it will always face the direction it was placed in.
+---
+---Default: true
+---@field followplayer boolean?
+---**Bully [IDs 648, 649]:**
+---
+---> Number of wander frames. Remainder is number of knockback frames.
+---
+---Default: 2
+---@field wanderframes number?
+---**Bully [IDs 648, 649]:**
+---
+---> The speed that the NPC wanders around its spawn position at.
+---
+---Default: 1
+---@field wanderspeed number?
+---**Bully [IDs 648, 649]:**
+---
+---> The maximum distance that the NPC can normally wander from its spawn position
+---
+---Default: 96
+---@field wanderdistance number?
+---**Bully [IDs 648, 649]:**
+---
+---> The distance a player needs to be in for the NPC to start chasing them.
+---
+---Default: 160
+---@field startchasedistance number?
+---**Bully [IDs 648, 649]:**
+---
+---> The distance a player needs to be in for the NPC to continue chasing them.
+---
+---Default: 224
+---@field stopchasedistance number?
+---**Bully [IDs 648, 649]:**
+---
+---> Frames for player to be out of sotpchasedistance for the chase to really stop
+---
+---Default: 60
+---@field stopchasecooldown number?
+---**Bully [IDs 648, 649]:**
+---
+---> The maximum speed the NPC will chase a player at
+---
+---Default: 3.5
+---@field chasespeed number?
+---**Bully [IDs 648, 649]:**
+---
+---> How fast the NPC accelerates while chasing a player.
+---
+---**Targeting Fishbone [ID 652]:**
+---
+---> Accleeration per tick when chasing.
+---
+---Default: 0.08
+---@field chaseacceleration number?
+---**Bully [IDs 648, 649]:**
+---
+---> The speed at which the NPC gets knocked back when bumped.
+---
+---Default: 5
+---@field knockbackspeed number?
+---**Bully [IDs 648, 649]:**
+---
+---> By how much the knockback is decreased each frame
+---
+---Default: 0.085
+---@field knockbackfalloff number?
+---**Bully [IDs 648, 649]:**
+---
+---> The speed at which the colliding object gets knocked back
+---
+---Default: 6.5
+---@field otherknockbackspeed number?
+---**Bully [IDs 648, 649]:**
+---
+---> Whether and how to hit blocks when knocked back. 0 is no effect, 1 hits any block, 2 breaks certain blocks and hits others
+---
+---Default: 0
+---@field noticebounce number?
+---**Bully [IDs 648, 649]:**
+---
+---> Whether and how to hit blocks when chasing. 0 is no effect, 1 hits any block, 2 breaks certain blocks and hits others
+---
+---Default: 0
+---@field chasehitblocks number?
+---**Bully [IDs 648, 649]:**
+---
+---> The bounce height when noticing a player
+---
+---Default: 0
+---@field knockbackhitblocks number?
+---**Bumpers [IDs 582, 583, 584, 585, 594, 595, 596, 597, 598, 599, 604, 605]:**
+---
+---> If jump or spinjump is held, this multiplier is applied to bouncestrength.
+---
+---Default: 2
+---@field jumpmultiplier number?
+---**Bumpers [IDs 582, 583, 584, 585, 594, 595, 596, 597, 598, 599, 604, 605]:**
+---
+---> Should the bumper bounce players?
+---
+---Default: true
+---@field bounceplayer boolean?
+---**Bumpers [IDs 582, 583, 584, 585, 594, 595, 596, 597, 598, 599, 604, 605]:**
+---
+---> Should the bumper bounce NPCs?
+---
+---Default: false
+---@field bouncenpc boolean?
+---**Bumpers [IDs 582, 583, 584, 585, 594, 595, 596, 597, 598, 599, 604, 605]:**
+---
+---> Only settable in code. Defined as a lua function taking the NPC as an argument and returning a Collider
+---
+---Default: /
+---@field hitbox fun(npc: NPC): Collider?
+---**Bunbun [ID 580]:**
+---
+---> Ticks between throws.
+---
+---**Lakitu (SMB1) [ID 610]:**
+---
+---> Delay between throwing Spiny Eggs.
+---
+---**Launch Barrel [IDs 600, 601, 602, 603]:**
+---
+---> Ticks after entering before a barrel can be exited again.
+---
+---**Sumo Bro Fire [ID 362]:**
+---
+---> Ticks between spreads.
+---
+---**Torpedo Ted Spawner [ID 306]:**
+---
+---> Ticks of wait time between spawns.
+---
+---Default: 80
+---@field delay number?
+---**Bunbun [ID 580]:**
+---
+---> Animation frames in the idle cycle. The remaining frames in the "frames" config are used for the throwing animation.
+---
+---**Fire Chomp, Spiky Fire Chomp [ID 704, 707]:**
+---
+---> Number of animation frames used for idle.
+---
+---**Fliprus [ID 539]:**
+---
+---> First frames of the total "frames" set.
+---
+---**Lakitu (SMB1) [ID 610]:**
+---
+---> Number of animation frames in the idle loop.
+---
+---**Targeting Fishbone [ID 652]:**
+---
+---> Subset of the frames config used for the idle animation.
+---
+---Default: /
+---@field idleframes number?
+---**Bunbun [ID 580]:**
+---
+---> Ticks between beginning the spawn cycle and spawning the NPC.
+---
+---Default: /
+---@field npcspawndelay number?
+---**Buoyant Platform [IDs 391]:**
+---
+---> Acceleration while underwater.
+---
+---**Sea Mine [ID 363]:**
+---
+---> Gravity multiplier while in the water.
+---
+---Default: -0.1
+---@field wateraccel number?
+---**Buoyant Platform [IDs 391]:**
+---
+---> Multiplier for regular NPC gravity while out of water.
+---
+---**Falling Platform [ID 367]:**
+---
+---> Gravity multiplier for the fast fall.
+---
+---**Math (Countdown) Platform [ID 387]:**
+---
+---> Multiplier for gravity when falling.
+---
+---**Sea Mine [ID 363]:**
+---
+---> Gravity multiplier while out of water.
+---
+---Default: 0.25
+---@field fallaccel number?
+---**Buoyant Platform [IDs 391]:**
+---
+---> Terminal velocity.
+---
+---**Rip van Fish [ID 386]:**
+---
+---> Cap for vertical and horizontal speed.
+---
+---Default: 1.25
+---@field speedcap number?
+---**Buoyant Platform [IDs 391]:**
+---
+---> Determine the top and bottom of the hitbox within which buoyancy is detected.
+---
+---Default: -8
+---@field liquidoffsettop number?
+---Default: 24
+---@field liquidoffsetbottom number?
+---**Burners, Burner Beetle [ID 544, 545, 546, 548, 549]:**
+---
+---> Delay after which the fire is spawned.
+---
+---Default: 1
+---@field spawndelay number?
+---**Burners, Burner Beetle [ID 544, 545, 546, 548, 549]:**
+---
+---> Id of the fire NPC.
+---
+---**Salsa Nipper [IDs 708]:**
+---
+---> ID of the fire projectile.
+---
+---Default: 547
+---@field fireid number?
+---**Burners, Burner Beetle [ID 544, 545, 546, 548, 549]:**
+---
+---> Used by the Burner Beetle to determine how many frames the burner (separate to the beetle) has.
+---
+---Default: 0
+---@field burnerframes number?
+---**Burners, Burner Beetle [ID 544, 545, 546, 548, 549]:**
+---
+---> Used by the Burner Beetle to determine the framestyle of the burner (separate to the beetle).
+---
+---Default: 0
+---@field burnerframestype number?
+---**Burners, Burner Beetle [ID 544, 545, 546, 548, 549]:**
+---
+---> If true, players are unable to trigger the step-activated burner.
+---
+---**Donut Blocks [IDs 591, 592, 714, 715, 716, 717]:**
+---
+---> If true, players are unable to trigger the donut block.
+---
+---**Jumping Piranha Plant [IDs 518, 519]:**
+---
+---> If true, the plant can emerge even if players are nearby.
+---
+---**Number Platform (YI) [ID 340]:**
+---
+---> If true, players are unable to trigger the step-activated burner.
+---
+---**Piranha Plants [IDs 512, 513, 514, 515, 521, 522, 523, 524, 529, 701, 702, 703]:**
+---
+---> If true, the plant can emerge even if players are nearby.
+---
+---**Venus Fire Trap [IDs 516, 517]:**
+---
+---> If true, the plant can emerge even if players are nearby.
+---
+---Default: false
+---@field ignoreplayers boolean?
+---**Burners, Burner Beetle [ID 544, 545, 546, 548, 549]:**
+---
+---> If true, NPCs are unable to trigger the step-activated burner.
+---
+---**Donut Blocks [IDs 591, 592, 714, 715, 716, 717]:**
+---
+---> If true, NPCs are unable to trigger the donut block.
+---
+---**Number Platform (YI) [ID 340]:**
+---
+---> If true, NPCs are unable to trigger the step-activated burner.
+---
+---Default: false
+---@field ignorenpcs boolean?
+---**Burners, Burner Beetle [ID 544, 545, 546, 548, 549]:**
+---
+---> The minimum weight an object needs to trigger the step-activated burner.
+---
+---**Donut Blocks [IDs 591, 592, 714, 715, 716, 717]:**
+---
+---> The minimum weight an object needs to trigger the falling animation.
+---
+---**Number Platform (YI) [ID 340]:**
+---
+---> The minimum weight an object needs to trigger the step-activated burner.
+---
+---Default: 2
+---@field triggerweight number?
+---**Busters [IDs 587, 588]:**
+---
+---> ID that can be picked up by this NPC.
+---
+---Default: /
+---@field target1 number?
+---**Busters [IDs 587, 588]:**
+---
+---> Vertical offset of the search area relative to the bottom of the NPC's hitbox.
+---
+---Default: /
+---@field collideryoffset number?
+---**Busters [IDs 587, 588]:**
+---
+---> If true, grabbed NPCs are transformed into what ever value is stored in its ai1 field.
+---
+---Default: false
+---@field useai1 boolean?
+---**Busters [IDs 587, 588]:**
+---
+---> Horizontal speed of the thrown NPC.
+---
+---**Fliprus [ID 539]:**
+---
+---> Horizontal speed of the spawned NPC.
+---
+---Default: /
+---@field throwspeedx number?
+---**Busters [IDs 587, 588]:**
+---
+---> Vertical speed of the thrown NPC.
+---
+---**Fliprus [ID 539]:**
+---
+---> Vertical speed of the spawned NPC.
+---
+---Default: /
+---@field throwspeedy number?
+---**Busters [IDs 587, 588]:**
+---
+---> If true, buster beetles will still throw their held NPCs
+---
+---Default: /
+---@field friendlythrow boolean?
+---**Cannons [IDs 685, 686, 687, 688, 689, 690, 691, 692, 693, 694]:**
+---
+---> Number of shots fired at once.
+---
+---**Fire Bro [ID 389]:**
+---
+---> Number of projectiles fired.
+---
+---Default: 1
+---@field shotcount number?
+---**Cannons [IDs 685, 686, 687, 688, 689, 690, 691, 692, 693, 694]:**
+---
+---> Speed of the fired projectile.
+---
+---Default: 2
+---@field shotspeed number?
+---**Cannons [IDs 685, 686, 687, 688, 689, 690, 691, 692, 693, 694]:**
+---
+---> Causes the NPC to do a pulsing animation when shooting if true.
+---
+---Default: true
+---@field pulsex boolean?
+---Default: true
+---@field pulsey boolean?
+---**Cannons [IDs 685, 686, 687, 688, 689, 690, 691, 692, 693, 694]:**
+---
+---> ID of the sound effect when shooting.
+---
+---**Fire Bro [ID 389]:**
+---
+---> Sound played when the fireball is spawned.
+---
+---Default: 22
+---@field shotsound number?
+---**Cannons [IDs 685, 686, 687, 688, 689, 690, 691, 692, 693, 694]:**
+---
+---> Default ID of the fired NPC.
+---
+---Default: 22
+---@field shotid number?
+---**Cannons [IDs 685, 686, 687, 688, 689, 690, 691, 692, 693, 694]:**
+---
+---> Offset of the poof effect from the spawn location.
+---
+---Default: -16
+---@field effectoffsetx number?
+---Default: -16
+---@field effectoffsety number?
+---**Chain Chomp [ID 654]:**
+---
+---> Jump speed when not attached to a chain
+---
+---Default: 2
+---@field looseJumpSpeedX number?
+---Default: -5.5
+---@field looseJumpSpeedY number?
+---**Chain Chomp [ID 654]:**
+---
+---> Jump speed when attached to a chain
+---
+---Default: 1.5
+---@field chainedJumpSpeedX number?
+---Default: -3
+---@field chainedJumpSpeedY number?
+---**Chain Chomp [ID 654]:**
+---
+---> Speed of the jump when escaping from the chain.
+---
+---Default: 7
+---@field escapeSpeedX number?
+---Default: -6.5
+---@field escapeSpeedY number?
+---**Chain Chomp [ID 654]:**
+---
+---> Movement speed when underwater.
+---
+---Default: 1.2
+---@field underwaterSpeedX number?
+---**Chain Chomp [ID 654]:**
+---
+---> Speed when floating underwater.
+---
+---Default: 1
+---@field underwaterFloatSpeed number?
+---**Chain Chomp [ID 654]:**
+---
+---> Duration of the float.
+---
+---Default: 16
+---@field underwaterFloatTime number?
+---**Chain Chomp [ID 654]:**
+---
+---> Movement speed deceleration.
+---
+---**Torpedo Ted [ID 305]:**
+---
+---> Vertical deceleration.
+---
+---Default: 0.05
+---@field deceleration number?
+---**Chain Chomp [ID 654]:**
+---
+---> Duration in frames spent patrolling around the post.
+---
+---Default: 128
+---@field patrolTime number?
+---**Chain Chomp [ID 654]:**
+---
+---> Duration in frames spent preparing for a jump.
+---
+---Default: 32
+---@field prepareTime number?
+---**Chain Chomp [ID 654]:**
+---
+---> Duration in frames for the lunge.
+---
+---Default: 64
+---@field lungeTime number?
+---**Chain Chomp [ID 654]:**
+---
+---> The angle range in which the lunge can happen.
+---
+---Default: -35
+---@field lungeMinRandomAngle number?
+---Default: -10
+---@field lungeMaxRandomAngle number?
+---**Chain Chomp [ID 654]:**
+---
+---> By how many pixels to increase the radius when lunging.
+---
+---Default: 32
+---@field lungeTargetExtraRadius number?
+---**Chain Chomp [ID 654]:**
+---
+---> Speed of the lunge.
+---
+---Default: 12
+---@field lungeSpeed number?
+---**Chain Chomp [ID 654]:**
+---
+---> Gravity multiplier when returning from the lunge.
+---
+---Default: 1
+---@field returnGravityMultiplier number?
+---**Chain Chomp [ID 654]:**
+---
+---> Multiplier of x-speed for each block distance traversed while returning from a lunge.
+---
+---Default: 0.8
+---@field returnSpeedPerBlock number?
+---**Chain Chomp [ID 654]:**
+---
+---> If true, targets players when not friendly.
+---
+---Default: true
+---@field targetPlayersNormally boolean?
+---**Chain Chomp [ID 654]:**
+---
+---> If true, targets enemies when not friendly.
+---
+---Default: false
+---@field targetEnemiesNormally boolean?
+---**Chain Chomp [ID 654]:**
+---
+---> If true, destroys blocks when not friendly.
+---
+---Default: true
+---@field destroyBlocksNormally boolean?
+---**Chain Chomp [ID 654]:**
+---
+---> If true, targets players when not friendly.
+---
+---Default: false
+---@field targetPlayersFriendly boolean?
+---**Chain Chomp [ID 654]:**
+---
+---> If true, targets enemies when not friendly.
+---
+---Default: true
+---@field targetEnemiesFriendly boolean?
+---**Chain Chomp [ID 654]:**
+---
+---> If true, destroys blocks when not friendly.
+---
+---Default: true
+---@field destroyBlocksFriendly boolean?
+---**Chain Chomp [ID 654]:**
+---
+---> ID of the effect that draws the chain.
+---
+---**Chain Chomp Post [IDs 650, 651]:**
+---
+---> ID of the effect that draws the chain.
+---
+---Default: /
+---@field chainEffectID number?
+---**Chain Chomp [ID 654]:**
+---
+---> Number of chains.
+---
+---Default: 4
+---@field chainCount number?
+---**Chain Chomp [ID 654]:**
+---
+---> How many frames of movement between the chains.
+---
+---Default: 8
+---@field chainTimeDifference number?
+---**Chain Chomp Post [IDs 650, 651]:**
+---
+---> How far a chain needs to be past its max length to snap.
+---
+---Default: 64
+---@field chainSnapThreshold number?
+---**Chain Chomp Post [IDs 650, 651]:**
+---
+---> If true, players holding the post cannot spinjump.
+---
+---Default: true
+---@field disableSpinJumpWhenHeld boolean?
+---**Chucks (all) [IDs 311, 312, 313, 314, 315, 316, 317, 318]:**
+---
+---> ID of the hurt effect.
+---
+---Default: /
+---@field hurteffect number?
+---**Chucks (all) [IDs 311, 312, 313, 314, 315, 316, 317, 318]:**
+---
+---> ID of the death effect.
+---
+---Default: /
+---@field deatheffect number?
+---**Chucks (all) [IDs 311, 312, 313, 314, 315, 316, 317, 318]:**
+---
+---> NPC ID to turn into after hurt for the first time.
+---
+---Default: /
+---@field npconhit number?
+---**Chuck (Chargin') [ID 311]:**
+---
+---> Y-Coordinate differnece the player has to be above the chuck in order to activate it.
+---
+---Default: 48
+---@field startrange number?
+---**Chuck (Chargin') [ID 311]:**
+---
+---> Y-Coordinate differnece the player has to be below the chuck in order to deactivate it.
+---
+---Default: 48
+---@field calmrange number?
+---**Chuck (Chargin') [ID 311]:**
+---
+---> Only settable through lua. A table of block IDs that can be destroyed.
+---
+---Default: {90, 4, 188, 60, 293, 667, 457, 668, 526}
+---@field destoyblocktable table of number?
+---**Chuck (Clappin') [ID 312]:**
+---
+---> Y-Coordinate difference the player has to be above the chuck in order to make it clap.
+---
+---**Chuck (Pitchin') [ID 313]:**
+---
+---> Y-Coordinate difference the player has to be above the chuck in order to make it jump.
+---
+---Default: 64
+---@field jumprange number?
+---**Chuck (Clappin') [ID 312]:**
+---
+---> Maximum Y-Coordinate difference the player can be above the chuck in order to make it clap.
+---
+---Default: 256
+---@field jumprangemax number?
+---**Chuck (Clappin') [ID 312]:**
+---
+---> Upwards jump force.
+---
+---**Chuck (Pitchin') [ID 313]:**
+---
+---> Upwards jump force.
+---
+---**Chuck (Bouncin') [ID 315]:**
+---
+---> Upwards jump force.
+---
+---**Monty Mole [ID 309]:**
+---
+---> Jump force of the mole if emerging.
+---
+---**Shoe Goombas [IDs 379, 392, 393]:**
+---
+---> Height of the Goomba's jump.
+---
+---Default: 7
+---@field jumpheight number?
+---**Chuck (Pitchin') [ID 313]:**
+---
+---> Ticks before a throw.
+---
+---**Hiding Lakitu only [ID 710]:**
+---
+---> Ticks spent throwing.
+---
+---Default: 30
+---@field throwtime number?
+---**Chuck (Pitchin') [ID 313]:**
+---
+---> Ticks after a throw.
+---
+---Default: 15
+---@field throwcooldown number?
+---**Chuck (Pitchin') [ID 313]:**
+---
+---> Ticks between throw volleys.
+---
+---Default: 90
+---@field volleycooldown number?
+---**Chuck (Pitchin') [ID 313]:**
+---
+---> Number of baseballs thrown during a volley by default.
+---
+---**Chuck (Diggin') [ID 316]:**
+---
+---> Number of rocks to dig up per volley.
+---
+---Default: 6
+---@field defaultvolley number?
+---**Chuck (Pitchin') [ID 313]:**
+---
+---> Id of the thrown projectile.
+---
+---**Chuck (Diggin') [ID 316]:**
+---
+---> ID of the emerging projectile. Coming soon
+---**Curry Nipper [IDs 709]:**
+---
+---> ID of the fire projectile.
+---
+---**Fire Bro [ID 389]:**
+---
+---> ID of the projectile fired.
+---
+---**Fire Chomp, Spiky Fire Chomp [ID 704, 707]:**
+---
+---> ID of the projectile ID.
+---
+---**Pansers [IDs 345, 346, 347]:**
+---
+---> ID of the NPC spawned.
+---
+---**Reznor [ID 413]:**
+---
+---> ID of the spawned projectile.
+--->
+---> Default: 319
+---
+---**Rotating Bill Blaster [ID 438]:**
+---
+---> The ID of the projectile to fire by default. Set to a positive value to fire an NPC with that ID. Set to a negative value for coins (example: -5 = fire 5 coins)
+--->
+---> Default: 17 (Bullet Bill)
+---@field projectileid number?
+---**Chuck (Splittin') [ID 314]:**
+---
+---> Activation range.
+---
+---**Chuck (Bouncin') [ID 315]:**
+---
+---> Activation range.
+---
+---**Chuck (Whistlin') [ID 317]:**
+---
+---> Activation radius.
+---
+---**Cloud Drops [ID 463, 464]:**
+---
+---> Range of movement. Coming soon
+---**Thwomps [IDs 295, 432, 435, 437]:**
+---
+---> Pixels the player needs to be below/in front of/above the thwomp for it to activate.
+---
+---Default: 192
+---@field range number?
+---**Chuck (Splittin') [ID 314]:**
+---
+---> ID of the NPC to spawn when splitting.
+---
+---Default: 311
+---@field splitnpc number?
+---**Chuck (Splittin') [ID 314]:**
+---
+---> Id to transform into after splitting.
+---
+---Default: 311
+---@field postsplitnpc number?
+---**Chuck (Diggin') [ID 316]:**
+---
+---> Ticks to wait before beginning a volley.
+---
+---Default: 110
+---@field startwait number?
+---**Chuck (Diggin') [ID 316]:**
+---
+---> Ticks spent digging.
+---
+---Default: 55
+---@field digwait number?
+---**Chuck (Diggin') [ID 316]:**
+---
+---> Ticks spent lifting.
+---
+---Default: 45
+---@field liftwait number?
+---**Chuck (Diggin') [ID 316]:**
+---
+---> Time spent waiting after any rock was dug up.
+---
+---Default: 60
+---@field donewait number?
+---**Chuck (Diggin') [ID 316]:**
+---
+---> ID of the rock spawning effect.
+---
+---Default: 173
+---@field rockemergeid number?
+---**Chuck (Diggin') [ID 316]:**
+---
+---> Horizontal speed of the emerging rock.
+---
+---Default: 1
+---@field rockxspeed number?
+---**Chuck (Diggin') [ID 316]:**
+---
+---> Vertical speed of the emerging rock.
+---
+---Default: 5
+---@field rockyspeed number?
+---**Chuck (Whistlin') [ID 317]:**
+---
+---> Cooldown after getting hit.
+---
+---Default: 30
+---@field hitcooldown number?
+---**Chuck (Whistlin') [ID 317]:**
+---
+---> Ticks it takes for the whistle to deactivate once the NPC doesn't whistle anymore.
+---
+---Default: 300
+---@field whistlecooldown number?
+---**Chuck (Puntin') [ID 318]:**
+---
+---> Lower bound of the randomized kick start time.
+---
+---Default: 90
+---@field starttimelower number?
+---**Chuck (Puntin') [ID 318]:**
+---
+---> Upper bound of the randomized kick start time.
+---
+---Default: 120
+---@field starttimeupper number?
+---**Chuck (Puntin') [ID 318]:**
+---
+---> Ticks between kicks.
+---
+---Default: 100
+---@field kickcooldown number?
+---**Chuck (Puntin') [ID 318]:**
+---
+---> Id of the spawned NPC.
+---
+---Default: 321
+---@field footballid number?
+---**Chuck (Puntin') [ID 318]:**
+---
+---> Horizontal NPC of the spawned NPC.
+---
+---Default: 5
+---@field footballspeedx number?
+---**Chuck (Puntin') [ID 318]:**
+---
+---> Vertical NPC of the spawned NPC.
+---
+---Default: 0
+---@field footballspeedy number?
+---**Checkpoints [IDs 400, 430]:**
+---
+---> Horizontal offset between player spawn location and the checkpoint.
+---
+---Default: /
+---@field spawnoffsetx number?
+---**Checkpoints [IDs 400, 430]:**
+---
+---> Vertical offset between player spawn location and the checkpoint.
+---
+---Default: /
+---@field spawnoffsety number?
+---**Cherries [ID 558]:**
+---
+---> ID of the star to spawn when all cherries are collected.
+---
+---Default: /
+---@field starid number?
+---**Clawgrip [ID 608]:**
+---
+---> Interval in frames in which Clawgrip checks for anything grabbable in its range.
+---
+---Default: 45
+---@field grabCheckTime number?
+---**Clawgrip [ID 608]:**
+---
+---> Duration of the picking animation.
+---
+---Default: 32
+---@field picktime number?
+---**Clawgrip [ID 608]:**
+---
+---> Duration of the holding animation.
+---
+---**Spike (SMM), Snow Spike [IDs 640, 642, 644, 646]:**
+---
+---> Ticks spent holding the ball before throwing it.
+---
+---Default: 32
+---@field holdtime number?
+---**Clawgrip [ID 608]:**
+---
+---> Duration of the lifting animation.
+---
+---**Hiding Lakitu only [ID 710]:**
+---
+---> Ticks spent ready before throwing.
+---
+---Default: 32
+---@field readytime number?
+---**Clawgrip [ID 608]:**
+---
+---> Duration of the hurt effect.
+---
+---Default: 64
+---@field hurttime number?
+---**Clawgrip [ID 608]:**
+---
+---> ID of the grab sound.
+---
+---Default: 23
+---@field grabsfx number?
+---**Clawgrip [ID 608]:**
+---
+---> ID of the throw sound.
+---
+---**Hiding Lakitu only [ID 710]:**
+---
+---> ID of the sound to play when throwing.
+---
+---**Spike (SMM), Snow Spike [IDs 640, 642, 644, 646]:**
+---
+---> SFX to play after throwing the spike ball.
+---
+---Default: 25
+---@field throwsfx number?
+---**Clawgrip [ID 608]:**
+---
+---> List of randomly selectable x-speeds to apply to the thrown object.
+---
+---Default: [6.5]
+---@field throwspeedxs table of number?
+---**Clawgrip [ID 608]:**
+---
+---> List of randomly selectable y-speeds to apply to the thrown object.
+---
+---Default: [-7, -1.5]
+---@field throwspeedys table of number?
+---**Clawgrip's Boulder [ID 609]:**
+---
+---> How much wider the vase is than the NPC inside.
+---
+---Default: 14
+---@field spriteleftwidth number?
+---Default: 14
+---@field spriterightwidth number?
+---**Clawgrip's Boulder [ID 609]:**
+---
+---> Height of the contained NPC.
+---
+---Default: 38
+---@field containedheight number?
+---**Clawgrip's Boulder [ID 609]:**
+---
+---> Y-Offset of the contained NPC sprite.
+---
+---Default: -10
+---@field containedyoffset number?
+---**Clawgrip's Boulder [ID 609]:**
+---
+---> How many pixels on the left edge of the contained NPC spritesheet don't get rendered.
+---
+---Default: 2
+---@field containedleftcutoff number?
+---**Clawgrip's Boulder [ID 609]:**
+---
+---> How many pixels on the right edge of the contained NPC spritesheet don't get rendered.
+---
+---Default: 2
+---@field containedrightcutoff number?
+---**Clear Vase [ID 700]:**
+---
+---> Ticks spent waiting in a clear pipe cannon before being ejected.
+---
+---**Clear pipe NPCs (any NPC in a clear pipe) [ID 468]:**
+---
+---> Ticks spent waiting in a clear pipe cannon before being ejected.
+---
+---Default: 32
+---@field cannontime number?
+---**Cloud Drops [ID 463, 464]:**
+---
+---> Whether the cloud drop moves horizontally.
+---
+---**Skewers [IDs 423, 424]:**
+---
+---> If true, the NPC is sideways.
+---
+---**Thwomps [IDs 295, 432, 435, 437]:**
+---
+---> If true, the NPC moves horizontally instead of vertically.
+---
+---Default: /
+---@field horizontal boolean?
+---**Cobrat [IDs 371, 372, 373]:**
+---
+---> ID of the NPC to transform into.
+---
+---**Flying Dry Bones [IDs 388, 417]:**
+---
+---> ID of the NPC to transform into when bonked.
+---
+---**Spiny Egg (SMB1) [ID 611]:**
+---
+---> ID to transform into upon touching the ground.
+---
+---Default: /
+---@field transformid number?
+---**Cobrat [IDs 371, 372, 373]:**
+---
+---> Whether to transform into transformid at the peak of its jump.
+---
+---Default: /
+---@field transformonjump boolean?
+---**Cobrat [IDs 371, 372, 373]:**
+---
+---> Vertical offset from the block the cobrat hides in.
+---
+---Default: /
+---@field hideoffset boolean?
+---**Cobrat [IDs 371, 372, 373]:**
+---
+---> The number of frames for the coin animation. The remaining (frames - coinframes) frames will be used for the block animation
+---
+---Default: 4
+---@field coinframes number?
+---**Cobrat [IDs 371, 372, 373]:**
+---
+---> The maximum number of coins to spawn before vanishing. Set to -1 for no limit.
+---
+---Default: 50
+---@field coinlimit number?
+---**Crate [IDs 433, 434]:**
+---
+---> Whether or not the crate should explode.
+---
+---Default: false
+---@field explosive boolean?
+---**Curry Nipper [IDs 709]:**
+---
+---> ID of the fire projectile when held by a player.
+---
+---Default: 13
+---@field playerprojectileid number?
+---**Curry Nipper [IDs 709]:**
+---
+---> Sound that plays when a projectile is spit.
+---
+---**Jumping Piranha Plant [IDs 518, 519]:**
+---
+---> ID of the sound to play. 0 disables sound.
+---
+---**Piranha Plants [IDs 512, 513, 514, 515, 521, 522, 523, 524, 529, 701, 702, 703]:**
+---
+---> ID of the sound to play. 0 disables sound.
+---
+---**Salsa Nipper [IDs 708]:**
+---
+---> Sound that plays when a projectile is spit.
+---
+---**Venus Fire Trap [IDs 516, 517]:**
+---
+---> Sound ID of the sound to play when shooting. 0 disables sound.
+---
+---Default: 18
+---@field firesound number?
+---**Curry Nipper [IDs 709]:**
+---
+---> Number of animation frames for spitting. Remainder of "frames" defines number of idle frames.
+---
+---**Egg Plant, Egg-ry Plant [IDs 627, 628]:**
+---
+---> Subset of the frames config dedicated to spitting.
+---
+---Default: 2
+---@field spitframes number?
+---**Curry Nipper [IDs 709]:**
+---
+---> Framespeed when spitting fire.
+---
+---Default: 6
+---@field spitframespeed number?
+---**Dino Rhino [ID 383]:**
+---
+---> ID to turn into when bounced on.
+---
+---Default: /
+---@field dinotorchid number?
+---**Dino Rhino [ID 383]:**
+---
+---> Ticks between direction changes based on closest player's coordinates.
+---
+---**Dino Torch [ID 382]:**
+---
+---> Ticks between direction changes based on closest player's coordinates.
+---
+---Default: 40
+---@field turninterval number?
+---**Dino Torch [ID 382]:**
+---
+---> ID of the horizontal fire.
+---
+---Default: /
+---@field horzflamenpc number?
+---**Dino Torch [ID 382]:**
+---
+---> ID of the vertical fire.
+---
+---Default: /
+---@field vertflamenpc number?
+---**Dino Torch [ID 382]:**
+---
+---> Ticks spent roaming before shooting fire.
+---
+---Default: 240
+---@field roamtime number?
+---**Dino Torch Fire [IDs 384, 385]:**
+---
+---> Sets of animation cycles used by the fire. Fire is harmful on the final frameset
+---
+---Default: /
+---@field framesets number?
+---**Dino Torch Fire [IDs 384, 385]:**
+---
+---> The total duration of the fire's lifetime. The speed of the extend/retract animation tries to adhere to the framespeed value, but might speed up for short durations if it would otherwise never have the time to fully extend.
+---
+---**Starman [IDs 293, 538, 559]:**
+---
+---> Duration of the invincibility effect in seconds.
+---
+---Default: /
+---@field duration number?
+---**Donut Blocks [IDs 591, 592, 714, 715, 716, 717]:**
+---
+---> Ticks before falling when stood on.
+---
+---Default: 30
+---@field time number?
+---**Donut Blocks [IDs 591, 592, 714, 715, 716, 717]:**
+---
+---> Maximum falling speed.
+---
+---**Fire Chomp, Spiky Fire Chomp [ID 704, 707]:**
+---
+---> Maximum movement speed.
+---
+---**Icicles [IDs 541, 542, 543]:**
+---
+---> Maximum falling speed.
+---
+---**Ptooie Ball [ID 376]:**
+---
+---> Maximum movement speed while hovering.
+---
+---**Spike Ball (SMM), Spike Snowball [IDs 641, 643, 645, 647]:**
+---
+---> Maximum movement speed of the NPC.
+---
+---**Twister [ID 655]:**
+---
+---> Maximum speed for players and npcs in the tornado.
+---
+---Default: 4.5
+---@field maxspeed number?
+---**Donut Blocks [IDs 591, 592, 714, 715, 716, 717]:**
+---
+---> Seconds between despawn and respawn. Negative values prevent respawn.
+---
+---**Launch Barrel [IDs 600, 601, 602, 603]:**
+---
+---> Ticks after being shot out before a recently used barrel can be re-entered.
+---
+---**Rocky Wrench [ID 395]:**
+---
+---> Ticks between throwing a wrench and hiding.
+---
+---**Thwomps [IDs 295, 432, 435, 437]:**
+---
+---> Ticks the Thwomp stays still after slamming.
+---
+---Default: 5
+---@field cooldown number?
+---**Egg Plant, Egg-ry Plant [IDs 627, 628]:**
+---
+---> Vertical offset of the spawned NPC.
+---
+---Default: 0
+---@field spitoffset number?
+---**Egg Plant, Egg-ry Plant [IDs 627, 628]:**
+---
+---> Default contained NPC ID.
+---
+---**Lineguided Cannons [IDs 535, 536]:**
+---
+---> ID of the default contained NPC.
+---
+---Default: 96
+---@field containednpc number?
+---**Enemy Fireball [ID 390]:**
+---
+---> Number of bounces before disappearing.
+---
+---Default: 3
+---@field bounces number?
+---**Enemy Fireball [ID 390]:**
+---
+---> Turn around when hitting NPCs.
+---
+---**Fliprus Snowball [ID 540]:**
+---
+---> Turn around when hitting NPCs.
+---
+---Default: false
+---@field turnfromnpcs boolean?
+---**Falling Platform [ID 367]:**
+---
+---> Ticks before fast fall begins.
+---
+---Default: 25
+---@field falldelay number?
+---**Falling Platform [ID 367]:**
+---
+---> Fall speed during initial slow fall.
+---
+---Default: 0.5
+---@field delayspeed number?
+---**Fire Bro [ID 389]:**
+---
+---> ID of the projectile fired when held by the player.
+---
+---Default: 13
+---@field friendlyprojectileid number?
+---**Fire Bro [ID 389]:**
+---
+---> Random range of the jump height.
+---
+---Default: 4
+---@field lowjumpheight number?
+---Default: 6
+---@field highjumpheight number?
+---**Fire Bro [ID 389]:**
+---
+---> Random time between jumps.
+---
+---Default: 65
+---@field jumptimemin number?
+---Default: 85
+---@field jumptimemax number?
+---**Fire Bro [ID 389]:**
+---
+---> Random delay between shots.
+---
+---Default: 135
+---@field shoottimemin number?
+---Default: 180
+---@field shoottimemax number?
+---**Fire Bro [ID 389]:**
+---
+---> Time spent walking before turning around.
+---
+---**Waddle Doo [ID 472]:**
+---
+---> Ticks spent walking before firing a beam.
+---
+---Default: 60
+---@field walktime number?
+---**Fire Bro [ID 389]:**
+---
+---> Horizontal speed of fired projectiles.
+---
+---**Pansers [IDs 345, 346, 347]:**
+---
+---> Initial X-Speed of the spawned NPC.
+---
+---Default: 3.5
+---@field shotspeedx number?
+---**Fire Bro [ID 389]:**
+---
+---> multiplier for the shoot time when held by a NPC.
+---
+---Default: 0.75
+---@field npcheldfirerate number?
+---**Fire Snake [ID 307]:**
+---
+---> ID of the tail NPC.
+---
+---**Fire Chomp, Spiky Fire Chomp [ID 704, 707]:**
+---
+---> ID of the tail NPC.
+---
+---Default: 308
+---@field tailid number?
+---**Fire Chomp, Spiky Fire Chomp [ID 704, 707]:**
+---
+---> Ticks spent idly chasing players.
+---
+---**Hiding Lakitu only [ID 710]:**
+---
+---> Ticks spent hiding in the pipe.
+---
+---**Spike (SMM), Snow Spike [IDs 640, 642, 644, 646]:**
+---
+---> Ticks spent waiting before spawning a ball.
+---
+---Default: 150
+---@field idletime number?
+---**Fire Chomp, Spiky Fire Chomp [ID 704, 707]:**
+---
+---> Ticks leading up to the explosion.
+---
+---Default: 80
+---@field explodetime number?
+---**Fire Chomp, Spiky Fire Chomp [ID 704, 707]:**
+---
+---> Ticks spent shooting.
+---
+---Default: 32
+---@field shoottime number?
+---**Fire Chomp, Spiky Fire Chomp [ID 704, 707]:**
+---
+---> How many ticks into shoottime the projectile is fired.
+---
+---Default: 16
+---@field shootdelay number?
+---**Fire Chomp, Spiky Fire Chomp [ID 704, 707]:**
+---
+---> Number of animation frames used for shooting.
+---
+---Default: 2
+---@field shootframes number?
+---**Fire Chomp, Spiky Fire Chomp [ID 704, 707]:**
+---
+---> Number of animation frames used for exploding.
+---
+---Default: 2
+---@field explodeframes number?
+---**Fire Chomp, Spiky Fire Chomp [ID 704, 707]:**
+---
+---> Delay between tail pieces dying.
+---
+---Default: 1
+---@field taildeathdelay number?
+---**Fire Chomp, Spiky Fire Chomp [ID 704, 707]:**
+---
+---> Closeness.
+---
+---Default: How close the tail pieces are together
+---@field closeness number?
+---**Fire Chomp, Spiky Fire Chomp [ID 704, 707]:**
+---
+---> Movement acceleration during idle state.
+---
+---**Thwomps [IDs 295, 432, 435, 437]:**
+---
+---> Rate at which Thwomp accelerates. 0 instantly reaches slamspeed.
+---
+---**Torpedo Ted [ID 305]:**
+---
+---> Horizontal acceleration.
+---
+---Default: 0.0648
+---@field acceleration number?
+---**Fire Chomp, Spiky Fire Chomp [ID 704, 707]:**
+---
+---> Offset of the tail from the NPC's body.
+---
+---Default: 0
+---@field tailoffsetx number?
+---Default: 0
+---@field tailoffsety number?
+---**Fire Chomp, Spiky Fire Chomp [ID 704, 707]:**
+---
+---> ID of the tail's death effect.
+---
+---Default: 300
+---@field taileffectid number?
+---**Fire Chomp, Spiky Fire Chomp [ID 704, 707]:**
+---
+---> ID of the sound used for shooting.
+---
+---Default: 16
+---@field shootsound number?
+---**Flagpole [ID 394]:**
+---
+---> Whether to use player forced states.
+---
+---Default: true
+---@field useforcedstate boolean?
+---**Flagpole [ID 394]:**
+---
+---> Length of the pole.
+---
+---Default: 288 (9*32)
+---@field polelength number?
+---**Flagpole [ID 394]:**
+---
+---> Number of frames for the top of the pole
+---
+---Default: 1
+---@field poletopframes number?
+---**Flagpole [ID 394]:**
+---
+---> Number of frames for the middle of the pole.
+---
+---Default: 1
+---@field polemidframes number?
+---**Flagpole [ID 394]:**
+---
+---> Number of frames for the flag.
+---
+---Default: 4
+---@field flagframes number?
+---**Flagpole [ID 394]:**
+---
+---> Positional offset of the flag, measured from the top.
+---
+---Default: 16
+---@field flagoffsetx number?
+---Default: 0
+---@field flagoffsety number?
+---**Flagpole [ID 394]:**
+---
+---> Positional offset of the end of the flagpole animation, measured from the bottom.
+---
+---Default: 16
+---@field flagendoffsetx number?
+---Default: -32
+---@field flagendoffsety number?
+---**Flagpole [ID 394]:**
+---
+---> Sound played when the flagpole animation begins.
+---
+---Default: extended/flagpole
+---@field flagsfx string?
+---**Flagpole [ID 394]:**
+---
+---> Sound played when the player dismounts the flag.
+---
+---Default: extended/smb1-course-clear
+---@field endsfx string?
+---**Fliprus [ID 539]:**
+---
+---> Next batch of frames of the total "frames" set.
+---
+---Default: 2
+---@field attackframes number?
+---**Fliprus [ID 539]:**
+---
+---> Last batch of frames of the total "frames" set.
+---
+---Default: 4
+---@field flipframes number?
+---**Flutter [ID 613]:**
+---
+---> Movement speed of the angry flutter.
+---
+---Default: 4.8
+---@field chargespeed number?
+---**Flutter [ID 613]:**
+---
+---> Ticks it takes for a full flight sine wave to complete.
+---
+---Default: /
+---@field flightperiod number?
+---**Flutter [ID 613]:**
+---
+---> Deceleration while stunned.
+---
+---Default: /
+---@field stundecel number?
+---**Flutter [ID 613]:**
+---
+---> Minimum speed value before speed gets set to 0 when stunned.
+---
+---Default: /
+---@field zerospthreshold number?
+---**Flying Dry Bones [IDs 388, 417]:**
+---
+---> ID of the sound effect played when bonked.
+---
+---Default: /
+---@field playsound number?
+---**Flying Dry Bones [IDs 388, 417]:**
+---
+---> Ticks of recovery after being bonked for the first time.
+---
+---Default: /
+---@field recovery number?
+---**Foo [ID 401]:**
+---
+---> Number of animation frames per direction used for blowing. The rest are used for the idle animation.
+---
+---Default: /
+---@field blowframes number?
+---**Foo [ID 401]:**
+---
+---> Only settable through lua. Sets the ticks the NPC spends on its states.
+---
+---Default: {128, 230}
+---@field statetimers table?
+---**Football [ID 321]:**
+---
+---> Bounce force for the low height.
+---
+---Default: 4.5
+---@field lowheight number?
+---**Football [ID 321]:**
+---
+---> Bounce force for the medium height.
+---
+---Default: 6
+---@field mediumheight number?
+---**Football [ID 321]:**
+---
+---> Bounce force for the max height.
+---
+---Default: 9.5
+---@field highheight number?
+---**Frightlight [ID 572]:**
+---
+---> Ticks spent hidden.
+---
+---Default: 32
+---@field hideframes number?
+---**Frightlight [ID 572]:**
+---
+---> Ticks spent hidden when respawning.
+---
+---Default: 160
+---@field hiderespawnframes number?
+---**Frightlight [ID 572]:**
+---
+---> Ticks spent invisible.
+---
+---Default: 128
+---@field invisibleframes number?
+---**Fuzzy (YI) [ID 420]:**
+---
+---> Number of seconds the dizzy effect lasts. Negative = infinite.
+---
+---Default: /
+---@field dizzytime number?
+---**Fuzzy (YI) [ID 420]:**
+---
+---> Strength of the dizzy effect.
+---
+---Default: /
+---@field dizzystrength number?
+---**Fuzzy (YI) [ID 420]:**
+---
+---> Number of seconds it takes for the dizzy effect to start and end.
+---
+---Default: /
+---@field dizzytransitiontime number?
+---**Grafs [IDs 42, 492, 493]:**
+---
+---> Whether to force Grafs to stay spawned forever.
+---
+---Default: false
+---@field forcespawn boolean?
+---**Grafs [IDs 42, 492, 493]:**
+---
+---> If true, Graf position is set directly, bypassing speedX and speedY.
+---
+---Default: true
+---@field setpos boolean?
+---**Grafs [IDs 42, 492, 493]:**
+---
+---> If true, the Graf's coordinate system is relative to the NPC's spawn location, rather than the origin of the scene.
+---
+---Default: true
+---@field relativecoords boolean?
+---**Grafs [IDs 42, 492, 493]:**
+---
+---> If true, the Graf's coordinates are measured in blocks, rather than pixels.
+---
+---Default: true
+---@field blocks boolean?
+---**Grafs [IDs 42, 492, 493]:**
+---
+---> If true, the Graf's time scale uses seconds rather than ticks.
+---
+---Default: true
+---@field seconds boolean?
+---**Grafs [IDs 42, 492, 493]:**
+---
+---> If true, the Y-Axis on the Graf's coordinate system is mirrored.
+---
+---Default: true
+---@field invert boolean?
+---**Grafs [IDs 42, 492, 493]:**
+---
+---> If true, total time since the level started is used for the Graf's math equations, rather than the time since the NPC's spawn.
+---
+---Default: false
+---@field absolutetime boolean?
+---**Grafs [IDs 42, 492, 493]:**
+---
+---> Whether or not the input string is parametric.
+---
+---Default: true
+---@field parametric boolean?
+---**Grafs [IDs 42, 492, 493]:**
+---
+---> Whether or not to spawn a ribbon trail while moving.
+---
+---Default: false
+---@field ribbon boolean?
+---**Goal Tape, Goal Orb [IDs 353, 354]:**
+---
+---> Movement speed of the NPC.
+---
+---**Piranha Plants [IDs 512, 513, 514, 515, 521, 522, 523, 524, 529, 701, 702, 703]:**
+---
+---> Speed when going in or coming out of the pipe.
+---
+---**Venus Fire Trap [IDs 516, 517]:**
+---
+---> Speed when going in or coming out of the pipe.
+---
+---Default: 2
+---@field movementspeed number?
+---**Goal Tape, Goal Orb [IDs 353, 354]:**
+---
+---> Required type of collision for the exit to count. 0 is like SMM, 1 like SMM2 and 2 like SMW
+---
+---Default: /
+---@field requiredcollisiontype number?
+---**Goal Tape, Goal Orb [IDs 353, 354]:**
+---
+---> Whether to do the darken effect.
+---
+---Default: true
+---@field dodarken boolean?
+---**Goal Tape, Goal Orb [IDs 353, 354]:**
+---
+---> Whether to do the iris out transition.
+---
+---Default: /
+---@field doirisout boolean?
+---**Goal Tape, Goal Orb [IDs 353, 354]:**
+---
+---> Whether to pause the game during the ending sequence.
+---
+---Default: /
+---@field pausegame boolean?
+---**Goal Tape, Goal Orb [IDs 353, 354]:**
+---
+---> True if this is a goal orb.
+---
+---Default: /
+---@field isorb boolean?
+---**Goal Tape, Goal Orb [IDs 353, 354]:**
+---
+---> The frame on which the pose is done.
+---
+---Default: 464
+---@field posetime number?
+---**Goal Tape, Goal Orb [IDs 353, 354]:**
+---
+---> The frame on which the iris out starts.
+---
+---Default: 560 (600 for orb)
+---@field startexittime number?
+---**Goal Tape, Goal Orb [IDs 353, 354]:**
+---
+---> If true, the player will use a victory pose if applicable.
+---
+---Default: true
+---@field usevictoryposes boolean?
+---**Goal Tape, Goal Orb [IDs 353, 354]:**
+---
+---> Sound that plays when collecting tehe tape.
+---
+---Default: goalTape_main.ogg (goalTape_orb.ogg for orb)
+---@field mainsfx string?
+---**Goal Tape, Goal Orb [IDs 353, 354]:**
+---
+---> Sound that plays when the iris out happens.
+---
+---Default: goalTape_irisOut.ogg
+---@field irisoutsfx string?
+---**Goal Tape, Goal Orb [IDs 353, 354]:**
+---
+---> Whether to transform held NPCs.
+---
+---Default: /
+---@field heldnpctransform boolean?
+---**Goal Tape, Goal Orb [IDs 353, 354]:**
+---
+---> Whether to display the character's name.
+---
+---Default: true
+---@field displaycharactername boolean?
+---**Goal Tape, Goal Orb [IDs 353, 354]:**
+---
+---> Whether to display the text "course clear".
+---
+---Default: true
+---@field displaycourseclear boolean?
+---**Goal Tape, Goal Orb [IDs 353, 354]:**
+---
+---> Whether to do a countdown for the timer, if applicable.
+---
+---Default: true
+---@field dotimercountdown boolean?
+---**Goal Tape, Goal Orb [IDs 353, 354]:**
+---
+---> The win type to use.
+---
+---Default: 8 (LEVEL_WIN_TYPE_TAPE) (11 for orb (LEVEL_WIN_TYPE_SMWORB))
+---@field wintype number?
+---**Goal Tape, Goal Orb [IDs 353, 354]:**
+---
+---> How many points each timer second is worth.
+---
+---Default: 50
+---@field timerscoremultiplier number?
+---**Goal Tape, Goal Orb [IDs 353, 354]:**
+---
+---> How many frames it takes to count down the timer.
+---
+---Default: 128
+---@field timercountdownspeed number?
+---**Goal Tape, Goal Orb [IDs 353, 354]:**
+---
+---> SFX for the timer countdown.
+---
+---Default: goalTape_countdown_start.wav
+---@field countdownstartsfx string?
+---**Goal Tape, Goal Orb [IDs 353, 354]:**
+---
+---> SFX for the timer countdown.
+---
+---Default: goalTape_countdown_start.wav
+---@field countdownloopsfx string?
+---**Goal Tape, Goal Orb [IDs 353, 354]:**
+---
+---> SFX for the timer countdown.
+---
+---Default: goalTape_countdown_start.wav
+---@field countdownendsfx string?
+---**Grrrols [IDs 531, 532]:**
+---
+---> Whether or not the NPC is able to destroy blocks.
+---
+---Default: true
+---@field destroyblocks boolean?
+---**Grrrols [IDs 531, 532]:**
+---
+---> Horizontal offset of the eyes relative to the center of the sprite.
+---
+---Default: /
+---@field eyeoffsetx number?
+---**Grrrols [IDs 531, 532]:**
+---
+---> Vertical offset of the eyes relative to the center of the sprite.
+---
+---Default: /
+---@field eyeoffsety number?
+---**Grrrols [IDs 531, 532]:**
+---
+---> Determines the strength of Grrrols relative to one another. Grrrols with higher strength can kill Grrrols with lower strength.
+---
+---Default: 0
+---@field grrrolstrength number?
+---**Hatters [IDs 562, 563]:**
+---
+---> Number of animation frames per direction used by the bonking state. The rest is used for walking.
+---
+---Default: /
+---@field bonkedframes number?
+---**Hatters [IDs 562, 563]:**
+---
+---> Duration of the bonk effect.
+---
+---Default: /
+---@field bonktime number?
+---**Hatters [IDs 562, 563]:**
+---
+---> Duration of the waking up animation.
+---
+---Default: /
+---@field waketime number?
+---**Hiding Lakitu only [ID 710]:**
+---
+---> Ticks spent looking left and right.
+---
+---Default: 64
+---@field watchtime number?
+---**Hiding Lakitu only [ID 710]:**
+---
+---> How far out of the pipe the lakitu is when watching.
+---
+---Default: 20
+---@field watchheight number?
+---**Hiding Lakitu only [ID 710]:**
+---
+---> Vertical speed when emerging from/submerging back into the pipe.
+---
+---Default: 1
+---@field raisespeed number?
+---Default: 1.5
+---@field lowerspeed number?
+---**Hiding Lakitu only [ID 710]:**
+---
+---> Speed of the thrown NPC.
+---
+---**Spike (SMM), Snow Spike [IDs 640, 642, 644, 646]:**
+---
+---> Speed of the thrown spike ball.
+---
+---Default: 1.5
+---@field throwxspeed number?
+---Default: -5
+---@field throwyspeed number?
+---**Hiding Lakitu only [ID 710]:**
+---
+---> Whether or not the NPC's hitbox and graphics change size when moving.
+---
+---**Piranha Plants [IDs 512, 513, 514, 515, 521, 522, 523, 524, 529, 701, 702, 703]:**
+---
+---> Whether or not the NPC's hitbox and graphics change size when moving.
+---
+---**Venus Fire Trap [IDs 516, 517]:**
+---
+---> Whether or not the NPC's hitbox and graphics change size when moving.
+---
+---Default: true
+---@field changesize boolean?
+---**Hiding Lakitu only [ID 710]:**
+---
+---> If true, the NPC is friendly when fully retracted.
+---
+---**Piranha Plants [IDs 512, 513, 514, 515, 521, 522, 523, 524, 529, 701, 702, 703]:**
+---
+---> If true, the NPC is friendly when fully retracted.
+---
+---**Venus Fire Trap [IDs 516, 517]:**
+---
+---> If true, the NPC is friendly when fully retracted.
+---
+---Default: true
+---@field becomefriendly boolean?
+---**Hiding Lakitu only [ID 710]:**
+---
+---> Minimum distance from the player to be able to start rising.
+---
+---Default: 48
+---@field minplayerdistance number?
+---**Hiding Lakitu only [ID 710]:**
+---
+---> Default ID of the projectile.
+---
+---Default: 286
+---@field defaultthrowid number?
+---**Hiding Lakitu only [ID 710]:**
+---
+---> Number of frames used for throwing.
+---
+---Default: 1
+---@field throwframes number?
+---**Hiding Lakitu only [ID 710]:**
+---
+---> Framespeed for the throw animation.
+---
+---Default: 8
+---@field throwframespeed number?
+---**Icicles [IDs 541, 542, 543]:**
+---
+---> Time before a shattered icicle respawns.
+---
+---Default: 120
+---@field respawntimer number?
+---**Icicles [IDs 541, 542, 543]:**
+---
+---> Time waiting before falling.
+---
+---**Thwimp [ID 301]:**
+---
+---> Ticks between bounces.
+---
+---Default: 32
+---@field waittime number?
+---**Icicles [IDs 541, 542, 543]:**
+---
+---> Duration of the respawn animation.
+---
+---**Number Platform (YI) [ID 340]:**
+---
+---> Ticks before the number platform respawns if the disappeartype lets it respawn
+---
+---Default: 24
+---@field respawnduration number?
+---**Icicles [IDs 541, 542, 543]:**
+---
+---> Distance from the player at which the icicle starts shaking.
+---
+---Default: 96
+---@field shakedistance number?
+---**Icicles [IDs 541, 542, 543]:**
+---
+---> Frequency of the shake sine wave.
+---
+---Default: 0.4
+---@field shakespeed number?
+---**Icicles [IDs 541, 542, 543]:**
+---
+---> Amplitude of the shake sine wave.
+---
+---Default: 3
+---@field shakestrength number?
+---**Icicles [IDs 541, 542, 543]:**
+---
+---> Distance from the player at which the icicle starts falling.
+---
+---Default: 64
+---@field falldistance number?
+---**Icicles [IDs 541, 542, 543]:**
+---
+---> ID of the drip effect.
+---
+---Default: 297
+---@field dripeffectid number?
+---**Icicles [IDs 541, 542, 543]:**
+---
+---> Sound that plays when falling.
+---
+---Default: extended/icicle_fall
+---@field fallsound string?
+---**Icicles [IDs 541, 542, 543]:**
+---
+---> Sound that plays when breaking.
+---
+---Default: extended/icicle_break
+---@field breaksound string?
+---**Jumping Piranha Plant [IDs 518, 519]:**
+---
+---> Speed when starting a jump.
+---
+---Default: -6
+---@field jumpstartspeed number?
+---**Jumping Piranha Plant [IDs 518, 519]:**
+---
+---> Gravity when moving upwards.
+---
+---Default: 0.1
+---@field jumprisinggravity number?
+---**Jumping Piranha Plant [IDs 518, 519]:**
+---
+---> Gravity when moving downwards.
+---
+---Default: 0.01
+---@field jumpfallinggravity number?
+---**Jumping Piranha Plant [IDs 518, 519]:**
+---
+---> Terminal velocity of the NPC when falling.
+---
+---Default: 1
+---@field jumpMaxSpeed number?
+---**Jumping Piranha Plant [IDs 518, 519]:**
+---
+---> Ticks spent hiding in the pipe.
+---
+---**Piranha Plants [IDs 512, 513, 514, 515, 521, 522, 523, 524, 529, 701, 702, 703]:**
+---
+---> Ticks spent hiding in the pipe.
+---
+---**Venus Fire Trap [IDs 516, 517]:**
+---
+---> Ticks spent hiding in the pipe.
+---
+---Default: 50
+---@field hidetime number?
+---**Jumping Piranha Plant [IDs 518, 519]:**
+---
+---> Ticks spent idling while out of the pipe.
+---
+---**Piranha Plants [IDs 512, 513, 514, 515, 521, 522, 523, 524, 529, 701, 702, 703]:**
+---
+---> Ticks spent idling while out of the pipe.
+---
+---**Venus Fire Trap [IDs 516, 517]:**
+---
+---> Ticks spent idling while out of the pipe.
+---
+---**Water Leaper (Trouter, Podoboo, Dolphin) [IDs 350, 459, 460, 461, 589, 590]:**
+---
+---> Ticks spent idling between jumps.
+---
+---Default: 3
+---@field resttime number?
+---**Jumping Piranha Plant [IDs 518, 519]:**
+---
+---> If true, the plant moves horizontally
+---**Piranha Plants [IDs 512, 513, 514, 515, 521, 522, 523, 524, 529, 701, 702, 703]:**
+---
+---> If true, the plant moves horizontally
+---**Venus Fire Trap [IDs 516, 517]:**
+---
+---> If true, the plant moves horizontally
+---
+---Default: false
+---@field ishorizontal boolean?
+---**Jumping Piranha Plant [IDs 518, 519]:**
+---
+---> Whether or not the NPC acts as a jumping piranha plant.
+---
+---Default: true
+---@field isjumping boolean?
+---**Jumping Piranha Plant [IDs 518, 519]:**
+---
+---> Default ID of the projectile.
+---
+---**Piranha Plants [IDs 512, 513, 514, 515, 521, 522, 523, 524, 529, 701, 702, 703]:**
+---
+---> Default ID of the projectile.
+---
+---**Venus Fire Trap [IDs 516, 517]:**
+---
+---> ID of the fireball.
+---
+---Default: 527
+---@field defaultfireid number?
+---**Jumping Piranha Plant [IDs 518, 519]:**
+---
+---> Number of animation frames used for shooting
+---**Piranha Plants [IDs 512, 513, 514, 515, 521, 522, 523, 524, 529, 701, 702, 703]:**
+---
+---> Number of animation frames used for shooting
+---
+---Default: 2
+---@field firespitframes number?
+---**Jumping Piranha Plant [IDs 518, 519]:**
+---
+---> Framespeed used for shooting
+---**Piranha Plants [IDs 512, 513, 514, 515, 521, 522, 523, 524, 529, 701, 702, 703]:**
+---
+---> Framespeed used for shooting
+---
+---Default: 4
+---@field firespitframespeed number?
+---**King Bill [IDs 428, 429]:**
+---
+---> Base movement speed along its axis of travel.
+---
+---**Snake Block [ID 344]:**
+---
+---> Speed of the Snake Block (preferred over vanilla speed flag)
+---
+---Default: 5
+---@field basespeed number?
+---**King Bill [IDs 428, 429]:**
+---
+---> Whether blocks like ?-Blocks and Cement Blocks can be broken.
+---
+---Default: true
+---@field breaksturdy boolean?
+---**King Bill [IDs 428, 429]:**
+---
+---> Whether to travel along the vertical axis. False means the horizontal axis is used.
+---
+---Default: false
+---@field vertical boolean?
+---**King Bill [IDs 428, 429]:**
+---
+---> ID of the death effect.
+---
+---**Small Switches [IDs 451, 452, 453, 454, 606, 607]:**
+---
+---> ID of the effect spawned when stepped on.
+---
+---**Water Leaper (Trouter, Podoboo, Dolphin) [IDs 350, 459, 460, 461, 589, 590]:**
+---
+---> Effect IDspawned when entering or exiting a terminator.
+---
+---Default: /
+---@field effect number?
+---**Lakitu (SMB1) [ID 610]:**
+---
+---> How many ticks the throwing animation takes.
+---
+---Default: 25
+---@field animationlength number?
+---**Lakitu (SMB1) [ID 610]:**
+---
+---> Horizontal offset of the NPC relative to the position to home in on.
+---
+---Default: 0
+---@field centeroffset number?
+---**Lakitu (SMB1) [ID 610]:**
+---
+---> Maximum horizontal speed.
+---
+---Default: 8
+---@field xspmax number?
+---**Lakitu (SMB1) [ID 610]:**
+---
+---> Acceleration multiplier based on distance.
+---
+---Default: 0.005
+---@field distaccelfactor number?
+---**Lakitu (SMB1) [ID 610]:**
+---
+---> Horizontal speed of the spawned NPC.
+---
+---Default: 2
+---@field eggxsp number?
+---**Lakitu (SMB1) [ID 610]:**
+---
+---> Vertical speed of the spawned NPC.
+---
+---Default: 7
+---@field eggysp number?
+---**Lakitu (SMB1) [ID 610]:**
+---
+---> Whether spawned NPCs should inherit the friendly config from the Lakitu.
+---
+---**Lakitu (SMB3, SMW) [IDs 47, 284]:**
+---
+---> Whether spawned NPCs should inherit the friendly config from the Lakitu.
+---
+---Default: false
+---@field inheritfriendly boolean?
+---**Lakitu Shop Post [ID 711]:**
+---
+---> ID of the Lakitu NPC to spawn.
+---
+---Default: 712
+---@field lakaituid number?
+---**Launch Barrel [IDs 600, 601, 602, 603]:**
+---
+---> Number of ticks for which to apply the launch force. -1 means the player will fly until they hit an obstacle.
+---
+---Default: 65
+---@field launchtimer number?
+---**Launch Barrel [IDs 600, 601, 602, 603]:**
+---
+---> Whether or not to adjust speed to cancel out gravity.
+---
+---Default: true
+---@field correctgravity boolean?
+---**Lineguided Rope [ID 338]:**
+---
+---> Pixel height of the repeated segment of the sprite.
+---
+---Default: 32
+---@field mainlength number?
+---**Lineguided Rope [ID 338]:**
+---
+---> Pixel height of the ending segment of the sprite.
+---
+---Default: 32
+---@field endlength number?
+---**Lineguided Rope [ID 338]:**
+---
+---> Inset to prevent cutoff with the engine block NPC.
+---
+---Default: 4
+---@field extension number?
+---**Lineguided Rope [ID 338]:**
+---
+---> Whether or not players should be fixed to the center of the rope.
+---
+---Default: /
+---@field centerplayers boolean?
+---**Lineguided Rope [ID 338]:**
+---
+---> Whether engine blocks with attached ropes should activate without requiring the player to touch them.
+---
+---Default: false
+---@field activebydefault boolean?
+---**Lineguided Saws [IDs 533, 534]:**
+---
+---> Pixel height/width of the end segment of the sprite.
+---
+---Default: 16
+---@field toplength number?
+---**Lineguided Saws [IDs 533, 534]:**
+---
+---> Pixel height/width of the looping segment of the sprite.
+---
+---Default: 16
+---@field middlelength number?
+---**Lineguided Saws [IDs 533, 534]:**
+---
+---> Pixel height/width of the segment of the sprite that is attached to the engine block.
+---
+---Default: 30
+---@field baselength number?
+---**Magikoopa [ID 299]:**
+---
+---> Horizontal offset of the sparkles on the wand.
+---
+---Default: /
+---@field sparkleoffsetx number?
+---**Magikoopa [ID 299]:**
+---
+---> Vertical offset of the sparkles on the wand.
+---
+---Default: /
+---@field sparkleoffsety number?
+---**Magikoopa [ID 299]:**
+---
+---> Horizontal offset of the spawned magic npc.
+---
+---Default: /
+---@field magicoffsetx number?
+---**Magikoopa [ID 299]:**
+---
+---> Vertical offset of the spawned magic npc.
+---
+---Default: /
+---@field magicoffsety number?
+---**Magikoopa [ID 299]:**
+---
+---> Ticks before firing magic.
+---
+---Default: 48
+---@field premagictime number?
+---**Magikoopa [ID 299]:**
+---
+---> Ticks after firing magic.
+---
+---Default: 64
+---@field postmagictime number?
+---**Magikoopa [ID 299]:**
+---
+---> Duration of the fade-in animation in ticks.
+---
+---Default: 32
+---@field appeartime number?
+---**Magikoopa [ID 299]:**
+---
+---> Duration of the fade-out animation in ticks.
+---
+---Default: 16
+---@field disappeartime number?
+---**Magikoopa [ID 299]:**
+---
+---> Time spent invisible between appearances in ticks.
+---
+---Default: 128
+---@field hiddentime number?
+---**Magikoopa [ID 299]:**
+---
+---> Time spent invisible after getting killed if set to respawn in ticks.
+---
+---Default: 256
+---@field respawntime number?
+---**Magikoopa [ID 299]:**
+---
+---> ID of the NPC spawned.
+---
+---Default: 300
+---@field magic number?
+---**Magikoopa [ID 299]:**
+---
+---> First left-facing frame of the sprite sheet animation.
+---
+---Default: /
+---@field minframeleft number?
+---**Magikoopa [ID 299]:**
+---
+---> Last left-facing frame of the sprite sheet animation.
+---
+---Default: /
+---@field maxframeleft number?
+---**Magikoopa [ID 299]:**
+---
+---> First right-facing frame of the sprite sheet animation.
+---
+---Default: /
+---@field minframeright number?
+---**Magikoopa [ID 299]:**
+---
+---> Last right-facing frame of the sprite sheet animation.
+---
+---Default: /
+---@field maxframeright number?
+---**Magikoopa Magic [ID 300]:**
+---
+---> Velocity at which the NPC moves.
+---
+---Default: 3
+---@field movespeed number?
+---**Magikoopa Magic [ID 300]:**
+---
+---> NPC IDs that turn blocks can be transformed into.
+---
+---Default: [54, 112, 33, 185, 301, 165]
+---@field transformations table?
+---**Magikoopa Magic [ID 300]:**
+---
+---> Blocks that can be transformed into magic.
+---
+---Default: [96]
+---@field blocktargets table?
+---**Magikoopa Magic [ID 300]:**
+---
+---> Path to the sound file to play on spawn.
+---
+---**Water Leaper (Trouter, Podoboo, Dolphin) [IDs 350, 459, 460, 461, 589, 590]:**
+---
+---> Sound played when entering or exiting a terminator.
+---
+---Default: magikoopa-magic
+---@field sound table?
+---**Math (Countdown) Platform [ID 387]:**
+---
+---> Default lifetime in seconds.
+---
+---Default: 4
+---@field default number?
+---**Math (Countdown) Platform [ID 387]:**
+---
+---> Ticks between countdowns.
+---
+---Default: 60
+---@field second number?
+---**Mechakoopa [ID 368]:**
+---
+---> ID of the NPC after getting stunned.
+---
+---Default: 369
+---@field stunid number?
+---**Mechakoopa [ID 369]:**
+---
+---> ID of the NPC after getting back up.
+---
+---Default: 368
+---@field recoverid number?
+---**Megashroom [ID 425]:**
+---
+---> Animation frames in the bounce animation.
+---
+---Default: 3
+---@field bounceanims number?
+---**Megashroom [ID 425]:**
+---
+---> If true, valueable powerups will be retained across the mega state.
+---
+---Default: false
+---@field keeppower boolean?
+---**Minigame Cloud [ID 410]:**
+---
+---> Total number of items thrown.
+---
+---Default: 10
+---@field thrown number?
+---**Monty Mole [ID 309]:**
+---
+---> Whether or not the Mole leaves behind a permanent hole.
+---
+---Default: true
+---@field keephole boolean?
+---**Monty Mole [ID 309]:**
+---
+---> ID of the hole BGO to spawn.
+---
+---Default: /
+---@field holeid number?
+---**Mutant Vine Head [IDs 553, 555]:**
+---
+---> Index of the Player that controls the head. false means redirectors control it.
+---
+---Default: false
+---@field playercontrolled boolean?
+---**Mutant Vine Head [IDs 553, 555]:**
+---
+---> Whether or not the vine is able to eat .
+---
+---Default: false
+---@field eatsblocks boolean?
+---**Mutant Vine Head [IDs 553, 555]:**
+---
+---> ID of the regular vine to spawn.
+---
+---Default: /
+---@field vineid number?
+---**Mutant Vine Head [IDs 553, 555]:**
+---
+---> ID of the thorned vine to spawn.
+---
+---Default: /
+---@field thornedid number?
+---**Ninji (SMW Jumping) [ID 407]:**
+---
+---> List of bounces the Ninji performs.
+---
+---Default: [4.5, 4.5, 6.5, 8.5]
+---@field bounceheights table?
+---**Ninji (SMW Jumping) [ID 407]:**
+---
+---> The index of the first bounce in the cycle.
+---
+---Default: 3
+---@field startbounce number?
+---**Ninji (SMW Jumping) [ID 407]:**
+---
+---> Ticks of waiting between bounces.
+---
+---Default: 65
+---@field wait number?
+---**Number Platform (YI) [ID 340]:**
+---
+---> Number of frames on the spritesheet dedicated to numbers.
+---
+---Default: 10
+---@field numberframes number?
+---**Number Platform (YI) [ID 340]:**
+---
+---> Width of a number.
+---
+---Default: 32
+---@field numberwidth number?
+---**Number Platform (YI) [ID 340]:**
+---
+---> Preferred gap between digits in multi-digit numbers.
+---
+---Default: 20
+---@field numbergap number?
+---**Number Platform (YI) [ID 340]:**
+---
+---> Table of colors for the numbers. Must be set from lua, currently.
+---
+---Default: /
+---@field numbercolors table of Color?
+---**Number Platform (YI) [ID 340]:**
+---
+---> Speed of the contained NPC when it emerges.
+---
+---Default: 0
+---@field containednpcspeedx number?
+---Default: -6
+---@field containednpcspeedy number?
+---**Number Platform (YI) [ID 340]:**
+---
+---> Effect ID of the disappear effect.
+---
+---Default: 294
+---@field disappeareffect number?
+---**Number Platform (YI) [ID 340]:**
+---
+---> Default disapear type. 0 is despawn, 1 is die, 2 is respawn
+---
+---Default: 0
+---@field disappeartype number?
+---**Number Platform (YI) [ID 340]:**
+---
+---> Disappear type when spawned from a generator.
+---
+---Default: 1 (die)
+---@field spawneddisappeartype string?
+---**Number Platform (YI) [ID 340]:**
+---
+---> Path to the pressed sound
+---
+---Default: number-platform-pressed
+---@field pressedsound number?
+---**Number Platform (YI) [ID 340]:**
+---
+---> Path to the disappear sound
+---
+---Default: number-platform-disappear
+---@field disappearsound number?
+---**Number Platform (YI) [ID 340]:**
+---
+---> Path to the countdown sound
+---
+---Default: number-platform-countdown
+---@field countdownsound string?
+---**Number Platform (YI) [ID 340]:**
+---
+---> Path to the respawn sound
+---
+---Default: number-platform-disappear
+---@field respawnsound string?
+---**Paddlewheel [ID 421]:**
+---
+---> Maximum rotation speed.
+---
+---Default: 0.3
+---@field maxrotspeed number?
+---**Paddlewheel [ID 421]:**
+---
+---> Friction when rotating.
+---
+---Default: 0.01
+---@field resist number?
+---**Paddlewheel [ID 421]:**
+---
+---> ID of the platforms to spawn.
+---
+---Default: 422
+---@field platformid number?
+---**Paddlewheel [ID 421]:**
+---
+---> Speed multiplier while lineguides.
+---
+---Default: 5
+---@field linespeedmultiplier number?
+---**Paddlewheel [ID 421]:**
+---
+---> If true, the Paddlewheel will constantly rotate at maximum speed.
+---
+---Default: false
+---@field autorotate number?
+---**Paddlewheel [ID 421]:**
+---
+---> Width of the line.
+---
+---Default: 1
+---@field linewidth number?
+---**Paddlewheel [ID 421]:**
+---
+---> Color of the line.
+---
+---Default: white
+---@field linecolor Color?
+---**Pansers [IDs 345, 346, 347]:**
+---
+---> Horizontal movement speed.
+---
+---Default: /
+---@field speedx number?
+---**Pansers [IDs 345, 346, 347]:**
+---
+---> Initial Y-Speed of the spawned NPC.
+---
+---Default: /
+---@field shotspeedy number?
+---**Pansers [IDs 345, 346, 347]:**
+---
+---> Seconds between turning to face closest player.
+---
+---Default: /
+---@field turntime number?
+---**Pansers [IDs 345, 346, 347]:**
+---
+---> Ticks between volleys.
+---
+---Default: /
+---@field reloadtime number?
+---**Pansers [IDs 345, 346, 347]:**
+---
+---> Ticks between shots in a volley.
+---
+---Default: /
+---@field firetime number?
+---**Pansers [IDs 345, 346, 347]:**
+---
+---> Shots per volley.
+---
+---Default: /
+---@field shots number?
+---**Parabeetles [IDs 303, 304]:**
+---
+---> Vertical speed when stepped on.
+---
+---Default: /
+---@field ridespeedstart number?
+---**Parabeetles [IDs 303, 304]:**
+---
+---> Vertical speed change over time while stepped on.
+---
+---Default: /
+---@field ridespeeddelta number?
+---**Parabeetles [IDs 303, 304]:**
+---
+---> Vertical speed limit when stood on for a while.
+---
+---Default: /
+---@field ridespeedend number?
+---**Parabeetles [IDs 303, 304]:**
+---
+---> Vertical speed limit for returning to the original Y-Coordinate after the player stepped off the Parabeetle.
+---
+---Default: /
+---@field returnspeed number?
+---**Parabeetles [IDs 303, 304]:**
+---
+---> Vertical speed change over time while not stepped on.
+---
+---Default: /
+---@field returnspeeddelta number?
+---**Parabeetles [IDs 303, 304]:**
+---
+---> If set, overrides gradual ride speed change with constant ride speed.
+---
+---Default: /
+---@field ridespeed number?
+---**Parabeetles [IDs 303, 304]:**
+---
+---> Ticks after the player steps off before the NPC begins the return trip.
+---
+---Default: /
+---@field returndelay number?
+---**Phantos [IDs 370, 625, 626]:**
+---
+---> If true, this Phanto can awaken while offscreen.
+---
+---Default: /
+---@field awakenoffscreen boolean?
+---**Phantos [IDs 370, 625, 626]:**
+---
+---> If true, following phantos will always enter the screen on the opposite side of the screen from the player they're following.
+---
+---Default: /
+---@field enterawayfromplayer boolean?
+---**Phantos [IDs 370, 625, 626]:**
+---
+---> Vertical speed multiplier when homing.
+---
+---Default: /
+---@field homingspeed number?
+---**Phantos [IDs 370, 625, 626]:**
+---
+---> First frame in the flashing animation.
+---
+---Default: /
+---@field flashstartframe number?
+---**Phantos [IDs 370, 625, 626]:**
+---
+---> Last frame in the flashing animation.
+---
+---Default: /
+---@field flashendframe number?
+---**Phantos [IDs 370, 625, 626]:**
+---
+---> First frame in the sleeping animation.
+---
+---Default: /
+---@field sleepstartframe number?
+---**Phantos [IDs 370, 625, 626]:**
+---
+---> Last frame in the sleeping animation.
+---
+---Default: /
+---@field sleependframe number?
+---**Phantos [IDs 370, 625, 626]:**
+---
+---> First frame in the chasing animation.
+---
+---Default: /
+---@field chasestartframe number?
+---**Phantos [IDs 370, 625, 626]:**
+---
+---> Last frame in the chasing animation.
+---
+---Default: /
+---@field chaseendframe number?
+---**Phantos [IDs 370, 625, 626]:**
+---
+---> Enum for the on-stop behaviour (0-2), corresponding to "stop", "stop when the player leaves the section" and "never stop".
+---
+---Default: 0
+---@field stoptype number?
+---**Popup Coin [ID 378]:**
+---
+---> NPC ID to default to if no content is provided.
+---
+---Default: /
+---@field defaultcontents number?
+---**Ptooie [IDs 375, 377]:**
+---
+---> Seconds between a direction change.
+---
+---Default: 5
+---@field walktimer number?
+---**Ptooie [IDs 375, 377]:**
+---
+---> # is a number starting at 1. Blowheights are randomly selected from the provided pool and determine how many pixels high the projectile should be lifted.
+---
+---Default: /
+---@field blowheight1 number?
+---**Ptooie [IDs 375, 377]:**
+---
+---> ID of the Projectile.
+---
+---Default: 376
+---@field ballid number?
+---**Respawner [ID 637]:**
+---
+---> Pixels of camera padding where spawn will still be registered.
+---
+---**Snifits [IDs 470, 471]:**
+---
+---> Pixels of camera spawn leniency.
+---
+---Default: 32
+---@field padding number?
+---**Reznor [ID 413]:**
+---
+---> Whether or not Reznor may turn to face the player.
+---
+---Default: /
+---@field turns boolean?
+---**Reznor Fireball [ID 414]:**
+---
+---> Whether or not the fireball will always aim towards the player, even if not spawned by a Reznor.
+---
+---Default: false
+---@field alwaysaim boolean?
+---**Ring Monitor [ID 494]:**
+---
+---> Coin value when broken.
+---
+---Default: 10
+---@field value number?
+---**Rip van Fish [ID 386]:**
+---
+---> Activation radius.
+---
+---**Rotary Lift [ID 570]:**
+---
+---> Ejection radius.
+---
+---Default: /
+---@field radius number?
+---**Rip van Fish [ID 386]:**
+---
+---> Acceleration while awake.
+---
+---Default: /
+---@field accel number?
+---**Rip van Fish [ID 386]:**
+---
+---> Falling speed while asleep.
+---
+---Default: 0.125
+---@field fallspeed number?
+---**Rip van Fish [ID 386]:**
+---
+---> Framespeed while asleep.
+---
+---Default: 50
+---@field sleepframespeed number?
+---**Rocky Wrench [ID 395]:**
+---
+---> Number of ticks during which the spawned wrench moves diagonally.
+---
+---Default: /
+---@field wrenchdiagonal number?
+---**Rocky Wrench [ID 395]:**
+---
+---> Horizontal offset of the spawned wrench.
+---
+---Default: /
+---@field hwrenchoffset number?
+---**Rocky Wrench [ID 395]:**
+---
+---> Vertical offset of the spawned wrench.
+---
+---Default: /
+---@field vwrenchoffset number?
+---**Rocky Wrench [ID 395]:**
+---
+---> Duration of the appearing animation in seconds.
+---
+---Default: /
+---@field revealspeed number?
+---**Rocky Wrench [ID 395]:**
+---
+---> Duration of the disappearing animation in seconds.
+---
+---Default: /
+---@field hidespeed number?
+---**Rotary Lift [ID 570]:**
+---
+---> Force applied to objects caught in the NPC's radius.
+---
+---**Springs (Red) [IDs 455, 456, 457, 458]:**
+---
+---> Launch force in their respective direction.
+---
+---**Torpedo Ted Spawner [ID 306]:**
+---
+---> Vertical force with which the Torpedo Ted is ejected.
+---
+---Default: /
+---@field force number?
+---**Rotary Lift [ID 570]:**
+---
+---> Angular velocity while spinning in degrees per tick.
+---
+---Default: /
+---@field rotationspeed number?
+---**Rotary Lift [ID 570]:**
+---
+---> Whether or not forces should be applied to colliding NPCs in addition to the player.
+---
+---Default: true
+---@field affectsnpc boolean?
+---**Rotary Lift [ID 570]:**
+---
+---> Enum for behaviour. 0: Force objects away. 1: Force objects in the direction of rotation. 2: A mix of 0 and 1.
+---
+---Default: 2
+---@field forcetype number?
+---**Rotary Lift [ID 570]:**
+---
+---> Ticks spent in the spinning state.
+---
+---Default: /
+---@field spintime number?
+---**Rotary Lift [ID 570]:**
+---
+---> Ticks spent in the idle state.
+---
+---Default: /
+---@field cooltime number?
+---**Rotary Lift [ID 570]:**
+---
+---> Smaller values for forcetype 2 apply greater perpendicular force at the ledges.
+---
+---Default: 1.85
+---@field bias number?
+---**Rotating Bill Blaster [ID 438]:**
+---
+---> The ID of the NPC to use when set to fire coins.
+--->
+---> Default: 10 (SMB3 Coin)
+---
+---**Cobrat [IDs 371, 372, 373]:**
+---
+---> The ID of the coin NPC to spawn.
+--->
+---> Default: 33 (SMW Coin)
+---@field coinid number?
+---**Rotating Bill Blaster and Base [ID 438, 439]:**
+---
+---> Number of frames the bill blaster waits before firing.
+---
+---Default: 96
+---@field beforefire number?
+---**Rotating Bill Blaster and Base [ID 438, 439]:**
+---
+---> Number of frames the bill blaster waits before turning. Still used when not rotating.
+---
+---Default: 64
+---@field afterfire number?
+---**Salsa Nipper [IDs 708]:**
+---
+---> Horizontal distance covered when patrolling.
+---
+---Default: 128
+---@field patroldistance number?
+---**Salsa Nipper [IDs 708]:**
+---
+---> Ticks spent waiting before turning around.
+---
+---Default: 60
+---@field turnaroundwait number?
+---**Salsa Nipper [IDs 708]:**
+---
+---> Vertical speed for a hop.
+---
+---Default: -1.5
+---@field hopspeed number?
+---**Salsa Nipper [IDs 708]:**
+---
+---> Framespeed when jumping.
+---
+---Default: 8
+---@field jumpframespeed number?
+---**Salsa Nipper [IDs 708]:**
+---
+---> Speed of the projectile.
+---
+---Default: 0
+---@field firespeedx number?
+---Default: -6
+---@field firespeedy number?
+---**Sea Mine [ID 363]:**
+---
+---> Gravity multiplier while sinking to stabilize the mine.
+---
+---Default: 1.06
+---@field sinkmultiplier number?
+---**Scuttlebug (Hanging) [ID 509]:**
+---
+---> Speed at which the NPC drops with its string.
+---
+---Default: /
+---@field dropspeed number?
+---**Scuttlebug (Hanging) [ID 509]:**
+---
+---> Maximum speed while vertically oscillating.
+---
+---Default: /
+---@field hangspeed number?
+---**Scuttlebug (Hanging) [ID 509]:**
+---
+---> Amplitude of the hanging oscillation.
+---
+---Default: /
+---@field hangheight number?
+---**Scuttlebug (Hanging) [ID 509]:**
+---
+---> Render priority of the string.
+---
+---Default: /
+---@field stringpriority number?
+---**Scuttlebug (Hanging) [ID 509]:**
+---
+---> 0: Drop after sinking. -1: Hang forever.
+---
+---Default: -1
+---@field hangtime number?
+---**Scuttlebug (Hanging) [ID 509]:**
+---
+---> Speed at which an abandoned string retracts.
+---
+---Default: /
+---@field stringretractspeed number?
+---**Scuttlebug (Walking) [ID 510]:**
+---
+---> Jump force when changing direction.
+---
+---Default: /
+---@field boostheight number?
+---**Scuttlebug (Walking) [ID 510]:**
+---
+---> Cooldown for direction changes.
+---
+---Default: /
+---@field bouncewaitdelay number?
+---**Shoe Goombas [IDs 379, 392, 393]:**
+---
+---> Active ticks of the flutter.
+---
+---Default: 0
+---@field flytime number?
+---**Shoe Goombas [IDs 379, 392, 393]:**
+---
+---> ID of the shoe to drop.
+---
+---Default: /
+---@field shoeid number?
+---**Shoe Goombas [IDs 379, 392, 393]:**
+---
+---> Whether or not the NPC should spawn particles while standing on lava.
+---
+---Default: false
+---@field lavaproof boolean?
+---**Shoe Goombas [IDs 379, 392, 393]:**
+---
+---> NPC ID to spawn when landing.
+---
+---Default: 0
+---@field spawnednpc number?
+---**Sine Enemies (Blurp, Green Bubble) [IDs 302, 322]:**
+---
+---> Frequency of the sine wave.
+---
+---Default: /
+---@field frequency number?
+---**Sine Enemies (Blurp, Green Bubble) [IDs 302, 322]:**
+---
+---> Amplitude of the sine wave.
+---
+---Default: /
+---@field amplitude number?
+---**Sine Enemies (Blurp, Green Bubble) [IDs 302, 322]:**
+---
+---> Offset for the start of the sine wave.
+---
+---Default: /
+---@field wavestart number?
+---**Skewers [IDs 423, 424]:**
+---
+---> Hitbox pixel offset perpendicular to axis of movement.
+---
+---Default: 18
+---@field hitboxoffset number?
+---**Skewers [IDs 423, 424]:**
+---
+---> Ticks of wait time while retracted.
+---
+---Default: /
+---@field waitdelay number?
+---**Skewers [IDs 423, 424]:**
+---
+---> Ticks of wait time after smashing.
+---
+---Default: /
+---@field extendeddelay number?
+---**Skewers [IDs 423, 424]:**
+---
+---> Speed at which to extend.
+---
+---Default: 16
+---@field extendspeed number?
+---**Skewers [IDs 423, 424]:**
+---
+---> Speed at which to return.
+---
+---Default: 4
+---@field retractspeed number?
+---**Skewers [IDs 423, 424]:**
+---
+---> Whether or not the Skewer is able to hit blocks.
+---
+---Default: true
+---@field hitsblocks boolean?
+---**Small Switches [IDs 451, 452, 453, 454, 606, 607]:**
+---
+---> If true, the switch does not disappear when pressed, but sticks around in a pressed state.
+---
+---Default: /
+---@field permanent boolean?
+---**Snake Block [ID 344]:**
+---
+---> If true, an alternative way of spawning blocks during diagonal movements is used.
+---
+---Default: false
+---@field altdiagonalmovement boolean?
+---**Snake Block [ID 344]:**
+---
+---> If true, the snake block continues moving even when a player is in a powerdown animation.
+---
+---Default: false
+---@field nohitpause boolean?
+---**Snake Block [ID 344]:**
+---
+---> ID of the sound effect played while moving.
+---
+---Default: /
+---@field soundid number?
+---**Snifits [IDs 470, 471]:**
+---
+---> Number of bullets to fire in quick succession.
+---
+---Default: /
+---@field burst number?
+---**Snifits [IDs 470, 471]:**
+---
+---> Ticks between burst shots.
+---
+---Default: /
+---@field interval number?
+---**Snifits [IDs 470, 471]:**
+---
+---> Ticks between bursts.
+---
+---Default: /
+---@field shottimer number?
+---**Snifits [IDs 470, 471]:**
+---
+---> If true, the NPC will briefly stand still and shake before firing.
+---
+---Default: /
+---@field prepare boolean?
+---**Snifits [IDs 470, 471]:**
+---
+---> If true, the NPC will occasionally jump.
+---
+---Default: /
+---@field jumps boolean?
+---**Spike Ball (SMM), Spike Snowball [IDs 641, 643, 645, 647]:**
+---
+---> Whether to treat it as a snowball, rather than a spike ball.
+---
+---Default: /
+---@field issnsowball boolean?
+---**Spike Ball (SMM), Spike Snowball [IDs 641, 643, 645, 647]:**
+---
+---> Whether the ball is large and thus more powerful.
+---
+---Default: /
+---@field islarge boolean?
+---**Spike Ball (SMM), Spike Snowball [IDs 641, 643, 645, 647]:**
+---
+---> Horizontal speed when spawning.
+---
+---Default: /
+---@field startingspeed number?
+---**Spike Ball (SMM), Spike Snowball [IDs 641, 643, 645, 647]:**
+---
+---> Acceleration when going down slopes.
+---
+---Default: /
+---@field slopeacceleration number?
+---**Spike Ball (SMM), Spike Snowball [IDs 641, 643, 645, 647]:**
+---
+---> If true, old slope speed calculations are used.
+---
+---Default: /
+---@field useoldslopeacceleration boolean?
+---**Springs (Red) [IDs 455, 456, 457, 458]:**
+---
+---> Jump force for players not holding jump. If negative, a multiplier on force. If positive, an absolute value.
+---
+---Default: -0.77
+---@field weakforce number?
+---**Springs (Red) [IDs 455, 456, 457, 458]:**
+---
+---> Jump force for NPCs. If negative, a multiplier on force. If positive, an absolute value.
+---
+---Default: -0.77
+---@field npcforce number?
+---**Springs (Red) [IDs 455, 456, 457, 458]:**
+---
+---> Cooldown for performing a spring drop.
+---
+---Default: /
+---@field springdropcooldown number?
+---**Springs (Red) [IDs 455, 456, 457, 458]:**
+---
+---> If true, bounces the player in the NPC's facing direction (horizontal springs).
+---
+---Default: /
+---@field usedirectiontobounce boolean?
+---**Star Coin [ID 310]:**
+---
+---> Subset of frames used for already collected Star Coins.
+---
+---Default: frames/2
+---@field collectedframes number?
+---**Star Coin [ID 310]:**
+---
+---> Whether or not the star coin can be collected with a shell.
+---
+---Default: true
+---@field shellcollectable boolean?
+---**Stretch [IDs 323, 324]:**
+---
+---> Subset of frames used for the appearing/disappearing animation.
+---
+---Default: 3
+---@field stretchframes number?
+---**Sumo Bro [ID 360]:**
+---
+---> Number of stomps in a row.
+---
+---Default: 1
+---@field stomps number?
+---**Sumo Bro [ID 360]:**
+---
+---> Intensity of the earthquake that should happen when the Bro stomps.
+---
+---**Tantrunt [ID 564]:**
+---
+---> Strength of the earthquake effect when slamming into things.
+---
+---**Thwomps [IDs 295, 432, 435, 437]:**
+---
+---> Intensity of the earthquake that should happen when the Thwomp slams.
+---
+---Default: 5
+---@field earthquake number?
+---**Sumo Bro [ID 360]:**
+---
+---> Number of animation frames dedicated to the stomping animation.
+---
+---Default: 3
+---@field stompframes number?
+---**Sumo Bro Fire [ID 362]:**
+---
+---> Number of times fire should spread in either direction. -1 = infinite.
+---
+---Default: 2
+---@field spread number?
+---**Sumo Bro Fire [ID 362]:**
+---
+---> Number of animation frames for each segment of the animation.
+---
+---Default: /
+---@field framecount number?
+---**Sumo Bro Fire [ID 362]:**
+---
+---> Number of ticks during which the fire remains at peak height.
+---
+---Default: /
+---@field top number?
+---**Swinging Platform Controllers [IDs 656, 658, 660, 662, 664]:**
+---
+---> Default ID of the attached NPC.
+---
+---Default: /
+---@field defaultplatformid number?
+---**Swinging Platform Controllers [IDs 656, 658, 660, 662, 664]:**
+---
+---> Type of rotation behaviour. 0 is weighted, 1 is auto, 2 is back and forth.
+---
+---Default: /
+---@field rotationbehaviour number?
+---**Swinging Platform Controllers [IDs 656, 658, 660, 662, 664]:**
+---
+---> Bias to apply when beginning a rotation (determines direction).
+---
+---Default: /
+---@field weightbias number?
+---**Tantrunt [ID 564]:**
+---
+---> Whether to cause a pow effect when slamming into things.
+---
+---Default: true
+---@field poweffect boolean?
+---**Targeting Fishbone [ID 652]:**
+---
+---> Length of the vision cone.
+---
+---Default: 300
+---@field visionlength number?
+---**Targeting Fishbone [ID 652]:**
+---
+---> Lateral width of the vision cone.
+---
+---Default: 60
+---@field visionwidth number?
+---**Targeting Fishbone [ID 652]:**
+---
+---> Maximum speed when chasing.
+---
+---Default: 3
+---@field chasespeedmax number?
+---**Targeting Fishbone [ID 652]:**
+---
+---> Whether to use a spotlight to telegraph the vision cone.
+---
+---Default: true
+---@field usespotlight boolean?
+---**Targeting Fishbone [ID 652]:**
+---
+---> Spotpower for the spot light.
+---
+---Default: 15
+---@field spotpower number?
+---**Targeting Fishbone [ID 652]:**
+---
+---> If true, the NPC's regular behavior is restricted to underwater.
+---
+---Default: false
+---@field needswater boolean?
+---**Targeting Fishbone [ID 652]:**
+---
+---> If true, the NPC gets destroyed when it collides with blocks and NPCs while chasing.
+---
+---Default: true
+---@field collisionhit boolean?
+---**Targeting Fishbone [ID 652]:**
+---
+---> Whether to ignore walls.
+---
+---Default: false
+---@field ignorewalls boolean?
+---**Thwimp [ID 301]:**
+---
+---> Sideways jump force.
+---
+---Default: 7
+---@field jumpforce number?
+---**Thwomps [IDs 295, 432, 435, 437]:**
+---
+---> Speed at which the Thwomp slams. Values above 8 will act weird due to vanilla physics.
+---
+---Default: 6
+---@field slamspeed number?
+---**Thwomps [IDs 295, 432, 435, 437]:**
+---
+---> Speed at which the Thwomp returns to its home position.
+---
+---Default: 2
+---@field recoverspeed number?
+---**Thwomps [IDs 295, 432, 435, 437]:**
+---
+---> Speed at which Thwomp accelerates when recovering. 0 instantly reaches recoverspeed.
+---
+---Default: 0.2
+---@field accelrecover number?
+---**Thwomps [IDs 295, 432, 435, 437]:**
+---
+---> 0 = No smashing. 1 = Breaks a single layer of smashable blocks. 2: Breaks through multiple layers. 3: Like 2, but doesn't lose momentum while smashing.
+---
+---Default: 0
+---@field smash number?
+---**Thwomps [IDs 295, 432, 435, 437]:**
+---
+---> Whether blocks like ?-Blocks and Cement Blocks can be broken.
+---
+---Default: false
+---@field smashsturdy boolean?
+---**Thwomps [IDs 295, 432, 435, 437]:**
+---
+---> Mad Thwomps will repeatedly slam back and forth. 0 = Not mad. 1 = Mad, but needs activation. 2: Permanently mad.
+---
+---Default: 0
+---@field mad number?
+---**Thwomps [IDs 295, 432, 435, 437]:**
+---
+---> Set to true to revert to old behavior where thwomps would slide indefinitely after coming in contact with conveyors.
+---
+---Default: false
+---@field revertslidepatch boolean?
+---**Torpedo Ted [ID 305]:**
+---
+---> Speed cap while moving left.
+---
+---Default: /
+---@field leftspeed number?
+---**Torpedo Ted [ID 305]:**
+---
+---> Speed cap while moving right.
+---
+---Default: /
+---@field rightspeed number?
+---**Torpedo Ted Spawner [ID 306]:**
+---
+---> Pixels travelled between states.
+---
+---Default: /
+---@field traveldistance number?
+---**Torpedo Ted Spawner [ID 306]:**
+---
+---> Frame of the spawned NPC when held.
+---
+---Default: /
+---@field heldframe number?
+---**Torpedo Ted Spawner [ID 306]:**
+---
+---> Priority of the NPC.
+---
+---Default: /
+---@field spawnerpriority number?
+---**Torpedo Ted Spawner [ID 306]:**
+---
+---> Priority of the spawned NPC.
+---
+---Default: /
+---@field spawnpriority number?
+---**Torpedo Ted Spawner [ID 306]:**
+---
+---> Y-Anchor of the spawned NPC to the claw. 1 is top, -1 is bottom.
+---
+---Default: /
+---@field anchory number?
+---**Twister [ID 655]:**
+---
+---> Upwards applied to players and NPCs.
+---
+---Default: 1
+---@field windstrength number?
+---**Twister [ID 655]:**
+---
+---> The width of the wind's triangular hitbox.
+---
+---Default: 96
+---@field windwidth number?
+---**Twister [ID 655]:**
+---
+---> The height of the wind's triangular hitbox.
+---
+---Default: 150
+---@field windheight number?
+---**Twister [ID 655]:**
+---
+---> How heavily the NPC's weight impacts the hover strength. Higher values create a stronger falloff.
+---
+---Default: 10
+---@field penaltyPerWeight number?
+---**Twister [ID 655]:**
+---
+---> Maximum speed for boosting the player when pressing jump.
+---
+---Default: 10
+---@field playerboostmaxspeed number?
+---**Twister [ID 655]:**
+---
+---> How long the player jump boost is applied.
+---
+---Default: 12
+---@field playerboosttimer number?
+---**Twister [ID 655]:**
+---
+---> The type of jump to force. 1 is regular, 2 is spin. 0 is none.
+---
+---Default: 1
+---@field forcejump number?
+---**Twister [ID 655]:**
+---
+---> Whether players are caught in the tornado.
+---
+---Default: true
+---@field boostplayer boolean?
+---**Twister [ID 655]:**
+---
+---> Whether NPCs are caught in the tornado.
+---
+---Default: true
+---@field boostnpc boolean?
+---**Venus Fire Trap [IDs 516, 517]:**
+---
+---> If true, the NPC will attempt to look at a nearby player.
+---
+---Default: true
+---@field isvenusfiretrap boolean?
+---**Venus Fire Trap Fireball [ID 511]:**
+---
+---> Limits the fireball's vertical speed.
+---
+---Default: -2
+---@field minspeedy number?
+---**Waddle Doo [ID 472]:**
+---
+---> Number of segments spawned for the beam.
+---
+---Default: 4
+---@field beamlength number?
+---**Waddle Doo [ID 472]:**
+---
+---> Start angle of the beam.
+---
+---Default: 30
+---@field beamanglestart number?
+---**Waddle Doo [ID 472]:**
+---
+---> End angle of the beam.
+---
+---Default: 150
+---@field beamangleend number?
+---**Waddle Doo [ID 472]:**
+---
+---> Chargeup time for the beam.
+---
+---Default: /
+---@field chargetime number?
+---**Waddle Doo [ID 472]:**
+---
+---> Beam interpolation duration.
+---
+---Default: /
+---@field beamtime number?
+---**Waddle Doo [ID 472]:**
+---
+---> If > 0, Sparks are spawned from closest to farthest with this delay defining the delay between each individual spawn.
+---
+---Default: /
+---@field sparkspawndelay number?
+---**Waddle Doo [ID 472]:**
+---
+---> Similar to sparkspawndelay, but for when the sparks are killed.
+---
+---Default: /
+---@field sparkkilldelay number?
+---**Waddle Doo [ID 472]:**
+---
+---> ID of the spark NPC.
+---
+---Default: 473
+---@field sparkid number?
+---**Waddle Doo Spark [ID 473]:**
+---
+---> ID of the related Waddle Doo NPC.
+---
+---Default: 472
+---@field dooid number?
+---**Walking Rinka Shooter [ID 666]:**
+---
+---> Fire delay while walking.
+---
+---Default: 200
+---@field walkshootdelay number?
+---**Walking Rinka Shooter [ID 666]:**
+---
+---> Fire delay while held by a player.
+---
+---Default: 100
+---@field heldshootdelay number?
+---**Water Leaper (Trouter, Podoboo, Dolphin) [IDs 350, 459, 460, 461, 589, 590]:**
+---
+---> The direction the NPC considers to be down. Can be down, left, right or up.
+---
+---Default: down
+---@field down string?
+---**Water Leaper (Trouter, Podoboo, Dolphin) [IDs 350, 459, 460, 461, 589, 590]:**
+---
+---> Determines the terminator (resting place check). Can be water, lava, section or fixed. Fixed emulates NPC 12's jumping behaviour.
+---
+---Default: water
+---@field type string?
+---**Water Leaper (Trouter, Podoboo, Dolphin) [IDs 350, 459, 460, 461, 589, 590]:**
+---
+---> Multiplier applied to the NPC's gravity.
+---
+---Default: 1
+---@field gravitymultiplier number?
+---**Water Leaper (Trouter, Podoboo, Dolphin) [IDs 350, 459, 460, 461, 589, 590]:**
+---
+---> If true, the NPC is friendly while resting between cycles.
+---
+---Default: false
+---@field friendlyrest boolean?
+---**Wiggler [IDs 446, 448]:**
+---
+---> Number of trail segments.
+---
+---Default: 4
+---@field trailcount number?
+---**Wiggler [IDs 446, 448]:**
+---
+---> ID of the trail segment NPC.
+---
+---Default: /
+---@field trailid number?
+---**Wiggler [IDs 446, 448]:**
+---
+---> ID to transform into when jumped on.
+---
+---**Wiggler Segment [IDs 447, 449]:**
+---
+---> ID to transform into when jumped on.
+---
+---Default: 448
+---@field angryid number?
+---**Wiggler [IDs 446, 448]:**
+---
+---> Pixels between each segment.
+---
+---Default: /
+---@field distance number?
+---**Wiggler [IDs 446, 448]:**
+---
+---> If true, restores old throw behavior.
+---
+---Default: /
+---@field dieswhenthrown boolean?
