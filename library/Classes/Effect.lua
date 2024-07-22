@@ -4,7 +4,7 @@
 ---Effects are visual effects that happen when NPCs die, blocks break, and various other actions are performed.
 ---Currently, effects are split into two systems: The SMBX 1.3 system, used for effect IDs 1-161, and the SMBX2 effects system, used for effect IDs 162 onwards.
 ---@class EffectManager
----@field config table<number, EffectConfig> Lua representation of all Effect config. The way to access individual fields is as follows: Effect.config[id].field. (ex. Effect.config[1].width = 5). Fields can be read and set.
+---@field config table<number, EffectConfig> Lua representation of all Effect config. The way to access individual fields is as follows: `Effect.config[id].field`. (ex. Effect.config[1].width = 5). Fields can be read and set.
 Effect = {}
 
 ---Returns the number of 1.3 effects currently active.

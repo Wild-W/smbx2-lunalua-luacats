@@ -116,8 +116,8 @@ function NPC.spawn(id, x, y, section, respawn, centered) end
 function NPC.get() end
 
 --- Returns a table of references to all NPCs of the given id(s) in the optionally provided section(s).
---- @param ids number|table<number> The ID or IDs of NPCs to retrieve.
---- @param sections number|table<number>? The section or sections to look in (optional).
+--- @param ids number|number[] The ID or IDs of NPCs to retrieve.
+--- @param sections number|number[]? The section or sections to look in (optional).
 --- @return NPC[] NPCs A table of NPCs matching the criteria.
 function NPC.get(ids, sections) end
 
@@ -139,7 +139,7 @@ function NPC.getByFilterMap(idMap) end
 function NPC.iterate() end
 
 --- Returns an iterator for iterating over a table of references to all NPCs of the given id(s).
---- @param ids number|table<number> The ID or IDs of NPCs to iterate over.
+--- @param ids number|number[] The ID or IDs of NPCs to iterate over.
 --- @return fun():NPC iterator An iterator for NPCs matching the ID(s).
 function NPC.iterate(ids) end
 

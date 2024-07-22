@@ -565,8 +565,8 @@ function Misc.listDirectories(path) end
 function Misc.resolveFile(path) end
 
 --- Searches for multiple files given by the path in the following directories: Custom level folder (if called in a level) -> Episode folder -> {SMBX}/data/scripts folder -> {SMBX}/data folder. The absolute path will be returned (or nil if nothing was found). This function differs from the other resolveFile functions in that it takes multiple file strings as arguments. All strings are searched for in one directory (in the order they're passed as arguments) before the next one is searched in.
---- @param ... vararg The file paths to search for.
---- @return string|nil filePath The absolute file path, or nil if not found.
+--- @param ... string The file paths to search for.
+--- @return string? filePath The absolute file path, or nil if not found.
 function Misc.multiResolveFile(...) end
 
 --- Searches for a graphics file given by the path in the following directories: Custom level folder -> Episode folder -> {SMBX}/data/graphics folder. The absolute path will be returned (or nil if nothing was found).

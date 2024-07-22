@@ -29,12 +29,16 @@ function bfx.getEffectSpawners(id) end
 ---@return EffectParticle
 function bfx.getEffectObjects(id) end
 
+--- Internal event
 function bfx.onInit(fx) end
 
+--- Internal event
 function bfx.onTickEnd() end
 
+--- Internal event
 function bfx.onDraw() end
 
+--- Internal event
 function bfx.onRunEffectInternal(eventObj, id, coords, variant, npcID, drawOnlyMask) end
 
 return bfx
