@@ -247,13 +247,14 @@ function spawnNPC(npcid, x, y, section, respawn, centered) end
 function spawnEffect(effectID, x, y) end
 
 --- Spawns a new Effect with the specific ID and Animation Frame.
+---
+--- This Animation frame (as parameter) is not the same as Animation.animationFrame!
 --- @param effectID number
 --- @param x number
 --- @param y number
 --- @param animationFrame number
 --- @return Effect
 --- @deprecated Use Effect.spawn instead.
---- @note This Animation frame (as parameter) is not the same as Animation.animationFrame!
 function spawnEffect(effectID, x, y, animationFrame) end
 
 ---Loads the library packagename.lua. **Do load it outside every other function! (Recommended at the top of your scriptfile).**
