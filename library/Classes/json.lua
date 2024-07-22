@@ -1,6 +1,5 @@
 ---@meta
 
-
 json = {}
 
 ---@param ... unknown
@@ -18,4 +17,3 @@ function json.newfileparser(...) end
 ---@param ... unknown
 ---@return ...
 function json.encode(...) end
-

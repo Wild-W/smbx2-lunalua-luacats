@@ -1,6 +1,5 @@
 ---@meta
 
-
 ---Players are human-controlled characters that serve as the primary way for players to interact with the game in standard levels. They are only used within Levels. For player's controlled entity on World Maps, see the World class.
 Player = {}
 
@@ -66,7 +65,7 @@ local PlayerInstance = {}
 PlayerInstance.__type = "Player"
 
 PlayerInstance.data = {
-    _basegame = {}
+	_basegame = {},
 }
 
 ---@type WeightContainer[]

@@ -1,6 +1,5 @@
 ---@meta
 
-
 local xmem = {}
 
 ---Prints the current state of global memory addresses to the screen for debugging. If the arguments are not specified, they default to the minium and maximum values respectively.

@@ -1,6 +1,5 @@
 ---@meta
 
-
 ---@alias NPCMemoryOffset
 ---|`0x00` # Attached layer name. Use field attachedLayerObj or attachedLayerName. `FIELD_STRING`
 ---|`0x04` # 2 when the NPC is inside quicksand, 1 on the frame the NPC leaves quicksand. `FIELD_WORD`

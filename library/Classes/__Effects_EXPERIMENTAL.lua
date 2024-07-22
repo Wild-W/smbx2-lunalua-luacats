@@ -1,6 +1,5 @@
 ---@meta
 
-
 __Effects_EXPERIMENTAL = {}
 
 ---@param color integer Unsigned integer.

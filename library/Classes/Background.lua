@@ -1,6 +1,5 @@
 ---@meta
 
-
 ---@class Background
 Background = {}
 

@@ -1,6 +1,5 @@
 ---@meta
 
-
 --- The Misc namespace exposes miscellaneous helper functions that don't fit into other classes.
 --- Functions in this class work in levels as well as on the overworld, unless otherwise noted.
 ---## Usage
@@ -186,7 +185,7 @@ function Misc.setLoadScreenTimeout(seconds) end
 --### Static gameplay manipulation functions
 
 --- Toggles the synced switch state.
---- 
+---
 --- Level only
 function Misc.toggleSyncSwitch() end
 
@@ -214,7 +213,7 @@ function Misc.givePoints(index, position, suppressSound) end
 --- @param x number The x-coordinate of the POW effect.
 --- @param y number The y-coordinate of the POW effect.
 --- @param radius number The radius of the POW effect.
---- 
+---
 --- Level only
 function Misc.doPOW(powtype, x, y, radius) end
 
@@ -230,7 +229,7 @@ function Misc.cheatBuffer(value) end
 --- @param x number The x-coordinate of the explosion.
 --- @param y number The y-coordinate of the explosion.
 --- @param type number The type of bomb explosion.
---- 
+---
 --- Level only
 --- @note Use Explosion.spawn instead.
 function Misc.doBombExplosion(x, y, type) end
@@ -337,7 +336,7 @@ function Misc.SetSlideJumpFix(enabled) end
 
 --- Sets the state of the fence speed fix (enabled by default).
 --- @param enabled boolean Whether to enable the fix.
---- 
+---
 --- *Note*: `Player` field `climbingBGO` won't work and player offset 0x2C is always -1 if this fix is disabled!
 function Misc.SetFenceBugFix(enabled) end
 

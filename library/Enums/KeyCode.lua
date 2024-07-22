@@ -1,6 +1,5 @@
 ---@meta
 
-
 ---@alias KeyCode
 ---| `KEY_UP` # Up d-pad input.
 ---| `KEY_DOWN` # Down d-pad input.

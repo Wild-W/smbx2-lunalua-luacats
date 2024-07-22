@@ -1,6 +1,5 @@
 ---@meta
 
-
 ---The Cheats class lets you add, remove, modify, deactivate and activate cheat codes in SMBX2. Cheat codes are called by typing in keywords on the keyboard. A list of cheat codes available by default can be found [here](/features/cheats.md).
 ---@class Cheats
 Cheats = {}
@@ -58,7 +57,6 @@ function Cheats.listCheats() end
 
 ---@type boolean
 Cheats.enabled = true
-
 
 ---@class Cheat
 local Cheat = {}

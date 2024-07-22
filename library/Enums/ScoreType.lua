@@ -1,6 +1,5 @@
 ---@meta
 
-
 ---These constants represent the values of the score effect used by `Misc.givePoints()`.
 ---@alias ScoreType
 ---| `SCORE_0` # 0 points.

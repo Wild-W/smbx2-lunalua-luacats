@@ -1,6 +1,5 @@
 ---@meta
 
-
 ---The achievements class exposes fields and functions for accessing and manipulating per-episode achievement information.
 ---@class Achievements
 Achievements = {}

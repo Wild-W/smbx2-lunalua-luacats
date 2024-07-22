@@ -1,6 +1,5 @@
 ---@meta
 
-
 --- Calculates linear interpolation between `a` and `b` using `time`
 --- @param a number The start value.
 --- @param b number The end value.

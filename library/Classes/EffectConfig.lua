@@ -1,6 +1,5 @@
 ---@meta
 
-
 --- Configuration settings for visual and behavioral aspects of effects in the game environment.
 --- @class EffectConfig
 --- @field img number ID of the effect image to use. Default is the same as the effect file ID.
@@ -76,7 +75,6 @@
 ---|"DEATH_SHELL" # Spawns a shell hit star effect.
 ---|"DEATH_SPAWNNPCID" # Spawns an NPC of the npcID stored in the effect.
 ---|"DEATH_LEGACYBOSS" # Spawns the legacy boss's goal item.
-
 
 ---@alias EffectConfigTable
 ---```lua

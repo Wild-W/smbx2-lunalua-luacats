@@ -1,6 +1,5 @@
 ---@meta
 
-
 ---Global namespace used for creating and managing different types of vector and matrix objects, as well as quaternions, which are used in various mathematical operations, particularly in graphics and physics simulations.
 ---@class VectorManager
 vector = {}
@@ -104,7 +103,6 @@ vector.id4 = nil
 --- `vector.quat(0,0,0)` | The identity quaternion corresponding to no rotation.
 ---@type Quaternion
 vector.quatid = nil
-
 
 --- Creates a new Vector2 object.
 ---@param x number The x component of the vector.

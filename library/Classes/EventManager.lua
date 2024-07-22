@@ -1,6 +1,5 @@
 ---@meta
 
-
 ---@class APIListener
 local APIListener = {}
 

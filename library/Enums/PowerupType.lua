@@ -1,6 +1,5 @@
 ---@meta
 
-
 ---Constants for the player powerups.
 ---@alias PowerupType
 ---| `PLAYER_SMALL` # No powerup/small (Tier 1).

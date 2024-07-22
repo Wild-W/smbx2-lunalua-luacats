@@ -1,6 +1,5 @@
 ---@meta
 
-
 ---Contains definitions of "transforms", which allow physical characteristics to be formulated into an [object hierarchy](https://en.wikipedia.org/wiki/Object_hierarchy).
 ---## Usage
 ---```lua

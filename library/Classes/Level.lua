@@ -1,6 +1,5 @@
 ---@meta
 
-
 ---@alias LevelMemoryOffset
 --- | `0x00` # Level X-Position. Use field `x`. `FIELD_DFLOAT`
 --- | `0x08` # Level Y-Position. Use field `y`. `FIELD_DFLOAT`
@@ -69,7 +68,6 @@ function OverworldLevelManager.getByName(title) end
 --- @return Level|nil
 function OverworldLevelManager.getByFilename(filename) end
 
-
 --- Returns the filename of the current level.
 ---@return string name The filename of the level.
 function LevelManager.filename() end
@@ -132,7 +130,6 @@ function LevelManager.winState(endState) end
 ---@deprecated Gets the current end state of the level, alias for `Level.endState`.
 ---@return LevelEndState endState The current end state.
 function LevelManager.winState() end
-
 
 --- Level instance metadata.
 --- @class Level

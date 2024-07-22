@@ -1,6 +1,5 @@
 ---@meta
 
-
 --- common type handling functions for config files
 local configTypes = {}
 

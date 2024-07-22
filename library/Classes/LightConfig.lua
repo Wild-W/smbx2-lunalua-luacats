@@ -1,6 +1,5 @@
 ---@meta
 
-
 --- Configuration for light effects used by Blocks, NPCs, and BGOs.
 ---@class LightConfig
 --- @field lightoffsetx number Horizontal offset of the light source relative to the center of the object. Default: 0

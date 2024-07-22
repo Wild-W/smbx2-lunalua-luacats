@@ -1,6 +1,5 @@
 ---@meta
 
-
 ---@class CollisionObject
 
 ---The Colliders class provides functionality for checking for collision between objects or custom collision zones.
@@ -227,7 +226,6 @@ function Collider:Debug(enable) end
 ---@param player Player
 ---@return boolean
 function Collider:collide(player) end
-
 
 ---@class PointCollider : Collider
 local PointCollider = {}

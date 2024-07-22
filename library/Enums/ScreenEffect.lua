@@ -1,6 +1,5 @@
 ---@meta
 
-
 ---Used to describe section screen effects.
 ---@alias ScreenEffect
 ---| `SEFFECT_NONE`

@@ -1,6 +1,5 @@
 ---@meta
 
-
 ---The memory field type constants describe the type of value passed to or returned by a memory access call. Since these calls directly call upon memory at a certain offset, the type is important in determining how the bytes should be interpreted, and how many bytes should be read.
 ---@alias MemoryFieldType
 ---| `FIELD_BYTE` # 1 byte integer field.

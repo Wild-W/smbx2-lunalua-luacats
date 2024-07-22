@@ -1,6 +1,5 @@
 ---@meta
 
-
 ---Constants for the character names.
 ---@alias CharacterType
 ---| `CHARACTER_MARIO` # Mario.

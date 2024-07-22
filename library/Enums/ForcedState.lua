@@ -1,6 +1,5 @@
 ---@meta
 
-
 ---Constants for player.forcedState values. Note that some may be unsafe to set. Also, there are no states for powering down from 3 hearts with any other powerup.
 ---@alias PlayerForcedState
 ---| `FORCEDSTATE_NONE` # No forced state.

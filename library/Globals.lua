@@ -1,6 +1,5 @@
 ---@meta
 
-
 ---True if on the world map.
 ---@type boolean
 isOverworld = false
@@ -168,14 +167,14 @@ function unpack_here(...) end
 lowLevelLibraryContext = _G
 
 __LUNA_VERSION_TABLE = {
-    ---@type number
-    [1] = nil,
-    ---@type number
-    [2] = nil,
-    ---@type number
-    [3] = nil,
-    ---@type number
-    [4] = nil
+	---@type number
+	[1] = nil,
+	---@type number
+	[2] = nil,
+	---@type number
+	[3] = nil,
+	---@type number
+	[4] = nil,
 }
 
 ---@alias GlobalMemoryOffset

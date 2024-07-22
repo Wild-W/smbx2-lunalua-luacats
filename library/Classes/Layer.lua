@@ -1,6 +1,5 @@
 ---@meta
 
-
 ---Layers are named groups of placeable objects in *Levels*. They can be hidden to deactivate all objects they contain as well as
 ---have speed values which apply moement to their objects. Layers do not affect the order in which objects are displayed;
 ---if you're looking for that, check out the [Render Priority](https://docs.codehaus.moe/#/concepts/render-priority) page.

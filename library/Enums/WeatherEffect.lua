@@ -1,6 +1,5 @@
 ---@meta
 
-
 ---Used to describe section weather effects.
 ---@alias WeatherEffect
 ---| `WEATHER_NONE`

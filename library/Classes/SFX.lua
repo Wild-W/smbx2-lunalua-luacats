@@ -1,6 +1,5 @@
 ---@meta
 
-
 ---Allows you to play and manipulate sound effects.
 ---@class SFX
 SFX = {}

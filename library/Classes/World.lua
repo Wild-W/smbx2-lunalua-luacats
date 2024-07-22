@@ -1,6 +1,5 @@
 ---@meta
 
-
 ---@class World : userdata
 world = {}
 ---The player's x-coordinate on the world map

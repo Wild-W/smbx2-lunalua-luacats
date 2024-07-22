@@ -1,6 +1,5 @@
 ---@meta
 
-
 ---Rects are rectangle definitions. They are most prominently used by sections.
 ---## Usage
 ---Since the individual fields of the rectangle are number values,

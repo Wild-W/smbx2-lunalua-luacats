@@ -1,6 +1,5 @@
 ---@meta
 
-
 Timer = {}
 
 --- Enables the timer and sets it to visible. Unpauses the timer if it was paused.

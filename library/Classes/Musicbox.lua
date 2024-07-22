@@ -1,6 +1,5 @@
 ---@meta
 
-
 ---The musicbox class lets you access musicbox objects on the overworld.
 Musicbox = {}
 

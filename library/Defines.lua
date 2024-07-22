@@ -1,6 +1,5 @@
 ---@meta
 
-
 ---Contains fields that manipulate global game settings, such as gravity.
 Defines = {
 	---The current earthquake effect intensity. Decreases by 1 every tick while above 0.
@@ -265,27 +264,27 @@ Defines = {
 	---**Limits:** Min: 1; Max: 100
 	---@type number
 	npcToCoinValueReset = 100,
-    ---Score value of the SMB3 Roulette Star.
+	---Score value of the SMB3 Roulette Star.
 	---
 	---**Default value**: [10](https://docs.codehaus.moe/#/constants/score)
 	---
 	---**Limits:** Min: 1; Max: 12
 	---@type number
-    smb3RouletteScoreValueStar = 10,
-    ---Score value of the SMB3 Roulette Flower.
+	smb3RouletteScoreValueStar = 10,
+	---Score value of the SMB3 Roulette Flower.
 	---
 	---**Default value**: [8](https://docs.codehaus.moe/#/constants/score)
 	---
 	---**Limits:** Min: 1; Max: 12
 	---@type number
-    smb3RouletteScoreValueFlower = 8,
-    ---Score value of the SMB3 Roulette Mushroom.
+	smb3RouletteScoreValueFlower = 8,
+	---Score value of the SMB3 Roulette Mushroom.
 	---
 	---**Default value**: [6](https://docs.codehaus.moe/#/constants/score)
 	---
 	---**Limits:** Min: 1; Max: 12
 	---@type number
-    smb3RouletteScoreValueMushroom = 6,
+	smb3RouletteScoreValueMushroom = 6,
 	---Whether the shadowstar cheat is active.
 	---
 	---**Default value**: false

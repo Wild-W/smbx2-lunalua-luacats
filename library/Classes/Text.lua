@@ -1,6 +1,5 @@
 ---@meta
 
-
 ---The Text namespace exposes basic functions for printing text. It's most useful for runtime debugging and displaying native SMBX message boxes. For a more elaborate text printing system, take a look at textplus.
 Text = {}
 

@@ -1,7 +1,6 @@
 ---@meta
 ---@diagnostic disable: deprecated
 
-
 ---@deprecated Use `GameData` or `SaveData` instead.
 Data = {}
 

@@ -1,6 +1,5 @@
 ---@meta
 
-
 ---Camlock is a library for defining simple camera zones in levels and on the overworld. Camera zones are defined by their top/left edge and their width and height.
 ---
 ---Camera zones are required to be at least the size of a camera, meaning that width should be at least 800 and the height should be at least 600. Note that this also applies on world maps, even if the world map border is enabled and the visible part of the map is smaller.
@@ -25,6 +24,5 @@ function camLock.onDrawWorld() end
 
 ---@param camIdx integer
 function camLock.onCamUpdateLevel(camIdx) end
-
 
 return camLock

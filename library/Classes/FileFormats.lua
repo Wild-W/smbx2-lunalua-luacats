@@ -1,6 +1,5 @@
 ---@meta
 
-
 FileFormats = {}
 
 ---@type userdata

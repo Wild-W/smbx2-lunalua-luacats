@@ -1,6 +1,5 @@
 ---@meta
 
-
 -- This file needs a lot of work.
 
 ---The Sprite class is designed for more in-depth drawing functions, without the use of Graphics.glDraw. It is used to create objects that can be moved, rotated, animated, stretched, and applied to an object hierarchy using Transforms.

@@ -1,6 +1,5 @@
 ---@meta
 
-
 ---@class PlayerAnimation
 local pAnim = {}
 

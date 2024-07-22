@@ -1,6 +1,5 @@
 ---@meta
 
-
 ---Checkpoints are temporary mid-level save points that allow players to restart from them when they die. By default, they last until the level is completed, or the game is shut down.
 ---@class CheckpointManager
 Checkpoint = {}

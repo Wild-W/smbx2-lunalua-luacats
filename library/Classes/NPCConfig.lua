@@ -1,6 +1,5 @@
 ---@meta
 
-
 ---@class NPCConfig : LightConfig
 ---**Animation:**
 ---

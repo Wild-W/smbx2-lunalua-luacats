@@ -1,6 +1,5 @@
 ---@meta
 
-
 ---@alias SMBXVersion
 ---| `VER_BETA5_PATCH_2` # SMBX2b5p2
 ---| `VER_BETA5_PATCH_1_2` # SMBX2b5p1.2

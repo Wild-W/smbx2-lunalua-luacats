@@ -1,6 +1,5 @@
 ---@meta
 
-
 Native = {}
 
 ---@return string path

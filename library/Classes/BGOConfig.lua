@@ -1,6 +1,5 @@
 ---@meta
 
-
 ---Configuration settings for Background game objects (BGOs).
 ---@class BGOConfig : LightConfig
 --- @field frames number Number of frames of the BGO animation. Default: 1

@@ -1,6 +1,5 @@
 ---@meta
 
-
 ---Constants for mounts and mount types.
 ---@alias MountType
 ---| `MOUNT_NONE` # No mount.

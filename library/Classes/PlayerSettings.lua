@@ -1,6 +1,5 @@
 ---@meta
 
-
 ---PlayerSettings objects store the information from player hitbox ini files.
 PlayerSettings = {}
 
@@ -46,4 +45,3 @@ function PlayerSettings:setSpriteOffsetX(indexX, indexY, value) end
 --- @param indexY number The y-index of the frame (0-9).
 --- @param value number The new y-offset value.
 function PlayerSettings:setSpriteOffsetY(indexX, indexY, value) end
-

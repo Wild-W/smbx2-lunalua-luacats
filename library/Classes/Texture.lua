@@ -1,6 +1,5 @@
 ---@meta
 
-
 ---Variables that store a texture can be used in draw functions to draw the texture to the screen.
 ---The dimensions of a texture can also be accessed.
 ---

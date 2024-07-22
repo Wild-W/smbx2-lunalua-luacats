@@ -1,6 +1,5 @@
 ---@meta
 
-
 ---@alias VirtualKeyCode
 ---| `VK_LBUTTON` # Left mouse button
 ---| `VK_RBUTTON` # Right mouse button

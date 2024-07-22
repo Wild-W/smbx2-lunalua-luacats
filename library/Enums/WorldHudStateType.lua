@@ -1,6 +1,5 @@
 ---@meta
 
-
 ---Constants for the world map hud state.
 ---@alias WorldHudState
 ---| `WHUD_ALL` # All HUD elements are visible.

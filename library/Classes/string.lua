@@ -1,6 +1,5 @@
 ---@meta
 
-
 ---Trims leading and trailing whitespace
 ---@param s string
 ---@return string trimmedString

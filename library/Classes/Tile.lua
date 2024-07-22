@@ -1,6 +1,5 @@
 ---@meta
 
-
 Tile = {}
 
 --- Returns the number of tile items.
@@ -76,4 +75,3 @@ function Tile:mem(offset, type, value) end
 --- | `0x28` # Tile Y-Speed (changing has no actual effect). `FIELD_DFLOAT`
 --- | `0x30` # The ID of the scenery. Use field `id`. `FIELD_WORD`
 --- | `0x32` # Reserved for future use or unknown functionality. `FIELD_WORD`
-

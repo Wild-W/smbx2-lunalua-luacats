@@ -1,6 +1,5 @@
 ---@meta
 
-
 ---Blocks are the terrain pieces for levels.
 Block = {}
 
@@ -149,12 +148,12 @@ Block.config = {}
 Block.MEGA_HIT_MAP = {}
 
 Block.maskFilter = {
-    ---@type boolean
-    solid = true,
-    ---@type boolean
-    sizable = true,
-    ---@type boolean
-    noshadows = true
+	---@type boolean
+	solid = true,
+	---@type boolean
+	sizable = true,
+	---@type boolean
+	noshadows = true,
 }
 
 ---@type table<number, boolean>

@@ -1,6 +1,5 @@
 ---@meta
 
-
 --- # Per-tick events
 
 ---Runs every tick. Executes just after input has updated, making it useful for pause menu navigation.
@@ -73,7 +72,7 @@ onPostEventDirect = nil
 ---@type fun(eventToken: EventToken, content: string, player: Player, npcTalkedTo: NPC)
 onMessageBox = nil
 
----Executes <b>immediately</b> when a block is hit. Passes the block, whether or not it was hit from above, the player if it was the culprit, and a token that can be used to cancel the hit event. 
+---Executes <b>immediately</b> when a block is hit. Passes the block, whether or not it was hit from above, the player if it was the culprit, and a token that can be used to cancel the hit event.
 ---@type fun(eventToken: EventToken, hitBlock: Block, fromUpper: boolean, playerOrNil: Player)
 onBlockHit = nil
 
@@ -81,7 +80,7 @@ onBlockHit = nil
 ---@type fun(hitBlock: Block, fromUpper: boolean, playerOrNil: Player|nil)
 onPostBlockHit = nil
 
----Executes <b>immediately</b> when a block is removed. Passes the block and a token that can be used to cancel the hit event. 
+---Executes <b>immediately</b> when a block is removed. Passes the block and a token that can be used to cancel the hit event.
 ---@type fun(eventToken: EventToken, hitBlock: Block)
 onBlockRemove = nil
 

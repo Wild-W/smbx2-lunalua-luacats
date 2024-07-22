@@ -1,6 +1,5 @@
 ---@meta
 
-
 ---Used by the `Graphics.draw` function to specify whether text or an image is being drawn.
 ---@alias RenderType
 ---| `RTYPE_TEXT` # Text is being drawn, unlocking the text and fontType named args.

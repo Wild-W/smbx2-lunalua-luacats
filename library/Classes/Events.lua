@@ -1,6 +1,5 @@
 ---@meta
 
-
 Events = {}
 
 Events.waitingTimers = {}

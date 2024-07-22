@@ -3,7 +3,6 @@
 -- This file needs much work.
 -- If you're contributing please help here.
 
-
 Graphics = {}
 
 --- Toggles the level HUD on or off.

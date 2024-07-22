@@ -1,6 +1,5 @@
 ---@meta
 
-
 ---Constants for enemy harm types.
 ---@alias EnemyHarmType
 ---| `HARM_TYPE_JUMP` # Damaging an NPC by jumping on it.
@@ -13,7 +12,6 @@
 ---| `HARM_TYPE_SPINJUMP` # Damaging an NPC by spinjumping on it.
 ---| `HARM_TYPE_VANISH` # Damage dealt to an NPC when it vanishes (being collected or eaten).
 ---| `HARM_TYPE_SWORD` # Damaging an NPC via one of Link's attack methods.
-
 
 ---Extended harm types may be passed to `NPC:harm()` as a method of harming an NPC. They are not used in other contexts.
 ---@alias ExtendedEnemyHarmType

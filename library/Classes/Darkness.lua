@@ -1,7 +1,6 @@
 ---@meta
 -- TODO: Finish field descriptions.
 
-
 ---The Darkness class allows you to create and manipulate darkness fields and lighting.
 ---@class Darkness
 Darkness = {}
@@ -46,48 +45,47 @@ function Darkness.addLight(light) end
 function Darkness.removeLight(light) end
 
 Darkness.falloff = {
-    ---@type string
-    INV_SQR = "",
-    ---@type string
-    LINEAR = "",
-    ---@type string
-    HARD = "",
-    ---@type string
-    SIGMOID = "",
-    ---@type string
-    STEP = "",
-    ---@type string
-    SQR_STEP = "",
-    ---@type string
-    DEFAULT = "",
+	---@type string
+	INV_SQR = "",
+	---@type string
+	LINEAR = "",
+	---@type string
+	HARD = "",
+	---@type string
+	SIGMOID = "",
+	---@type string
+	STEP = "",
+	---@type string
+	SQR_STEP = "",
+	---@type string
+	DEFAULT = "",
 }
 
 Darkness.shadow = {
-    ---@type string
-    NONE = "",
-    ---@type string
-    RAYMARCH = "",
-    ---@type string
-    HARD_RAYMARCH = "",
-    ---@type string
-    DEFAULT = "",
+	---@type string
+	NONE = "",
+	---@type string
+	RAYMARCH = "",
+	---@type string
+	HARD_RAYMARCH = "",
+	---@type string
+	DEFAULT = "",
 }
 
 Darkness.lighttype = {
-    POINT = 0,
-    SPOT = 1,
-    BOX = 2,
-    LINE = 3,
+	POINT = 0,
+	SPOT = 1,
+	BOX = 2,
+	LINE = 3,
 }
 
 ---@type table<string, number>
 Darkness.priority = {
-    DISTANCE = 0,
-    SIZE = 1,
-    BRIGHTNESS = 2,
-    DEFAULT = 0,
+	DISTANCE = 0,
+	SIZE = 1,
+	BRIGHTNESS = 2,
+	DEFAULT = 0,
 }
-
 
 ---@class DarknessField
 local DarknessFieldInstance = {}
@@ -154,7 +152,6 @@ DarknessFieldInstance.shader = nil
 
 ---@type table
 DarknessFieldInstance.subshaders = {}
-
 
 ---@class Light
 local LightInstance = {}
