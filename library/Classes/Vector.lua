@@ -112,12 +112,25 @@ vector.quatid = nil
 ---@return Vector2 vector2 The new vector object.
 function vector(x, y) end
 
+--- Creates a new Vector2 object.
+---@param x number The x component of the vector.
+---@param y number The y component of the vector.
+---@return Vector2 vector2 The new vector object.
+function vector.v2(x, y) end
+
 --- Creates a new Vector3 object.
 ---@param x number The x component of the vector.
 ---@param y number The y component of the vector.
 ---@param z number The z component of the vector.
 ---@return Vector3 vector3 The new vector object.
 function vector(x, y, z) end
+
+--- Creates a new Vector3 object.
+---@param x number The x component of the vector.
+---@param y number The y component of the vector.
+---@param z number The z component of the vector.
+---@return Vector3 vector3 The new vector object.
+function vector.v3(x, y, z) end
 
 --- Creates a new Vector4 object.
 ---@param x number The x component of the vector.
@@ -126,6 +139,14 @@ function vector(x, y, z) end
 ---@param w number The w component of the vector.
 ---@return Vector4 vector4 The new vector object.
 function vector(x, y, z, w) end
+
+--- Creates a new Vector4 object.
+---@param x number The x component of the vector.
+---@param y number The y component of the vector.
+---@param z number The z component of the vector.
+---@param w number The w component of the vector.
+---@return Vector4 vector4 The new vector object.
+function vector.v4(x, y, z, w) end
 
 --- Creates a new 2x2 matrix object with specified elements.
 ---@param m00 number Element at row 1, column 1.

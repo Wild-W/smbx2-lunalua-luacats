@@ -14,24 +14,24 @@ function Routine.run(f, ...) end
 
 --- Exits the current coroutine, resuming it after the specified number of seconds. If `whilePaused` is set to `true`, this timer will continue to count down even while the game is paused. By default, `whilePaused` is false.
 --- @param seconds number The number of seconds to wait.
---- @param whilePaused boolean Whether to continue counting down while the game is paused.
+--- @param whilePaused boolean? Whether to continue counting down while the game is paused.
 --- @return any yield The yield object.
 function Routine.wait(seconds, whilePaused) end
 
 --- Exits the current coroutine, resuming it after the specified number of frames. If `whilePaused` is set to `true`, this timer will continue to count down even while the game is paused. By default, `whilePaused` is false.
 --- @param frames number The number of frames to wait.
---- @param whilePaused boolean Whether to continue counting down while the game is paused.
+--- @param whilePaused boolean? Whether to continue counting down while the game is paused.
 --- @return any yield The yield object.
 function Routine.waitFrames(frames, whilePaused) end
 
 --- Exits the current coroutine, resuming it on the next frame. If `whilePaused` is set to `true`, the coroutine will resume even if the game is paused. By default, `whilePaused` is false.
---- @param whilePaused boolean Whether to resume even if the game is paused.
+--- @param whilePaused boolean? Whether to resume even if the game is paused.
 --- @return any yield The yield object.
 function Routine.skip(whilePaused) end
 
 --- Exits the current coroutine, resuming it after the specified number of seconds, adjusted for frame rate. If `whilePaused` is set to `true`, this timer will continue to count down even while the game is paused. By default, `whilePaused` is false. This should not be used for gameplay, as it can cause things to go out of sync, and should be reserved for purely decorative elements.
 --- @param seconds number The number of seconds to wait, adjusted for frame rate.
---- @param whilePaused boolean Whether to continue counting down while the game is paused.
+--- @param whilePaused boolean? Whether to continue counting down while the game is paused.
 --- @return any yield The yield object.
 function Routine.waitRealSeconds(seconds, whilePaused) end
 
@@ -72,14 +72,14 @@ function Routine.signal(signal) end
 --- Can only be used from within a coroutine. Waits for the specified number of frames, running the function `f` on each frame. If `whilePaused` is set to `true`, this timer will continue to count down even while the game is paused. By default, `whilePaused` is false.
 --- @param frames number The number of frames to wait.
 --- @param f function The function to run on each frame.
---- @param whilePaused boolean Whether to continue counting down while the game is paused.
+--- @param whilePaused boolean? Whether to continue counting down while the game is paused.
 function Routine.loop(frames, f, whilePaused) end
 
 --- Creates a timer that will run the function `f` after the specified number of seconds. If `repeated` is set to `true`, the timer will repeat indefinitely. If `repeated` is set to a number, the timer will repeat the specified number of times. By default, the timer will not repeat. If `whilePaused` is set to `true`, this timer will continue to count down even while the game is paused. By default, `whilePaused` is false.
 --- @param seconds number The number of seconds to wait.
 --- @param f function The function to run after the wait.
 --- @param repeated boolean|number Whether to repeat the timer, or the number of times to repeat.
---- @param whilePaused boolean Whether to continue counting down while the game is paused.
+--- @param whilePaused boolean? Whether to continue counting down while the game is paused.
 --- @return Routine routine The created routine.
 function Routine.setTimer(seconds, f, repeated, whilePaused) end
 
@@ -87,7 +87,7 @@ function Routine.setTimer(seconds, f, repeated, whilePaused) end
 --- @param frames number The number of frames to wait.
 --- @param f function The function to run after the wait.
 --- @param repeated boolean|number Whether to repeat the timer, or the number of times to repeat.
---- @param whilePaused boolean Whether to continue counting down while the game is paused.
+--- @param whilePaused boolean? Whether to continue counting down while the game is paused.
 --- @return Routine routine The created routine.
 function Routine.setFrameTimer(frames, f, repeated, whilePaused) end
 
@@ -95,7 +95,7 @@ function Routine.setFrameTimer(frames, f, repeated, whilePaused) end
 --- @param seconds number The number of seconds to wait, adjusted for frame rate.
 --- @param f function The function to run after the wait.
 --- @param repeated boolean|number Whether to repeat the timer, or the number of times to repeat.
---- @param whilePaused boolean Whether to continue counting down while the game is paused.
+--- @param whilePaused boolean? Whether to continue counting down while the game is paused.
 --- @return Routine routine The created routine.
 function Routine.setRealTimer(seconds, f, repeated, whilePaused) end
 

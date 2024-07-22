@@ -2,42 +2,8 @@
 
 
 ---The Color class streamlines working with colors.
----@class Color
----@field r number # Red component [0,1]
----@field g number # Green component [0,1]
----@field b number # Blue component [0,1]
----@field a number # Alpha component [0,1]
----@operator concat(number): Color
 ---@overload fun(r: number, g: number, b: number, alpha?: number): Color
 Color = {}
-
-
---- Instance methods
-
----Converts the Color object to a 3 byte hexadecimal representation, ignoring the alpha channel.
----@return number hexValue
-function Color:toHexRGB() end
-
----Converts the Color object to a 4 byte hexadecimal representation.
----@return number hexValue
-function Color:toHexRGBA() end
-
----Converts the Color object to a 4 byte hexadecimal representation.
----@return number hexValue
-function Color:toHex() end
-
----Converts the Color object to a HSV encoding.
----@return number hue # [0,1]
----@return number saturation # [0,1]
----@return number value # [0,1]
-function Color:toHSV() end
-
----Converts the Color object to a HSL encoding.
----@return number hue # [0,1]
----@return number saturation # [0,1]
----@return number lightness # [0,1]
-function Color:toHSL() end
-
 
 --- Static functions
 
@@ -92,7 +58,6 @@ function Color.lerp(a, b, value) end
 ---@param value number
 ---@return Color color
 function Color.lerpHSV(a, b, value) end
-
 
 --- Constants
 
@@ -223,3 +188,43 @@ Color = {
     darkred = Color(0.5, 0, 0),
 }
 
+
+---@class Color
+---@field r number # Red component [0,1]
+---@field g number # Green component [0,1]
+---@field b number # Blue component [0,1]
+---@field a number # Alpha component [0,1]
+---@operator concat(number): Color
+---@operator add(Color): Color
+---@operator add(number): Color
+---@operator mul(number): Color
+---@operator mul(Color): Color
+---@operator div(number): Color
+---@operator div(Color): Color
+local Color = {}
+
+--- Instance methods
+
+---Converts the Color object to a 3 byte hexadecimal representation, ignoring the alpha channel.
+---@return number hexValue
+function Color:toHexRGB() end
+
+---Converts the Color object to a 4 byte hexadecimal representation.
+---@return number hexValue
+function Color:toHexRGBA() end
+
+---Converts the Color object to a 4 byte hexadecimal representation.
+---@return number hexValue
+function Color:toHex() end
+
+---Converts the Color object to a HSV encoding.
+---@return number hue # [0,1]
+---@return number saturation # [0,1]
+---@return number value # [0,1]
+function Color:toHSV() end
+
+---Converts the Color object to a HSL encoding.
+---@return number hue # [0,1]
+---@return number saturation # [0,1]
+---@return number lightness # [0,1]
+function Color:toHSL() end

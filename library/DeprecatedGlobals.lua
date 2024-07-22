@@ -47,8 +47,8 @@ function loadHitboxes(characterId, powerUpId, iniFilename) end
 
 --- Loads an image in the resource memory at 'resourceNumber'. You can also set the transparent color.
 --- @param filename string
---- @param resourceNumber number
---- @param transparentColor number
+--- @param resourceNumber number?
+--- @param transparentColor number?
 --- @deprecated Use Graphics.loadImage instead.
 function loadImage(filename, resourceNumber, transparentColor) end
 

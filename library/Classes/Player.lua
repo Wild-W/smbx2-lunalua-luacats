@@ -112,7 +112,7 @@ function PlayerInstance:detachWeight(weight) end
 
 --- Transforms the player into another character.
 --- @param index CharacterType The character index to transform into.
---- @param effect boolean Whether to apply a transformation effect.
+--- @param effect boolean? Whether to apply a transformation effect.
 function PlayerInstance:transform(index, effect) end
 
 --- Returns a PlayerSettings object of the current character and powerup state of the player.

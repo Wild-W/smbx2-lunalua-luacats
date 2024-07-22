@@ -115,7 +115,7 @@ function Colliders.getSpeedHitbox(object) end
 
 --- Causes the object to "bounce" upwards as if they had just stomped on an enemy.
 --- @param firstObject CollisionObject The object to apply the bounce effect to.
---- @param strength number The strength of the bounce.
+--- @param strength number? The strength of the bounce.
 function Colliders.bounceResponse(firstObject, strength) end
 
 --- Checks for collision between two objects.
@@ -221,6 +221,10 @@ function Collider:Draw(color) end
 --- Enables/disables debug drawing of the collider.
 --- @param enable boolean Whether to enable or disable debug drawing.
 function Collider:Debug(enable) end
+
+---@param player Player
+---@return boolean
+function Collider:collide(player) end
 
 
 ---@class PointCollider : Collider

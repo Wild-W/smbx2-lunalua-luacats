@@ -59,7 +59,7 @@ function Misc.listLocalFiles(path) end
 --- * {SMBX2 data path}
 --- ... in that order. The full absolute path will be returned or nil if not found.
 --- @param path string
---- @return string|nil
+--- @return string?
 ---
 --- LunaLua ≥ v0.7.1, Overworld and Level
 function Misc.resolveFile(path) end
@@ -70,7 +70,7 @@ function Misc.resolveFile(path) end
 --- * {SMBX2 data path}/graphics
 --- ... in that order. The full absolute path will be returned or nil if not found.
 --- @param path string
---- @return string|nil
+--- @return string?
 ---
 --- LunaLua ≥ v0.7.3.1, Overworld and Level
 function Misc.resolveGraphicsFile(path) end
@@ -82,7 +82,7 @@ function Misc.resolveGraphicsFile(path) end
 --- * {SMBX2 data path}/sound/extended
 --- ... in that order. Additionally, it will search for one of these formats: ".ogg", ".mp3", ".wav", ".voc", ".flac", ".spc" ... in that order, even if a file type is included in the patch. The full absolute path will be returned or nil if not found.
 --- @param path string
---- @return string|nil
+--- @return string?
 ---
 --- Overworld and Level
 function Misc.resolveSoundFile(path) end
@@ -94,7 +94,7 @@ function Misc.resolveSoundFile(path) end
 --- * {SMBX2 data path}
 --- ... in that order. The full absolute path will be returned or nil if not found.
 --- @param path string
---- @return string|nil
+--- @return string?
 ---
 --- LunaLua ≥ v0.7.1, Overworld and Level
 function Misc.resolveDirectory(path) end
@@ -527,12 +527,12 @@ function Misc.setWindowIcon(icon) end
 function Misc.getFullPath(file) end
 
 --- Returns the name of the current level folder. If there is none, nil is returned.
---- @return string|nil path The name of the current level folder.
+--- @return string? path The name of the current level folder.
 --- @note Level only
 function Misc.levelFolder() end
 
 --- Returns the path of the current level folder. If there is none, nil is returned.
---- @return string|nil path The path of the current level folder.
+--- @return string? path The path of the current level folder.
 --- @note Level only
 function Misc.levelPath() end
 
@@ -561,7 +561,7 @@ function Misc.listDirectories(path) end
 
 --- Searches for a file given by the path in the following directories: Custom level folder -> Episode folder -> {SMBX}/data/scripts folder -> {SMBX}/data folder. The absolute path will be returned (or nil if nothing was found).
 --- @param path string The path to search for.
---- @return string|nil filePath The absolute file path, or nil if not found.
+--- @return string? filePath The absolute file path, or nil if not found.
 function Misc.resolveFile(path) end
 
 --- Searches for multiple files given by the path in the following directories: Custom level folder (if called in a level) -> Episode folder -> {SMBX}/data/scripts folder -> {SMBX}/data folder. The absolute path will be returned (or nil if nothing was found). This function differs from the other resolveFile functions in that it takes multiple file strings as arguments. All strings are searched for in one directory (in the order they're passed as arguments) before the next one is searched in.
@@ -571,17 +571,17 @@ function Misc.multiResolveFile(...) end
 
 --- Searches for a graphics file given by the path in the following directories: Custom level folder -> Episode folder -> {SMBX}/data/graphics folder. The absolute path will be returned (or nil if nothing was found).
 --- @param path string The path to search for.
---- @return string|nil filePath The absolute file path, or nil if not found.
+--- @return string? filePath The absolute file path, or nil if not found.
 function Misc.resolveGraphicsFile(path) end
 
 --- Searches for a sound file given by the path in the following directories: Custom level folder -> Episode folder -> {SMBX}/data/sounds folder -> {SMBX}/data/sounds/extended folder. The absolute path will be returned (or nil if nothing was found).
 --- @param path string The path to search for.
---- @return string|nil filePath The absolute file path, or nil if not found.
+--- @return string? filePath The absolute file path, or nil if not found.
 function Misc.resolveSoundFile(path) end
 
 --- Searches for a directory given by the path in the following directories: Custom level folder -> Episode folder -> {SMBX}/data/scripts folder -> {SMBX}/data folder. The absolute path will be returned (or nil if nothing was found).
 --- @param path string The path to search for.
---- @return string|nil filePath The absolute directory path, or nil if not found.
+--- @return string? filePath The absolute directory path, or nil if not found.
 function Misc.resolveDirectory(path) end
 
 --### Static collision group functions
