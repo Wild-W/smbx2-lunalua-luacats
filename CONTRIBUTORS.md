@@ -50,3 +50,7 @@ git push origin your-branch-name
 ### Unimplemented
 
 * Most [Modules](/library/Modules) (Only add modules that exist in the SMBX2 base game and that are able to be loaded from level/world scripts)
+
+### Other
+
+* Splitting this into two parts, a Lunalua half and a SMBX2 half that depends on Lunalua is the technically correct way to organize this project. I definitely won't be the one to do it though.
