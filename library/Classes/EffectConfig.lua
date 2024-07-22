@@ -1,0 +1,371 @@
+---@meta
+
+
+--- Configuration settings for visual and behavioral aspects of effects in the game environment.
+--- @class EffectConfig
+--- @field img number ID of the effect image to use. Default is the same as the effect file ID.
+--- @field delay number Number of frames after the effect is spawned before this layer should spawn. Default: 0
+--- @field xAlign number Horizontal position of the layer's X coordinate relative to the sprite, also the anchor of rotation. Default: 0 (LEFT)
+--- @field yAlign number Vertical position of the layer's Y coordinate relative to the sprite, also the anchor of rotation. Default: 0 (TOP)
+--- @field spawnBindX number Horizontal anchor of the effect layer relative to the parent. Default: 0 (LEFT)
+--- @field spawnBindY number Vertical anchor of the effect layer relative to the parent. Default: 0 (TOP)
+--- @field xOffset number Horizontal offset relative to the effect spawn position. Default: 0
+--- @field yOffset number Vertical offset relative to the effect spawn position. Default: 0
+--- @field lifetime number Number of frames before this effect layer despawns. Default: 65
+--- @field sound number ID of sound effect to play on spawn. Default: None
+--- @field frames number Number of frames of the effect animation. Default: 1
+--- @field framespeed number The amount of ticks it takes for the effect animation frame to change. Default: 8
+--- @field width number The width of the effect image, inferred from sprite. Default is inferred from sprite
+--- @field height number The height of the effect image, inferred from sprite and frames. Default is inferred from sprite and frames
+--- @field priority number The effect's render priority. Default: -5 (FOREGROUND)
+--- @field opacity number The effect's opacity. Default: 1
+--- @field direction number The effect layer's direction. Default: -1
+--- @field variants number Number of variations of the animation. Default: 1
+--- @field variant number The variation index used by the layer. Default: 1
+--- @field import EffectConfigTable|string An effect config to import. Default: None
+--- @field onInit EffectConfigInitFunction|string An onInit function to use. Default: None
+--- @field onTick EffectConfigTickFunction|string An onTick function to use. Default: None
+--- @field onDeath EffectConfigDeathFunction|string An onDeath function to use. Default: None
+--- @field template string Copies another config layer's config. Default: None
+--- @field speedX number The effect's initial horizontal speed. Default: 0
+--- @field speedY number The effect's initial vertical speed. Default: 0
+--- @field gravity number The effect's gravity. Default: 0
+--- @field maxSpeedX number The effect's maximum horizontal speed. Default: -1 (infinite)
+--- @field maxSpeedY number The effect's maximum vertical speed. Default: -1 (infinite)
+--- @field angle number The effect's initial angle. Default: 0
+--- @field rotation number The effect's rotation per frame. Default: 0
+
+---@alias EffectConfigInitFunction
+---|"INIT_LEGACYBOSS" # Handles NPC spawning for legacy boss NPCs (Boom Boom).
+---|"INIT_SETDIR" # Sets the effect's direction to -1 if speed is positive, 1 if negative.
+---|"INIT_BABYYOSHI" # Initializes a Baby Yoshi effect.
+---|"INIT_GLASSSHARDS" # Randomizes the variant of the mother brain glass shards.
+---|"INIT_1INDEXED" # Correction function for 1-indexed variants in Redigit code.
+
+---@alias EffectConfigTickFunction
+---|"TICK_EGG" # Runs per-frame logic for eggs.
+---|"TICK_WIGGLE" # Handles the wiggle of a wiggling effect.
+---|"TICK_STARCOIN" # The Star Coin's bounce movement.
+---|"TICK_TURNBLOCK" # Prevents the effect from dying while the player is overlapping. Syncs frame with all other effects of this ID.
+---|"TICK_SLEEP" # Per-frame logic for Rip van Fish's sleep effect.
+---|"TICK_SLOWDOWN" # Gradually slows down y-speed.
+---|"TICK_BOMB_SMB3" # Spawns a lot of bomb effects.
+---|"TICK_PINGPONG" # Plays the animation forwards, then backwards. Used by the door AI.
+---|"TICK_SINGLE" # Forces the effect to die after one animation cycle.
+---|"TICK_DOUBLESPEED" # Forces the effect to die after one animation cycle. Doubles the speed of the effect.
+---|"TICK_WATERBUBBLE" # Movement of the breathing bubble.
+---|"TICK_WATERSPLASH" # Logic for the water splash effect.
+---|"TICK_MOTHER" # Spawns a lot of Mother Brain explosion effects.
+---|"TICK_SINGLE_DOUBLESPEED" # Uses TICK_SINGLE and doubles X-Speed.
+---|"TICK_SLIDEPUFF" # Uses TICK_SINGLE and gently moves the effect upwards.
+---|"TICK_FIREBALL" # Uses TICK_SINGLE and randomizes position every frame.
+---|"TICK_PEACHBOMB" # Uses TICK_SINGLE and spawns random sparkles.
+---|"TICK_ARC" # Gradually slows down speedX.
+---|"TICK_LARRY" # The movement of Larry's death effect.
+---|"TICK_BLAARG" # The movement of Blaaarg's eyes.
+---|"TICK_RESERVESPARK" # The movement of the reserve item block's spark.
+---|"TICK_COIN" # The coin-out-of-block effect's logic.
+---|"TICK_CHUCK" # Logic for a Chargin' Chuck hurt effect. Tries to turn back into a Chuck when finished.
+---|"TICK_CRASHSWITCH" # The movement of the exclamation mark of the crash switch.
+
+---@alias EffectConfigDeathFunction
+---|"DEATH_TURNBLOCK" # Turns the turn block effect back into a block.
+---|"DEATH_COIN" # Spawns a score effect and adds to the score and coin counters.
+---|"DEATH_EGG" # Spawns an NPC or a Baby Yoshi effect.
+---|"DEATH_SMOKE" # Spawns a smoke puff.
+---|"DEATH_SHELL" # Spawns a shell hit star effect.
+---|"DEATH_SPAWNNPCID" # Spawns an NPC of the npcID stored in the effect.
+---|"DEATH_LEGACYBOSS" # Spawns the legacy boss's goal item.
+
+
+---@alias EffectConfigTable
+---```lua
+-----drops lol
+---AI_DROP = {
+---	lifetime = 500,
+---	gravity = 0.5,
+---	maxSpeedY=10
+---}
+---```
+---|"AI_DROP"
+---```lua
+-----pow block pulse
+---AI_PULSE = {
+---	onTick = "TICK_PULSE",
+---	lifetime = 46,
+---	xAlign = 0.5,
+---	yAlign = 0.5,
+---	gravity = 0
+---}
+---```
+---|"AI_PULSE"
+---```lua
+-----stomped
+---AI_STOMPED = {
+---	lifetime = 20,
+---	--sound=2
+---}
+---```
+---|"AI_STOMPED"
+---```lua
+-----for effects that only play once
+---AI_SINGLE = {
+---	onTick = "TICK_SINGLE",
+---	xAlign = 0,
+---	yAlign = 0,
+---	lifetime = 100
+---}
+---```
+---|"AI_SINGLE"
+---```lua
+-----for effects that only play once but for some reason don't follow speedY rules
+---AI_SLIDEPUFF = {
+---	onTick = "TICK_SLIDEPUFF",
+---	xAlign = 0,
+---	yAlign = 0,
+---	lifetime = 20
+---}
+---```
+---|"AI_SLIDEPUFF"
+---```lua
+-----for effects that only play once but have twice the speed
+---AI_SINGLE_DOUBLESPEED = {
+---	onTick = "TICK_SINGLE_DOUBLESPEED",
+---	xAlign = 0,
+---	yAlign = 0,
+---	lifetime = 65
+---}
+---```
+---|"AI_SINGLE_DOUBLESPEED"
+---```lua
+-----door
+---AI_DOOR = {
+---	lifetime = 120,
+---	onTick = "TICK_PINGPONG",
+---	frames = 5,
+---	sound = 46
+---}
+---```
+---|"AI_DOOR"
+---```lua
+-----player death
+---AI_PLAYER = {
+---	lifetime = 180,
+---	speedY = -11,
+---	gravity = 0.25,
+---	sound = 8
+---}
+---```
+---|"AI_PLAYER"
+---```lua
+-----performs an arc similar to most items when knocked
+---AI_ARC = {
+---	onTick = "TICK_ARC",
+---	lifetime = 500,
+---	speedX = {-3, 3},
+---	speedY = -10,
+---	gravity = 0.5,
+---	maxSpeedY = 10
+---}
+---```
+---|"AI_ARC"
+---```lua
+-----executes the yoshi egg ai as closely as possible (wip)
+---AI_EGG = {
+---	lifetime = 31,
+---	framespeed = 10,
+---	onTick = "TICK_EGG",
+---	onDeath = "DEATH_EGG",
+---	img = 56
+---}
+---```
+---|"AI_EGG"
+---```lua
+-----spinjump does some weird stuff
+---AI_SPINJUMP = {
+---	lifetime = 16,
+---	xAlign = 0,
+---	yAlign = 0,
+---	onTick = "TICK_DOUBLESPEED",
+---}
+---```
+---|"AI_SPINJUMP"
+---```lua
+-----wiggler piece ai
+---AI_WIGGLE = {
+---	lifetime = 500,
+---	onTick = "TICK_WIGGLE",
+---	speedY = -8,
+---	gravity = 0.25
+---}
+---```
+---|"AI_WIGGLE"
+---```lua
+-----twister cloud ai
+---AI_TWISTER = {
+---	lifetime = 500,
+---	onTick = "TICK_TWISTER",
+---	gravity = 0
+---}
+---```
+---|"AI_TWISTER"
+---```lua
+-----starcoin bounce
+---AI_STARCOIN = {
+---	frames = 4,
+---	lifetime = 70,
+---	framespeed = 3,
+---	framestyle = 0,
+---	onTick = "TICK_STARCOIN"
+---}
+---```
+---|"AI_STARCOIN"
+---```lua
+-----coin effect
+---AI_COIN = {
+---	frames = 7,
+---	lifetime = 45,
+---	framespeed = 3,
+---	onTick = "TICK_COIN",
+---	onDeath = "DEATH_COIN",
+---	speedY = -8
+---}
+---```
+---|"AI_COIN"
+---```lua
+-----rip van fish ZZZs
+---AI_SLEEP = {
+---	lifetime = 150,
+---	framespeed = 0,
+---	onTick = "TICK_SLEEP",
+---	speedX = {-.25, .25},
+---	speedY = -.4
+---}
+---```
+---|"AI_SLEEP"
+---```lua
+-----fireballs
+---AI_FIREBALL = {
+---	framespeed = 4,
+---	onTick = "TICK_FIREBALL",
+---	onInit = "INIT_1INDEXED",
+---	frames = 3,
+---	variants = 5
+---}
+---```
+---|"AI_FIREBALL"
+---```lua
+-----iceballs
+---AI_ICEBALL = {
+---	framespeed = 4,
+---	onTick = "TICK_FIREBALL",
+---	frames = 3
+---}
+---```
+---|"AI_ICEBALL"
+---```lua
+-----baby binch
+---AI_BABYYOSHI = {
+---	framespeed = 10,
+---	onInit = "INIT_BABYYOSHI",
+---	onDeath = "DEATH_SPAWNNPCID",
+---	frames = 2,
+---	variants = 8
+---}
+---```
+---|"AI_BABYYOSHI"
+---```lua
+-----turb block
+---AI_TURNBLOCK = {
+---	onTick = "TICK_TURNBLOCK",
+---	onDeath = "DEATH_TURNBLOCK",
+---	frames = 4,
+---	lifetime = 300,
+---	onInit = "INIT_EMPTY"
+---}
+---```
+---|"AI_TURNBLOCK"
+---```lua
+-----yknow
+---AI_PEACHBOMB = {
+---	onTick = "TICK_PEACHBOMB",
+---	frames = 4,
+---	framespeed = 3
+---}
+---```
+---|"AI_PEACHBOMB"
+---```lua
+-----yknow
+---AI_LARRY = {
+---	onTick = "TICK_LARRY",
+---	frames = 8,
+---	framespeed = 4,
+---	lifetime = 200
+---}
+---```
+---|"AI_LARRY"
+---```lua
+-----yknow
+---AI_MOTHER = {
+---	onTick = "TICK_MOTHER",
+---	framestyle = 1,
+---	lifetime = 300
+---}
+---```
+---|"AI_MOTHER"
+---```lua
+-----yknow
+---AI_BOMB_SMB3 = {
+---	onTick="TICK_BOMB_SMB3",
+---	lifetime=42
+---}
+---```
+---|"AI_BOMB_SMB3"
+---```lua
+-----yknow
+---AI_WATERBUBBLE = {
+---	onTick="TICK_WATERBUBBLE",
+---	lifetime=100,
+---	frames=2,
+---	framespeed=3
+---}
+---```
+---|"AI_WATERBUBBLE"
+---```lua
+-----yknow
+---AI_WATERSPLASH = {
+---	onTick="TICK_WATERSPLASH",
+---	lifetime=1000,
+---	frames=5,
+---	framespeed=8
+---}
+---```
+---|"AI_WATERSPLASH"
+---```lua
+-----yknow
+---AI_RESERVESPARK = {
+---	onTick="TICK_RESERVESPARK",
+---	lifetime=100,
+---	frames=10,
+---	framespeed=4,
+---	xAlign=0,
+---	yAlign=0,
+---}
+---```
+---|"AI_RESERVESPARK"
+---```lua
+-----yknow
+---AI_CRASHSWITCH = {
+---	onTick = "TICK_CRASHSWITCH",
+---	lifetime=100
+---}
+---```
+---|"AI_CRASHSWITCH"
+---```lua
+-----RADIAL TIMER
+---AI_RADIALTIMER = {
+---    onTick = "TICK_RADIALTIMER",
+---    onInit = "INIT_RADIALTIMER"
+---}
+---```
+---|"AI_RADIALTIMER"
