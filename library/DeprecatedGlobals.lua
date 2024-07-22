@@ -189,7 +189,7 @@ function runAnimation(id, x, y, height, width, extraData) end
 function runAnimation(id, x, y, height, width, speedX, speedY, extraData) end
 
 --- Gets the cheat text buffer.
---- @return string
+--- @return VBStr
 --- @deprecated Use Misc.cheatBuffer instead.
 function getInput() end
 
