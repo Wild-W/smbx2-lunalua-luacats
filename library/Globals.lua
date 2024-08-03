@@ -57,7 +57,6 @@ function mem(memoryAddress, fieldType, newValue) end
 ---@param memoryAddress number|GlobalMemoryOffset
 ---@param fieldType MemoryFieldType
 ---@param value any
----@nodiscard
 function mem(memoryAddress, fieldType, value) end
 
 ---Returns the absolute path to smbx.exe.

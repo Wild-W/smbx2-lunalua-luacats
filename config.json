@@ -3,7 +3,12 @@
     "name": "SMBX2 LunaLua",
     "files": ["luna.lua", "lunadll.lua", "lunaworld.lua"],
     "settings": {
+        "Lua.runtime.special": {
+            "API.load": "require",
+            "loadSharedAPI": "require",
+            "loadAPI": "require"
+        },
         "Lua.runtime.version": "LuaJIT",
-        "diagnostics.disable": ["lowercase-global"]
+        "Lua.diagnostics.disable": ["lowercase-global"]
     }
 }
