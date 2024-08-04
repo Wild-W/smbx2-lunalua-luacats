@@ -56,6 +56,90 @@ onSectionChange = nil
 ---@type fun(playerIdx: number)
 onLoadSection = nil
 
+---Runs when section 0 is loaded. Just like onLoopSection, this function will be called once per player. Prefer onSectionChange.
+---@type fun(playerIdx: number)
+onLoadSection0 = nil
+
+---Runs when section 1 is loaded. Just like onLoopSection, this function will be called once per player. Prefer onSectionChange.
+---@type fun(playerIdx: number)
+onLoadSection1 = nil
+
+---Runs when section 2 is loaded. Just like onLoopSection, this function will be called once per player. Prefer onSectionChange.
+---@type fun(playerIdx: number)
+onLoadSection2 = nil
+
+---Runs when section 3 is loaded. Just like onLoopSection, this function will be called once per player. Prefer onSectionChange.
+---@type fun(playerIdx: number)
+onLoadSection3 = nil
+
+---Runs when section 4 is loaded. Just like onLoopSection, this function will be called once per player. Prefer onSectionChange.
+---@type fun(playerIdx: number)
+onLoadSection4 = nil
+
+---Runs when section 5 is loaded. Just like onLoopSection, this function will be called once per player. Prefer onSectionChange.
+---@type fun(playerIdx: number)
+onLoadSection5 = nil
+
+---Runs when section 6 is loaded. Just like onLoopSection, this function will be called once per player. Prefer onSectionChange.
+---@type fun(playerIdx: number)
+onLoadSection6 = nil
+
+---Runs when section 7 is loaded. Just like onLoopSection, this function will be called once per player. Prefer onSectionChange.
+---@type fun(playerIdx: number)
+onLoadSection7 = nil
+
+---Runs when section 8 is loaded. Just like onLoopSection, this function will be called once per player. Prefer onSectionChange.
+---@type fun(playerIdx: number)
+onLoadSection8 = nil
+
+---Runs when section 9 is loaded. Just like onLoopSection, this function will be called once per player. Prefer onSectionChange.
+---@type fun(playerIdx: number)
+onLoadSection9 = nil
+
+---Runs when section 10 is loaded. Just like onLoopSection, this function will be called once per player. Prefer onSectionChange.
+---@type fun(playerIdx: number)
+onLoadSection10 = nil
+
+---Runs when section 11 is loaded. Just like onLoopSection, this function will be called once per player. Prefer onSectionChange.
+---@type fun(playerIdx: number)
+onLoadSection11 = nil
+
+---Runs when section 12 is loaded. Just like onLoopSection, this function will be called once per player. Prefer onSectionChange.
+---@type fun(playerIdx: number)
+onLoadSection12 = nil
+
+---Runs when section 13 is loaded. Just like onLoopSection, this function will be called once per player. Prefer onSectionChange.
+---@type fun(playerIdx: number)
+onLoadSection13 = nil
+
+---Runs when section 14 is loaded. Just like onLoopSection, this function will be called once per player. Prefer onSectionChange.
+---@type fun(playerIdx: number)
+onLoadSection14 = nil
+
+---Runs when section 15 is loaded. Just like onLoopSection, this function will be called once per player. Prefer onSectionChange.
+---@type fun(playerIdx: number)
+onLoadSection15 = nil
+
+---Runs when section 16 is loaded. Just like onLoopSection, this function will be called once per player. Prefer onSectionChange.
+---@type fun(playerIdx: number)
+onLoadSection16 = nil
+
+---Runs when section 17 is loaded. Just like onLoopSection, this function will be called once per player. Prefer onSectionChange.
+---@type fun(playerIdx: number)
+onLoadSection17 = nil
+
+---Runs when section 18 is loaded. Just like onLoopSection, this function will be called once per player. Prefer onSectionChange.
+---@type fun(playerIdx: number)
+onLoadSection18 = nil
+
+---Runs when section 19 is loaded. Just like onLoopSection, this function will be called once per player. Prefer onSectionChange.
+---@type fun(playerIdx: number)
+onLoadSection19 = nil
+
+---Runs when section 20 is loaded. Just like onLoopSection, this function will be called once per player. Prefer onSectionChange.
+---@type fun(playerIdx: number)
+onLoadSection20 = nil
+
 ---Executes just after next frame's onLoop when a vanilla SMBX event is called. Passes the name of the called event.
 ---@type fun(eventName: string)
 onEvent = nil

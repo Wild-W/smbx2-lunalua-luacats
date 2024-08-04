@@ -338,7 +338,7 @@ PlayerInstance.forcedTimer = 0
 PlayerInstance.keys = nil
 
 --- A PlayerKeys object containing information on the player's current input. Unlike keys, rawKeys will always return the unaltered player input and cannot be manipulated directly.
----@type PlayerKeyState
+---@type table<string, PlayerKeyState>
 PlayerInstance.rawKeys = nil
 
 --- Whether the player is currently pressing up.

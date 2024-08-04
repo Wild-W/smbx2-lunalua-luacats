@@ -240,7 +240,7 @@ function Misc.doBombExplosion(x, y, type) end
 function Misc.getCursorPosition() end
 
 --- Sets the cursor appearance.
---- @param image Texture The cursor image. Set to nil to reset to default, or false to hide the cursor.
+--- @param image Texture|false|nil The cursor image. Set to nil to reset to default, or false to hide the cursor.
 --- @param xHotspot number The x-coordinate of the cursor hotspot.
 --- @param yHotspot number The y-coordinate of the cursor hotspot.
 function Misc.setCursor(image, xHotspot, yHotspot) end

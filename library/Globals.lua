@@ -105,6 +105,12 @@ __episodePath = nil
 ---@type string
 __customFolderPath = nil
 
+---Id of the npc if this file's name adheres to the npc-file name format.
+---
+---Example: `npc-799.lua` means this is equal to `799`
+---@type integer
+NPC_ID = nil
+
 ---@param ... unknown
 ---@return ...
 function simulateError(...) end
