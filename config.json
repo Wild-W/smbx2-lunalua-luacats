@@ -7,7 +7,6 @@
             "loadSharedAPI": "require",
             "loadAPI": "require"
         },
-        "Lua.runtime.version": "LuaJIT",
-        "Lua.diagnostics.disable": ["lowercase-global"]
+        "Lua.runtime.version": "LuaJIT"
     }
 }
