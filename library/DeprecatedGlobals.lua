@@ -269,3 +269,20 @@ function loadAPI(packageName) end
 ---@return boolean newLoaded `false` if the library is already loaded
 ---@deprecated Use "require" for SMBX2 Beta 4 or later
 function loadSharedAPI(packageName) end
+
+---Only in world map.
+---@deprecated
+---@return Level[] levels World level list.
+function levels() end
+
+---Only in world map.
+---@deprecated
+---@param toFindName string
+---@return Level[] levels World level list.
+function findlevels(toFindName) end
+
+---Only in world map.
+---@deprecated
+---@param toFindName string
+---@return Level[] levels World level list.
+function findlevel(toFindName) end

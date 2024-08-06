@@ -1,9 +1,12 @@
 {
-    "$schema": "https://raw.githubusercontent.com/LuaLS/LLS-Addons/main/schemas/addon_config.schema.json",
     "name": "SMBX2 LunaLua",
     "files": ["luna.lua", "lunadll.lua", "lunaworld.lua"],
     "settings": {
-        "Lua.runtime.version": "LuaJIT",
-        "diagnostics.disable": ["lowercase-global"]
+        "Lua.runtime.special": {
+            "API.load": "require",
+            "loadSharedAPI": "require",
+            "loadAPI": "require"
+        },
+        "Lua.runtime.version": "LuaJIT"
     }
 }

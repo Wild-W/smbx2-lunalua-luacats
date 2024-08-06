@@ -41,7 +41,7 @@ function Routine.waitInput(key) end
 
 --- Exits the current coroutine, resuming it after the `Routine.signal` is called. If a table is passed as the `signal`, by default it will be considered a list of signals, all of which must be signalled before the coroutine resumes. If `isTable` is set to `true`, the `signal` argument will always be considered a single object, even if it is a table.
 --- @param signal any The signal to wait for.
---- @param isTable boolean Whether to consider the signal as a single object even if it is a table.
+--- @param isTable boolean? Whether to consider the signal as a single object even if it is a table.
 --- @return any yield The yield object.
 function Routine.waitSignal(signal, isTable) end
 
@@ -101,21 +101,21 @@ function Routine.setRealTimer(seconds, f, repeated, whilePaused) end
 --- Creates an event that will run the function `f` when the specified key is pressed. If `consume` is set to true, the event will be destroyed after being run once, otherwise it will run every time the key is pressed. By default, `consume` is false.
 --- @param key KeyCode The key to wait for.
 --- @param f function The function to run when the key is pressed.
---- @param consume boolean Whether to consume the event after running once.
+--- @param consume boolean? Whether to consume the event after running once.
 --- @return Routine routine The created routine.
 function Routine.registerKeyEvent(key, f, consume) end
 
 --- Creates an event that will run the function `f` when the specified vanilla SMBX event is triggered. If `consume` is set to true, the event will be destroyed after being run once, otherwise it will run every time the event is triggered. By default, `consume` is false.
 --- @param name string The name of the event to wait for.
 --- @param f function The function to run when the event is triggered.
---- @param consume boolean Whether to consume the event after running once.
+--- @param consume boolean? Whether to consume the event after running once.
 --- @return Routine routine The created routine.
 function Routine.registerVanillaEvent(name, f, consume) end
 
 --- Creates an event that will run the function `f` when the specified vanilla SMBX event is triggered. If `consume` is set to true, the event will be destroyed after being run once, otherwise it will run every time the event is triggered. By default, `consume` is false.
 --- @param name string The name of the event to wait for.
 --- @param f function The function to run when the event is triggered.
---- @param consume boolean Whether to consume the event after running once.
+--- @param consume boolean? Whether to consume the event after running once.
 --- @return Routine routine The created routine.
 function Routine.registerSMBXEvent(name, f, consume) end
 

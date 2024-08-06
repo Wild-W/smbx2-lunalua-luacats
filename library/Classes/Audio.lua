@@ -42,6 +42,10 @@ function Audio.MusicIsFading() end
 --- @return number volume The background music's volume (default is 64, max is 128).
 function Audio.MusicVolume() end
 
+--- Returns the background music's volume.
+--- @return number volume The background music's volume (default is 64, max is 128).
+function Audio._GetMusicVolume() end
+
 --- Sets the background music's volume.
 --- @param volume number The background music's volume (default is 64, max is 128).
 function Audio.MusicVolume(volume) end
@@ -160,7 +164,7 @@ function Audio.MusicStop() end
 
 --- Stops the currently loaded music, fading it out over the specified time.
 --- @param fadeMilliseconds number The fade-out duration in milliseconds.
-function Audio.StopFadeOut(fadeMilliseconds) end
+function Audio.MusicStopFadeOut(fadeMilliseconds) end
 
 --- Pauses the currently loaded music.
 function Audio.MusicPause() end
@@ -451,7 +455,7 @@ function MusicStopFadeOut(milliseconds) end
 function MusicVolume(volume) end
 
 ---@class PlayingSfxInstance
-PlayingSfxInstance = {}
+local PlayingSfxInstance = {}
 
 --- Pauses the object's sound or loop.
 function PlayingSfxInstance:Pause() end
@@ -508,7 +512,23 @@ function PlayingSfxInstance:Set3DPosition(angle, distance) end
 
 --- Simple reverse stereo, swaps left and right channel sound.
 --- @param flip number The flip value (0 to undo the effect).
-function PlayingSfxInstance:ReverseStereo(flip) end
+function PlayingSfxInstance:SetReverseStereo(flip) end
+
+---@param alias string
+---@param muted boolean
+function PlayingSfxInstance:__setMuteForAlias(alias, muted) end
+
+---@param alias string
+---@param chunk MixChunk
+function PlayingSfxInstance:__setOverrideForAlias(alias, chunk) end
+
+---@param alias string
+---@return boolean isMuted
+function PlayingSfxInstance:__getMuteForAlias(alias) end
+
+---@param alias string
+---@return MixChunk chunk
+function PlayingSfxInstance:__getChunkForAlias(alias) end
 
 ---@class SoundOverride
 ---@field sfx MixChunk The currrent sound effect audio
