@@ -1,0 +1,737 @@
+---@meta
+
+---@alias SFXList
+--- Mega Man Charge Start
+---| "mm_charge1.ogg"
+--- Mega Man Charge Start
+---| "mm_charge1"
+--- Mega Man Charge Loop
+---| "mm_charge2.ogg"
+--- Mega Man Charge Loop
+---| "mm_charge2"
+--- Mega Man Charge Release
+---| "mm_chargerelease.ogg"
+--- Mega Man Charge Release
+---| "mm_chargerelease"
+--- Mega Man Menu Cursor
+---| "mm_cursor.ogg"
+--- Mega Man Menu Cursor
+---| "mm_cursor"
+--- Mega Man Hurt
+---| "mm_hurt.ogg"
+--- Mega Man Hurt
+---| "mm_hurt"
+--- Mega Man Item Get Long
+---| "mm_itemgetlong.ogg"
+--- Mega Man Item Get Long
+---| "mm_itemgetlong"
+--- Mega Man Item Get Short
+---| "mm_itemgetshort.ogg"
+--- Mega Man Item Get Short
+---| "mm_itemgetshort"
+--- Mega Man Pause
+---| "mm_pause.ogg"
+--- Mega Man Pause
+---| "mm_pause"
+--- Mega Man Shoot
+---| "mm_shoot.ogg"
+--- Mega Man Shoot
+---| "mm_shoot"
+--- Mega Man Teleport
+---| "mm_teleport.ogg"
+--- Mega Man Teleport
+---| "mm_teleport"
+--- Wario Buzzer
+---
+--- Currently unused.
+---| "wario_buzzer.ogg"
+--- Wario Buzzer
+---
+--- Currently unused.
+---| "wario_buzzer"
+--- Wario Footstep 1
+---| "wario_footstep1.ogg"
+--- Wario Footstep 1
+---| "wario_footstep1"
+--- Wario Footstep 2
+---| "wario_footstep2.ogg"
+--- Wario Footstep 2
+---| "wario_footstep2"
+--- Wario Footstep 3
+---| "wario_footstep3.ogg"
+--- Wario Footstep 3
+---| "wario_footstep3"
+--- Klonoa Death
+---| "klonoa_die.ogg"
+--- Klonoa Death
+---| "klonoa_die"
+--- Klonoa Flutter
+---| "klonoa_flutter.ogg"
+--- Klonoa Flutter
+---| "klonoa_flutter"
+--- Klonoa Grab
+---| "klonoa_grab.ogg"
+--- Klonoa Grab
+---| "klonoa_grab"
+--- Klonoa Hurt
+---| "klonoa_hurt.ogg"
+--- Klonoa Hurt
+---| "klonoa_hurt"
+--- Klonoa Ring Attack
+---| "klonoa_ring.ogg"
+--- Klonoa Ring Attack
+---| "klonoa_ring"
+--- Klonoa Throw
+---| "klonoa_throw.ogg"
+--- Klonoa Throw
+---| "klonoa_throw"
+--- Klonoa Mid-air Jump
+---| "klonoa_wahoo.ogg"
+--- Klonoa Mid-air Jump
+---| "klonoa_wahoo"
+--- Klonoa Yah
+---| "klonoa_yah.ogg"
+--- Klonoa Yah
+---| "klonoa_yah"
+--- Ninja Bomberman Death
+---| "nbm_death.ogg"
+--- Ninja Bomberman Death
+---| "nbm_death"
+--- Snake Alert
+---| "snake_alert.ogg"
+--- Snake Alert
+---| "snake_alert"
+--- Zelda Player Save
+---| "zelda_song1_1.ogg"
+--- Zelda Player Save
+---| "zelda_song1_1"
+--- Zelda Player Restore
+---| "zelda_song1_2.ogg"
+--- Zelda Player Restore
+---| "zelda_song1_2"
+--- Zelda Block Save
+---| "zelda_song2_1.ogg"
+--- Zelda Block Save
+---| "zelda_song2_1"
+--- Zelda Block Restore
+---| "zelda_song2_2.ogg"
+--- Zelda Block Restore
+---| "zelda_song2_2"
+--- Zelda NPC Save
+---| "zelda_song3_1.ogg"
+--- Zelda NPC Save
+---| "zelda_song3_1"
+--- Zelda NPC Restore
+---| "zelda_song3_2.ogg"
+--- Zelda NPC Restore
+---| "zelda_song3_2"
+--- Zelda Warp
+---| "zelda_warp.ogg"
+--- Zelda Warp
+---| "zelda_warp"
+--- Ultimate Rinka Leaf Ability
+---| "ur_claw.ogg"
+--- Ultimate Rinka Leaf Ability
+---| "ur_claw"
+--- Ultimate Rinka Fire Ability
+---| "ur_fire.ogg"
+--- Ultimate Rinka Fire Ability
+---| "ur_fire"
+--- Ultimate Rinka Ice Ability
+---| "ur_ice.ogg"
+--- Ultimate Rinka Ice Ability
+---| "ur_ice"
+--- Ultimate Rinka Tanooki Ability
+---| "ur_invincible.ogg"
+--- Ultimate Rinka Tanooki Ability
+---| "ur_invincible"
+--- Ultimate Rinka Shoot
+---| "ur_metalblade.ogg"
+--- Ultimate Rinka Shoot
+---| "ur_metalblade"
+--- Ultimate Rinka Hammer Ability
+---| "ur_powerstone.ogg"
+--- Ultimate Rinka Hammer Ability
+---| "ur_powerstone"
+--- Uncle Broadsword Charging
+---| "ub_charging.wav"
+--- Uncle Broadsword Charging
+---| "ub_charging"
+--- Uncle Broadsword Drop
+---| "ub_drop.wav"
+--- Uncle Broadsword Drop
+---| "ub_drop"
+--- Uncle Broadsword Charged
+---| "ub_knife.wav"
+--- Uncle Broadsword Charged
+---| "ub_knife"
+--- Uncle Broadsword Lunge
+---| "ub_lunge.wav"
+--- Uncle Broadsword Lunge
+---| "ub_lunge"
+--- Uncle Broadsword Swipe
+---| "ub_swipe.wav"
+--- Uncle Broadsword Swipe
+---| "ub_swipe"
+--- Samus Missile
+---| "samus_missile.ogg"
+--- Samus Missile
+---| "samus_missile"
+--- Samus Shoot
+---| "samus_shoot.ogg"
+--- Samus Shoot
+---| "samus_shoot"
+--- Samus Shoot Ice
+---| "samus_shoot_ice.ogg"
+--- Samus Shoot Ice
+---| "samus_shoot_ice"
+--- Samus Shoot Missile
+---| "samus_shoot_missile.ogg"
+--- Samus Shoot Missile
+---| "samus_shoot_missile"
+--- Samus Twirl
+---| "samus_twirl.ogg"
+--- Samus Twirl
+---| "samus_twirl"
+--- Alt Saw
+---
+--- Currently unused.
+---| "alt-saw.ogg"
+--- Alt Saw
+---
+--- Currently unused.
+---| "alt-saw"
+--- Beat Block Switch
+---| "beat-switch.ogg"
+--- Beat Block Switch
+---| "beat-switch"
+--- Beat Block Warn
+---| "beat-warn.ogg"
+--- Beat Block Warn
+---| "beat-warn"
+--- Bird Flap
+---
+--- Used by the SMW birds.
+---| "birdflap.ogg"
+--- Bird Flap
+---
+--- Used by the SMW birds.
+---| "birdflap"
+--- Bowling Ball Hit
+---| "bowlingball.ogg"
+--- Bowling Ball Hit
+---| "bowlingball"
+--- Bubble Shield Jump
+---
+--- Currently unused.
+---| "bubble-shield-jump.ogg"
+--- Bubble Shield Jump
+---
+--- Currently unused.
+---| "bubble-shield-jump"
+--- Bubble Shield Get
+---
+--- Currently unused.
+---| "bubble-shield.ogg"
+--- Bubble Shield Get
+---
+--- Currently unused.
+---| "bubble-shield"
+--- Bumper Low
+---
+--- Used for small bumper bounces.
+---| "bumper.ogg"
+--- Bumper Low
+---
+--- Used for small bumper bounces.
+---| "bumper"
+--- Bumper High
+---
+--- Used for large bumper bounces.
+---| "bumper2.ogg"
+--- Bumper High
+---
+--- Used for large bumper bounces.
+---| "bumper2"
+--- Cape Swoop
+---
+--- Currently unused.
+---| "cape-swoop.ogg"
+--- Cape Swoop
+---
+--- Currently unused.
+---| "cape-swoop"
+--- Chuck Stomp
+---| "chuck-stomp.ogg"
+--- Chuck Stomp
+---| "chuck-stomp"
+--- Chuck Whistle
+---| "chuck-whistle.ogg"
+--- Chuck Whistle
+---| "chuck-whistle"
+--- Crash Anti-Nitro Switch
+---| "crash-switch.ogg"
+--- Crash Anti-Nitro Switch
+---| "crash-switch"
+--- Crate Break 1
+---
+--- Currently unused.
+---| "cratebreak1.ogg"
+--- Crate Break 1
+---
+--- Currently unused.
+---| "cratebreak1"
+--- Crate Break 2
+---
+--- Currently unused.
+---| "cratebreak2.ogg"
+--- Crate Break 2
+---
+--- Currently unused.
+---| "cratebreak2"
+--- Crate Break 3
+---
+--- Currently unused.
+---| "cratebreak3.ogg"
+--- Crate Break 3
+---
+--- Currently unused.
+---| "cratebreak3"
+--- Crate Break 4
+---
+--- Currently unused.
+---| "cratebreak4.ogg"
+--- Crate Break 4
+---
+--- Currently unused.
+---| "cratebreak4"
+--- Crate Break
+---| "crate_break.ogg"
+--- Crate Break
+---| "crate_break"
+--- Waddle Doo Beam Start
+---| "doo-beam-start.ogg"
+--- Waddle Doo Beam Start
+---| "doo-beam-start"
+--- Waddle Doo Beam Loop
+---| "doo-beam.ogg"
+--- Waddle Doo Beam Loop
+---| "doo-beam"
+--- Flame Shield Dash
+---
+--- Currently unused.
+---| "flame-shield-dash.ogg"
+--- Flame Shield Dash
+---
+--- Currently unused.
+---| "flame-shield-dash"
+--- Flame Shield Get
+---
+--- Currently unused.
+---| "flame-shield.ogg"
+--- Flame Shield Get
+---
+--- Currently unused.
+---| "flame-shield"
+--- Foo Death
+---| "foo-die.ogg"
+--- Foo Death
+---| "foo-die"
+--- Foo Exhale
+---| "foo-exhale.ogg"
+--- Foo Exhale
+---| "foo-exhale"
+--- Foo Inhale
+---| "foo-inhale.ogg"
+--- Foo Inhale
+---| "foo-inhale"
+--- Frightlight Appear
+---| "frightlight-appear.ogg"
+--- Frightlight Appear
+---| "frightlight-appear"
+--- Frightlight Startle
+---| "frightlight-startle.ogg"
+--- Frightlight Startle
+---| "frightlight-startle"
+--- Fightlight Ambient 1
+---| "frightlight-wibrel.ogg"
+--- Fightlight Ambient 1
+---| "frightlight-wibrel"
+--- Fightlight Ambient 2
+---| "frightlight-wooble.ogg"
+--- Fightlight Ambient 2
+---| "frightlight-wooble"
+--- Fightlight Ambient 3
+---| "frightlight-worble.ogg"
+--- Fightlight Ambient 3
+---| "frightlight-worble"
+--- Fightlight Ambient 4
+---| "frightlight-wurble.ogg"
+--- Fightlight Ambient 4
+---| "frightlight-wurble"
+--- Fuzzy Touched
+---| "fuzzy-dizzy.ogg"
+--- Fuzzy Touched
+---| "fuzzy-dizzy"
+--- Giant Goomba Split
+---| "giantgoomba-die.ogg"
+--- Giant Goomba Split
+---| "giantgoomba-die"
+--- Timer Under 100
+---| "hurry-up.ogg"
+--- Timer Under 100
+---| "hurry-up"
+--- Kirby Chain Block Destroyed
+---| "kirbybomb.ogg"
+--- Kirby Chain Block Destroyed
+---| "kirbybomb"
+--- Kyaa!
+---
+--- Used only by cheats.
+---| "kyaa.ogg"
+--- Kyaa!
+---
+--- Used only by cheats.
+---| "kyaa"
+--- Launch Barrel Entered
+---| "launchbarrel_entering.ogg"
+--- Launch Barrel Entered
+---| "launchbarrel_entering"
+--- Launch Barrel Fire
+---| "launchbarrel_fire.ogg"
+--- Launch Barrel Fire
+---| "launchbarrel_fire"
+--- Brittle Leaf Destroyed
+---| "leaf.ogg"
+--- Brittle Leaf Destroyed
+---| "leaf"
+--- Magikoopa Magic
+---
+--- Almost identical to 41.
+---| "magikoopa-magic.ogg"
+--- Magikoopa Magic
+---
+--- Almost identical to 41.
+---| "magikoopa-magic"
+--- Mega Goomba Split
+---| "megagoomba-die.ogg"
+--- Mega Goomba Split
+---| "megagoomba-die"
+--- Mega Mushroom Music
+---| "megashroom.ogg"
+--- Mega Mushroom Music
+---| "megashroom"
+--- Nitro Bounce 1
+---| "nitro-bounce-1.ogg"
+--- Nitro Bounce 1
+---| "nitro-bounce-1"
+--- Nitro Bounce 2
+---| "nitro-bounce-2.ogg"
+--- Nitro Bounce 2
+---| "nitro-bounce-2"
+--- Nitro Bounce 3
+---| "nitro-bounce-3.ogg"
+--- Nitro Bounce 3
+---| "nitro-bounce-3"
+--- Nitro Bounce
+---
+--- Currently unused.
+---| "nitro-bounce.ogg"
+--- Nitro Bounce
+---
+--- Currently unused.
+---| "nitro-bounce"
+--- Nitro Explosion
+---| "nitro.ogg"
+--- Nitro Explosion
+---| "nitro"
+--- Phanto Awaken
+---| "phanto-awaken.ogg"
+--- Phanto Awaken
+---| "phanto-awaken"
+--- Phanto Move
+---| "phanto-move.ogg"
+--- Phanto Move
+---| "phanto-move"
+--- Phanto Shake
+---| "phanto-shake.ogg"
+--- Phanto Shake
+---| "phanto-shake"
+--- Tantrunt Grunt
+---| "pig-grunt.ogg"
+--- Tantrunt Grunt
+---| "pig-grunt"
+--- Tantrunt Squeal
+---| "pig-squeal.ogg"
+--- Tantrunt Squeal
+---| "pig-squeal"
+--- Rinky Gun Shoot
+---| "rinkygun-shoot.ogg"
+--- Rinky Gun Shoot
+---| "rinkygun-shoot"
+--- Sonic Shield Lost
+---
+--- Currently unused.
+---| "shield-loss.ogg"
+--- Sonic Shield Lost
+---
+--- Currently unused.
+---| "shield-loss"
+--- Sonic Shield Get
+---
+--- Currently unused.
+---| "shield.ogg"
+--- Sonic Shield Get
+---
+--- Currently unused.
+---| "shield"
+--- Asteron Activated
+---| "sonic-beep.ogg"
+--- Asteron Activated
+---| "sonic-beep"
+--- Sonic Monitor Broken
+---| "sonic-break.ogg"
+--- Sonic Monitor Broken
+---| "sonic-break"
+--- Synced Spike Block
+---| "spike-block.ogg"
+--- Synced Spike Block
+---| "spike-block"
+--- Star Coin Collected
+---| "starcoin-collect.ogg"
+--- Star Coin Collected
+---| "starcoin-collect"
+--- All Star Coins Collected
+---| "starcoin-collectall.ogg"
+--- All Star Coins Collected
+---| "starcoin-collectall"
+--- Starman Music
+---| "starman.ogg"
+--- Starman Music
+---| "starman"
+--- Swooper Flap
+---| "swooperflap.ogg"
+--- Swooper Flap
+---| "swooperflap"
+--- Thunder Shield Jump
+---
+--- Currently unused.
+---| "thunder-shield-jump.ogg"
+--- Thunder Shield Jump
+---
+--- Currently unused.
+---| "thunder-shield-jump"
+--- Thunder Shield Get
+---
+--- Currently unused.
+---| "thunder-shield.ogg"
+--- Thunder Shield Get
+---
+--- Currently unused.
+---| "thunder-shield"
+--- TNT Beep
+---| "tnt.ogg"
+--- TNT Beep
+---| "tnt"
+--- Starman Music Cheat
+---
+--- Only used by cheats.
+---| "waitinginthesky.ogg"
+--- Starman Music Cheat
+---
+--- Only used by cheats.
+---| "waitinginthesky"
+--- Short Warp
+---| "warp-short.ogg"
+--- Short Warp
+---| "warp-short"
+--- Yeah!
+---
+--- Only used by cheats.
+---| "yeah.ogg"
+--- Yeah!
+---
+--- Only used by cheats.
+---| "yeah"
+--- Jump
+---| 1
+--- Stomp
+---| 2
+--- Block Hit
+---| 3
+--- Block Smashed
+---| 4
+--- Shrink
+---| 5
+--- Grow
+---| 6
+--- Mushroom
+---| 7
+--- Player Died
+---| 8
+--- Shell Kick
+---| 9
+--- Skid
+---| 10
+--- Drop Item
+---| 11
+--- Got Item
+---| 12
+--- Camera
+---| 13
+--- Coin
+---| 14
+--- 1UP
+---| 15
+--- Lava
+---| 16
+--- Warp
+---| 17
+--- Fireball
+---| 18
+--- SMB3 Exit
+---| 19
+--- Defeat Boss
+---| 20
+--- Dungeon Clear
+---| 21
+--- Bullet Bill
+---| 22
+--- Grab
+---| 23
+--- Spring
+---| 24
+--- Hammer
+---| 25
+--- Slide
+---| 26
+--- New Path
+---| 27
+--- Level Select
+---| 28
+--- Do
+---| 29
+--- Pause
+---| 30
+--- Key
+---| 31
+--- Switch
+---| 32
+--- Tail
+---| 33
+--- Racoon
+---| 34
+--- Boot
+---| 35
+--- Smash
+---| 36
+--- Thwomp
+---| 37
+--- Birdo Spit
+---| 38
+--- Birdo Hit
+---| 39
+--- SMB2 Exit
+---| 40
+--- Birdo Beat
+---| 41
+--- Big Fireball
+---| 42
+--- Fireworks
+---| 43
+--- Bowser Killed
+---| 44
+--- SMB3 Game Beat
+---| 45
+--- Door
+---| 46
+--- Message
+---| 47
+--- Yoshi
+---| 48
+--- Yoshi Hurt
+---| 49
+--- Yoshi Tongue
+---| 50
+--- Yoshi Egg
+---| 51
+--- Got Star Exit
+---| 52
+--- Zelda Kill
+---| 53
+--- Player Died 2
+---| 54
+--- Yoshi Swallow
+---| 55
+--- Sonic Ring
+---| 56
+--- Dry Bones
+---| 57
+--- SMW Checkpoint
+---| 58
+--- Dragon Coin
+---| 59
+--- SMW Exit
+---| 60
+--- Blaarg
+---| 61
+--- Wart Bubble
+---| 62
+--- Wart Die
+---| 63
+--- SM Block Hit
+---| 64
+--- SM Killed
+---| 65
+--- SM Hurt
+---| 66
+--- SM Glass
+---| 67
+--- SM Boss Hit
+---| 68
+--- SM Cry
+---| 69
+--- SM Explosion
+---| 70
+--- Climbing
+---| 71
+--- Swim
+---| 72
+--- Light Grab
+---| 73
+--- Saw
+---| 74
+--- SMB2 Throw
+---| 75
+--- SMB2 Hit
+---| 76
+--- Zelda Stab
+---| 77
+--- Zelda Hurt
+---| 78
+--- Zelda Heart
+---| 79
+--- Zelda Died
+---| 80
+--- Zelda Rupee
+---| 81
+--- Zelda Fire
+---| 82
+--- Zelda Item
+---| 83
+--- Zelda Key
+---| 84
+--- Zelda Shield
+---| 85
+--- Zelda Dash
+---| 86
+--- Zelda Fairy
+---| 87
+--- Zelda Grass
+---| 88
+--- Zelda Hit
+---| 89
+--- Zelda Sword Beam
+---| 90
+--- Bubble
+---| 91

@@ -7,6 +7,15 @@
             "loadSharedAPI": "require",
             "loadAPI": "require"
         },
-        "Lua.runtime.version": "LuaJIT"
+        "Lua.runtime.version": "LuaJIT",
+        "Lua.runtime.builtin": {
+            "ffi": "disable",
+            "os.remove": "disable",
+            "os.execute": "disable",
+            "os.getenv": "disable",
+            "os.rename": "disable",
+            "os.setlocale": "disable",
+            "os.tmpname": "disable"
+        }
     }
 }

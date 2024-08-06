@@ -27,7 +27,7 @@ SFX.FALLOFF_SQUARE = function() end
 --- @field x number The X position of the audio source.
 --- @field y number The Y position of the audio source.
 --- @field falloffRadius number The distance from the source that the listener needs to be before the sound is silent.
---- @field sound number|string|MixChunk The sound ID/file path/object to play.
+--- @field sound number|string|MixChunk|SFXList The sound ID/file path/object to play.
 --- @field falloffType function A falloff function to use. Defaults to `SFX.FALLOFF_SQUARE`.
 --- @field type number The shape of the audio source. Defaults to `SFX.SOURCE_POINT`.
 --- @field play boolean Whether the sound should play immediately. Defaults to `true`.
@@ -42,7 +42,7 @@ SFX.FALLOFF_SQUARE = function() end
 --- @field sourceVector Vector2 The vector describing the source line. Only if type is `LINE`.
 
 ---@class SFXArgs
---- @field sound number|string|MixChunk The sound ID/file path/object to play.
+--- @field sound number|string|MixChunk|SFXList The sound ID/file path/object to play.
 --- @field loops number The number of loops for this sound to play for. Defaults to `1`.
 --- @field volume number The volume of this audio source. Defaults to `1`.
 --- @field pan number The left/right panning of this audio clip. Defaults to `0`.
@@ -56,25 +56,25 @@ SFX.FALLOFF_SQUARE = function() end
 function SFX.create(args) end
 
 --- Plays a sound effect once.
---- @param sound number|string|MixChunk The sound ID/file path/object to play.
+--- @param sound number|string|MixChunk|SFXList The sound ID/file path/object to play.
 --- @return SoundEffect sound The sound effect being played.
 function SFX.play(sound) end
 
 --- Plays a sound effect once with the given volume.
---- @param sound number|string|MixChunk The sound ID/file path/object to play.
+--- @param sound number|string|MixChunk|SFXList The sound ID/file path/object to play.
 --- @param volume number The volume of the sound effect.
 --- @return SoundEffect sound The sound effect being played.
 function SFX.play(sound, volume) end
 
 --- Plays a sound effect with the given volume and number of loops.
---- @param sound number|string|MixChunk The sound ID/file path/object to play.
+--- @param sound number|string|MixChunk|SFXList The sound ID/file path/object to play.
 --- @param volume number The volume of the sound effect.
 --- @param loops number The number of loops for this sound to play for.
 --- @return SoundEffect sound The sound effect being played.
 function SFX.play(sound, volume, loops) end
 
 --- Plays a sound effect with the given volume, number of loops, and a specified buffer delay.
---- @param sound number|string|MixChunk The sound ID/file path/object to play.
+--- @param sound number|string|MixChunk|SFXList The sound ID/file path/object to play.
 --- @param volume number The volume of the sound effect.
 --- @param loops number The number of loops for this sound to play for.
 --- @param delay number The buffer delay before the same sound effect can be played again.
