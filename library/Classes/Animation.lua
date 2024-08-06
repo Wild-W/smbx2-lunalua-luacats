@@ -54,6 +54,6 @@ local Animation = {}
 function Animation:mem(offset, field_type, value) end
 
 ---@param offset number The memory offset from the Animation class.
----@param field_type MemoryFieldType @The type of the field to retrieve.
----@return any The value retrieved from the specified field.
+---@param field_type MemoryFieldType The type of the field to retrieve.
+---@return any value The value retrieved from the specified field.
 function Animation:mem(offset, field_type) end

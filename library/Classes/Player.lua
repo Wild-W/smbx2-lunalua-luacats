@@ -122,6 +122,10 @@ function PlayerInstance:getCurrentPlayerSetting() end
 --- @return boolean isOnGround Whether the player is on the ground.
 function PlayerInstance:isOnGround() end
 
+--- Returns true if the player is touching the ground.
+--- @return boolean isOnGround Whether the player is on the ground.
+function PlayerInstance:isGroundTouching() end
+
 --- Returns true if the player is climbing.
 --- @return boolean isClimbing Whether the player is climbing.
 function PlayerInstance:isClimbing() end
@@ -200,6 +204,10 @@ function PlayerInstance:teleport(x, y, bottomCenterAligned) end
 --- The player's index in the internal list of players.
 ---@type number
 PlayerInstance.idx = 0
+
+--- The direction the player is facing. `-1`: left. `1`: right.
+--- @type -1|1
+PlayerInstance.FacingDirection = nil
 
 --- The player's x coordinate (left edge of the hitbox).
 ---@type number

@@ -238,9 +238,9 @@ function Block:delete() end
 
 --- Causes the block to be hit. The three optional arguments allow the block to be hit from above, let you configure which player is causing the hit, and the number of times the block gets hit.
 --- Even if the player is nil, this event will default to the first player.
---- @param fromUpSide boolean Whether the block is hit from above.
---- @param hittingPlayer Player The player hitting the block.
---- @param hitCount number The number of times the block is hit.
+--- @param fromUpSide? boolean Whether the block is hit from above.
+--- @param hittingPlayer? Player The player hitting the block.
+--- @param hitCount? number The number of times the block is hit.
 function Block:hit(fromUpSide, hittingPlayer, hitCount) end
 
 --- Causes the block to be hit. The optional arguments allow the block to be hit from above and the number of times the block gets hit.

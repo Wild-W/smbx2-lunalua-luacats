@@ -7,6 +7,13 @@
 --- @return number interpolated The interpolated result.
 function math.lerp(a, b, time) end
 
+--- Calculates linear interpolation between `a` and `b` using `time`
+--- @param a Color The start value.
+--- @param b Color The end value.
+--- @param time number The interpolation factor (0-1).
+--- @return Color interpolated The interpolated result.
+function math.lerp(a, b, time) end
+
 --- Calculates angle interpolation between `a` and `b` considering wrap-around from 360 to 0 degrees.
 --- @param a number The start angle.
 --- @param b number The end angle.
