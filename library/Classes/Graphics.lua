@@ -421,7 +421,7 @@ Graphics.GL_MAX_FRAMEBUFFER_WIDTH = 16384
 
 Graphics.GL_MAX_FRAGMENT_UNIFORM_COMPONENTS = 16384
 
----Returns the maximum dimensions in pixels your PC can handle for textures in glDraw. 
+---Returns the maximum dimensions in pixels your PC can handle for textures in glDraw.
 ---A value of 8192 means that glDraw-based functions will crop larger than 8192 pixels in either axis, be it 10x9000 or 8193x8192.
 ---@type integer
 Graphics.GL_MAX_TEXTURE_SIZE = nil

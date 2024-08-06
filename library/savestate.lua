@@ -1,13 +1,13 @@
 ---@meta
 
 local savestate = {
-    STATE_NPC         = 0x1,
-    STATE_PLAYER      = 0x2,
-    STATE_ANIM        = 0x4,
-	STATE_LAYEREVENT  = 0x18,
-    STATE_LAYEREVENT2 = 0x08,
-	STATE_BLOCK       = 0x10,
-    STATE_ALL         = 0x1F,
+	STATE_NPC = 0x1,
+	STATE_PLAYER = 0x2,
+	STATE_ANIM = 0x4,
+	STATE_LAYEREVENT = 0x18,
+	STATE_LAYEREVENT2 = 0x08,
+	STATE_BLOCK = 0x10,
+	STATE_ALL = 0x1F,
 }
 
 ---
