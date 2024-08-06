@@ -5,7 +5,13 @@
 --- @param b number The end value.
 --- @param time number The interpolation factor (0-1).
 --- @return number interpolated The interpolated result.
+--- @overload fun(a: Color, b: Color, time: number): Color
 function math.lerp(a, b, time) end
+
+---Clamps a value between 0 and 1.
+---@param value number
+---@return number normalizedValue `value` with a max of 1 and min of 0.
+function math.clamp(value) end
 
 --- Calculates linear interpolation between `a` and `b` using `time`
 --- @param a Color The start value.
