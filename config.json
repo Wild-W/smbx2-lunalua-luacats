@@ -1,6 +1,6 @@
 {
     "name": "SMBX2 LunaLua",
-    "files": ["luna.lua", "lunadll.lua", "lunaworld.lua"],
+    "files": ["luna.lua", "lunadll.lua", "lunaworld.lua", "lunaoverworld.lua"],
     "settings": {
         "Lua.runtime.special": {
             "API.load": "require",
