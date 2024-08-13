@@ -17,7 +17,7 @@ function triggerEvent(eventName) end
 ---Registers an event in the event loop.
 ---## Usage
 ---```
----lib = {}
+---local lib = {}
 ---function lib.cameraDraw(x) --[[ Stuff ]] end
 ---function lib.onInitAPI()
 ---    registerEvent(lib, "onCameraDraw", "cameraDraw")

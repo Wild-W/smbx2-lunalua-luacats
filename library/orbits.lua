@@ -2,16 +2,13 @@
 
 local orbits = {}
 
----
----@return ...
+--- Internal event
 function orbits.onInitAPI() end
 
----
----@return ...
+--- Internal event
 function orbits.onStart() end
 
----
----@return ...
+--- Internal event
 function orbits.onTickEnd() end
 
 ---default orbit center ID (the SMB3 dungeon stone ball)

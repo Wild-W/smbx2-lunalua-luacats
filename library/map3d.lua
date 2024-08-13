@@ -40,11 +40,9 @@ function map3d.TestClip(px, py, p2x, p2y, polygon, aabb) end
 function map3d.getTarget() end
 
 ---Main draw function
----@return ...
 function map3d.onDraw() end
 
----
----@return ...
+--- Internal event
 function map3d.onInitAPI() end
 
 ---Computes a screen space coordinate given a vectr.v4 object of the form (x,y,z,1)
