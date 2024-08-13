@@ -27,12 +27,16 @@ function xmem.memlog(lowerBound, upperBound) end
 -- Internal event
 function xmem.onTick() end
 
----comment
 ---@param address any
+---@return number
 function xmem.getNPCAddress(address) end
 
+---@param address number
+---@return number
 function xmem.getPlayerAddress(address) end
 
+---@param address number
+---@return number
 function xmem.getGlobalAddress(address) end
 
 return xmem

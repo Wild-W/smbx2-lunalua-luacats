@@ -9,6 +9,8 @@
 ---local myExplosionID = Explosion.register(64, 10, 43, true, false)
 ---local newExplosion = Explosion.spawn(player.x, player.y, myExplosionID, player)
 ---```
+Explosion = {}
+
 ---@class Explosion
 ---@field friendly boolean # Whether it can hurt players.
 ---@field strong boolean # Whether it can break grey brick blocks (block-457).
@@ -18,7 +20,6 @@
 ---@field y number # The Y position of the explosion's centre.
 ---@field timer number
 ---@field effect Effect?
-Explosion = {}
 
 ---@param x number
 ---@param y number

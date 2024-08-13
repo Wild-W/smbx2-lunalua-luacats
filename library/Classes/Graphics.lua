@@ -318,9 +318,43 @@ function Graphics.glSetTextureRGBA(image, hue) end
 ---@return boolean
 function Graphics.isOpenGLEnabled() end
 
----@param ... unknown
----@return ...
-function Graphics.drawImageToSceneWP(...) end
+---Draws the given image for a frame at the given coordinates relative to scene space at a given priority.
+---@param image Texture
+---@param x number
+---@param y number
+---@param priority number
+function Graphics.drawImageToSceneWP(image, x, y, priority) end
+
+---Draws the given image for a frame at the given coordinates relative to scene space at a given priority. Additionally, the opacity (between 0 and 1) can be specified.
+---@param image Texture
+---@param x number
+---@param y number
+---@param opacity number
+---@param priority number
+function Graphics.drawImageToSceneWP(image, x, y, opacity, priority) end
+
+---Draws the given image for a frame at the given coordinates relative to scene space at a given priority. Additionally, a rectangle to draw from the source image can be specified using the source parameters. By varying the parameters across frames, animation can be created.
+---@param image Texture
+---@param x number
+---@param y number
+---@param sourceX number
+---@param sourceY number
+---@param sourceWidth number
+---@param sourceHeight number
+---@param priority number
+function Graphics.drawImageToSceneWP(image, x, y, priority, sourceX, sourceY, sourceWidth, sourceHeight) end
+
+---Draws the given image for a frame at the given coordinates relative to scene space at a given priority. Additionally, a rectangle to draw from the source image can be specified using the source parameters. By varying the parameters across frames, animation can be created. Additionally, the opacity (between 0 and 1) can be specified.
+---@param image Texture
+---@param x number
+---@param y number
+---@param sourceX number
+---@param sourceY number
+---@param sourceWidth number
+---@param sourceHeight number
+---@param opacity number
+---@param priority number
+function Graphics.drawImageToSceneWP(image, x, y, opacity, priority, sourceX, sourceY, sourceWidth, sourceHeight) end
 
 ---@param args table
 ---@param rtrn table?
