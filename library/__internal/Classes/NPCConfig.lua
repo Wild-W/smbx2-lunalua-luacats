@@ -4900,3 +4900,12 @@
 ---
 ---Default: /
 ---@field dieswhenthrown boolean?
+local NPCConfig = {}
+
+---@param propertyName string
+---@param defaultValue any
+function NPCConfig:setDefaultProperty(propertyName, defaultValue) end
+
+---@param propertyName string
+---@param propertyType type
+function NPCConfig:registerProperty(propertyName, propertyType) end

@@ -241,8 +241,8 @@ function Misc.getCursorPosition() end
 
 --- Sets the cursor appearance.
 --- @param image Texture|false|nil The cursor image. Set to nil to reset to default, or false to hide the cursor.
---- @param xHotspot number The x-coordinate of the cursor hotspot.
---- @param yHotspot number The y-coordinate of the cursor hotspot.
+--- @param xHotspot number? The x-coordinate of the cursor hotspot.
+--- @param yHotspot number? The y-coordinate of the cursor hotspot.
 function Misc.setCursor(image, xHotspot, yHotspot) end
 
 --- Returns the state of the given key by the key code.
