@@ -15,9 +15,11 @@ function switchcolors.registerColor(name) end
 
 ---@param color Color
 function switchcolors.onColorSwitch(color) end
+
 ---You can use the switchcolors.onSwitch event to catch switch toggles
 ---@param color Color
 function switchcolors.onSwitch(color) end
+
 ---@param color Color
 function switchcolors.onPalaceSwitch(color) end
 
@@ -36,6 +38,7 @@ switchcolors.palaceColors = {
 
 function switchcolors.registerPalace(name) end
 
+--- Internal event
 function switchcolors.onInitAPI() end
 
 return switchcolors
