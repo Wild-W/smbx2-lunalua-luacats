@@ -1,6 +1,11 @@
 {
     "name": "SMBX2 LunaLua",
-    "files": ["luna.lua", "lunadll.lua", "lunaworld.lua", "lunaoverworld.lua"],
+    "files": [
+        "luna.lua",
+        "lunadll.lua",
+        "lunaworld.lua",
+        "lunaoverworld.lua"
+    ],
     "settings": {
         "Lua.runtime.special": {
             "API.load": "require",
@@ -15,7 +20,11 @@
             "os.getenv": "disable",
             "os.rename": "disable",
             "os.setlocale": "disable",
-            "os.tmpname": "disable"
+            "os.tmpname": "disable",
+            "debug.sethook": "disable",
+            "debug.gethook": "disable",
+            "setfenv": "disable",
+            "newproxy": "disable"
         }
     }
 }
