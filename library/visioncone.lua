@@ -3,7 +3,7 @@
 --Vision Cone
 --BETA 0.1
 --By Hoeloe
-local vision = {};
+local vision = {}
 
 ---Create a new vision cone.
 ---@param x number
