@@ -7,13 +7,13 @@ Graphics = {}
 function Graphics.activateHud(showHud) end
 
 --- Toggles the overworld HUD on or off.
---- 
+---
 --- Overworld only.
 ---@param hudState WorldHudState
 function Graphics.activateOverworldHud(hudState) end
 
 --- Returns whether the default level HUD is activated.
---- 
+---
 --- Level only.
 ---@return boolean isActive
 function Graphics.isHudActivated() end
