@@ -40,7 +40,7 @@ function npcManager.registerHarmTypes(id, harmList, deatheffects) end
 ---@param id number
 ---@param tbl table
 ---@param eventName EventName
----@param libEventName string
+---@param libEventName string?
 function npcManager.registerEvent(id, tbl, eventName, libEventName) end
 
 function npcManager.refreshEvents() end

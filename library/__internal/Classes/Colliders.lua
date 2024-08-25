@@ -101,6 +101,7 @@ function Colliders.FILTER_NPC_NPC_DEF(npc1, npc2) end
 
 --- Internal event
 function Colliders.onInitAPI() end
+
 --- Internal event
 function Colliders.onDraw() end
 
@@ -223,9 +224,9 @@ function Collider:Draw(color) end
 --- @param enable boolean Whether to enable or disable debug drawing.
 function Collider:Debug(enable) end
 
----@param player Player
----@return boolean
-function Collider:collide(player) end
+---@param collisionObject CollisionObject
+---@return boolean areColliding
+function Collider:collide(collisionObject) end
 
 ---@class PointCollider : Collider
 local PointCollider = {}
