@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 ---@alias NPCMemoryOffset
 ---|`0x00` # Attached layer name. Use field attachedLayerObj or attachedLayerName. `FIELD_STRING`

@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 ---The scenery class lets you access scenery objects on the overworld.
 Scenery = {}

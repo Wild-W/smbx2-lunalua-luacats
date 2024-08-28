@@ -1,4 +1,4 @@
----@meta
+---@meta _
 -- TODO: Finish field descriptions.
 
 ---The Darkness class allows you to create and manipulate darkness fields and lighting.

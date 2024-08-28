@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 --- Configuration for light effects used by Blocks, NPCs, and BGOs.
 ---@class LightConfig

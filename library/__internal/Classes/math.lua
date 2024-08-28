@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 --- Calculates linear interpolation between `a` and `b` using `time`
 --- @param a number The start value.

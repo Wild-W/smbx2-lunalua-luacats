@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 ---Constants for the state of player input. Values are set up as a 4-way boolean, causing press/hold events to evaluate to true,
 ---and release/up events to evaluate to false.

@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 ---Constants for enemy harm types.
 ---@alias EnemyHarmType

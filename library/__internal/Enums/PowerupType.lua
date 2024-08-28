@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 ---Constants for the player powerups.
 ---@alias PowerupType

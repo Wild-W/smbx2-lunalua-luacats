@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 ---Shaders are visual effects handled by the user's graphics card that can be used in Graphics.glDraw, as well as rendering calls that use Graphics.glDraw under the hood.
 ---Lunalua uses vertex and fragment shaders that are written in GLSL. First the vertex shader (if defined) runs for each vertex of the drawn polygon, then the fragment shader runs for each pixel within the area defied by the polygon. At the top of each file, #version 120 must be specified.

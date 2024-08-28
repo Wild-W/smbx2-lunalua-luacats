@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 ---Used by the `Graphics.draw` function to specify whether text or an image is being drawn.
 ---@alias RenderType

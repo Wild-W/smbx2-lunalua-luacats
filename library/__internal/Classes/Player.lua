@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 ---Players are human-controlled characters that serve as the primary way for players to interact with the game in standard levels. They are only used within Levels. For player's controlled entity on World Maps, see the World class.
 Player = {}

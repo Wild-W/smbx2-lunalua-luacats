@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 ---The camera is the area of the screen that is being rendered. It is usually fixed to the player, but may be moved differently depending on section boundaries or autoscroll. Internally, a camera's position is updated just before its respective onCameraUpdate call. Thus, using onCameraUpdate is recommended for moving the camera, and onCameraDraw is recommended for drawing to a camera's viewport.
 Camera = {}

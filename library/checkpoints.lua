@@ -1,4 +1,4 @@
----@meta
+---@meta checkpoints
 
 ---@class NewCheckpointFields
 ---@field x number

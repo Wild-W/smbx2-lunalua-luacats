@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 ---Lets you access liquid (water, quicksand) boxes in your level.
 ---## Usage

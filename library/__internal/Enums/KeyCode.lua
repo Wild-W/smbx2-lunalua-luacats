@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 ---@alias KeyCode
 ---| `KEY_UP` # Up d-pad input.

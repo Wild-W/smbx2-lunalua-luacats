@@ -1,4 +1,4 @@
----@meta
+---@meta _
 ---@diagnostic disable: deprecated
 
 ---@deprecated Use `GameData` or `SaveData` instead.

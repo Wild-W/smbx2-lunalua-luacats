@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 ---Direction constants describe the facing or movement direction of an entity such as a player or NPC.
 ---@alias DirectionType

@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 ---Effects are visual effects that happen when NPCs die, blocks break, and various other actions are performed.
 ---Currently, effects are split into two systems: The SMBX 1.3 system, used for effect IDs 1-161, and the SMBX2 effects system, used for effect IDs 162 onwards.

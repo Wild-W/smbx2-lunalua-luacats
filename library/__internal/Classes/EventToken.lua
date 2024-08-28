@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 ---@class EventToken
 ---@field eventName string # The name of the event (not a SMBX event). **Read only**

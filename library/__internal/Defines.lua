@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 ---Contains fields that manipulate global game settings, such as gravity.
 Defines = {

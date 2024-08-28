@@ -1,4 +1,4 @@
----@meta
+---@meta savestate
 
 local savestate = {
 	STATE_NPC = 0x1,

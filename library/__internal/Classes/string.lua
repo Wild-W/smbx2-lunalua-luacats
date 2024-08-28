@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 ---Trims leading and trailing whitespace
 ---@param s string

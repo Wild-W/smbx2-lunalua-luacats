@@ -1,4 +1,4 @@
----@meta
+---@meta camlock
 
 ---Camlock is a library for defining simple camera zones in levels and on the overworld. Camera zones are defined by their top/left edge and their width and height.
 ---

@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 ---BGOs (background objects) are scenery elements for levels.
 BGO = {}

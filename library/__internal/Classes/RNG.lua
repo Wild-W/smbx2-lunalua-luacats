@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 ---The RNG namespace provides functions for generating randomness. Unlike lua's standard randomness, RNG defaults to a random, unpredictable seed.
 ---## Usage

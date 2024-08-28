@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 ---Configuration settings for Background game objects (BGOs).
 ---@class BGOConfig : LightConfig

@@ -1,4 +1,4 @@
----@meta
+---@meta inputs2
 
 local inputs2 = {}
 

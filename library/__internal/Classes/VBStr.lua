@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 ---@class VBStr : string
 local VBStr = {}

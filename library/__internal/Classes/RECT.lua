@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 ---Rects are rectangle definitions. They are most prominently used by sections.
 ---## Usage

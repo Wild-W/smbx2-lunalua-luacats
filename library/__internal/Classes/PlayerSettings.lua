@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 ---PlayerSettings objects store the information from player hitbox ini files.
 PlayerSettings = {}

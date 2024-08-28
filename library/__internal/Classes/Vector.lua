@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 ---Global namespace used for creating and managing different types of vector and matrix objects, as well as quaternions, which are used in various mathematical operations, particularly in graphics and physics simulations.
 ---@class VectorManager

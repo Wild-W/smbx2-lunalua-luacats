@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 ---True if on the world map.
 ---@type boolean

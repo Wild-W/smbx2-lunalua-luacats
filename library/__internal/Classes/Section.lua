@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 ---Sections are arbitrary subdivisions within the level's scene space coordinate system. They can be configured in the editor through the Section Settings window, and manipulated in code through this class.
 ---@class SectionManager

@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 ---@alias LevelMemoryOffset
 --- | `0x00` # Level X-Position. Use field `x`. `FIELD_DFLOAT`

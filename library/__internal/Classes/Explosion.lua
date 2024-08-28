@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 ---Explosions are objects that create effects and generally cause destruction.
 ---They last for only a single frame, and don't exist afterward.

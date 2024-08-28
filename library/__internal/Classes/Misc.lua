@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 --- The Misc namespace exposes miscellaneous helper functions that don't fit into other classes.
 --- Functions in this class work in levels as well as on the overworld, unless otherwise noted.

@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 --- Configuration settings for visual and behavioral aspects of effects in the game environment.
 --- @class EffectConfig

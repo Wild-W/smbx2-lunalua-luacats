@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 ---Blocks are the terrain pieces for levels.
 Block = {}

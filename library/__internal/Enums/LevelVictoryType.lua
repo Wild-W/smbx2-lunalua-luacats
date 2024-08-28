@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 ---The level end state constants relate to level end animation, and are the values used by `Level.winState(endState)`.
 ---@alias LevelEndState

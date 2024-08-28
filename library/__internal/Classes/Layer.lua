@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 ---Layers are named groups of placeable objects in *Levels*. They can be hidden to deactivate all objects they contain as well as
 ---have speed values which apply moement to their objects. Layers do not affect the order in which objects are displayed;

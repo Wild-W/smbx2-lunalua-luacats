@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 ---Allows you to play and manipulate sound effects.
 ---@class SFX

@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 ---The Color class streamlines working with colors.
 ---@overload fun(r: number, g: number, b: number, alpha?: number): Color
