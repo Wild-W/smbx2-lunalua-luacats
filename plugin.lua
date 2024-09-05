@@ -8,126 +8,320 @@ local LUNALUA_EVENTS_URI = args[2] .. "/library/__internal/LunaLuaEvents.lua"
 
 log.info("Starting LunaLua Event Plugin")
 
-local LUNALUA_EVENTS = {
-    onStart = true,
-    onLoad = true,
-    onTick = true,
-    onTickEnd = true,
-    onDraw = true,
-    onDrawUnfocusOverlay = true,
-    onDrawEnd = true,
-    onLoop = true,
-    onLoopSection0 = true,
-    onLoopSection1 = true,
-    onLoopSection2 = true,
-    onLoopSection3 = true,
-    onLoopSection4 = true,
-    onLoopSection5 = true,
-    onLoopSection6 = true,
-    onLoopSection7 = true,
-    onLoopSection8 = true,
-    onLoopSection9 = true,
-    onLoopSection10 = true,
-    onLoopSection11 = true,
-    onLoopSection12 = true,
-    onLoopSection13 = true,
-    onLoopSection14 = true,
-    onLoopSection15 = true,
-    onLoopSection16 = true,
-    onLoopSection17 = true,
-    onLoopSection18 = true,
-    onLoopSection19 = true,
-    onLoopSection20 = true,
-    onLoadSection = true,
-    onLoadSection0 = true,
-    onLoadSection1 = true,
-    onLoadSection2 = true,
-    onLoadSection3 = true,
-    onLoadSection4 = true,
-    onLoadSection5 = true,
-    onLoadSection6 = true,
-    onLoadSection7 = true,
-    onLoadSection8 = true,
-    onLoadSection9 = true,
-    onLoadSection10 = true,
-    onLoadSection11 = true,
-    onLoadSection12 = true,
-    onLoadSection13 = true,
-    onLoadSection14 = true,
-    onLoadSection15 = true,
-    onLoadSection16 = true,
-    onLoadSection17 = true,
-    onLoadSection18 = true,
-    onLoadSection19 = true,
-    onLoadSection20 = true,
-    onSectionChange = true,
-    onJump = true,
-    onJumpEnd = true,
-    onKeyDown = true,
-    onKeyUp = true,
-    onFramebufferResize = true,
-    onEvent = true,
-    onEventDirect = true,
-    onExitLevel = true,
-    onInputUpdate = true,
-    onMessageBox = true,
-    onColorSwitch = true,
-    onSyncSwitch = true,
-    onBeatWarn = true,
-    onBeatStateChange = true,
-    onBlockHit = true,
-    onBlockRemove = true,
-    onHUDDraw = true,
-    onNPCKill = true,
-    onCameraUpdate = true,
-    onCameraDraw = true,
-    onKeyboardPress = true,
-    onKeyboardPressDirect = true,
-    onKeyboardKeyPress = true,
-    onKeyboardKeyRelease = true,
-    onPause = true,
-    onExit = true,
-    onNPCHarm = true,
-    onNPCCollect = true,
-    onCheckpoint = true,
-    onExplosion = true,
-    onRunEffectInternal = true,
-    onExplosionInternal = true,
-    onPostNPCRearrangeInternal = true,
-    onBlockInvalidateForReuseInternal = true,
-    onWarpEnter = true,
-    onWarp = true,
-    onGroupDeallocationInternal = true,
-    onPasteText = true,
-    onChangeController = true,
-    onControllerButtonPress = true,
-    onControllerButtonRelease = true,
-    onPostNPCKill = true,
-    onPostNPCHarm = true,
-    onPostNPCCollect = true,
-    onPostExplosion = true,
-    onPostEventDirect = true,
-    onPostWarpEnter = true,
-    onPostBlockHit = true,
-    onPostBlockRemove = true,
-    onNPCGenerated = true,
-    onNPCTransform = true,
-    onNPCConfigChange = true,
-    onBlockConfigChange = true,
-    onBGOConfigChange = true,
-    onPlayerKill = true,
-    onPlayerHarm = true,
-    onPostPlayerKill = true,
-    onPostPlayerHarm = true,
-    onPOW = true,
-    onPostPOW = true,
-    onMouseButtonEvent = true,
-    onMouseWheelEvent = true,
-    onCollide = true,
-    onIntersect = true,
+LUNALUA_EVENTS = {
+    onInputUpdate = {},
+    onTick = {},
+    onTickEnd = {},
+    onCameraUpdate = {
+        [1] = "number",
+    },
+    onDraw = {},
+    onCameraDraw = {
+        [1] = "number",
+    },
+    onHUDDraw = {
+        [1] = "number",
+    },
+    onDrawEnd = {},
+    onInitAPI = {},
+    onStart = {},
+    onSaveGame = {},
+    onSectionChange = {
+        [1] = "number",
+        [2] = "number",
+    },
+    onLoadSection = {
+        [1] = "number",
+    },
+    onLoadSection0 = {
+        [1] = "number",
+    },
+    onLoadSection1 = {
+        [1] = "number",
+    },
+    onLoadSection2 = {
+        [1] = "number",
+    },
+    onLoadSection3 = {
+        [1] = "number",
+    },
+    onLoadSection4 = {
+        [1] = "number",
+    },
+    onLoadSection5 = {
+        [1] = "number",
+    },
+    onLoadSection6 = {
+        [1] = "number",
+    },
+    onLoadSection7 = {
+        [1] = "number",
+    },
+    onLoadSection8 = {
+        [1] = "number",
+    },
+    onLoadSection9 = {
+        [1] = "number",
+    },
+    onLoadSection10 = {
+        [1] = "number",
+    },
+    onLoadSection11 = {
+        [1] = "number",
+    },
+    onLoadSection12 = {
+        [1] = "number",
+    },
+    onLoadSection13 = {
+        [1] = "number",
+    },
+    onLoadSection14 = {
+        [1] = "number",
+    },
+    onLoadSection15 = {
+        [1] = "number",
+    },
+    onLoadSection16 = {
+        [1] = "number",
+    },
+    onLoadSection17 = {
+        [1] = "number",
+    },
+    onLoadSection18 = {
+        [1] = "number",
+    },
+    onLoadSection19 = {
+        [1] = "number",
+    },
+    onLoadSection20 = {
+        [1] = "number",
+    },
+    onEvent = {
+        [1] = "string",
+    },
+    onEventDirect = {
+        [1] = "EventToken",
+        [2] = "string",
+    },
+    onPostEventDirect = {
+        [1] = "string",
+    },
+    onMessageBox = {
+        [1] = "EventToken",
+        [2] = "string",
+        [3] = "Player",
+        [4] = "NPC",
+    },
+    onBlockHit = {
+        [1] = "EventToken",
+        [2] = "Block",
+        [3] = "boolean",
+        [4] = "Player",
+    },
+    onPostBlockHit = {
+        [1] = "Block",
+        [2] = "boolean",
+        [3] = "Player|nil",
+    },
+    onBlockRemove = {
+        [1] = "EventToken",
+        [2] = "Block",
+    },
+    onPostBlockRemove = {
+        [1] = "Block",
+    },
+    onColorSwitch = {
+        [1] = "number",
+    },
+    onSyncSwitch = {
+        [1] = "boolean",
+    },
+    onWarp = {
+        [1] = "Warp",
+        [2] = "Player",
+    },
+    onWarpEnter = {
+        [1] = "EventToken",
+        [2] = "Warp",
+        [3] = "Player",
+    },
+    onPostWarpEnter = {
+        [1] = "Warp",
+        [2] = "Player",
+    },
+    onBeatWarn = {
+        [1] = "number",
+    },
+    onBeatStateChange = {
+        [1] = "boolean",
+    },
+    onNPCHarm = {
+        [1] = "EventToken",
+        [2] = "NPC",
+        [3] = "EnemyHarmType",
+        [4] = "NPC|Player|nil",
+    },
+    onPostNPCHarm = {
+        [1] = "NPC",
+        [2] = "EnemyHarmType",
+        [3] = "NPC|Player|nil",
+    },
+    onNPCTransform = {
+        [1] = "NPC",
+        [2] = "number",
+        [3] = "EnemyHarmType",
+    },
+    onNPCKill = {
+        [1] = "EventToken",
+        [2] = "NPC",
+        [3] = "EnemyHarmType",
+    },
+    onPostNPCKill = {
+        [1] = "NPC",
+        [2] = "EnemyHarmType",
+    },
+    onNPCCollect = {
+        [1] = "EventToken",
+        [2] = "NPC",
+        [3] = "Player",
+    },
+    onPostNPCCollect = {
+        [1] = "NPC",
+        [2] = "Player",
+    },
+    onPlayerHarm = {
+        [1] = "EventToken",
+        [2] = "Player",
+    },
+    onPostPlayerHarm = {
+        [1] = "Player",
+    },
+    onPlayerKill = {
+        [1] = "EventToken",
+        [2] = "Player",
+    },
+    onPostPlayerKill = {
+        [1] = "Player",
+    },
+    onPOW = {
+        [1] = "EventToken",
+    },
+    onPostPOW = {},
+    onNPCPOWHit = {
+        [1] = "EventToken",
+        [2] = "NPC",
+        [3] = "string",
+    },
+    onPostNPCPOWHit = {
+        [1] = "NPC",
+        [2] = "string",
+    },
+    onBlockPOWHit = {
+        [1] = "EventToken",
+        [2] = "Block",
+        [3] = "string",
+    },
+    onPostBlockPOWHit = {
+        [1] = "Block",
+        [2] = "string",
+    },
+    onMouseButtonEvent = {
+        [1] = "number",
+        [2] = "number",
+        [3] = "number",
+        [4] = "number",
+    },
+    onKeyboardKeyPress = {
+        [1] = "VirtualKeyCode",
+        [2] = "string",
+    },
+    onKeyboardKeyRelease = {
+        [1] = "VirtualKeyCode",
+        [2] = "string",
+    },
+    onKeyboardPress = {
+        [1] = "VirtualKeyCode",
+    },
+    onKeyboardPressDirect = {
+        [1] = "VirtualKeyCode",
+        [2] = "boolean",
+        [3] = "string",
+    },
+    onPasteText = {
+        [1] = "string",
+    },
+    onControllerButtonPress = {
+        [1] = "number",
+        [2] = "number",
+        [3] = "string",
+    },
+    onControllerButtonRelease = {
+        [1] = "number",
+        [2] = "number",
+        [3] = "string",
+    },
+    onChangeController = {
+        [1] = "string",
+        [2] = "number",
+    },
+    onCheckpoint = {
+        [1] = "Checkpoint",
+        [2] = "Player",
+    },
+    onExit = {},
+    onExitLevel = {
+        [1] = "LevelWinType",
+    },
+    onPause = {
+        [1] = "EventToken",
+        [2] = "Player",
+    },
+    onExplosion = {
+        [1] = "EventToken",
+        [2] = "Explosion",
+        [3] = "Player",
+    },
+    onPostExplosion = {
+        [1] = "Explosion",
+        [2] = "Player",
+    },
+    onNPCGenerated = {
+        [1] = "NPC",
+        [2] = "NPC",
+    },
+    onNPCConfigChange = {
+        [1] = "number",
+        [2] = "string",
+    },
+    onBlockConfigChange = {
+        [1] = "number",
+        [2] = "string",
+    },
+    onBGOConfigChange = {
+        [1] = "number",
+        [2] = "string",
+    },
+    onDrawUnfocusOverlay = {},
+    onLoop = {},
+    onLoad = {},
+    onJump = {
+        [1] = "number",
+    },
+    onJumpEnd = {
+        [1] = "number",
+    },
+    onKeyDown = {
+        [1] = "KeyCode",
+        [2] = "number",
+    },
+    onKeyUp = {
+        [1] = "KeyCode",
+        [2] = "number",
+    },
 }
 
 ---@class parser.object
+---@field parent parser.object
 
 ---@param next  fun(func:parser.object, param:parser.object) # Default behavior
 ---@param func  parser.object                                # The function
@@ -140,9 +334,11 @@ local function OnCompileFunctionParam(next, func, param)
     local funcName = vm.getGlobalNode(func.parent):getName()
     if not LUNALUA_EVENTS[funcName] then return false end
 
-    if not B then
-        B = true
-        log.info(inspect(param.parent, { depth = 5 }))
+    for i, p in ipairs(param.parent) do
+        if p[1] == param[1] then
+            vm.setNode(param, vm.declareGlobal("type", LUNALUA_EVENTS[funcName][i]))
+            break
+        end
     end
 
     vm.setNode(func, vm.declareGlobal("type", funcName, LUNALUA_EVENTS_URI))
