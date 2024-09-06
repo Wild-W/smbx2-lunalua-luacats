@@ -3,6 +3,10 @@
 ---@class Routines
 Routine = {}
 
+---@param ...unknown
+---@return ...
+function Routine.waitSeconds(...) end
+
 --- Creates a new coroutine and runs it. Additional arguments are passed to the function f. The `status` and `msg` return values store error messages and information about the coroutine, which are not necessary for most use cases.
 --- @param f function The function to run in the coroutine.
 --- @param ... any Additional arguments passed to the function.

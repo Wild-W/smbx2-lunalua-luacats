@@ -346,3 +346,5 @@ Defines = {
 	---@type boolean
 	player_hasCheated = false,
 }
+
+defines = Defines

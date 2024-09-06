@@ -87,7 +87,7 @@ function Misc.doPSwitchRaw(activate) end
 --- Pauses the entire game. If 'waitForDrawingQueue' is set to true, it will wait for the graphics drawing queue to be empty before pausing. This allows it to work in events such as onDraw but may cause it to function incorrectly in events like onTick.
 ---
 --- Overworld and Level
---- @param waitForDrawingQueue boolean Whether to wait for the drawing queue to be empty before pausing.
+--- @param waitForDrawingQueue boolean? Whether to wait for the drawing queue to be empty before pausing.
 function Misc.pause(waitForDrawingQueue) end
 
 --- Unpauses the whole game.

@@ -43,7 +43,6 @@ function registerCustomEvent(libraryTable, eventName) end
 --- ---
 ---@param memoryAddress number|GlobalMemoryOffset
 ---@param fieldType MemoryFieldType
----@nodiscard
 ---@return any
 function mem(memoryAddress, fieldType, newValue) end
 

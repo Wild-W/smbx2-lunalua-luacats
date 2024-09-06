@@ -33,7 +33,7 @@ function npcManager.deregisterDefines(id, typelist) end
 
 ---@param id integer
 ---@param harmList EnemyHarmType[]
----@param deatheffects table<EnemyHarmType, integer> Map of harm types to effect ids.
+---@param deatheffects table<EnemyHarmType, integer|table<string, any>> Map of harm types to effect ids.
 function npcManager.registerHarmTypes(id, harmList, deatheffects) end
 
 ---Register an event on an NPC.

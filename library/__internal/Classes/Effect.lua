@@ -47,6 +47,11 @@ function Effect.spawn(id, x, y, variant, npcID, drawOnlyMask) end
 function Effect.spawn(id, target, variant, npcID, drawOnlyMask) end
 
 ---@class Effect
+---@field id number The Effect spawner's ID.
+---@field x number The Effect spawner's x coordinate.
+---@field y number The Effect spawner's y coordinate.
+---@field width number The Effect's width. If this is a spawner, defaults to its first spawned effect's width.
+---@field height number The Effect's height. If this is a spawner, defaults to its first spawned effect's height.
 local EffectInstance = {}
 
 ---Kills the effect instantly.
@@ -54,14 +59,9 @@ function EffectInstance:kill() end
 
 ---The effect spawner object. This spawner spawns individual effect objects from the config.
 ---@class EffectSpawner : Effect
----@field id number The Effect spawner's ID.
----@field x number The Effect spawner's x coordinate.
----@field y number The Effect spawner's y coordinate.
 ---@field xOffset number|table<any, number> Override for the xOffset config property.
 ---@field yOffset number|table<any, number> Override for the yOffset config property.
 ---@field sound SFX Override for the sound config property. Sound to play when an effect spawns.
----@field width number The Effect spawner's width. Defaults to the width and height of the first spawned effect.
----@field height number The Effect spawner's height. Defaults to the width and height of the first spawned effect.
 ---@field spawnerSpeedX number The Effect spawner's horizontal speed. Distinct from speedX, which applies as the config value override for the spawned effect object.
 ---@field spawnerSpeedY number The Effect spawner's vertical speed. Distinct from speedX, which applies as the config value override for the spawned effect object.
 ---@field lastX number Last frame's position of the spawner, for updating the position of the spawner's particles.
@@ -77,11 +77,6 @@ function EffectInstance:kill() end
 
 ---The effect particle instance object. These fields are used by the effect's particle instance objects.
 ---@class EffectParticle : Effect
----@field id number The Effect's ID.
----@field x number The Effect's x coordinate.
----@field y number The Effect's y coordinate.
----@field width number The Effect's width.
----@field height number The Effect's height.
 ---@field speedX number The Effect's horizontal speed. Sums the spawner's spawnerSpeedX with the speedX config/override.
 ---@field speedY number The Effect's vertical speed. Sums the spawner's spawnerSpeedY with the speedY config/override.
 ---@field maxSpeedX number The Effect's maximum horizontal speed.

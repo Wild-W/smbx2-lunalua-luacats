@@ -117,6 +117,7 @@
 ---| "onMouseWheelEvent"
 ---| "onCollide"
 ---| "onIntersect"
+---| "onTickEndNPC"
 
 --- # Per-tick events
 

@@ -12,13 +12,13 @@ Audio = {}
 --- Changes a section's music to the ID of basegame music specified.
 --- @param section number The section where the music change occurs.
 --- @param musicID number The ID of the basegame music.
---- @param fadeDurationMS number The fade duration in milliseconds.
+--- @param fadeDurationMS number? The fade duration in milliseconds.
 function Audio.MusicChange(section, musicID, fadeDurationMS) end
 
 --- Changes a section's music to a custom music track of the given name.
 --- @param section number The section where the music change occurs.
 --- @param musicName string The name of the custom music track.
---- @param fadeDurationMS number The fade duration in milliseconds.
+--- @param fadeDurationMS number? The fade duration in milliseconds.
 function Audio.MusicChange(section, musicName, fadeDurationMS) end
 
 --- Stops the music of the current section with a fade-out effect.

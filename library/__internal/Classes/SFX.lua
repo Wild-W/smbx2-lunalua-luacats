@@ -24,22 +24,22 @@ SFX.FALLOFF_LINEAR = function() end
 SFX.FALLOFF_SQUARE = function() end
 
 ---@class AudioSourceArgs
---- @field x number The X position of the audio source.
---- @field y number The Y position of the audio source.
---- @field falloffRadius number The distance from the source that the listener needs to be before the sound is silent.
+--- @field x number? The X position of the audio source.
+--- @field y number? The Y position of the audio source.
+--- @field falloffRadius number? The distance from the source that the listener needs to be before the sound is silent.
 --- @field sound number|string|MixChunk|SFXList The sound ID/file path/object to play.
---- @field falloffType function A falloff function to use. Defaults to `SFX.FALLOFF_SQUARE`.
---- @field type number The shape of the audio source. Defaults to `SFX.SOURCE_POINT`.
---- @field play boolean Whether the sound should play immediately. Defaults to `true`.
---- @field loops number The number of loops for this sound to play for. Defaults to `0`.
---- @field volume number The volume of this audio source. Defaults to `1`.
---- @field parent any The parent object this audio source is attached to.
---- @field tags string[] A list of string tags to apply to this audio object.
---- @field tag string A single string tag to apply to this audio object.
---- @field sourceRadius number The radius of the audio source circle. Only if type is `CIRCLE`.
---- @field sourceWidth number The width of the audio source box. Only if type is `BOX`.
---- @field sourceHeight number The height of the audio source box. Only if type is `BOX`.
---- @field sourceVector Vector2 The vector describing the source line. Only if type is `LINE`.
+--- @field falloffType function? A falloff function to use. Defaults to `SFX.FALLOFF_SQUARE`.
+--- @field type number? The shape of the audio source. Defaults to `SFX.SOURCE_POINT`.
+--- @field play boolean? Whether the sound should play immediately. Defaults to `true`.
+--- @field loops number? The number of loops for this sound to play for. Defaults to `0`.
+--- @field volume number? The volume of this audio source. Defaults to `1`.
+--- @field parent any? The parent object this audio source is attached to.
+--- @field tags string[]? A list of string tags to apply to this audio object.
+--- @field tag string? A single string tag to apply to this audio object.
+--- @field sourceRadius number? The radius of the audio source circle. Only if type is `CIRCLE`.
+--- @field sourceWidth number? The width of the audio source box. Only if type is `BOX`.
+--- @field sourceHeight number? The height of the audio source box. Only if type is `BOX`.
+--- @field sourceVector Vector2? The vector describing the source line. Only if type is `LINE`.
 
 ---@class SFXArgs
 --- @field sound number|string|MixChunk|SFXList The sound ID/file path/object to play.
