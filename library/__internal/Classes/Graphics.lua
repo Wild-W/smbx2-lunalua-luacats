@@ -57,8 +57,8 @@ function Graphics.overrideOverworldHUD(newRenderFunction) end
 --- Registers a render function for a specific character.
 ---@param characterID CharacterType
 ---@param hudType HUDType
----@param actions HUDActions
----@param sprites HUDSprites
+---@param actions HUDActions?
+---@param sprites HUDSprites?
 function Graphics.registerCharacterHUD(characterID, hudType, actions, sprites) end
 
 --- Returns the HUD type used by the specified character.
@@ -378,7 +378,7 @@ function Graphics.unplaceSprites(img, xPos, yPos) end
 --- @field primitive PrimitiveType? # The type of primitive to render.
 --- @field texture CaptureBuffer|Texture? # The texture to draw. Can be a capture buffer.
 --- @field textureCoords number[]? # A list of alternating x and y coordinates used to define the UV-coordinates of the texture to draw. All coordinates are clamped between 0 (top/left edge of image) and 1 (bottom/right edge of image).
---- @field color Color? # Color tint to apply to the whole image.
+--- @field color Color|RGBA? # Color tint to apply to the whole image.
 --- @field vertexColors number[]? # A flat list of RGBA color values for each vertex.
 --- @field priority number? # The render priority. Defaults to 1.
 --- @field sceneCoords boolean? # Whether to draw to the scene coordinate space. False by default.
@@ -398,12 +398,12 @@ function Graphics.glDraw(args) end
 --- @field height number? # Height of the drawn image.
 --- @field w number? # Width of the drawn image.
 --- @field h number? # Height of the drawn image.
---- @field sourceX number # Left edge of the texture's drawn area.
---- @field sourceY number # Top edge of the texture's drawn area.
---- @field sourceWidth number # Width of the texture's drawn area.
---- @field sourceHeight number # Height of the texture's drawn area.
---- @field rotation number # Angle of the drawn image.
---- @field centered boolean # If true, x and y are interpreted as the center of the image.
+--- @field sourceX number? # Left edge of the texture's drawn area.
+--- @field sourceY number? # Top edge of the texture's drawn area.
+--- @field sourceWidth number? # Width of the texture's drawn area.
+--- @field sourceHeight number? # Height of the texture's drawn area.
+--- @field rotation number? # Angle of the drawn image.
+--- @field centered boolean? # If true, x and y are interpreted as the center of the image.
 
 --- A wrapper for glDraw that makes drawing rectangular images easier.
 ---@param args DrawBoxArgs Named arguments for rectangular drawing.

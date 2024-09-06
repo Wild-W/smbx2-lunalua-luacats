@@ -43,8 +43,8 @@ function Layer.isPaused() end
 
 --- The Layer class in SMBX for manipulating layer properties.
 ---@class Layer : userdata
----@field name VBStr The name of the layer.
----@field layerName VBStr The name of the layer.
+---@field name VBStr|string The name of the layer.
+---@field layerName VBStr|string The name of the layer.
 ---@field idx number The index of the layer in the internal list.
 ---@field isHidden boolean Whether the layer is currently hidden.
 ---@field speedX number Horizontal speed of the layer.

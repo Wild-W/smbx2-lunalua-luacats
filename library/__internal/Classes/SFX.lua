@@ -43,12 +43,12 @@ SFX.FALLOFF_SQUARE = function() end
 
 ---@class SFXArgs
 --- @field sound number|string|MixChunk|SFXList The sound ID/file path/object to play.
---- @field loops number The number of loops for this sound to play for. Defaults to `1`.
---- @field volume number The volume of this audio source. Defaults to `1`.
---- @field pan number The left/right panning of this audio clip. Defaults to `0`.
---- @field tags string[] A list of string tags to apply to this audio object.
---- @field tag string A single string tag to apply to this audio object.
---- @field delay number The number of frames before the same sound effect can be played again. Defaults to `4`.
+--- @field loops number? The number of loops for this sound to play for. Defaults to `1`.
+--- @field volume number? The volume of this audio source. Defaults to `1`.
+--- @field pan number? The left/right panning of this audio clip. Defaults to `0`.
+--- @field tags string[]? A list of string tags to apply to this audio object.
+--- @field tag string? A single string tag to apply to this audio object.
+--- @field delay number? The number of frames before the same sound effect can be played again. Defaults to `4`.
 
 --- Creates a new physical audio source in the world.
 --- @param args AudioSourceArgs A table containing the arguments for the audio source.
@@ -56,7 +56,7 @@ SFX.FALLOFF_SQUARE = function() end
 function SFX.create(args) end
 
 --- Plays a sound effect once.
---- @param sound number|string|MixChunk|SFXList The sound ID/file path/object to play.
+--- @param sound number|string|SFXArgs|MixChunk|SFXList The sound ID/file path/object to play.
 --- @return SoundEffect sound The sound effect being played.
 function SFX.play(sound) end
 
@@ -80,11 +80,6 @@ function SFX.play(sound, volume, loops) end
 --- @param delay number The buffer delay before the same sound effect can be played again.
 --- @return SoundEffect sound The sound effect being played.
 function SFX.play(sound, volume, loops, delay) end
-
---- Plays a sound effect with the given arguments.
---- @param args SFXArgs A table containing the arguments for the sound effect.
---- @return SoundEffect sound The sound effect being played.
-function SFX.play(args) end
 
 --- Loads a sound file into a MixChunk.
 --- @param path string The path to the sound file.

@@ -409,7 +409,7 @@ function Misc.stopMonitoring(object) end
 ---
 --- Useful for notifying users of deprecated code or unintended situations.
 --- @param warningMessage string The warning message.
---- @param severity number The severity of the warning.
+--- @param severity number? The severity of the warning.
 function Misc.warn(warningMessage, severity) end
 
 --### Static game window functions
@@ -498,7 +498,7 @@ function Misc._SetVanillaBackgroundRenderFlag(...) end
 ---
 --- Useful for notifying users of deprecated code or unintended situations.
 --- @param warningMessage string The warning message.
---- @param severity number The severity of the warning.
+--- @param severity number? The severity of the warning.
 function Misc.warning(warningMessage, severity) end
 
 ---@param ... unknown

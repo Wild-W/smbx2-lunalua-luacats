@@ -37,7 +37,7 @@ function Liquid.getIntersecting(x1, y1, x2, y2) end
 ---@field isHidden boolean Whether the liquid box is hidden.
 ---@field isValid boolean Whether the liquid box is currently a valid object.
 ---@field isQuicksand boolean Whether the box is quicksand (true) or water (false).
----@field layerName VBStr The name of the layer the liquid is part of.
+---@field layerName VBStr|string The name of the layer the liquid is part of.
 ---@field layer Layer The layer object the liquid is part of.
 local Liquid = {}
 

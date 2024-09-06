@@ -230,7 +230,7 @@ function Block:collidesWith(collidingPlayer) end
 
 --- Causes the block to be destroyed. If playSoundAndEffect is true, the brick effect and sound are played.
 --- This method moves the block onto the Destroyed Blocks layer.
---- @param playSoundAndEffect boolean Whether to play the sound and effect.
+--- @param playSoundAndEffect boolean? Whether to play the sound and effect.
 function Block:remove(playSoundAndEffect) end
 
 --- Deletes the block entirely.
@@ -336,7 +336,7 @@ Block.contentID = 0
 ---@type Layer
 Block.layerObj = nil
 
----@type VBStr
+---@type VBStr|string
 Block.layerName = nil
 
 ---@type boolean
@@ -363,7 +363,7 @@ Block.extraSpeedY = 0
 ---@type Light
 Block.lightSource = nil
 
----@type VBStr
+---@type VBStr|string
 Block.collisionGroup = nil
 
 ---@type number

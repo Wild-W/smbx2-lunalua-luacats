@@ -187,19 +187,21 @@ Color = {
 	darkred = Color(0.5, 0, 0),
 }
 
----@class Color
----@field r number # Red component [0,1]
----@field g number # Green component [0,1]
----@field b number # Blue component [0,1]
----@field a number # Alpha component [0,1]
----@operator concat(number): Color
----@operator add(Color): Color
----@operator add(number): Color
----@operator mul(number): Color
----@operator mul(Color): Color
----@operator div(number): Color
----@operator div(Color): Color
+---@class (exact) Color
+--- @field r number # Red component [0,1]
+--- @field g number # Green component [0,1]
+--- @field b number # Blue component [0,1]
+--- @field a number # Alpha component [0,1]
+--- @operator concat(number): Color
+--- @operator add(Color): Color
+--- @operator add(number): Color
+--- @operator mul(number): Color
+--- @operator mul(Color): Color
+--- @operator div(number): Color
+--- @operator div(Color): Color
 local Color = {}
+
+---@alias RGBA number[]
 
 --- Instance methods
 

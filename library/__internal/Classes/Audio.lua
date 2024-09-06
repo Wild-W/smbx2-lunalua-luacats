@@ -3,11 +3,11 @@
 ---@class Audio
 Audio = {}
 
----@class MixChunk
----@field allocated integer|0|1 A boolean indicating whether to free abuf when the chunk is freed.
----@field abuf integer Pointer to the sample data, which is in the output format and sample rate.
----@field alen integer Length of abuf in bytes. Carefully modify this value, if you changed it, you should return initial value back on exiting from level or from world to avoid memory leak!
----@field volume integer 0 = silent, 128 = max volume. This takes effect when mixing.
+---@class (exact) MixChunk
+--- @field allocated integer|0|1 A boolean indicating whether to free abuf when the chunk is freed.
+--- @field abuf integer Pointer to the sample data, which is in the output format and sample rate.
+--- @field alen integer Length of abuf in bytes. Carefully modify this value, if you changed it, you should return initial value back on exiting from level or from world to avoid memory leak!
+--- @field volume integer 0 = silent, 128 = max volume. This takes effect when mixing.
 
 --- Changes a section's music to the ID of basegame music specified.
 --- @param section number The section where the music change occurs.

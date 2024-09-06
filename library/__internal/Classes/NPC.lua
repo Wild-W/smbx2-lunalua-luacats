@@ -315,18 +315,18 @@ NPC.spinjumpSafe = {}
 --- @field spawnSpeedY number The NPC's vertical speed when spawning.
 --- @field spawnDirection number The NPC's facing direction when spawning.
 --- @field layerObj Layer The layer of the NPC.
---- @field layerName VBStr The name of the NPC's layer.
+--- @field layerName VBStr|string The name of the NPC's layer.
 --- @field attachedLayerObj Layer The attached layer of the NPC.
---- @field attachedLayerName VBStr The name of the NPC's attached layer.
---- @field activateEventName VBStr The name of the event executed when the NPC spawns.
---- @field deathEventName VBStr The name of the event executed when the NPC dies.
---- @field talkEventName VBStr The name of the event executed when the NPC is talked to.
---- @field noMoreObjInLayer VBStr The name of the event executed when the NPC is killed and its layer becomes empty.
+--- @field attachedLayerName VBStr|string The name of the NPC's attached layer.
+--- @field activateEventName VBStr|string The name of the event executed when the NPC spawns.
+--- @field deathEventName VBStr|string The name of the event executed when the NPC dies.
+--- @field talkEventName VBStr|string The name of the event executed when the NPC is talked to.
+--- @field noMoreObjInLayer VBStr|string The name of the event executed when the NPC is killed and its layer becomes empty.
 --- @field collidesBlockBottom boolean Whether or not the NPC currently collides with a block on its bottom edge.
 --- @field collidesBlockLeft boolean Whether or not the NPC currently collides with a block on its left edge.
 --- @field collidesBlockUp boolean Whether or not the NPC currently collides with a block on its top edge.
 --- @field collidesBlockRight boolean Whether or not the NPC currently collides with a block on its right edge.
---- @field collisionGroup VBStr The collision group this NPC belongs to.
+--- @field collisionGroup VBStr|string The collision group this NPC belongs to.
 --- @field collisionGroupIndex number The numerical index of the collision group this NPC belongs to. Used internally to make collision checks faster. (Read-only)
 --- @field underwater boolean Whether or not the NPC is currently underwater.
 --- @field invincibleToSword boolean Whether or not the NPC is invincible to sword attacks from Link.
@@ -335,7 +335,7 @@ NPC.spinjumpSafe = {}
 --- @field friendly boolean Whether or not the NPC is friendly.
 --- @field dontMove boolean Whether or not the NPC is able to move. If true, the NPC will also attempt to always face the player.
 --- @field isHidden boolean Whether or not the NPC is currently visible.
---- @field msg VBStr The NPC's talk message. If this is not an empty string, an exclamation point will appear above the NPC when the player gets close.
+--- @field msg VBStr|string The NPC's talk message. If this is not an empty string, an exclamation point will appear above the NPC when the player gets close.
 --- @field noblockcollision boolean Override for the noblockcollision config flag. Toggles per-NPC block collision.
 --- @field isProjectile boolean If true, the NPC currently is in the projectile state (thrown, shot out of a generator).
 --- @field isGenerator boolean If true, the NPC is a generator NPC.
