@@ -14,7 +14,7 @@
 ---| `POWERUP_BIG` # Mushroom powerup/big (Tier 2).
 ---| `POWERUP_FIREFLOWER` # Fire Flower powerup (Tier 3).
 ---| `POWERUP_LEAF` # Leaf powerup (Tier 3).
----| `POWERUP_TANOOKIE` # Tanooki Suit powerup (Tier 3).
+---| `POWERUP_TANOOKI` # Tanooki Suit powerup (Tier 3).
 ---| `POWERUP_HAMMER` # Hammer Suit powerup (Tier 3).
 ---| `POWERUP_ICE` # Ice Flower powerup (Tier 3).
 
