@@ -4,12 +4,12 @@
 Block = {}
 
 --- Returns a table of references to all Blocks in the level.
---- @return table<number, Block> blocks A table of all Blocks.
+--- @return Block[] blocks A list of all Blocks.
 function Block.get() end
 
 --- Returns a table of references to all Blocks of the given id(s).
---- @param ids number|table<number> The ID(s) of the Blocks to retrieve.
---- @return table<number, Block> blocks A table of all Blocks with the given ID(s).
+--- @param ids integer|integer[] The ID(s) of the Blocks to retrieve.
+--- @return Block[] blocks A list of all Blocks with the given ID(s).
 function Block.get(ids) end
 
 --- Returns a table of references to all Blocks that are within the rectangle defined by the 4 coordinates, where x1 and y1 must be smaller than x2 and y2 respectively.
@@ -17,12 +17,12 @@ function Block.get(ids) end
 --- @param y1 number The y-coordinate of the top-left corner of the rectangle.
 --- @param x2 number The x-coordinate of the bottom-right corner of the rectangle.
 --- @param y2 number The y-coordinate of the bottom-right corner of the rectangle.
---- @return table<number, Block> blocks A table of all Blocks within the specified rectangle.
+--- @return Block[] blocks A table of all Blocks within the specified rectangle.
 function Block.getIntersecting(x1, y1, x2, y2) end
 
 --- Returns a table of references to all Blocks of the given id(s). Unlike `get`, the table in this should be formatted as a lookup table, where the Block indices are the keys.
---- @param idMap table<number, boolean> A lookup table where Block indices are the keys.
---- @return table<number, Block> blocks A table of all Blocks with the given ID(s).
+--- @param idMap table<integer, boolean> A lookup table where Block indices are the keys.
+--- @return Block[] blocks A table of all Blocks with the given ID(s).
 function Block.getByFilterMap(idMap) end
 
 --- Returns an iterator for iterating over a table of references to all Blocks in the level.
@@ -30,9 +30,14 @@ function Block.getByFilterMap(idMap) end
 function Block.iterate() end
 
 --- Returns an iterator for iterating over a table of references to all Blocks of the given id(s).
---- @param ids number|table<number> The ID(s) of the Blocks to retrieve.
+--- @param ids integer|integer[] The ID(s) of the Blocks to retrieve.
 --- @return fun():Block An iterator for all Blocks with the given ID(s).
 function Block.iterate(ids) end
+
+--- Returns an iterator for iterating over a table of references to all Blocks of the given id(s).
+--- @param ids integer|integer[] The ID(s) of the Blocks to retrieve.
+--- @return fun():Block An iterator for all Blocks with the given ID(s).
+function Block.iterate(ids, sections) end
 
 --- Returns an iterator for iterating over a table of references to all Blocks that are within the rectangle defined by the 4 coordinates, where x1 and y1 must be smaller than x2 and y2 respectively.
 --- @param x1 number The x-coordinate of the top-left corner of the rectangle.
@@ -43,12 +48,12 @@ function Block.iterate(ids) end
 function Block.iterateIntersecting(x1, y1, x2, y2) end
 
 --- Returns an iterator for iterating over a table of references to all Blocks of the given id(s). Unlike `iterate`, the table in this should be formatted as a lookup table, where the Block indices are the keys.
---- @param idMap table<number, boolean> A lookup table where Block indices are the keys.
+--- @param idMap table<integer, boolean> A lookup table where Block indices are the keys.
 --- @return fun():Block An iterator for all Blocks with the given ID(s).
 function Block.iterateByFilterMap(idMap) end
 
 --- Spawns a new block at the given coordinates.
---- @param id number The ID of the Block to spawn.
+--- @param id integer The ID of the Block to spawn.
 --- @param x number The x-coordinate to spawn the Block at.
 --- @param y number The y-coordinate to spawn the Block at.
 --- @return Block block The spawned Block.
@@ -74,77 +79,77 @@ function Block.spawn(id, x, y) end
 --- | `Block.COLLIDABLE`
 --- | `Block.EDIBLEBYVINE`
 
----@type number[]
+---@type integer[]
 Block.SOLID = nil
----@type number[]
+---@type integer[]
 Block.NONSOLID = nil
----@type number[]
+---@type integer[]
 Block.SEMISOLID = nil
----@type number[]
+---@type integer[]
 Block.SIZEABLE = nil
----@type number[]
+---@type integer[]
 Block.HURT = nil
----@type number[]
+---@type integer[]
 Block.LAVA = nil
----@type number[]
+---@type integer[]
 Block.PLAYER = nil
----@type number[]
+---@type integer[]
 Block.PLAYERSOLID = nil
----@type number[]
+---@type integer[]
 Block.MEGA_SMASH = nil
----@type number[]
+---@type integer[]
 Block.MEGA_HIT = nil
----@type number[]
+---@type integer[]
 Block.MEGA_STURDY = nil
----@type number[]
+---@type integer[]
 Block.SLOPE_LR_FLOOR = nil
----@type number[]
+---@type integer[]
 Block.SLOPE_RL_FLOOR = nil
----@type number[]
+---@type integer[]
 Block.SLOPE_LR_CEIL = nil
----@type number[]
+---@type integer[]
 Block.SLOPE_RL_CEIL = nil
----@type number[]
+---@type integer[]
 Block.SLOPE = nil
----@type number[]
+---@type integer[]
 Block.COLLIDABLE = nil
----@type number[]
+---@type integer[]
 Block.EDIBLEBYVINE = nil
 
----@type table<number, boolean>
+---@type table<integer, boolean>
 Block.SOLID_MAP = {}
 
----@type table<number, boolean>
+---@type table<integer, boolean>
 Block.bumpable = {}
 
----@type table<number, boolean>
+---@type table<integer, boolean>
 Block.EDIBLEBYVINE_MAP = {}
 
----@type table<number, boolean>
+---@type table<integer, boolean>
 Block.COLLIDABLE_MAP = {}
 
----@type table<number, boolean>
+---@type table<integer, boolean>
 Block.INTERSECTABLE_MAP = {}
 
----@type table<number, boolean>
+---@type table<integer, boolean>
 Block.MEGA_STURDY_MAP = {}
 
----@type table<number, boolean>
+---@type table<integer, boolean>
 Block.SEMISOLID_MAP = {}
 
----@type table<number, boolean>
+---@type table<integer, boolean>
 Block.HURT_MAP = {}
 
----@type table<number, boolean>
+---@type table<integer, boolean>
 Block.MEGA_SMASH_MAP = {}
 
----@type table<number, boolean>
+---@type table<integer, boolean>
 Block.PLAYER_MAP = {}
 
----@type table<number, BlockConfig|table<string, any>>
+---@type table<integer, BlockConfig|table<string, any>>
 Block.config = {}
 
----@type table<number, boolean>
+---@type table<integer, boolean>
 Block.MEGA_HIT_MAP = {}
 
 Block.maskFilter = {
@@ -156,34 +161,34 @@ Block.maskFilter = {
 	noshadows = true,
 }
 
----@type table<number, boolean>
+---@type table<integer, boolean>
 Block.SLOPE_MAP = {}
 
----@type table<number, boolean>
+---@type table<integer, boolean>
 Block.NONSOLID_MAP = {}
 
----@type table<number, boolean>
+---@type table<integer, boolean>
 Block.LAVA_MAP = {}
 
----@type table<number, boolean>
+---@type table<integer, boolean>
 Block.SLOPE_LR_FLOOR_MAP = {}
 
----@type table<number, boolean>
+---@type table<integer, boolean>
 Block.SLOPE_RL_FLOOR_MAP = {}
 
----@type table<number, boolean>
+---@type table<integer, boolean>
 Block.PLAYERSOLID_MAP = {}
 
----@type table<number, boolean>
+---@type table<integer, boolean>
 Block.SIZEABLE_MAP = {}
 
----@type table<number, boolean>
+---@type table<integer, boolean>
 Block.SLOPE_RL_CEIL_MAP = {}
 
----@type table<number, boolean>
+---@type table<integer, boolean>
 Block.SLOPE_LR_CEIL_MAP = {}
 
----@type table<number, BlockClassification>
+---@type table<integer, BlockClassification>
 Block.classifications = {}
 
 ---@class Block : CollisionObject
@@ -210,16 +215,15 @@ function Block.registerEvent(...) end
 function Block.count(...) end
 
 --- Returns a value of the Block struct at a specific memory address-offset.
---- @param offset number|BlockMemoryOffset The memory address-offset.
+--- @param offset integer|BlockMemoryOffset The memory address-offset.
 --- @param type MemoryFieldType The type of the field.
 --- @return any value The value at the specified memory address-offset.
 function Block:mem(offset, type) end
 
 --- Sets a value of the Block struct at a specific memory address-offset.
---- @param offset number|BlockMemoryOffset The memory address-offset.
+--- @param offset integer|BlockMemoryOffset The memory address-offset.
 --- @param type MemoryFieldType The type of the field.
 --- @param value any The value to set at the specified memory address-offset.
---- @return nil
 function Block:mem(offset, type, value) end
 
 --- Checks collision with the given player and returns a number corresponding to the collision direction.
@@ -303,7 +307,7 @@ function Block:memlog(lowerBound, upperBound) end
 ---@type boolean
 Block.isValid = false
 
----@type number
+---@type integer
 Block.idx = 0
 
 ---@type number

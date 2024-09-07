@@ -79,15 +79,13 @@ function Colliders.getAABB(object) end
 ---@return boolean
 function Colliders.FILTER_BLOCK_BLOCK_DEF(block1, block2) end
 
----@param collider Collider
 ---@param block Block
 ---@return boolean
-function Colliders.FILTER_COL_BLOCK_DEF(collider, block) end
+function Colliders.FILTER_COL_BLOCK_DEF(block) end
 
----@param collider Collider
 ---@param npc NPC
 ---@return boolean
-function Colliders.FILTER_COL_NPC_DEF(collider, npc) end
+function Colliders.FILTER_COL_NPC_DEF(npc) end
 
 ---@param npc NPC
 ---@param block Block
@@ -214,10 +212,14 @@ Colliders.BLOCK_SOLID = nil
 Colliders.BLOCK_SOLID_MAP = nil
 
 ---@class Collider : CollisionObject
+--- @field width number
+--- @field height number
+--- @field x number
+--- @field y number
 local Collider = {}
 
 --- Draws the collider to the screen with the specified color.
---- @param color Color The color to draw the collider with. If no color is supplied, the default will be used.
+--- @param color Color|integer The color to draw the collider with. If no color is supplied, the default will be used.
 function Collider:Draw(color) end
 
 --- Enables/disables debug drawing of the collider.
@@ -275,7 +277,7 @@ TriCollider.x = 0
 ---@type number
 TriCollider.y = 0
 ---The vertex list of the triangle collider. When manually editing this list, the minX, minY, maxX and maxY fields need to be updated manually as well. If winding order is anticlockwise, triangulation will fail. Make sure to keep the vertex list winding order clockwise when editing.
----@type {x: number, y: number}[]
+---@type { x: number, y: number }[]
 TriCollider.tris = {}
 ---@type number
 TriCollider.minX = 0
@@ -293,7 +295,7 @@ PolyCollider.x = 0
 ---@type number
 PolyCollider.y = 0
 ---The vertex list of the triangle collider. When manually editing this list, the minX, minY, maxX and maxY fields need to be updated manually as well. If winding order is anticlockwise, triangulation will fail. Make sure to keep the vertex list winding order clockwise when editing.
----@type {x: number, y: number}[]
+---@type { x: number, y: number }[]
 PolyCollider.tris = {}
 ---@type number
 PolyCollider.minX = 0

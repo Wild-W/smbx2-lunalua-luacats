@@ -36,13 +36,15 @@ Shader._cobj = {
 	_uniformInfo = nil,
 }
 
----@param vertexShaderFilename string The filename of the vertex shader source file.
----@param fragmentShaderFilename string The filename of the fragment shader source file.
-function Shader:compileFromFile(vertexShaderFilename, fragmentShaderFilename) end
+---@param vertexShaderFilename string? The filename of the vertex shader source file.
+---@param fragmentShaderFilename string? The filename of the fragment shader source file.
+---@param macroList table<string, any>?
+function Shader:compileFromFile(vertexShaderFilename, fragmentShaderFilename, macroList) end
 
----@param vertexShaderCode string The vertex shader code as a string.
----@param fragmentShaderCode string The fragment shader code as a string.
-function Shader:compileFromSource(vertexShaderCode, fragmentShaderCode) end
+---@param vertexShaderCode string? The vertex shader code as a string.
+---@param fragmentShaderCode string? The fragment shader code as a string.
+---@param macroList table<string, any>?
+function Shader:compileFromSource(vertexShaderCode, fragmentShaderCode, macroList) end
 
 ---Returns a table with information of all active attributes. The key of the table is the variable name. The value represents another table with the specific information.
 ---@return table<string, ShaderAttributeInfo>
@@ -53,9 +55,9 @@ function Shader:getAttributeInfo() end
 function Shader:getUniformInfo() end
 
 ---@class ShaderAttributeInfo
----@field id number The location of the attribute/uniform.
----@field type number The data type of the array.
----@field arrayDepth number The dimension of the array. 0 if not an array, 1 if it is an array.
----@field arrayCount number How many elements the array can contain, if the attribute/uniform is an array.
----@field name string The name with a possible array suffix. Same as rawName if the attribute/uniform is not an array.
----@field rawName string The name without any qualifier.
+--- @field id number The location of the attribute/uniform.
+--- @field type number The data type of the array.
+--- @field arrayDepth number The dimension of the array. 0 if not an array, 1 if it is an array.
+--- @field arrayCount number How many elements the array can contain, if the attribute/uniform is an array.
+--- @field name string The name with a possible array suffix. Same as rawName if the attribute/uniform is not an array.
+--- @field rawName string The name without any qualifier.

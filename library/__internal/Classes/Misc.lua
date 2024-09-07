@@ -141,7 +141,7 @@ function Misc.coins(coins, playCoinSound) end
 
 --- Spawns a score effect at the given position. Plays the coin or 1-up sound if not suppressed.
 --- @param index number The score value index.
---- @param position Vector2 The position where the score effect should appear.
+--- @param position { x: number, y: number } The position where the score effect should appear.
 --- @param suppressSound boolean Whether to suppress the sound.
 function Misc.givePoints(index, position, suppressSound) end
 
@@ -386,7 +386,7 @@ function Misc.dialog(...) end
 
 --- Spawns a more fancy popup dialog message.
 --- @param title string The title of the dialog.
---- @param content table The content of the dialog.
+--- @param content any The content of the dialog.
 --- @param readOnly boolean Whether the dialog is read-only.
 function Misc.richDialog(title, content, readOnly) end
 

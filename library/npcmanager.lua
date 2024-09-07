@@ -39,7 +39,7 @@ function npcManager.registerHarmTypes(id, harmList, deatheffects) end
 ---Register an event on an NPC.
 ---@param id number
 ---@param tbl table
----@param eventName EventName
+---@param eventName NPCEventName
 ---@param libEventName string?
 function npcManager.registerEvent(id, tbl, eventName, libEventName) end
 

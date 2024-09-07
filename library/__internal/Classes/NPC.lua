@@ -300,7 +300,7 @@ NPC.config = {}
 ---@type table<integer, boolean>
 NPC.spinjumpSafe = {}
 
----@class NPC
+---@class NPC : CollisionObject
 --- @field isValid boolean Validates that the NPC object exists. (Read-only)
 --- @field idx integer The NPC's index in the internal list of NPCs. (Read-only)
 --- @field id integer The NPC's ID.

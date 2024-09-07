@@ -383,7 +383,7 @@ function Graphics.unplaceSprites(img, xPos, yPos) end
 --- @field priority number? # The render priority. Defaults to 1.
 --- @field sceneCoords boolean? # Whether to draw to the scene coordinate space. False by default.
 --- @field shader Shader? # The shader to use.
---- @field uniforms table<string, number|Texture|Vector2>? # A table where the key is the name of the uniform and the value is that uniform's value. Table values are converted to arrays for the shader.
+--- @field uniforms table<string, number|Texture|Vector2|Vector3|number[]>? # A table where the key is the name of the uniform and the value is that uniform's value. Table values are converted to arrays for the shader.
 --- @field attributes table<string, number[]>? # A table where the key is the name of the attribute and the value is a an array containing all required values. Keep in mind that this is per-vertex, so you the number of values you pass in that array depends on the number for vertices you use.
 --- @field target CaptureBuffer? # The render target/capture buffer to draw to.
 
@@ -473,7 +473,7 @@ function Graphics.drawCircle(args) end
 function Graphics.draw(args) end
 
 --- Represents a capture buffer that can be used as a texture.
----@class CaptureBuffer
+---@class CaptureBuffer : Texture
 local CaptureBuffer = {}
 
 --- Causes the capture buffer to capture the screen at the given render priority.

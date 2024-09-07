@@ -198,12 +198,16 @@ function PlayerInstance:getFrame(frame) end
 --- Instantly teleports the player to the target position.
 --- @param x number The x-coordinate of the target position.
 --- @param y number The y-coordinate of the target position.
---- @param bottomCenterAligned boolean If `true`, aligns the bottom center of the player's hitbox with the coordinates; otherwise, aligns the top left corner.
+--- @param bottomCenterAligned boolean? If `true`, aligns the bottom center of the player's hitbox with the coordinates; otherwise, aligns the top left corner.
 function PlayerInstance:teleport(x, y, bottomCenterAligned) end
 
 --- The player's index in the internal list of players.
 ---@type number
 PlayerInstance.idx = 0
+
+--- If the player instance is valid.
+--- @type boolean
+PlayerInstance.isValid = nil
 
 --- The direction the player is facing. `-1`: left. `1`: right.
 --- @type -1|1

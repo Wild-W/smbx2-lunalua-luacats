@@ -31,18 +31,18 @@ function Effect.getIntersecting(x1, y1, x2, y2) end
 ---@param id number The ID of the effect to spawn.
 ---@param x number The x coordinate to spawn the effect at.
 ---@param y number The y coordinate to spawn the effect at.
----@param variant number|nil The variant of the effect to use (optional).
----@param npcID number|nil The NPC ID to set on the effect (optional).
----@param drawOnlyMask boolean|nil If true, makes the effect silhouette render (only 1.3 effects).
+---@param variant number? The variant of the effect to use (optional).
+---@param npcID number? The NPC ID to set on the effect (optional).
+---@param drawOnlyMask boolean? If true, makes the effect silhouette render (only 1.3 effects).
 ---@return Effect effect
 function Effect.spawn(id, x, y, variant, npcID, drawOnlyMask) end
 
 ---Spawns a new effect at the location of the given object with x, y, width, and height fields (Player, NPC, Block, or other).
 ---@param id number The ID of the effect to spawn.
 ---@param target table The object to spawn the effect at.
----@param variant number|nil The variant of the effect to use (optional).
----@param npcID number|nil The NPC ID to set on the effect (optional).
----@param drawOnlyMask boolean|nil If true, makes the effect silhouette render (only 1.3 effects).
+---@param variant number? The variant of the effect to use (optional).
+---@param npcID number? The NPC ID to set on the effect (optional).
+---@param drawOnlyMask boolean? If true, makes the effect silhouette render (only 1.3 effects).
 ---@return Effect effect
 function Effect.spawn(id, target, variant, npcID, drawOnlyMask) end
 

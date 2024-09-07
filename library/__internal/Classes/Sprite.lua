@@ -84,7 +84,7 @@ function Sprite.circle(args) end
 --- @field y number The local y coordinate of the Sprite.
 --- @field position Vector2 The local position of the Sprite.
 --- @field rotation number The local rotation of the Sprite, in degrees.
---- @field scale Vector2 The local scale of the Sprite.
+--- @field scale number The local scale of the Sprite.
 --- @field texture Texture The image displayed on the Sprite.
 --- @field image Texture The image displayed on the Sprite.
 --- @field width number The width of a Box-shaped Sprite.
@@ -122,11 +122,11 @@ local Sprite = {}
 
 ---Gets the number of vertices in this `Sprite` object.
 ---@return number vertices
-function Sprite.getVertexCount() end
+function Sprite:getVertexCount() end
 
 ---Draws the Sprite object to the screen. This function accepts all arguments from Graphics.glDraw (see Graphics) with the exception of: vertexCoords, textureCoords, texture, and primitive
 ---@param args table
-function Sprite.draw(args) end
+function Sprite:draw(args) end
 
 ---@class SpriteBar : Sprite
 ---@field bgbordertexture Texture? The image displayed on the Bar background's border. If set to `nil`, the `bgtexture` field will be used.
