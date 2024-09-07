@@ -13,7 +13,6 @@
 ---    end
 ---end
 ---```
----@class Colliders
 Colliders = {}
 
 ---@type integer
@@ -22,6 +21,9 @@ Colliders.COLLIDER = -1
 Colliders.NPC = -2
 ---@type integer
 Colliders.BLOCK = -3
+
+---@type boolean
+Colliders.debug = nil
 
 --- Creates a new point collider.
 --- @param x number The x coordinate of the point collider.
@@ -185,6 +187,62 @@ function Colliders.tail(player, object) end
 --- @param object CollisionObject The object to check.
 --- @return boolean isSwiping Whether the player has performed a Yoshi tongue attack and hit the object.
 function Colliders.tongue(player, object) end
+
+---@generic TFirst : CollisionObject
+---@generic TSecond : CollisionObject
+---@alias CollisionFilter fun(firstObject: TFirst, secondObject: TSecond): boolean
+
+---@param blockIds integer|integer[]
+---@param object CollisionObject
+---@param sections integer|integer[]?
+---@param filter CollisionFilter<Block, Block>?
+---@return boolean doesCollide
+---@return number length
+---@return Block[] collisions
+function Colliders.collideBlock(blockIds, object, sections, filter) end
+
+---@param npcIds integer|integer[]
+---@param blockIds integer|integer[]
+---@param sections integer|integer[]?
+---@param filter CollisionFilter<NPC, Block>?
+---@return boolean doesCollide
+---@return number length
+---@return { [1]: NPC, [2]: Block }[] collisions
+function Colliders.collideNPCBlock(npcIds, blockIds, sections, filter) end
+
+---@param firstObject CollisionObject
+---@param secondObject CollisionObject
+---@param sections integer|integer[]?
+---@param filter CollisionFilter<CollisionObject, CollisionObject>?
+---@return boolean doesCollide
+function Colliders.collideNPCBlock(firstObject, secondObject, sections, filter) end
+
+---@param npcIds integer|integer[]
+---@param object CollisionObject
+---@param sections integer|integer[]?
+---@param filter CollisionFilter<NPC, NPC>?
+---@return boolean doesCollide
+---@return number length
+---@return NPC[] collisions
+function Colliders.collideNPCBlock(npcIds, object, sections, filter) end
+
+---@param object CollisionObject
+---@param blockIds integer|integer[]
+---@param sections integer|integer[]?
+---@param filter CollisionFilter<Block, Block>?
+---@return boolean doesCollide
+---@return number length
+---@return Block[] collisions
+function Colliders.collideNPCBlock(object, blockIds, sections, filter) end
+
+---@param npcIds integer|integer[]
+---@param secondObject CollisionObject
+---@param sections integer|integer[]?
+---@param filter CollisionFilter<NPC, NPC>?
+---@return boolean doesCollide
+---@return number length
+---@return NPC[] collisions
+function Colliders.collideNPC(npcIds, secondObject, sections, filter) end
 
 ---@type table
 Colliders.BLOCK_HURT = nil

@@ -26,12 +26,12 @@ function BGO.getIntersecting(x1, y1, x2, y2) end
 function BGO.getByFilterMap(idMap) end
 
 --- Returns an iterator for iterating over a table of references to all BGOs in the level.
---- @return fun():BGO An iterator for all BGOs.
+--- @return fun():number, BGO iterator An iterator for all BGOs.
 function BGO.iterate() end
 
 --- Returns an iterator for iterating over a table of references to all BGOs of the given id(s).
 --- @param ids integer|integer[] The ID(s) of the BGOs to retrieve.
---- @return fun():BGO An iterator for all BGOs with the given ID(s).
+--- @return fun():number, BGO iterator An iterator for all BGOs with the given ID(s).
 function BGO.iterate(ids, sections) end
 
 --- Returns an iterator for iterating over a table of references to all BGOs that are within the rectangle defined by the 4 coordinates, where x1 and y1 must be smaller than x2 and y2 respectively.
@@ -39,12 +39,12 @@ function BGO.iterate(ids, sections) end
 --- @param y1 number The y-coordinate of the top-left corner of the rectangle.
 --- @param x2 number The x-coordinate of the bottom-right corner of the rectangle.
 --- @param y2 number The y-coordinate of the bottom-right corner of the rectangle.
---- @return fun():BGO An iterator for all BGOs within the specified rectangle.
+--- @return fun():number, BGO iterator An iterator for all BGOs within the specified rectangle.
 function BGO.iterateIntersecting(x1, y1, x2, y2) end
 
 --- Returns an iterator for iterating over a table of references to all BGOs of the given id(s). Unlike `iterate`, the table in this should be formatted as a lookup table, where the BGO indices are the keys.
 --- @param idMap table<number, boolean> A lookup table where BGO indices are the keys.
---- @return fun():BGO An iterator for all BGOs with the given ID(s).
+--- @return fun():number, BGO iterator An iterator for all BGOs with the given ID(s).
 function BGO.iterateByFilterMap(idMap) end
 
 ---@type table<number, BGOConfig>

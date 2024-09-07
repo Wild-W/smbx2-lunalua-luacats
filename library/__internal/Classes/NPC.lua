@@ -134,31 +134,25 @@ function NPC.getIntersecting(x1, y1, x2, y2) end
 function NPC.getByFilterMap(idMap) end
 
 --- Returns an iterator for iterating over a table of references to all NPCs in the level.
---- @return fun():NPC iterator An iterator for all NPCs.
+--- @return fun():number, NPC iterator An iterator for all NPCs.
 function NPC.iterate() end
 
 --- Returns an iterator for iterating over a table of references to all NPCs of the given id(s).
 --- @param ids integer|integer[] The ID or IDs of NPCs to iterate over.
---- @return fun():NPC iterator An iterator for NPCs matching the ID(s).
+--- @return fun():number, NPC iterator An for NPCs matching the ID(s).
 function NPC.iterate(ids) end
-
---- Returns an iterator for iterating over a table of references to all NPCs of the given id(s).
---- @param ids integer|integer[] The ID or IDs of NPCs to iterate over.
---- @param sections integer|integer[] The section index or indices.
---- @return fun():NPC iterator An iterator for NPCs matching the ID(s).
-function NPC.iterate(ids, sections) end
 
 --- Returns an iterator for iterating over a table of references to all NPCs that are within the rectangle defined by the 4 coordinates. Coordinates x1 and y1 must be smaller than x2 and y2 respectively.
 --- @param x1 number The starting x-coordinate of the rectangle.
 --- @param y1 number The starting y-coordinate of the rectangle.
 --- @param x2 number The ending x-coordinate of the rectangle.
 --- @param y2 number The ending y-coordinate of the rectangle.
---- @return fun():NPC iterator An iterator for NPCs intersecting the rectangle.
+--- @return fun():number, NPC iterator An iterator for NPCs intersecting the rectangle.
 function NPC.iterateIntersecting(x1, y1, x2, y2) end
 
 --- Returns an iterator for iterating over a table of references to all NPCs of the given id(s). Unlike iterate, the table should be formatted as a lookup table, where the NPC indices are the keys.
 --- @param idMap table<integer, boolean> A table formatted as a lookup table with NPC IDs as keys and 'true' as values.
---- @return fun():NPC iterator An iterator for NPCs matching the ID map.
+--- @return fun():number, NPC iterator An iterator for NPCs matching the ID map.
 function NPC.iterateByFilterMap(idMap) end
 
 --- Includes all NPCs that have a harm type other than HARM_TYPE_LAVA or HARM_TYPE_OFFSCREEN registered.

@@ -26,30 +26,25 @@ function Block.getIntersecting(x1, y1, x2, y2) end
 function Block.getByFilterMap(idMap) end
 
 --- Returns an iterator for iterating over a table of references to all Blocks in the level.
---- @return fun():Block An iterator for all Blocks.
+--- @return fun(): number, Block iterator An iterator for all Blocks.
 function Block.iterate() end
 
 --- Returns an iterator for iterating over a table of references to all Blocks of the given id(s).
 --- @param ids integer|integer[] The ID(s) of the Blocks to retrieve.
---- @return fun():Block An iterator for all Blocks with the given ID(s).
+--- @return fun(): number, Block iterator An iterator for all Blocks with the given ID(s).
 function Block.iterate(ids) end
-
---- Returns an iterator for iterating over a table of references to all Blocks of the given id(s).
---- @param ids integer|integer[] The ID(s) of the Blocks to retrieve.
---- @return fun():Block An iterator for all Blocks with the given ID(s).
-function Block.iterate(ids, sections) end
 
 --- Returns an iterator for iterating over a table of references to all Blocks that are within the rectangle defined by the 4 coordinates, where x1 and y1 must be smaller than x2 and y2 respectively.
 --- @param x1 number The x-coordinate of the top-left corner of the rectangle.
 --- @param y1 number The y-coordinate of the top-left corner of the rectangle.
 --- @param x2 number The x-coordinate of the bottom-right corner of the rectangle.
 --- @param y2 number The y-coordinate of the bottom-right corner of the rectangle.
---- @return fun():Block An iterator for all Blocks within the specified rectangle.
+--- @return fun(): number, Block iterator An iterator for all Blocks within the specified rectangle.
 function Block.iterateIntersecting(x1, y1, x2, y2) end
 
 --- Returns an iterator for iterating over a table of references to all Blocks of the given id(s). Unlike `iterate`, the table in this should be formatted as a lookup table, where the Block indices are the keys.
 --- @param idMap table<integer, boolean> A lookup table where Block indices are the keys.
---- @return fun():Block An iterator for all Blocks with the given ID(s).
+--- @return fun(): number, Block iterator An iterator for all Blocks with the given ID(s).
 function Block.iterateByFilterMap(idMap) end
 
 --- Spawns a new block at the given coordinates.
@@ -285,7 +280,7 @@ function Block:translate(dx, dy) end
 
 --- Transforms the Block into a Block of a different ID. Centered defaults to true and will cause the transformation to happen relative to the center of the old and new Block sizes.
 --- @param newID number The new Block ID.
---- @param centered boolean Whether to transform centered. Defaults to true.
+--- @param centered boolean? Whether to transform centered. Defaults to true.
 function Block:transform(newID, centered) end
 
 --- Changes the height of the block while correctly setting the block array unsorted flag (prevents collision glitches that occur when setting .width and .height).
