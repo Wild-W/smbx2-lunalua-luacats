@@ -47,9 +47,9 @@ function Effect.spawn(id, x, y, variant, npcID, drawOnlyMask) end
 function Effect.spawn(id, target, variant, npcID, drawOnlyMask) end
 
 ---@class Effect
---- @field id number The Effect spawner's ID.
---- @field x number The Effect spawner's x coordinate.
---- @field y number The Effect spawner's y coordinate.
+--- @field id number The Effect's ID.
+--- @field x number The Effect's x coordinate.
+--- @field y number The Effect's y coordinate.
 --- @field width number The Effect's width. If this is a spawner, defaults to its first spawned effect's width.
 --- @field height number The Effect's height. If this is a spawner, defaults to its first spawned effect's height.
 local EffectInstance = {}

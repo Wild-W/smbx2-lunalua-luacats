@@ -68,6 +68,33 @@ function OverworldLevelManager.getByName(title) end
 --- @return Level|nil
 function OverworldLevelManager.getByFilename(filename) end
 
+LevelManager.settings = {
+    player = {
+        ---@type string
+        costume1 = nil,
+        ---@type string
+        costume2 = nil,
+        ---@type number
+        player1 = nil,
+        ---@type number
+        player2 = nil,
+        ---@type boolean
+        setCostume1 = nil,
+        ---@type boolean
+        setCostume2 = nil
+    },
+    ---@type boolean
+    showInMarioChallenge = nil,
+    timer = {
+        ---@type boolean
+        enable = nil,
+        ---@type number
+        result = nil,
+        ---@type number
+        time = nil
+    }
+}
+
 --- Returns the filename of the current level.
 ---@return string name The filename of the level.
 function LevelManager.filename() end

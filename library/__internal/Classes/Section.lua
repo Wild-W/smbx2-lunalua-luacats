@@ -119,7 +119,7 @@ function Section.drawScreenEffect(screenEffect, camera) end
 
 ---The SectionDarkness table contains information about the darkness effect used by the section.
 --- @class SectionDarkness
---- @field effect Darkness The darkness effect itself.
+--- @field effect DarknessField The darkness effect itself.
 --- @field playerLightEffects Light[] A table of lights used for the players, if player light is enabled.
 --- @field enabled boolean Whether or not the darkness effect is enabled.
 --- @field playerLightEnabled boolean Whether or not the darkness effect's player lights are enabled.

@@ -2,7 +2,6 @@
 -- TODO: Finish field descriptions.
 
 ---The Darkness class allows you to create and manipulate darkness fields and lighting.
----@class Darkness
 Darkness = {}
 
 --- Creates a new darkness field in the scene.
@@ -214,3 +213,6 @@ LightInstance.height = 32
 
 ---@type boolean
 LightInstance.isValid = true
+
+---@type boolean
+LightInstance.enabled = true

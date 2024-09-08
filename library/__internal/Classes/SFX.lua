@@ -16,12 +16,20 @@ SFX.SOURCE_LINE = 3
 SFX.LISTEN_PLAYER = 0
 ---A listening position centered on the middle of the camera.
 SFX.LISTEN_CAMERA = 1
+
+---@alias FalloffMode fun(squareRootFloor: number, squareRootDistance: number): number
+
 ---Audio distance falloff mode that does not fade the audio with distance.
-SFX.FALLOFF_NONE = function() end
+---
+---Always returns `1`.
+---@type FalloffMode
+SFX.FALLOFF_NONE = nil
 ---Audio distance falloff mode that fades the audio linearly with distance.
-SFX.FALLOFF_LINEAR = function() end
+---@type FalloffMode
+SFX.FALLOFF_LINEAR = nil
 ---Audio distance falloff mode that fades the audio with the inverse square of the distance (closest to physically accurate).
-SFX.FALLOFF_SQUARE = function() end
+---@type FalloffMode
+SFX.FALLOFF_SQUARE = nil
 
 ---@class AudioSourceArgs
 --- @field x number? The X position of the audio source.

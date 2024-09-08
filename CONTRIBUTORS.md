@@ -32,12 +32,10 @@ git push origin your-branch-name
 
 ### Unfinished
 
-* [Graphics.lua](/library/Classes/Graphics.lua)
 * [Sprite.lua](/library/Classes/Sprite.lua)
 * [Darkness.lua](/library/Classes/Darkness.lua)
 * [Particles.lua](/library/Classes/Particles.lua)
 * [require_utils.lua](/library/Classes/require_utils.lua)
-* [json.lua](/library/Classes/json.lua)
 * [FileFormats.lua](/library/Classes/FileFormats.lua)
 * [Events.lua](/library/Classes/Events.lua)
 * [EventManager.lua](/library/Classes/EventManager.lua)
