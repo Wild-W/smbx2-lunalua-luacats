@@ -1,7 +1,6 @@
 ---@meta _
 
 ---The Cheats class lets you add, remove, modify, deactivate and activate cheat codes in SMBX2. Cheat codes are called by typing in keywords on the keyboard. A list of cheat codes available by default can be found [here](/features/cheats.md).
----@class Cheats
 Cheats = {}
 
 --- Gets a reference to the cheat triggered by the provided string. Returns nil if none were found.
@@ -52,7 +51,7 @@ function Cheats.deregister(name, keepAliases) end
 function Cheats.addAlias(name, alias) end
 
 --- Returns a list of all cheat names.
---- @return table<number, string> allCheats A list of all cheat names.
+--- @return string[] allCheats A list of all cheat names.
 function Cheats.listCheats() end
 
 ---@type boolean
@@ -63,11 +62,10 @@ local Cheat = {}
 
 --- Triggers this cheat. The silent argument is optional and will prevent any sounds from playing if true.
 --- @param silent boolean Whether to prevent any sounds from playing.
---- @return nil
 function Cheat:trigger(silent) end
 
 ---@type number
 Cheat.id = 0
 
----@type table<number, string>
+---@type string[]
 Cheat.aliases = {}

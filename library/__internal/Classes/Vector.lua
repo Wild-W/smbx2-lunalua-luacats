@@ -484,6 +484,9 @@ local Quaternion = {}
 ---@return Vector2
 function Vector2:normalize() end
 
+---@return Vector2
+function Vector2:normalise() end
+
 ---@param angle number
 ---@return Vector2
 function Vector2:rotate(angle) end
@@ -495,6 +498,11 @@ function Vector2:lookat(target) end
 ---@param target Vector2
 ---@return Vector2
 function Vector2:project(target) end
+
+---Alias for project.
+---@param target Vector2
+---@return Vector2
+function Vector2:proj(target) end
 
 ---@param other Vector2
 ---@return number
@@ -508,6 +516,9 @@ function Vector2:tov4() end
 
 ---@return Vector3
 function Vector3:normalize() end
+
+---@return Vector3
+function Vector3:normalise() end
 
 ---@param roll number
 ---@param pitch number
@@ -532,6 +543,11 @@ function Vector3:lookat(target) end
 ---@return Vector3
 function Vector3:project(target) end
 
+---Alias for project.
+---@param target Vector3
+---@return Vector3
+function Vector3:proj(target) end
+
 ---@param normal Vector3
 ---@return Vector3
 function Vector3:planeproject(normal) end
@@ -552,6 +568,9 @@ function Vector3:tov4() end
 
 ---@return Vector4
 function Vector4:normalize() end
+
+---@return Vector4
+function Vector4:normalise() end
 
 ---@param roll number
 ---@param pitch number
@@ -579,6 +598,11 @@ function Vector4:lookat(target) end
 ---@param target Vector4
 ---@return Vector4
 function Vector4:project(target) end
+
+---Alias for project.
+---@param target Vector4
+---@return Vector4
+function Vector4:proj(target) end
 
 ---@param normal Vector4
 ---@return Vector4
@@ -644,6 +668,9 @@ function Mat4:tomat3() end
 
 ---@return Quaternion
 function Quaternion:normalize() end
+
+---@return Quaternion
+function Quaternion:normalise() end
 
 ---@param target Quaternion
 ---@param speed number

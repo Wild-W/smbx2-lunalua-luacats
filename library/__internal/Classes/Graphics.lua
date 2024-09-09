@@ -491,7 +491,7 @@ function Graphics.drawLine(args) end
 --- @field x number # x-coordinate at the center of the circle.
 --- @field y number # y-coordinate at the center of the circle.
 --- @field radius number # Radius of the circle.
---- @field rotation number # Angle of the circle.
+--- @field rotation number? # Angle of the circle.
 --- @field sourceX number? # Left edge of the texture's drawn area.
 --- @field sourceY number? # Top edge of the texture's drawn area.
 --- @field sourceWidth number? # Width of the texture's drawn area.

@@ -55,7 +55,7 @@ local BGOInstance = {}
 
 --- Transforms the BGO into a BGO of a different ID. Centered defaults to true and will cause the transformation to happen relative to the center of the old and new BGO sizes.
 --- @param newID number The new BGO ID.
---- @param centered boolean Whether to transform centered. Defaults to true.
+--- @param centered boolean? Whether to transform centered. Defaults to true.
 function BGOInstance:transform(newID, centered) end
 
 ---@type boolean
