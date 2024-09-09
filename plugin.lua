@@ -357,7 +357,7 @@ VM = { OnCompileFunctionParam = OnCompileFunctionParam }
     Case insensitive file system (SMBX2 only runs on Windows)
 ]]
 
-local modRoot = fs.current_path() / "library"
+local libRoot = fs.current_path() / "library"
 
 local function resolveCaseInsensitive(root, moduleName)
     for file in fs.pairs(root) do
@@ -374,7 +374,7 @@ end
 ---@param  name string # Argument of require()
 ---@return string[]?
 function ResolveRequire(uri, name)
-    local libModuleFile = resolveCaseInsensitive(modRoot, name)
+    local libModuleFile = resolveCaseInsensitive(libRoot, name)
     local localModuleFile = resolveCaseInsensitive(fs.path(furi.decode(uri)), name)
 
     local result = {}

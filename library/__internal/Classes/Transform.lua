@@ -38,25 +38,28 @@ function Transform.new2d(position, rotation, scale) end
 --- @return Transform3D transform The created 3D transform object.
 function Transform.new3d(position, rotation, scale) end
 
----@class Transform
+---@class Transformable
+local Transformable = {}
+
+---@class Transform : Transformable
 ---@operator len: number
 local Transform = {}
 
 --- Gets the global transformation matrix for this transform.
 --- @return Mat3 matrix The global transformation matrix.
-function Transform:getMat() end
+function Transformable:getMat() end
 
 --- Gets the local transformation matrix for this transform.
 --- @return Mat3 matrix The local transformation matrix.
-function Transform:getMatLocal() end
+function Transformable:getMatLocal() end
 
 --- Gets the inverse global transformation matrix for this transform.
 --- @return Mat3 matrix The inverse global transformation matrix.
-function Transform:getInvMat() end
+function Transformable:getInvMat() end
 
 --- Gets the inverse local transformation matrix for this transform.
 --- @return Mat3 matrix The inverse local transformation matrix.
-function Transform:getInvMatLocal() end
+function Transformable:getInvMatLocal() end
 
 --- Sets the transform as "dirty", forcing a recomputation of its transformation matrix.
 --- @param noLocal boolean If `true`, only the global transformation matrix will be invalidated.
@@ -68,13 +71,13 @@ function Transform:lookAt(target) end
 
 --- Rotates the transform by the specified number of degrees.
 --- @param angle number The angle to rotate by.
---- @param worldspace boolean If `true`, the rotation will occur in world space. Defaults to `false`.
-function Transform:rotate(angle, worldspace) end
+--- @param worldspace boolean? If `true`, the rotation will occur in world space. Defaults to `false`.
+function Transformable:rotate(angle, worldspace) end
 
 --- Moves the transform by the specified motion vector.
 --- @param vector Vector2 The motion vector.
---- @param worldspace boolean If `true`, the translation will occur in world space. Defaults to `false`.
-function Transform:translate(vector, worldspace) end
+--- @param worldspace boolean? If `true`, the translation will occur in world space. Defaults to `false`.
+function Transformable:translate(vector, worldspace) end
 
 --- Applies the transform to the specified position vector.
 --- @param vector Vector2 The position vector.
@@ -122,21 +125,21 @@ function Transform:addChild(child, keepWorld) end
 function Transform:setParent(parent, keepWorld) end
 
 --- Removes all children from the transform.
-function Transform:detachChildren() end
+function Transformable:detachChildren() end
 
 --- Gets the index of this transform in its parent's child list.
 --- @return number index The index in the parent's child list.
-function Transform:getSiblingIndex() end
+function Transformable:getSiblingIndex() end
 
 --- Sets the index of this transform in its parent's child list.
 --- @param index number The new index.
-function Transform:setSiblingIndex(index) end
+function Transformable:setSiblingIndex(index) end
 
 --- Pushes this transform to be first in its parent's child list.
-function Transform:setFirstSibling() end
+function Transformable:setFirstSibling() end
 
 --- Pushes this transform to be last in its parent's child list.
-function Transform:setLastSibling() end
+function Transformable:setLastSibling() end
 
 ---@type Vector2 The transform local position.
 Transform.position = nil

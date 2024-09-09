@@ -76,10 +76,7 @@ function Sprite.poly(args) end
 ---@return Sprite sprite
 function Sprite.circle(args) end
 
--- TODO: Fix implementation for Sprite & Transform
-
----`Sprite` doesn't actually implement all of `Transform`, just [these methods](https://docs.codehaus.moe/#/reference/sprite#instance-methods)
----@class Sprite : Transform
+---@class Sprite : Transformable
 --- @field x number The local x coordinate of the Sprite.
 --- @field y number The local y coordinate of the Sprite.
 --- @field position Vector2 The local position of the Sprite.
@@ -127,6 +124,20 @@ function Sprite:getVertexCount() end
 ---Draws the Sprite object to the screen. This function accepts all arguments from Graphics.glDraw (see Graphics) with the exception of: vertexCoords, textureCoords, texture, and primitive
 ---@param args table
 function Sprite:draw(args) end
+
+--- Rotates the texture transform by the specified number of degrees.
+--- @param angle number The angle to rotate by.
+--- @param worldspace boolean? If `true`, the rotation will occur in world space. Defaults to `false`.
+function Sprite:texrotate(angle, worldspace) end
+
+---Moves the texture by the given vector.
+---@param vector2 Vector2 The motion vector to apply.
+---@param worldspace boolean? Whether the motion should be applied in world-space. Defaults to `false`.
+---## Usage
+---```lua
+---mySprite:textranslate(vector.up2, true)
+---```
+function Sprite:textranslate(vector2, worldspace) end
 
 ---@class SpriteBar : Sprite
 ---@field bgbordertexture Texture? The image displayed on the Bar background's border. If set to `nil`, the `bgtexture` field will be used.
