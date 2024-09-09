@@ -635,6 +635,15 @@ function Misc._npcCollect(...) end
 ---@return ...
 function Misc._playerHarm(...) end
 
+---Set to true by default.
+---@param state boolean
+function Misc.SetNPCCeilingBugFix(state) end
+
+---For querying controller stick position.
+---@param playerNum integer
+---@return ...
+function Misc.GetSelectedControllerStickPosition(playerNum) end
+
 --### Static collision group variables
 
 --- The collision matrix. Misc.groupsCollide\[a\]\[b\] contains whether groups a and b collide and can be modified.

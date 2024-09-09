@@ -201,6 +201,12 @@ function PlayerInstance:getFrame(frame) end
 --- @param bottomCenterAligned boolean? If `true`, aligns the bottom center of the player's hitbox with the coordinates; otherwise, aligns the top left corner.
 function PlayerInstance:teleport(x, y, bottomCenterAligned) end
 
+---@return boolean isUnderwater If the player is underwater.
+function PlayerInstance:isUnderwater() end
+
+---@return boolean isDead If the player is dead.
+function PlayerInstance:isDead() end
+
 --- The player's index in the internal list of players.
 ---@type number
 PlayerInstance.idx = 0
@@ -404,6 +410,51 @@ PlayerInstance.collisionGroupIndex = 0
 --- A list of all weights attached to the player.
 ---@type WeightContainer[]
 PlayerInstance._weightContainers = {}
+
+---@type boolean
+PlayerInstance.onSlipperyGround = nil
+
+---@type boolean
+PlayerInstance.isFairy = nil
+
+---@type number
+PlayerInstance.slashTimer = nil
+
+---@type number
+PlayerInstance.grabTopTimer = nil
+
+---@type unknown
+PlayerInstance.slidingQuickly = nil
+
+---@type unknown
+PlayerInstance.rainbowShellSurfing = nil
+
+---@type boolean
+PlayerInstance.isTanookiStatue = nil
+
+---@type number
+PlayerInstance.tanookiStatueCooldown = nil
+
+---@type number
+PlayerInstance.tanookiStatueTimer = nil
+
+---@type boolean
+PlayerInstance.isSpinJumping = nil
+
+---@type number
+PlayerInstance.mountingCooldown = nil
+
+---@type boolean
+PlayerInstance.isDucking = nil
+
+---@type number
+PlayerInstance.invincibilityTimer = nil
+
+---@type unknown
+PlayerInstance.invincibilityFlash = nil
+
+---@type number
+PlayerInstance.warpCooldown = nil
 
 ---@alias PlayerMemoryOffset
 --- | `0x00` # Can Toad use his double jump? Use field `canDoubleJump`. `FIELD_BOOL`

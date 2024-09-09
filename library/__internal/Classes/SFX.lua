@@ -94,9 +94,6 @@ function SFX.play(sound, volume, loops, delay) end
 --- @return MixChunk soundObject The loaded sound object.
 function SFX.open(path) end
 
----@class SFX
-SFX = {}
-
 --- Should the audio from AudioSource objects be listened to from the player (`SFX.LISTEN_PLAYER`) or the camera (`SFX.LISTEN_CAMERA`)?
 ---@type number
 SFX.listener = 0
@@ -104,6 +101,9 @@ SFX.listener = 0
 --- A special table that automatically populates with any tag provided to a sound effect. This can be used to adjust the volume of many different sounds simultaneously.
 ---@type table<string, number>
 SFX.volume = {}
+
+---For changing the volume of all sound effects *except* ones that have tags provided.
+-- SFX.volume.UNTAGGED = nil
 
 ---@class AudioSource
 local AudioSource = {}

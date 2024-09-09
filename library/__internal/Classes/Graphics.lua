@@ -458,6 +458,7 @@ function Graphics.glDraw(args) end
 --- @field sourceHeight number? # Height of the texture's drawn area.
 --- @field rotation number? # Angle of the drawn image.
 --- @field centered boolean? # If true, x and y are interpreted as the center of the image.
+--- @field additive number|boolean?
 
 --- A wrapper for glDraw that makes drawing rectangular images easier.
 ---@param args DrawBoxArgs Named arguments for rectangular drawing.
@@ -470,6 +471,7 @@ function Graphics.drawBox(args) end
 --- @field sourceY number? # Top edge of the texture's drawn area.
 --- @field sourceWidth number? # Width of the segment of the source image section to draw.
 --- @field sourceHeight number? # Height of the segment of the source image section to draw.
+--- @field additive number|boolean?
 
 --- A wrapper for glDraw that makes drawing over the entire screen easier.
 ---@param args DrawScreenArgs Named arguments for screen-wide drawing.
@@ -482,6 +484,7 @@ function Graphics.drawScreen(args) end
 --- @field y1 number? # Starting y-coordinate.
 --- @field x2 number? # Ending x-coordinate.
 --- @field y2 number? # Ending y-coordinate.
+--- @field additive number|boolean?
 
 --- A wrapper for glDraw that makes drawing lines easier.
 ---@param args DrawLineArgs Named arguments for line drawing.
@@ -496,6 +499,7 @@ function Graphics.drawLine(args) end
 --- @field sourceY number? # Top edge of the texture's drawn area.
 --- @field sourceWidth number? # Width of the texture's drawn area.
 --- @field sourceHeight number? # Height of the texture's drawn area.
+--- @field additive number|boolean?
 
 --- A wrapper for glDraw that makes drawing circles easier.
 ---@param args DrawCircleArgs Named arguments for circle drawing.
