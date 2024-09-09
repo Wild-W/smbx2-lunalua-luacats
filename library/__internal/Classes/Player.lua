@@ -456,6 +456,10 @@ PlayerInstance.invincibilityFlash = nil
 ---@type number
 PlayerInstance.warpCooldown = nil
 
+---The direction the player is facing in a clear pipe (or 0 if they're not in a clear pipe).
+---@type -1|0|1
+PlayerInstance.clearPipeDirection = nil
+
 ---@alias PlayerMemoryOffset
 --- | `0x00` # Can Toad use his double jump? Use field `canDoubleJump`. `FIELD_BOOL`
 --- | `0x02` # Star sparkling effect on the player. `FIELD_WORD`

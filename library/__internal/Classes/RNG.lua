@@ -80,7 +80,6 @@ function RNG.randomChar(limit) end
 ---@return string char The generated random letter between the specified limits.
 function RNG.randomChar(lowerLimit, upperLimit) end
 
-
 --- Creates a new instanced RNG object based on the current system time.
 ---@return RNG rng The new RNG instance.
 function RNG.new(seed) end
@@ -90,6 +89,15 @@ function RNG.new(seed) end
 ---@return RNG rng The new RNG instance with the specified seed.
 function RNG.new(seed) end
 
+--- Generates a random perlin noise generator with the specified parameters.
+---@param args table Configuration parameters for generating perlin noise.
+---@return Perlin perlin The Perlin noise generator object.
+function RNG.perlin(args) end
+
+---Could be used to get a random direction (left or right).
+---@return -1|1 sign
+function RNG.randomSign() end
+
 --- The RNG class in Lua, providing various methods for generating random numbers and elements.
 ---@class RNG
 local RNG = {
@@ -98,6 +106,10 @@ local RNG = {
     ---@type integer
     [2] = nil
 }
+
+---Could be used to get a random direction (left or right).
+---@return -1|1 sign
+function RNG:randomSign() end
 
 --- Generates a random decimal number between 0 and 1 (inclusive).
 ---@return number randomValue The generated random value.
@@ -158,11 +170,6 @@ function RNG:randomChar(limit) end
 ---@param upperLimit string The upper limit letter for the random letter generation.
 ---@return string char The generated random letter between the specified limits.
 function RNG:randomChar(lowerLimit, upperLimit) end
-
---- Generates a random perlin noise generator with the specified parameters.
----@param args table Configuration parameters for generating perlin noise.
----@return Perlin perlin The Perlin noise generator object.
-function RNG.perlin(args) end
 
 --- Generates a random Perlin noise generator using a random seed and default values.
 ---@class Perlin
