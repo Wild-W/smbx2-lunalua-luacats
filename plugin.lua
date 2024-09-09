@@ -1,6 +1,8 @@
 local vm = require "vm"
 local log = require "log"
 local guide = require "parser.guide"
+local fs = require "bee.filesystem"
+local furi = require "file-uri"
 local inspect = require "inspect"
 
 local args = { ... }
@@ -320,6 +322,10 @@ LUNALUA_EVENTS = {
     },
 }
 
+--[[
+    Global event callbacks
+]]
+
 ---@class parser.object
 ---@field parent parser.object
 
@@ -346,3 +352,31 @@ local function OnCompileFunctionParam(next, func, param)
 end
 
 VM = { OnCompileFunctionParam = OnCompileFunctionParam }
+
+--[[
+    Case insensitive file system (SMBX2 only runs on Windows)
+]]
+
+local modRoot = fs.current_path() / "library"
+
+local function resolveCaseInsensitive(moduleName)
+    for file in fs.pairs(modRoot) do
+        if fs.is_regular_file(file) then
+            log.info("filename = " .. tostring(file))
+            local fileName = file:filename():string()
+            if fileName:lower() == (moduleName .. ".lua"):lower() then
+                return file:string()
+            end
+        end
+    end
+end
+
+---@param  uri  string # The URI of file
+---@param  name string # Argument of require()
+---@return string[]?
+function ResolveRequire(uri, name)
+    local moduleFile = resolveCaseInsensitive(name)
+    if moduleFile then
+        return {furi.encode(moduleFile)}
+    end
+end
