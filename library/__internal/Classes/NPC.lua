@@ -377,8 +377,8 @@ function NPC:mem(offset, type, value) end
 
 --- Harms the NPC, inflicting damage upon it. Can optionally specify a harm type, the amount of damage dealt, and the score combo multiplier. Damage is ignored by NPCs that die in one hit. Returns the new score combo multiplier.
 --- @param harmType ExtendedEnemyHarmType The type of harm to inflict.
---- @param damage number The amount of damage to inflict.
---- @param multiplier number The score multiplier.
+--- @param damage number? The amount of damage to inflict.
+--- @param multiplier number? The score multiplier.
 --- @return number multiplier Returns the updated score combo multiplier.
 function NPC:harm(harmType, damage, multiplier) end
 

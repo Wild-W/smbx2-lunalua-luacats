@@ -359,10 +359,9 @@ VM = { OnCompileFunctionParam = OnCompileFunctionParam }
 
 local modRoot = fs.current_path() / "library"
 
-local function resolveCaseInsensitive(moduleName)
-    for file in fs.pairs(modRoot) do
+local function resolveCaseInsensitive(root, moduleName)
+    for file in fs.pairs(root) do
         if fs.is_regular_file(file) then
-            log.info("filename = " .. tostring(file))
             local fileName = file:filename():string()
             if fileName:lower() == (moduleName .. ".lua"):lower() then
                 return file:string()
@@ -375,8 +374,18 @@ end
 ---@param  name string # Argument of require()
 ---@return string[]?
 function ResolveRequire(uri, name)
-    local moduleFile = resolveCaseInsensitive(name)
-    if moduleFile then
-        return {furi.encode(moduleFile)}
+    local libModuleFile = resolveCaseInsensitive(modRoot, name)
+    local localModuleFile = resolveCaseInsensitive(fs.path(furi.decode(uri)), name)
+
+    local result = {}
+    if libModuleFile then
+        result[#result+1] = furi.encode(libModuleFile)
+    end
+    if localModuleFile then
+        result[#result+1] = furi.encode(localModuleFile)
+    end
+
+    if #result ~= 0 then
+        return result
     end
 end

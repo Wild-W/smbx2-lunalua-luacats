@@ -24,7 +24,7 @@ function triggerEvent(eventName) end
 ---end
 ---```
 ---@param libraryTable table # Contains the bound event. If an alias is specified, the libraryTable must contain a function with the alias, rather than the original event name.
----@param eventName string
+---@param eventName EventName
 ---@param alias string?
 ---@param beforeMainCall boolean? # If set to false, the event will execute after the main call to luna.lua's handler of the event.
 function registerEvent(libraryTable, eventName, alias, beforeMainCall) end
