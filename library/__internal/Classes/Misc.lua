@@ -340,7 +340,7 @@ function Misc.saveSlot() end
 function Misc.saveSlot(slot) end
 
 --- Loads another episode given by the episode title. If the episode was not found then false is returned. If succeeded, true is returned.
---- 
+---
 --- The actual switch is done during the next internal SMBX code execution (after the next onTick event finishes). Additional code may run between calling this function and the game loading the new episode. Holding the run button may interrupt this process and the game may stay at the title screen.
 --- @param episodeTitle string The title of the episode to load.
 --- @return boolean didLoad True if the episode was loaded successfully, false otherwise.
@@ -373,7 +373,7 @@ function Misc.GetSelectedControllerName(playerIndex) end
 function Misc.setLoadScreenTimeout(seconds) end
 
 --- Returns whether loading has finished.
---- 
+---
 --- **Warning**: Static loadscreen functions can only be called from loadscreen.lua!
 --- @return boolean isFinished True if loading has finished, false otherwise.
 function Misc.getLoadingFinished() end
@@ -403,7 +403,6 @@ function Misc.monitor(object, fields, title) end
 --- Stops monitoring an object.
 --- @param object table The object to stop monitoring.
 function Misc.stopMonitoring(object) end
-
 
 --- Spawns a little red warning in the corner of the screen during edit mode. Once the level is reloaded, it will display a more elaborate call stack dialog with the warning message.
 ---

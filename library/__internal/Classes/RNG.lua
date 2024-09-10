@@ -80,7 +80,6 @@ function RNG.randomChar(limit) end
 ---@return string char The generated random letter between the specified limits.
 function RNG.randomChar(lowerLimit, upperLimit) end
 
-
 --- Creates a new instanced RNG object based on the current system time.
 ---@return RNG rng The new RNG instance.
 function RNG.new(seed) end
@@ -93,10 +92,10 @@ function RNG.new(seed) end
 --- The RNG class in Lua, providing various methods for generating random numbers and elements.
 ---@class RNG
 local RNG = {
-    ---@type integer
-    [1] = nil,
-    ---@type integer
-    [2] = nil
+	---@type integer
+	[1] = nil,
+	---@type integer
+	[2] = nil,
 }
 
 --- Generates a random decimal number between 0 and 1 (inclusive).

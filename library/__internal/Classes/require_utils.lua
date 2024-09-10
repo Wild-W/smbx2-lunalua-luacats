@@ -22,9 +22,19 @@ function require_utils.makeGlobalContext(context, extraFields) end
 ---@param returnpath boolean?
 ---@return (fun(modname: string): unknown), packagelib
 function require_utils.makeRequire(
-    path, globalTable, loadedTable, shareGlobals,
-    assignRequire, loadCallback, fallbackRequire, environmentCallback,
-    debugstats, returnpath) return require, package end
+	path,
+	globalTable,
+	loadedTable,
+	shareGlobals,
+	assignRequire,
+	loadCallback,
+	fallbackRequire,
+	environmentCallback,
+	debugstats,
+	returnpath
+)
+	return require, package
+end
 
 ---@param path string
 ---@param relBase string?

@@ -55,8 +55,8 @@ clearpipe.ELB.PLUS = 1
 --CANNONs are notated like ENDS\
 --Main ID table
 clearpipe.PIPES = {
-    --The values here are whether the player should be allowed to enter the pipe while traveling {up,down,left,right}
-    --[[
+	--The values here are whether the player should be allowed to enter the pipe while traveling {up,down,left,right}
+	--[[
     [ID.ELB.DL] = {true,  false, false, true},
     [ID.ELB.DR] = {true,  false, true,  false},
     [ID.ELB.UL] = {false, true,  false, true},
@@ -90,17 +90,17 @@ clearpipe.PIPES = {
 --a MINUS elbow opens down/right or up/left. a PLUS elbow opens up/right or down/left.
 --Surprisingly, the code doesn't need to distinguish any more than that, at least not for sane pipe placements.
 clearpipe.ELBS = {
-    --[[[ID.ELB.DR] = clearpipe.ELB.MINUS,
+	--[[[ID.ELB.DR] = clearpipe.ELB.MINUS,
     [ID.ELB.DL] = clearpipe.ELB.PLUS,
     [ID.ELB.UL] = clearpipe.ELB.MINUS,
     [ID.ELB.UR] = clearpipe.ELB.PLUS]]
 }
 clearpipe.ENDS = {
-    --[[[ID.END.V] = clearpipe.END.VERT,
+	--[[[ID.END.V] = clearpipe.END.VERT,
     [ID.END.H] = clearpipe.END.HORZ]]
 }
 clearpipe.JUNCS = {
-    --[[[ID.JUNC.U] = clearpipe.JUNC.UP,
+	--[[[ID.JUNC.U] = clearpipe.JUNC.UP,
     [ID.JUNC.D] = clearpipe.JUNC.DOWN,
     [ID.JUNC.L] = clearpipe.JUNC.LEFT,
     [ID.JUNC.R] = clearpipe.JUNC.RIGHT,
@@ -112,7 +112,7 @@ clearpipe.JUNCS = {
 }
 --Not actually used at the time of writing, just here for consistency and registerPipe
 clearpipe.STRAIGHTS = {
-    --[[[ID.STRAIGHT.V] = clearpipe.STRAIGHT.VERT,
+	--[[[ID.STRAIGHT.V] = clearpipe.STRAIGHT.VERT,
     [ID.STRAIGHT.H] = clearpipe.STRAIGHT.HORZ,
     [ID.STRAIGHT.U] = clearpipe.STRAIGHT.HORZ,
     [ID.STRAIGHT.R] = clearpipe.STRAIGHT.VERT,
@@ -126,7 +126,7 @@ clearpipe.STRAIGHTS = {
     [ID.CANNON.V] = clearpipe.STRAIGHT.VERT]]
 }
 clearpipe.CANNONS = {
-    --[[[ID.CANNON.H] = true,
+	--[[[ID.CANNON.H] = true,
     [ID.CANNON.V] = true]]
 }
 -- Redirector BGOs
@@ -137,34 +137,34 @@ local CENTER = { x = 0.5, y = 0.5 }
 --Cross junctions should have their center, along both axes, lined up with the pipe's center.
 --Other junctions should only be half a pipe along the axis they're branching off of, so a junction shaped like a ⊥ should be 64 wide and 32 tall.
 clearpipe.JUNC_OFFSETS = {
-    [clearpipe.JUNC.UP] = { x = 0.5, y = 1.0 },
-    [clearpipe.JUNC.DOWN] = { x = 0.5, y = 0.0 },
-    [clearpipe.JUNC.LEFT] = { x = 1.0, y = 0.5 },
-    [clearpipe.JUNC.RIGHT] = { x = 0.0, y = 0.5 },
-    [clearpipe.JUNC.CROSS] = CENTER,
-    [clearpipe.JUNC.UP_FULL] = CENTER,
-    [clearpipe.JUNC.DOWN_FULL] = CENTER,
-    [clearpipe.JUNC.LEFT_FULL] = CENTER,
-    [clearpipe.JUNC.RIGHT_FULL] = CENTER,
+	[clearpipe.JUNC.UP] = { x = 0.5, y = 1.0 },
+	[clearpipe.JUNC.DOWN] = { x = 0.5, y = 0.0 },
+	[clearpipe.JUNC.LEFT] = { x = 1.0, y = 0.5 },
+	[clearpipe.JUNC.RIGHT] = { x = 0.0, y = 0.5 },
+	[clearpipe.JUNC.CROSS] = CENTER,
+	[clearpipe.JUNC.UP_FULL] = CENTER,
+	[clearpipe.JUNC.DOWN_FULL] = CENTER,
+	[clearpipe.JUNC.LEFT_FULL] = CENTER,
+	[clearpipe.JUNC.RIGHT_FULL] = CENTER,
 }
 --Map of junction types to allowed exit directions
 clearpipe.JUNC_FORKS = {
-    [clearpipe.JUNC.UP] = { true, false, true, true },
-    [clearpipe.JUNC.DOWN] = { false, true, true, true },
-    [clearpipe.JUNC.LEFT] = { true, true, true, false },
-    [clearpipe.JUNC.RIGHT] = { true, true, false, true },
-    [clearpipe.JUNC.CROSS] = { true, true, true, true },
-    [clearpipe.JUNC.UP_FULL] = { true, false, true, true },
-    [clearpipe.JUNC.DOWN_FULL] = { false, true, true, true },
-    [clearpipe.JUNC.LEFT_FULL] = { true, true, true, false },
-    [clearpipe.JUNC.RIGHT_FULL] = { true, true, false, true },
+	[clearpipe.JUNC.UP] = { true, false, true, true },
+	[clearpipe.JUNC.DOWN] = { false, true, true, true },
+	[clearpipe.JUNC.LEFT] = { true, true, true, false },
+	[clearpipe.JUNC.RIGHT] = { true, true, false, true },
+	[clearpipe.JUNC.CROSS] = { true, true, true, true },
+	[clearpipe.JUNC.UP_FULL] = { true, false, true, true },
+	[clearpipe.JUNC.DOWN_FULL] = { false, true, true, true },
+	[clearpipe.JUNC.LEFT_FULL] = { true, true, true, false },
+	[clearpipe.JUNC.RIGHT_FULL] = { true, true, false, true },
 }
 --Map of direction enums to xy-based vectors
 clearpipe.DIR_VECTORS = {
-    [UP] = { x = 0, y = -1 },
-    [DOWN] = { x = 0, y = 1 },
-    [LEFT] = { x = -1, y = 0 },
-    [RIGHT] = { x = 1, y = 0 },
+	[UP] = { x = 0, y = -1 },
+	[DOWN] = { x = 0, y = 1 },
+	[LEFT] = { x = -1, y = 0 },
+	[RIGHT] = { x = 1, y = 0 },
 }
 clearpipe.PIPES_LIST = table.unmap(clearpipe.PIPES)
 clearpipe.ENDS_LIST = table.unmap(clearpipe.ENDS)
