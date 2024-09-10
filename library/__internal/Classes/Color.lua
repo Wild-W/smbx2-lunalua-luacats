@@ -187,7 +187,7 @@ Color = {
 	darkred = Color(0.5, 0, 0),
 }
 
----@class (exact) Color
+---@class (exact) Color : Lerpable
 --- @field r number # Red component [0,1]
 --- @field g number # Green component [0,1]
 --- @field b number # Blue component [0,1]

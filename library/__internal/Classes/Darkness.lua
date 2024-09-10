@@ -40,7 +40,6 @@ function Darkness.addLight(light) end
 
 --- Removes a light from the global light list, removing it from the scene (unless it has been added to a specific darkness field separately).
 --- @param light Light The light to remove.
---- @return nil
 function Darkness.removeLight(light) end
 
 Darkness.falloff = {
@@ -78,12 +77,10 @@ Darkness.lighttype = {
 	LINE = 3,
 }
 
----@type table<string, number>
 Darkness.priority = {
 	DISTANCE = 0,
 	SIZE = 1,
 	BRIGHTNESS = 2,
-	DEFAULT = 0,
 }
 
 ---@class DarknessField

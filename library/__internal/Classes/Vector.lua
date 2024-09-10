@@ -325,7 +325,7 @@ function vector.randomInSphere(radius) end
 ---@return Vector3 vector3 The random unit vector.
 function vector.randomDir3() end
 
----@class number
+---@class number : Lerpable
 ---@operator add(Vector2): number
 ---@operator add(Vector3): number
 ---@operator add(Vector4): number
@@ -355,7 +355,7 @@ function vector.randomDir3() end
 ---@operator div(Mat4): number
 ---@operator div(Quaternion): number
 
----@class Vector2
+---@class Vector2 : Lerpable
 ---@field x number
 ---@field y number
 ---@field sqrlength number
@@ -373,7 +373,7 @@ function vector.randomDir3() end
 ---@operator mod(Vector2): Vector2
 local Vector2 = {}
 
----@class Vector3
+---@class Vector3 : Lerpable
 ---@field x number
 ---@field y number
 ---@field z number
@@ -392,7 +392,7 @@ local Vector2 = {}
 ---@operator mod(Vector3): Vector3
 local Vector3 = {}
 
----@class Vector4
+---@class Vector4 : Lerpable
 ---@field x number
 ---@field y number
 ---@field z number

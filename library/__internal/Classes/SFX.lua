@@ -102,7 +102,7 @@ SFX = {}
 SFX.listener = 0
 
 --- A special table that automatically populates with any tag provided to a sound effect. This can be used to adjust the volume of many different sounds simultaneously.
----@type table<string, number>
+---@type table<string, number>|{ MASTER: number }
 SFX.volume = {}
 
 ---@class AudioSource

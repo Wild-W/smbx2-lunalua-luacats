@@ -345,12 +345,43 @@ PlayerInstance.forcedState = nil
 ---@type number
 PlayerInstance.forcedTimer = 0
 
+---@class PlayerKeysMap
+local playerKeys = {
+	---@type PlayerKeyState
+	up = nil,
+	---@type PlayerKeyState
+	down = nil,
+	---@type PlayerKeyState
+	left = nil,
+	---@type PlayerKeyState
+	right = nil,
+	---@type PlayerKeyState
+	jump = nil,
+	---@type PlayerKeyState
+	altJump = nil,
+	---@type PlayerKeyState
+	run = nil,
+	---@type PlayerKeyState
+	altRun = nil,
+	---@type PlayerKeyState
+	dropItem = nil,
+	---@type PlayerKeyState
+	pause = nil,
+}
+
 --- A PlayerKeys object containing information on the player's current input. Individual key presses can be manipulated in order to control the player's movement.
----@type table<string, PlayerKeyState>
-PlayerInstance.keys = nil
+---@class PlayerKeys : PlayerKeysMap
+PlayerInstance.keys = {
+	---@type PlayerKeysMap
+	_last = nil,
+	---@type PlayerKeysMap
+	_now = nil,
+	---@type Player
+	_parent = nil,
+}
 
 --- A PlayerKeys object containing information on the player's current input. Unlike keys, rawKeys will always return the unaltered player input and cannot be manipulated directly.
----@type table<string, PlayerKeyState>
+---@type PlayerKeysMap
 PlayerInstance.rawKeys = nil
 
 --- Whether the player is currently pressing up.
