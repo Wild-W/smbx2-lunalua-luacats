@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 Timer = {}
 
@@ -6,7 +6,7 @@ Timer = {}
 --- If isTicks is true, the timerValue variable will be interpreted as ticks.
 --- If timeValue is not provided, this will unpause the timer without changing the time.
 ---@param timeValue number The time value to set, in seconds or ticks.
----@param isTicks boolean|nil Whether the time value is in ticks (true) or seconds (false or nil).
+---@param isTicks boolean? Whether the time value is in ticks (true) or seconds (false or nil).
 function Timer.activate(timeValue, isTicks) end
 
 --- Returns whether or not the timer is currently decreasing.

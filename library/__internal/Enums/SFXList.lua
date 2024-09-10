@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 ---@alias SFXList
 --- Mega Man Charge Start

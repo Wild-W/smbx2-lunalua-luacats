@@ -1,24 +1,24 @@
----@meta
+---@meta _
 
 ---@class Audio
 Audio = {}
 
----@class MixChunk
----@field allocated integer|0|1 A boolean indicating whether to free abuf when the chunk is freed.
----@field abuf integer Pointer to the sample data, which is in the output format and sample rate.
----@field alen integer Length of abuf in bytes. Carefully modify this value, if you changed it, you should return initial value back on exiting from level or from world to avoid memory leak!
----@field volume integer 0 = silent, 128 = max volume. This takes effect when mixing.
+---@class (exact) MixChunk
+--- @field allocated integer|0|1 A boolean indicating whether to free abuf when the chunk is freed.
+--- @field abuf integer Pointer to the sample data, which is in the output format and sample rate.
+--- @field alen integer Length of abuf in bytes. Carefully modify this value, if you changed it, you should return initial value back on exiting from level or from world to avoid memory leak!
+--- @field volume integer 0 = silent, 128 = max volume. This takes effect when mixing.
 
 --- Changes a section's music to the ID of basegame music specified.
 --- @param section number The section where the music change occurs.
 --- @param musicID number The ID of the basegame music.
---- @param fadeDurationMS number The fade duration in milliseconds.
+--- @param fadeDurationMS number? The fade duration in milliseconds.
 function Audio.MusicChange(section, musicID, fadeDurationMS) end
 
 --- Changes a section's music to a custom music track of the given name.
 --- @param section number The section where the music change occurs.
 --- @param musicName string The name of the custom music track.
---- @param fadeDurationMS number The fade duration in milliseconds.
+--- @param fadeDurationMS number? The fade duration in milliseconds.
 function Audio.MusicChange(section, musicName, fadeDurationMS) end
 
 --- Stops the music of the current section with a fade-out effect.

@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 ---Constants for the character names.
 ---@alias CharacterType

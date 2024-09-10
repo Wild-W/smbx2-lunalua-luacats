@@ -1,4 +1,4 @@
----@meta
+---@meta effectconfig
 
 local cfg = {}
 --onInit function presets for when npcs spawn

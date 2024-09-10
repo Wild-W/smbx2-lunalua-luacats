@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 ---Explosions are objects that create effects and generally cause destruction.
 ---They last for only a single frame, and don't exist afterward.
@@ -51,7 +51,7 @@ function Explosion.register(radius, effectID, sound, strong, friendly) end
 ---@param x number
 ---@param y number
 ---@param id number # ID of the explosion
----@param player Player
+---@param player Player? # The player the explosion is from (peach's bomb)
 ---@return Explosion? newExplosion
 function Explosion.spawn(x, y, id, player) end
 

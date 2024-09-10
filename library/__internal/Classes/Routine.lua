@@ -1,7 +1,11 @@
----@meta
+---@meta _
 
 ---@class Routines
 Routine = {}
+
+---@param ...unknown
+---@return ...
+function Routine.waitSeconds(...) end
 
 --- Creates a new coroutine and runs it. Additional arguments are passed to the function f. The `status` and `msg` return values store error messages and information about the coroutine, which are not necessary for most use cases.
 --- @param f function The function to run in the coroutine.
@@ -85,7 +89,7 @@ function Routine.setTimer(seconds, f, repeated, whilePaused) end
 --- Creates a timer that will run the function `f` after the specified number of frames. If `repeated` is set to `true`, the timer will repeat indefinitely. If `repeated` is set to a number, the timer will repeat the specified number of times. By default, the timer will not repeat. If `whilePaused` is set to `true`, this timer will continue to count down even while the game is paused. By default, `whilePaused` is false.
 --- @param frames number The number of frames to wait.
 --- @param f function The function to run after the wait.
---- @param repeated boolean|number Whether to repeat the timer, or the number of times to repeat.
+--- @param repeated boolean|number? Whether to repeat the timer, or the number of times to repeat.
 --- @param whilePaused boolean? Whether to continue counting down while the game is paused.
 --- @return Routine routine The created routine.
 function Routine.setFrameTimer(frames, f, repeated, whilePaused) end

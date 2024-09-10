@@ -1,4 +1,4 @@
----@meta
+---@meta map3d
 
 local map3d = {}
 

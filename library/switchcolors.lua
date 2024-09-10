@@ -1,4 +1,4 @@
----@meta
+---@meta switchcolors
 
 ---Switchcolors manages configurations and signals for different colours of switches, including custom ones!
 local switchcolors = {}

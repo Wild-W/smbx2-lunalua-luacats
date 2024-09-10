@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 ---@class CollisionObject
 
@@ -13,7 +13,6 @@
 ---    end
 ---end
 ---```
----@class Colliders
 Colliders = {}
 
 ---@type integer
@@ -22,6 +21,9 @@ Colliders.COLLIDER = -1
 Colliders.NPC = -2
 ---@type integer
 Colliders.BLOCK = -3
+
+---@type boolean
+Colliders.debug = nil
 
 --- Creates a new point collider.
 --- @param x number The x coordinate of the point collider.
@@ -79,15 +81,13 @@ function Colliders.getAABB(object) end
 ---@return boolean
 function Colliders.FILTER_BLOCK_BLOCK_DEF(block1, block2) end
 
----@param collider Collider
 ---@param block Block
 ---@return boolean
-function Colliders.FILTER_COL_BLOCK_DEF(collider, block) end
+function Colliders.FILTER_COL_BLOCK_DEF(block) end
 
----@param collider Collider
 ---@param npc NPC
 ---@return boolean
-function Colliders.FILTER_COL_NPC_DEF(collider, npc) end
+function Colliders.FILTER_COL_NPC_DEF(npc) end
 
 ---@param npc NPC
 ---@param block Block
@@ -101,6 +101,7 @@ function Colliders.FILTER_NPC_NPC_DEF(npc1, npc2) end
 
 --- Internal event
 function Colliders.onInitAPI() end
+
 --- Internal event
 function Colliders.onDraw() end
 
@@ -187,6 +188,62 @@ function Colliders.tail(player, object) end
 --- @return boolean isSwiping Whether the player has performed a Yoshi tongue attack and hit the object.
 function Colliders.tongue(player, object) end
 
+---@generic TFirst : CollisionObject
+---@generic TSecond : CollisionObject
+---@alias CollisionFilter fun(firstObject: TFirst, secondObject: TSecond): boolean
+
+---@param blockIds integer|integer[]
+---@param object CollisionObject
+---@param sections integer|integer[]?
+---@param filter CollisionFilter<Block, Block>?
+---@return boolean doesCollide
+---@return number length
+---@return Block[] collisions
+function Colliders.collideBlock(blockIds, object, sections, filter) end
+
+---@param npcIds integer|integer[]
+---@param blockIds integer|integer[]
+---@param sections integer|integer[]?
+---@param filter CollisionFilter<NPC, Block>?
+---@return boolean doesCollide
+---@return number length
+---@return { [1]: NPC, [2]: Block }[] collisions
+function Colliders.collideNPCBlock(npcIds, blockIds, sections, filter) end
+
+---@param firstObject CollisionObject
+---@param secondObject CollisionObject
+---@param sections integer|integer[]?
+---@param filter CollisionFilter<CollisionObject, CollisionObject>?
+---@return boolean doesCollide
+function Colliders.collideNPCBlock(firstObject, secondObject, sections, filter) end
+
+---@param npcIds integer|integer[]
+---@param object CollisionObject
+---@param sections integer|integer[]?
+---@param filter CollisionFilter<NPC, NPC>?
+---@return boolean doesCollide
+---@return number length
+---@return NPC[] collisions
+function Colliders.collideNPCBlock(npcIds, object, sections, filter) end
+
+---@param object CollisionObject
+---@param blockIds integer|integer[]
+---@param sections integer|integer[]?
+---@param filter CollisionFilter<Block, Block>?
+---@return boolean doesCollide
+---@return number length
+---@return Block[] collisions
+function Colliders.collideNPCBlock(object, blockIds, sections, filter) end
+
+---@param npcIds integer|integer[]
+---@param secondObject CollisionObject
+---@param sections integer|integer[]?
+---@param filter CollisionFilter<NPC, NPC>?
+---@return boolean doesCollide
+---@return number length
+---@return NPC[] collisions
+function Colliders.collideNPC(npcIds, secondObject, sections, filter) end
+
 ---@type table
 Colliders.BLOCK_HURT = nil
 ---@type table
@@ -213,19 +270,23 @@ Colliders.BLOCK_SOLID = nil
 Colliders.BLOCK_SOLID_MAP = nil
 
 ---@class Collider : CollisionObject
+--- @field width number
+--- @field height number
+--- @field x number
+--- @field y number
 local Collider = {}
 
 --- Draws the collider to the screen with the specified color.
---- @param color Color The color to draw the collider with. If no color is supplied, the default will be used.
+--- @param color Color|integer The color to draw the collider with. If no color is supplied, the default will be used.
 function Collider:Draw(color) end
 
 --- Enables/disables debug drawing of the collider.
 --- @param enable boolean Whether to enable or disable debug drawing.
 function Collider:Debug(enable) end
 
----@param player Player
----@return boolean
-function Collider:collide(player) end
+---@param collisionObject CollisionObject
+---@return boolean areColliding
+function Collider:collide(collisionObject) end
 
 ---@class PointCollider : Collider
 local PointCollider = {}
@@ -274,7 +335,7 @@ TriCollider.x = 0
 ---@type number
 TriCollider.y = 0
 ---The vertex list of the triangle collider. When manually editing this list, the minX, minY, maxX and maxY fields need to be updated manually as well. If winding order is anticlockwise, triangulation will fail. Make sure to keep the vertex list winding order clockwise when editing.
----@type {x: number, y: number}[]
+---@type { x: number, y: number }[]
 TriCollider.tris = {}
 ---@type number
 TriCollider.minX = 0
@@ -292,7 +353,7 @@ PolyCollider.x = 0
 ---@type number
 PolyCollider.y = 0
 ---The vertex list of the triangle collider. When manually editing this list, the minX, minY, maxX and maxY fields need to be updated manually as well. If winding order is anticlockwise, triangulation will fail. Make sure to keep the vertex list winding order clockwise when editing.
----@type {x: number, y: number}[]
+---@type { x: number, y: number }[]
 PolyCollider.tris = {}
 ---@type number
 PolyCollider.minX = 0

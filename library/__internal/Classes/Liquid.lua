@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 ---Lets you access liquid (water, quicksand) boxes in your level.
 ---## Usage
@@ -28,17 +28,17 @@ function Liquid.getIntersecting(x1, y1, x2, y2) end
 
 --- The liquid object class for manipulating liquid properties.
 ---@class Liquid
----@field x number The x-coordinate of the liquid box.
----@field y number The y-coordinate of the liquid box.
----@field width number The width of the liquid box.
----@field height number The height of the liquid box.
----@field speedX number The horizontal speed affecting objects within the liquid.
----@field speedY number The vertical speed affecting objects within the liquid.
----@field isHidden boolean Whether the liquid box is hidden.
----@field isValid boolean Whether the liquid box is currently a valid object.
----@field isQuicksand boolean Whether the box is quicksand (true) or water (false).
----@field layerName VBStr The name of the layer the liquid is part of.
----@field layer Layer The layer object the liquid is part of.
+--- @field x number The x-coordinate of the liquid box.
+--- @field y number The y-coordinate of the liquid box.
+--- @field width number The width of the liquid box.
+--- @field height number The height of the liquid box.
+--- @field speedX number The horizontal speed affecting objects within the liquid.
+--- @field speedY number The vertical speed affecting objects within the liquid.
+--- @field isHidden boolean Whether the liquid box is hidden.
+--- @field isValid boolean Whether the liquid box is currently a valid object.
+--- @field isQuicksand boolean Whether the box is quicksand (true) or water (false).
+--- @field layerName VBStr|string The name of the layer the liquid is part of.
+--- @field layer Layer The layer object the liquid is part of.
 local Liquid = {}
 
 --- Returns a value of the Liquid struct at a specific memory address-offset.

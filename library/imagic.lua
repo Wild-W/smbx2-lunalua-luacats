@@ -1,4 +1,4 @@
----@meta
+---@meta imagic
 
 local imagic = {}
 
@@ -59,7 +59,7 @@ function imagic.bar(args) end
 ---@return table
 function imagic.create(args) end
 
----Instantly draws an image without creating a vertex buffer @{Object}.
+---Instantly draws an image without creating a vertex buffer.
 ---@param args unknown?
 ---@return ...
 function imagic.draw(args) end

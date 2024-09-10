@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 ---Constants for the world map hud state.
 ---@alias WorldHudState

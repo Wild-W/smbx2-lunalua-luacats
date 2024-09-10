@@ -1,4 +1,4 @@
----@meta
+---@meta verletrope
 
 local verlet = {}
 

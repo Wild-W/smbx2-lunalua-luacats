@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 ---Searches for an object in an ordered table and returns the index of the last instance found.
 ---@param t table The table to search.

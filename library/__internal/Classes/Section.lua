@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 ---Sections are arbitrary subdivisions within the level's scene space coordinate system. They can be configured in the editor through the Section Settings window, and manipulated in code through this class.
 ---@class SectionManager
@@ -112,25 +112,25 @@ local Section = {}
 function Section.drawScreenEffect(screenEffect, camera) end
 
 ---The SectionSettings table contains information about options chosen in the section settings editor window. The following fields are available:
---- @class SectionSettings
+---@class SectionSettings
 --- @field darkness SectionDarkness The darkness configuration used by the section.
 --- @field effects SectionEffects The weather and screen effects used by the section.
 --- @field beat SectionBeatOptions The beat timer configuration used by the section.
 
 ---The SectionDarkness table contains information about the darkness effect used by the section.
---- @class SectionDarkness
---- @field effect Darkness The darkness effect itself.
+---@class SectionDarkness
+--- @field effect DarknessField The darkness effect itself.
 --- @field playerLightEffects Light[] A table of lights used for the players, if player light is enabled.
 --- @field enabled boolean Whether or not the darkness effect is enabled.
 --- @field playerLightEnabled boolean Whether or not the darkness effect's player lights are enabled.
 
 ---The SectionEffects table contains information about weather and screen effects used in the section.
---- @class SectionEffects
+---@class SectionEffects
 --- @field weather WeatherEffect The used weather effect.
 --- @field screenEffect ScreenEffect The used screen effect.
 
 ---The SectionBeatOptions table contains information about the beat timer used in the section.
---- @class SectionBeatOptions
+---@class SectionBeatOptions
 --- @field enabled boolean Whether the beat timer is enabled.
 --- @field useMusicClock boolean Whether the music clock should be used for the timer.
 --- @field bpm number The current BPM.

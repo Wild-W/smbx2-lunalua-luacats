@@ -1,17 +1,19 @@
----@meta
+---@meta _
 
 API = {}
 
----@param ... unknown
-function API.addHandler(...) end
+---@param thisTable table
+---@param event EventName
+---@param eventHandler EventName?
+---@param beforeMainCall boolean?
+function API.addHandler(thisTable, event, eventHandler, beforeMainCall) end
 
----@param ... unknown
+---@param api table
 ---@return boolean
-function API.isLoaded(...) end
+function API.isLoaded(api) end
 
----@param ... unknown
 ---@return boolean
-function API.isLoadingShared(...) end
+function API.isLoadingShared() end
 
 ---Loads the library packagename.lua and shares it with lunadll.lua and lunaworld.lua unless `loadShared` is `false`. **Do load it outside every other function! (Recommended at the top of your scriptfile).**
 ---@param packageName string
@@ -21,5 +23,7 @@ function API.isLoadingShared(...) end
 ---@deprecated Use "require" for SMBX2 Beta 4 or later
 function API.load(packageName, loadShared) end
 
----@param ... unknown
-function API.remHandler(...) end
+---@param apiTable table
+---@param event EventName
+---@param eventHandler EventName?
+function API.remHandler(apiTable, event, eventHandler) end

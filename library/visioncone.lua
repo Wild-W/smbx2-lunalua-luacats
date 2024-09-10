@@ -1,4 +1,4 @@
----@meta
+---@meta visioncone
 
 --Vision Cone
 --BETA 0.1

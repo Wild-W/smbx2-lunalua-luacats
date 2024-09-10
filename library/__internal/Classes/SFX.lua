@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 ---Allows you to play and manipulate sound effects.
 ---@class SFX
@@ -16,39 +16,47 @@ SFX.SOURCE_LINE = 3
 SFX.LISTEN_PLAYER = 0
 ---A listening position centered on the middle of the camera.
 SFX.LISTEN_CAMERA = 1
+
+---@alias FalloffMode fun(squareRootFloor: number, squareRootDistance: number): number
+
 ---Audio distance falloff mode that does not fade the audio with distance.
-SFX.FALLOFF_NONE = function() end
+---
+---Always returns `1`.
+---@type FalloffMode
+SFX.FALLOFF_NONE = nil
 ---Audio distance falloff mode that fades the audio linearly with distance.
-SFX.FALLOFF_LINEAR = function() end
+---@type FalloffMode
+SFX.FALLOFF_LINEAR = nil
 ---Audio distance falloff mode that fades the audio with the inverse square of the distance (closest to physically accurate).
-SFX.FALLOFF_SQUARE = function() end
+---@type FalloffMode
+SFX.FALLOFF_SQUARE = nil
 
 ---@class AudioSourceArgs
---- @field x number The X position of the audio source.
---- @field y number The Y position of the audio source.
---- @field falloffRadius number The distance from the source that the listener needs to be before the sound is silent.
+--- @field x number? The X position of the audio source.
+--- @field y number? The Y position of the audio source.
+--- @field falloffRadius number? The distance from the source that the listener needs to be before the sound is silent.
 --- @field sound number|string|MixChunk|SFXList The sound ID/file path/object to play.
---- @field falloffType function A falloff function to use. Defaults to `SFX.FALLOFF_SQUARE`.
---- @field type number The shape of the audio source. Defaults to `SFX.SOURCE_POINT`.
---- @field play boolean Whether the sound should play immediately. Defaults to `true`.
---- @field loops number The number of loops for this sound to play for. Defaults to `0`.
---- @field volume number The volume of this audio source. Defaults to `1`.
---- @field parent any The parent object this audio source is attached to.
---- @field tags string[] A list of string tags to apply to this audio object.
---- @field tag string A single string tag to apply to this audio object.
---- @field sourceRadius number The radius of the audio source circle. Only if type is `CIRCLE`.
---- @field sourceWidth number The width of the audio source box. Only if type is `BOX`.
---- @field sourceHeight number The height of the audio source box. Only if type is `BOX`.
---- @field sourceVector Vector2 The vector describing the source line. Only if type is `LINE`.
+--- @field falloffType function? A falloff function to use. Defaults to `SFX.FALLOFF_SQUARE`.
+--- @field type number? The shape of the audio source. Defaults to `SFX.SOURCE_POINT`.
+--- @field play boolean? Whether the sound should play immediately. Defaults to `true`.
+--- @field loops number? The number of loops for this sound to play for. Defaults to `0`.
+--- @field volume number? The volume of this audio source. Defaults to `1`.
+--- @field parent any? The parent object this audio source is attached to.
+--- @field tags string[]? A list of string tags to apply to this audio object.
+--- @field tag string? A single string tag to apply to this audio object.
+--- @field sourceRadius number? The radius of the audio source circle. Only if type is `CIRCLE`.
+--- @field sourceWidth number? The width of the audio source box. Only if type is `BOX`.
+--- @field sourceHeight number? The height of the audio source box. Only if type is `BOX`.
+--- @field sourceVector Vector2? The vector describing the source line. Only if type is `LINE`.
 
 ---@class SFXArgs
 --- @field sound number|string|MixChunk|SFXList The sound ID/file path/object to play.
---- @field loops number The number of loops for this sound to play for. Defaults to `1`.
---- @field volume number The volume of this audio source. Defaults to `1`.
---- @field pan number The left/right panning of this audio clip. Defaults to `0`.
---- @field tags string[] A list of string tags to apply to this audio object.
---- @field tag string A single string tag to apply to this audio object.
---- @field delay number The number of frames before the same sound effect can be played again. Defaults to `4`.
+--- @field loops number? The number of loops for this sound to play for. Defaults to `1`.
+--- @field volume number? The volume of this audio source. Defaults to `1`.
+--- @field pan number? The left/right panning of this audio clip. Defaults to `0`.
+--- @field tags string[]? A list of string tags to apply to this audio object.
+--- @field tag string? A single string tag to apply to this audio object.
+--- @field delay number? The number of frames before the same sound effect can be played again. Defaults to `4`.
 
 --- Creates a new physical audio source in the world.
 --- @param args AudioSourceArgs A table containing the arguments for the audio source.
@@ -56,7 +64,7 @@ SFX.FALLOFF_SQUARE = function() end
 function SFX.create(args) end
 
 --- Plays a sound effect once.
---- @param sound number|string|MixChunk|SFXList The sound ID/file path/object to play.
+--- @param sound number|string|SFXArgs|MixChunk|SFXList The sound ID/file path/object to play.
 --- @return SoundEffect sound The sound effect being played.
 function SFX.play(sound) end
 
@@ -81,11 +89,6 @@ function SFX.play(sound, volume, loops) end
 --- @return SoundEffect sound The sound effect being played.
 function SFX.play(sound, volume, loops, delay) end
 
---- Plays a sound effect with the given arguments.
---- @param args SFXArgs A table containing the arguments for the sound effect.
---- @return SoundEffect sound The sound effect being played.
-function SFX.play(args) end
-
 --- Loads a sound file into a MixChunk.
 --- @param path string The path to the sound file.
 --- @return MixChunk soundObject The loaded sound object.
@@ -99,7 +102,7 @@ SFX = {}
 SFX.listener = 0
 
 --- A special table that automatically populates with any tag provided to a sound effect. This can be used to adjust the volume of many different sounds simultaneously.
----@type table<string, number>
+---@type table<string, number>|{ MASTER: number }
 SFX.volume = {}
 
 ---@class AudioSource

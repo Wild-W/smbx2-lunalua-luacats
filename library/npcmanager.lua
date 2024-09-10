@@ -1,4 +1,4 @@
----@meta
+---@meta npcmanager
 
 local npcManager = {}
 
@@ -33,14 +33,14 @@ function npcManager.deregisterDefines(id, typelist) end
 
 ---@param id integer
 ---@param harmList EnemyHarmType[]
----@param deatheffects table<EnemyHarmType, integer> Map of harm types to effect ids.
+---@param deatheffects table<EnemyHarmType, integer|table<string, any>> Map of harm types to effect ids.
 function npcManager.registerHarmTypes(id, harmList, deatheffects) end
 
 ---Register an event on an NPC.
 ---@param id number
 ---@param tbl table
----@param eventName EventName
----@param libEventName string
+---@param eventName NPCEventName
+---@param libEventName string?
 function npcManager.registerEvent(id, tbl, eventName, libEventName) end
 
 function npcManager.refreshEvents() end

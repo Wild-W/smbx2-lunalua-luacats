@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 --- Writes 'debugText' in a message box and shows it to the user.
 --- @param debugText string

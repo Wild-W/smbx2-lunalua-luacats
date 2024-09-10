@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 ---Trims leading and trailing whitespace
 ---@param s string
@@ -8,8 +8,8 @@ function string.trim(s) end
 ---Splits the string given the given pattern.
 ---@param s string
 ---@param pattern string
----@param exclude boolean
----@param plain boolean # If `false`, regex pattern matching is enabled for the pattern.
+---@param exclude boolean?
+---@param plain boolean? # If `false`, regex pattern matching is enabled for the pattern.
 ---@return string[] trimmedStrings
 function string.split(s, pattern, exclude, plain) end
 

@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 Graphics = {}
 
@@ -57,8 +57,8 @@ function Graphics.overrideOverworldHUD(newRenderFunction) end
 --- Registers a render function for a specific character.
 ---@param characterID CharacterType
 ---@param hudType HUDType
----@param actions HUDActions
----@param sprites HUDSprites
+---@param actions HUDActions?
+---@param sprites HUDSprites?
 function Graphics.registerCharacterHUD(characterID, hudType, actions, sprites) end
 
 --- Returns the HUD type used by the specified character.
@@ -141,6 +141,29 @@ function Graphics.drawImage(image, x, y, sourceX, sourceY, sourceWidth, sourceHe
 function Graphics.drawImage(image, x, y, sourceX, sourceY, sourceWidth, sourceHeight, opacity) end
 
 --- Draws the given image for a frame at the given coordinates relative to scene space.
+---@param image Texture
+---@param x number
+---@param y number
+function Graphics.drawImageToScene(image, x, y) end
+
+--- Draws the given image for a frame at the given coordinates relative to scene space. Additionally, the opacity (between 0 and 1) can be specified.
+---@param image Texture
+---@param x number
+---@param y number
+---@param opacity number
+function Graphics.drawImageToScene(image, x, y, opacity) end
+
+--- Draws the given image for a frame at the given coordinates relative to scene space. Additionally, a rectangle to draw from the source image can be specified using the source parameters. By varying the parameters across frames, animation can be created.
+---@param image Texture
+---@param x number
+---@param y number
+---@param sourceX number
+---@param sourceY number
+---@param sourceWidth number
+---@param sourceHeight number
+function Graphics.drawImageToScene(image, x, y, sourceX, sourceY, sourceWidth, sourceHeight) end
+
+--- Draws the given image for a frame at the given coordinates relative to scene space. Additionally, a rectangle to draw from the source image can be specified using the source parameters. By varying the parameters across frames, animation can be created. Additionally, the opacity (between 0 and 1) can be specified.
 ---@param image Texture
 ---@param x number
 ---@param y number
@@ -295,8 +318,16 @@ function Graphics.redirectCameraFB(frameBuffer, startPriority, endPriority) end
 ---@param height integer
 function Graphics.setMainFramebufferSize(width, height) end
 
---- Unimplemented as of SMBX2b5p2.
+--- **Unimplemented as of SMBX2b5p2.**
+--- @deprecated
 function Graphics.loadAnimatedImage(...) end
+
+---Draws the given image for a frame at the given coordinates relative to screen space at a given priority.
+---@param image Texture
+---@param x number
+---@param y number
+---@param priority number
+function Graphics.drawImageWP(image, x, y, priority) end
 
 ---Draws the given image for a frame at the given coordinates relative to screen space at a given priority. Additionally, the opacity (between 0 and 1) can be specified.
 ---@param image Texture
@@ -305,6 +336,29 @@ function Graphics.loadAnimatedImage(...) end
 ---@param opacity number
 ---@param priority number
 function Graphics.drawImageWP(image, x, y, opacity, priority) end
+
+---Draws the given image for a frame at the given coordinates relative to screen space at a given priority. Additionally, a rectangle to draw from the source image can be specified using the source parameters. By varying the parameters across frames, animation can be created.
+---@param image Texture
+---@param x number
+---@param y number
+---@param sourceX number
+---@param sourceY number
+---@param sourceWidth number
+---@param sourceHeight number
+---@param priority number
+function Graphics.drawImageWP(image, x, y, sourceX, sourceY, sourceWidth, sourceHeight, priority) end
+
+---Draws the given image for a frame at the given coordinates relative to screen space at a given priority. Additionally, a rectangle to draw from the source image can be specified using the source parameters. By varying the parameters across frames, animation can be created. Additionally, the opacity (between 0 and 1) can be specified.
+---@param image Texture
+---@param x number
+---@param y number
+---@param sourceX number
+---@param sourceY number
+---@param sourceWidth number
+---@param sourceHeight number
+---@param opacity number
+---@param priority number
+function Graphics.drawImageWP(image, x, y, sourceX, sourceY, sourceWidth, sourceHeight, opacity, priority) end
 
 ---@param image Texture?
 ---@param hue number
@@ -378,12 +432,12 @@ function Graphics.unplaceSprites(img, xPos, yPos) end
 --- @field primitive PrimitiveType? # The type of primitive to render.
 --- @field texture CaptureBuffer|Texture? # The texture to draw. Can be a capture buffer.
 --- @field textureCoords number[]? # A list of alternating x and y coordinates used to define the UV-coordinates of the texture to draw. All coordinates are clamped between 0 (top/left edge of image) and 1 (bottom/right edge of image).
---- @field color Color? # Color tint to apply to the whole image.
+--- @field color Color|RGBA? # Color tint to apply to the whole image.
 --- @field vertexColors number[]? # A flat list of RGBA color values for each vertex.
 --- @field priority number? # The render priority. Defaults to 1.
 --- @field sceneCoords boolean? # Whether to draw to the scene coordinate space. False by default.
 --- @field shader Shader? # The shader to use.
---- @field uniforms table<string, number>? # A table where the key is the name of the uniform and the value is that uniform's value. Table values are converted to arrays for the shader.
+--- @field uniforms table<string, number|Texture|Vector2|Vector3|number[]>? # A table where the key is the name of the uniform and the value is that uniform's value. Table values are converted to arrays for the shader.
 --- @field attributes table<string, number[]>? # A table where the key is the name of the attribute and the value is a an array containing all required values. Keep in mind that this is per-vertex, so you the number of values you pass in that array depends on the number for vertices you use.
 --- @field target CaptureBuffer? # The render target/capture buffer to draw to.
 
@@ -398,12 +452,12 @@ function Graphics.glDraw(args) end
 --- @field height number? # Height of the drawn image.
 --- @field w number? # Width of the drawn image.
 --- @field h number? # Height of the drawn image.
---- @field sourceX number # Left edge of the texture's drawn area.
---- @field sourceY number # Top edge of the texture's drawn area.
---- @field sourceWidth number # Width of the texture's drawn area.
---- @field sourceHeight number # Height of the texture's drawn area.
---- @field rotation number # Angle of the drawn image.
---- @field centered boolean # If true, x and y are interpreted as the center of the image.
+--- @field sourceX number? # Left edge of the texture's drawn area.
+--- @field sourceY number? # Top edge of the texture's drawn area.
+--- @field sourceWidth number? # Width of the texture's drawn area.
+--- @field sourceHeight number? # Height of the texture's drawn area.
+--- @field rotation number? # Angle of the drawn image.
+--- @field centered boolean? # If true, x and y are interpreted as the center of the image.
 
 --- A wrapper for glDraw that makes drawing rectangular images easier.
 ---@param args DrawBoxArgs Named arguments for rectangular drawing.
@@ -412,8 +466,8 @@ function Graphics.drawBox(args) end
 ---@class DrawScreenArgs : GLDrawArgs
 --- @field camera Camera? # Camera to render to. If none is provided, the first camera is used.
 --- @field cam Camera? # Camera to render to. If none is provided, the first camera is used.
---- @field sourceX number # Left edge of the texture's drawn area.
---- @field sourceY number # Top edge of the texture's drawn area.
+--- @field sourceX number? # Left edge of the texture's drawn area.
+--- @field sourceY number? # Top edge of the texture's drawn area.
 --- @field sourceWidth number? # Width of the segment of the source image section to draw.
 --- @field sourceHeight number? # Height of the segment of the source image section to draw.
 
@@ -437,7 +491,7 @@ function Graphics.drawLine(args) end
 --- @field x number # x-coordinate at the center of the circle.
 --- @field y number # y-coordinate at the center of the circle.
 --- @field radius number # Radius of the circle.
---- @field rotation number # Angle of the circle.
+--- @field rotation number? # Angle of the circle.
 --- @field sourceX number? # Left edge of the texture's drawn area.
 --- @field sourceY number? # Top edge of the texture's drawn area.
 --- @field sourceWidth number? # Width of the texture's drawn area.
@@ -473,7 +527,7 @@ function Graphics.drawCircle(args) end
 function Graphics.draw(args) end
 
 --- Represents a capture buffer that can be used as a texture.
----@class CaptureBuffer
+---@class CaptureBuffer : Texture
 local CaptureBuffer = {}
 
 --- Causes the capture buffer to capture the screen at the given render priority.

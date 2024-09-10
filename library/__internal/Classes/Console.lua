@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 ---The console namespace lets you print text to the console. The console is enabled through [command line arguments](https://docs.codehaus.moe/#/features/command-line) when starting the game. The default instance of the console window is called "console".
 ---@class Console

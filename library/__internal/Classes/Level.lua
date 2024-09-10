@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 ---@alias LevelMemoryOffset
 --- | `0x00` # Level X-Position. Use field `x`. `FIELD_DFLOAT`
@@ -68,6 +68,33 @@ function OverworldLevelManager.getByName(title) end
 --- @return Level|nil
 function OverworldLevelManager.getByFilename(filename) end
 
+LevelManager.settings = {
+    player = {
+        ---@type string
+        costume1 = nil,
+        ---@type string
+        costume2 = nil,
+        ---@type number
+        player1 = nil,
+        ---@type number
+        player2 = nil,
+        ---@type boolean
+        setCostume1 = nil,
+        ---@type boolean
+        setCostume2 = nil
+    },
+    ---@type boolean
+    showInMarioChallenge = nil,
+    timer = {
+        ---@type boolean
+        enable = nil,
+        ---@type number
+        result = nil,
+        ---@type number
+        time = nil
+    }
+}
+
 --- Returns the filename of the current level.
 ---@return string name The filename of the level.
 function LevelManager.filename() end
@@ -123,11 +150,13 @@ function LevelManager.winTypeToEndState(winType) end
 ---@param iniFilename string The INI configuration file for hitboxes.
 function LevelManager.loadPlayerHitBoxes(characterId, powerup, iniFilename) end
 
----@deprecated Sets the end state of the level, alias for `Level.endState`.
+---Sets the end state of the level.
+---@deprecated Alias for `Level.endState`
 ---@param endState LevelEndState The end state to set.
 function LevelManager.winState(endState) end
 
----@deprecated Gets the current end state of the level, alias for `Level.endState`.
+---Gets the current end state of the level.
+---@deprecated Alias for `Level.endState`
 ---@return LevelEndState endState The current end state.
 function LevelManager.winState() end
 

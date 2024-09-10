@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 ---The RNG namespace provides functions for generating randomness. Unlike lua's standard randomness, RNG defaults to a random, unpredictable seed.
 ---## Usage
@@ -49,13 +49,15 @@ function RNG.randomInt(limit) end
 function RNG.randomInt(lowerLimit, upperLimit) end
 
 --- Picks a random element in the given table.
----@param table table The table from which a random element is picked.
----@return any randomEntry The random element picked from the table.
+---@generic T
+---@param table table<any, `T`> The table from which a random element is picked.
+---@return T randomEntry The random element picked from the table.
 function RNG.randomEntry(table) end
 
 --- Picks a random element in the given table, assuming the table is an array with no named fields and no gaps.
----@param table table The table from which a random element is picked.
----@return any randomEntry The random element picked from the table.
+---@generic T
+---@param table `T`[] The table from which a random element is picked.
+---@return T randomEntry The random element picked from the table.
 function RNG.irandomEntry(table) end
 
 --- Generates a random letter, A-Z, either upper case or lower case.
@@ -78,6 +80,11 @@ function RNG.randomChar(limit) end
 ---@return string char The generated random letter between the specified limits.
 function RNG.randomChar(lowerLimit, upperLimit) end
 
+
+--- Creates a new instanced RNG object based on the current system time.
+---@return RNG rng The new RNG instance.
+function RNG.new(seed) end
+
 --- Creates a new instanced RNG object with a specific seed.
 ---@param seed number The seed value to initialize the RNG.
 ---@return RNG rng The new RNG instance with the specified seed.
@@ -85,7 +92,12 @@ function RNG.new(seed) end
 
 --- The RNG class in Lua, providing various methods for generating random numbers and elements.
 ---@class RNG
-local RNG = {}
+local RNG = {
+    ---@type integer
+    [1] = nil,
+    ---@type integer
+    [2] = nil
+}
 
 --- Generates a random decimal number between 0 and 1 (inclusive).
 ---@return number randomValue The generated random value.

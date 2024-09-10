@@ -1,4 +1,4 @@
----@meta
+---@meta xmem
 
 local xmem = {}
 

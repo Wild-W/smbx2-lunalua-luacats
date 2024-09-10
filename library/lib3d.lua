@@ -1,4 +1,4 @@
----@meta
+---@meta lib3d
 
 local lib3d = {}
 

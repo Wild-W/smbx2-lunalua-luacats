@@ -1,4 +1,4 @@
----@meta
+---@meta mapmanager
 
 local mapmanager = {}
 

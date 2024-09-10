@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 ---The UserData-Namespace gives your access to the variable bank. With variable bank you can save number-values for other levels and when the game closes.
 ---@deprecated

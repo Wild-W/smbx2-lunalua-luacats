@@ -1,4 +1,4 @@
----@meta
+---@meta camlock
 
 ---Camlock is a library for defining simple camera zones in levels and on the overworld. Camera zones are defined by their top/left edge and their width and height.
 ---
@@ -16,7 +16,7 @@ function camLock.onInitAPI() end
 function camLock.addZone(leftEdge, topEdge, width, height, speed) end
 
 ---Creates a new camera zone at the given coordinates. The bounds table must have x, y, width and height fields. The speed determines how quickly the camera moves into/out of the zone, where 1 is instant and `0` is that it ignores the zone. Default is `0.05`.
----@param bounds {x: number, y: number, width: number, height: number}
+---@param bounds { x: number, y: number, width: number, height: number }
 ---@param speed number
 function camLock.AddZone(bounds, speed) end
 

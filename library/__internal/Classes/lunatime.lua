@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 ---The lunatime class handles timing-related functionality, such as getting the current tick or converting between ticks and seconds.
 lunatime = {}

@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 ---Players are human-controlled characters that serve as the primary way for players to interact with the game in standard levels. They are only used within Levels. For player's controlled entity on World Maps, see the World class.
 Player = {}
@@ -198,12 +198,16 @@ function PlayerInstance:getFrame(frame) end
 --- Instantly teleports the player to the target position.
 --- @param x number The x-coordinate of the target position.
 --- @param y number The y-coordinate of the target position.
---- @param bottomCenterAligned boolean If `true`, aligns the bottom center of the player's hitbox with the coordinates; otherwise, aligns the top left corner.
+--- @param bottomCenterAligned boolean? If `true`, aligns the bottom center of the player's hitbox with the coordinates; otherwise, aligns the top left corner.
 function PlayerInstance:teleport(x, y, bottomCenterAligned) end
 
 --- The player's index in the internal list of players.
 ---@type number
 PlayerInstance.idx = 0
+
+--- If the player instance is valid.
+--- @type boolean
+PlayerInstance.isValid = nil
 
 --- The direction the player is facing. `-1`: left. `1`: right.
 --- @type -1|1
@@ -341,12 +345,43 @@ PlayerInstance.forcedState = nil
 ---@type number
 PlayerInstance.forcedTimer = 0
 
+---@class PlayerKeysMap
+local playerKeys = {
+	---@type PlayerKeyState
+	up = nil,
+	---@type PlayerKeyState
+	down = nil,
+	---@type PlayerKeyState
+	left = nil,
+	---@type PlayerKeyState
+	right = nil,
+	---@type PlayerKeyState
+	jump = nil,
+	---@type PlayerKeyState
+	altJump = nil,
+	---@type PlayerKeyState
+	run = nil,
+	---@type PlayerKeyState
+	altRun = nil,
+	---@type PlayerKeyState
+	dropItem = nil,
+	---@type PlayerKeyState
+	pause = nil,
+}
+
 --- A PlayerKeys object containing information on the player's current input. Individual key presses can be manipulated in order to control the player's movement.
----@type PlayerKeyState
-PlayerInstance.keys = nil
+---@class PlayerKeys : PlayerKeysMap
+PlayerInstance.keys = {
+	---@type PlayerKeysMap
+	_last = nil,
+	---@type PlayerKeysMap
+	_now = nil,
+	---@type Player
+	_parent = nil,
+}
 
 --- A PlayerKeys object containing information on the player's current input. Unlike keys, rawKeys will always return the unaltered player input and cannot be manipulated directly.
----@type table<string, PlayerKeyState>
+---@type PlayerKeysMap
 PlayerInstance.rawKeys = nil
 
 --- Whether the player is currently pressing up.

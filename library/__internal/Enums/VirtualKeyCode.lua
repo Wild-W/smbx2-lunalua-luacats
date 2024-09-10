@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 ---@alias VirtualKeyCode
 ---| `VK_LBUTTON` # Left mouse button

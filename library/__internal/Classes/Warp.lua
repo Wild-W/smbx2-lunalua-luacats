@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 ---The warp class provides fields and functions for managing warps in the current level.
 ---## Usage

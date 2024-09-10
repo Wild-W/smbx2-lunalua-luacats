@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 ---True if on the world map.
 ---@type boolean
@@ -10,10 +10,6 @@ SaveData = {}
 ---GameData is a table that persistently stores information. However unlike Savedata, GameData will never save this information into a save file, and the information will be lost once the game is closed. GameData should be used for information that doesn't need to be kept for future play sessions but is critical to have across level loads, such as whether a minigame is active, or whether something has already occured in this play session.
 GameData = {}
 
----Registers an event in the event loop. The libraryTable is the table which is contains the bound event.
----@param eventName string
-function triggerEvent(eventName) end
-
 ---Registers an event in the event loop.
 ---## Usage
 ---```
@@ -24,7 +20,7 @@ function triggerEvent(eventName) end
 ---end
 ---```
 ---@param libraryTable table # Contains the bound event. If an alias is specified, the libraryTable must contain a function with the alias, rather than the original event name.
----@param eventName string
+---@param eventName EventName
 ---@param alias string?
 ---@param beforeMainCall boolean? # If set to false, the event will execute after the main call to luna.lua's handler of the event.
 function registerEvent(libraryTable, eventName, alias, beforeMainCall) end
@@ -43,7 +39,6 @@ function registerCustomEvent(libraryTable, eventName) end
 --- ---
 ---@param memoryAddress number|GlobalMemoryOffset
 ---@param fieldType MemoryFieldType
----@nodiscard
 ---@return any
 function mem(memoryAddress, fieldType, newValue) end
 

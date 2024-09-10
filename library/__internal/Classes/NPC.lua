@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 ---@alias NPCMemoryOffset
 ---|`0x00` # Attached layer name. Use field attachedLayerObj or attachedLayerName. `FIELD_STRING`
@@ -97,14 +97,14 @@
 ---NPCs (Non Player Characters) are interactive level elements. This includes enemies, powerups, platforms and various miscellaneous other objects.
 NPC = {}
 
---- @return number npcCount Returns the number of NPCs in the level.
+--- @return integer npcCount Returns the number of NPCs in the level.
 function NPC.count() end
 
 --- Spawns a new NPC at the given coordinates in the given section. If 'section' is not provided, it gets the index of the section using the coordinates. If 'respawn' is true, the NPC will not permanently die upon despawning. If 'centered' is true, the x/y coordinates are interpreted to be at the NPC's center, rather than top-left corner. Both 'respawn' and 'centered' default to false.
---- @param id number The ID of the NPC to spawn.
+--- @param id integer The ID of the NPC to spawn.
 --- @param x number The x-coordinate for spawning the NPC.
 --- @param y number The y-coordinate for spawning the NPC.
---- @param section number? The section index to spawn the NPC in (optional).
+--- @param section integer? The section index to spawn the NPC in (optional).
 --- @param respawn boolean? Whether the NPC should respawn after despawning (optional).
 --- @param centered boolean? Whether the coordinates are centered on the NPC (optional).
 --- @return NPC newlySpawnedNPC The NPC object that was spawned.
@@ -115,8 +115,8 @@ function NPC.spawn(id, x, y, section, respawn, centered) end
 function NPC.get() end
 
 --- Returns a table of references to all NPCs of the given id(s) in the optionally provided section(s).
---- @param ids number|number[] The ID or IDs of NPCs to retrieve.
---- @param sections number|number[]? The section or sections to look in (optional).
+--- @param ids integer|integer[] The ID or IDs of NPCs to retrieve.
+--- @param sections integer|integer[]? The section or sections to look in (optional).
 --- @return NPC[] NPCs A table of NPCs matching the criteria.
 function NPC.get(ids, sections) end
 
@@ -129,17 +129,17 @@ function NPC.get(ids, sections) end
 function NPC.getIntersecting(x1, y1, x2, y2) end
 
 --- Returns a table of references to all NPCs of the given id(s). Unlike get, the table should be formatted as a lookup table, where the NPC indices are the keys.
---- @param idMap table<number, boolean> A table formatted as a lookup table with NPC IDs as keys and 'true' as values.
+--- @param idMap table<integer, boolean> A table formatted as a lookup table with NPC IDs as keys and 'true' as values.
 --- @return NPC[] NPCs A table of NPCs matching the ID map.
 function NPC.getByFilterMap(idMap) end
 
 --- Returns an iterator for iterating over a table of references to all NPCs in the level.
---- @return fun():NPC iterator An iterator for all NPCs.
+--- @return fun():number, NPC iterator An iterator for all NPCs.
 function NPC.iterate() end
 
 --- Returns an iterator for iterating over a table of references to all NPCs of the given id(s).
---- @param ids number|number[] The ID or IDs of NPCs to iterate over.
---- @return fun():NPC iterator An iterator for NPCs matching the ID(s).
+--- @param ids integer|integer[] The ID or IDs of NPCs to iterate over.
+--- @return fun():number, NPC iterator An for NPCs matching the ID(s).
 function NPC.iterate(ids) end
 
 --- Returns an iterator for iterating over a table of references to all NPCs that are within the rectangle defined by the 4 coordinates. Coordinates x1 and y1 must be smaller than x2 and y2 respectively.
@@ -147,157 +147,157 @@ function NPC.iterate(ids) end
 --- @param y1 number The starting y-coordinate of the rectangle.
 --- @param x2 number The ending x-coordinate of the rectangle.
 --- @param y2 number The ending y-coordinate of the rectangle.
---- @return fun():NPC iterator An iterator for NPCs intersecting the rectangle.
+--- @return fun():number, NPC iterator An iterator for NPCs intersecting the rectangle.
 function NPC.iterateIntersecting(x1, y1, x2, y2) end
 
 --- Returns an iterator for iterating over a table of references to all NPCs of the given id(s). Unlike iterate, the table should be formatted as a lookup table, where the NPC indices are the keys.
---- @param idMap table<number, boolean> A table formatted as a lookup table with NPC IDs as keys and 'true' as values.
---- @return fun():NPC iterator An iterator for NPCs matching the ID map.
+--- @param idMap table<integer, boolean> A table formatted as a lookup table with NPC IDs as keys and 'true' as values.
+--- @return fun():number, NPC iterator An iterator for NPCs matching the ID map.
 function NPC.iterateByFilterMap(idMap) end
 
 --- Includes all NPCs that have a harm type other than HARM_TYPE_LAVA or HARM_TYPE_OFFSCREEN registered.
---- @type number[]
+--- @type integer[]
 NPC.HITTABLE = {}
 
----@type number[]
+---@type integer[]
 NPC.CLEARPIPE = {}
 
 --- Includes all NPCs that are not included in the NPC.HITTABLE list.
---- @type number[]
+--- @type integer[]
 NPC.UNHITTABLE = {}
 
 --- Includes all NPCs that have their "health" NPC config flag set to something higher than 1. Note that setting the flag alone doesn't cause an NPC to die in multiple hits. It merely adds it to the list. The health handling has to be done manually.
---- @type number[]
+--- @type integer[]
 NPC.MULTIHIT = {}
 
 --- Includes all NPCs that have the "powerup" NPC config flag set. Note that setting the flag doesn't cause an NPC to be a powerup. It merely indicates that it should be part of the list.
---- @type number[]
+--- @type integer[]
 NPC.POWERUP = {}
 
 --- Includes all NPCs that have the "isinteractable" NPC config flag set.
---- @type number[]
+--- @type integer[]
 NPC.COLLECTIBLE = {}
 
 --- Includes all NPCs that have the "iscoin" NPC config flag set.
---- @type number[]
+--- @type integer[]
 NPC.COIN = {}
 
 --- Includes all NPCs that have a nonzero weight set.
---- @type number[]
+--- @type integer[]
 NPC.WEIGHT = {}
 
 --- Includes NPCs that have the "isshell" NPC config flag set.
---- @type number[]
+--- @type integer[]
 NPC.SHELL = {}
 
 --- Includes all isshoe and isyoshi mounts. The clown car is excluded from this list.
---- @type number[]
+--- @type integer[]
 NPC.MOUNT = {}
 
 --- Includes all NPCs that have their "iscustomswitch" NPC config flag set. Note that setting the flag alone doesn't cause an NPC to act like a switch. It merely adds it to the list.
---- @type number[]
+--- @type integer[]
 NPC.SWITCH = {}
 
 --- Includes all NPCs that have their "playerblock" NPC config flag set.
---- @type number[]
+--- @type integer[]
 NPC.PLAYERSOLID = {}
 
 --- Includes all NPCs that have their "isvine" NPC config flag set.
---- @type number[]
+--- @type integer[]
 NPC.VINE = {}
 
 --- Includes all NPCs that have their "isvegetable" NPC config flag set.
---- @type number[]
+--- @type integer[]
 NPC.VEGETABLE = {}
 
 --- Includes all NPCs that have their "ishot" NPC config flag set.
---- @type number[]
+--- @type integer[]
 NPC.HOT = {}
 
 --- Includes all NPCs that have their "iscold" NPC config flag set.
---- @type number[]
+--- @type integer[]
 NPC.COLD = {}
 
 --- Map of all NPCs that have a harm type other than HARM_TYPE_LAVA or HARM_TYPE_OFFSCREEN registered.
---- @type table<number, boolean>
+--- @type table<integer, boolean>
 NPC.HITTABLE_MAP = {}
 
 --- Map of all NPCs that are not included in the NPC.HITTABLE list.
---- @type table<number, boolean>
+--- @type table<integer, boolean>
 NPC.UNHITTABLE_MAP = {}
 
 --- Map of all NPCs that have their "health" NPC config flag set to something higher than 1.
---- @type table<number, boolean>
+--- @type table<integer, boolean>
 NPC.MULTIHIT_MAP = {}
 
 --- Map of all NPCs that have the "powerup" NPC config flag set.
---- @type table<number, boolean>
+--- @type table<integer, boolean>
 NPC.POWERUP_MAP = {}
 
 --- Map of all NPCs that have the "isinteractable" NPC config flag set.
---- @type table<number, boolean>
+--- @type table<integer, boolean>
 NPC.COLLECTIBLE_MAP = {}
 
 --- Map of all NPCs that have the "iscoin" NPC config flag set.
---- @type table<number, boolean>
+--- @type table<integer, boolean>
 NPC.COIN_MAP = {}
 
 --- Map of all NPCs that have a nonzero weight set.
---- @type table<number, boolean>
+--- @type table<integer, boolean>
 NPC.WEIGHT_MAP = {}
 
 --- Map of NPCs that have the "isshell" NPC config flag set.
---- @type table<number, boolean>
+--- @type table<integer, boolean>
 NPC.SHELL_MAP = {}
 
 --- Map of all isshoe and isyoshi mounts. Excludes the clown car.
---- @type table<number, boolean>
+--- @type table<integer, boolean>
 NPC.MOUNT_MAP = {}
 
 --- Map of all NPCs that have their "iscustomswitch" NPC config flag set.
---- @type table<number, boolean>
+--- @type table<integer, boolean>
 NPC.SWITCH_MAP = {}
 
 --- Map of all NPCs that have their "playerblock" NPC config flag set.
---- @type table<number, boolean>
+--- @type table<integer, boolean>
 NPC.PLAYERSOLID_MAP = {}
 
 --- Map of all NPCs that have their "isvine" NPC config flag set.
---- @type table<number, boolean>
+--- @type table<integer, boolean>
 NPC.VINE_MAP = {}
 
 --- Map of all NPCs that have their "isvegetable" NPC config flag set.
---- @type table<number, boolean>
+--- @type table<integer, boolean>
 NPC.VEGETABLE_MAP = {}
 
 --- Map of all NPCs that have their "ishot" NPC config flag set.
---- @type table<number, boolean>
+--- @type table<integer, boolean>
 NPC.HOT_MAP = {}
 
 --- Map of all NPCs that have their "iscold" NPC config flag set.
---- @type table<number, boolean>
+--- @type table<integer, boolean>
 NPC.COLD_MAP = {}
 
----@type table<number, boolean>
+---@type table<integer, boolean>
 NPC.CLEARPIPE_MAP = {}
 
 NPC.ALL = {}
 
 NPC.LISTS = {}
 
----@type table<number, EnemyHarmType>
+---@type table<integer, EnemyHarmType>
 NPC.vulnerableHarmTypes = {}
 
----@type table<number, NPCConfig|table<string, any>>
+---@type table<integer, NPCConfig|table<string, any>>
 NPC.config = {}
 
----@type table<number, boolean>
+---@type table<integer, boolean>
 NPC.spinjumpSafe = {}
 
---- @class NPC
+---@class NPC : CollisionObject
 --- @field isValid boolean Validates that the NPC object exists. (Read-only)
---- @field idx number The NPC's index in the internal list of NPCs. (Read-only)
---- @field id number The NPC's ID.
+--- @field idx integer The NPC's index in the internal list of NPCs. (Read-only)
+--- @field id integer The NPC's ID.
 --- @field data table The NPC's data table. Access to various custom attributes specific to the NPC.
 --- @field x number The NPC's x coordinate.
 --- @field y number The NPC's y coordinate.
@@ -315,18 +315,18 @@ NPC.spinjumpSafe = {}
 --- @field spawnSpeedY number The NPC's vertical speed when spawning.
 --- @field spawnDirection number The NPC's facing direction when spawning.
 --- @field layerObj Layer The layer of the NPC.
---- @field layerName VBStr The name of the NPC's layer.
+--- @field layerName VBStr|string The name of the NPC's layer.
 --- @field attachedLayerObj Layer The attached layer of the NPC.
---- @field attachedLayerName VBStr The name of the NPC's attached layer.
---- @field activateEventName VBStr The name of the event executed when the NPC spawns.
---- @field deathEventName VBStr The name of the event executed when the NPC dies.
---- @field talkEventName VBStr The name of the event executed when the NPC is talked to.
---- @field noMoreObjInLayer VBStr The name of the event executed when the NPC is killed and its layer becomes empty.
+--- @field attachedLayerName VBStr|string The name of the NPC's attached layer.
+--- @field activateEventName VBStr|string The name of the event executed when the NPC spawns.
+--- @field deathEventName VBStr|string The name of the event executed when the NPC dies.
+--- @field talkEventName VBStr|string The name of the event executed when the NPC is talked to.
+--- @field noMoreObjInLayer VBStr|string The name of the event executed when the NPC is killed and its layer becomes empty.
 --- @field collidesBlockBottom boolean Whether or not the NPC currently collides with a block on its bottom edge.
 --- @field collidesBlockLeft boolean Whether or not the NPC currently collides with a block on its left edge.
 --- @field collidesBlockUp boolean Whether or not the NPC currently collides with a block on its top edge.
 --- @field collidesBlockRight boolean Whether or not the NPC currently collides with a block on its right edge.
---- @field collisionGroup VBStr The collision group this NPC belongs to.
+--- @field collisionGroup VBStr|string The collision group this NPC belongs to.
 --- @field collisionGroupIndex number The numerical index of the collision group this NPC belongs to. Used internally to make collision checks faster. (Read-only)
 --- @field underwater boolean Whether or not the NPC is currently underwater.
 --- @field invincibleToSword boolean Whether or not the NPC is invincible to sword attacks from Link.
@@ -335,7 +335,7 @@ NPC.spinjumpSafe = {}
 --- @field friendly boolean Whether or not the NPC is friendly.
 --- @field dontMove boolean Whether or not the NPC is able to move. If true, the NPC will also attempt to always face the player.
 --- @field isHidden boolean Whether or not the NPC is currently visible.
---- @field msg VBStr The NPC's talk message. If this is not an empty string, an exclamation point will appear above the NPC when the player gets close.
+--- @field msg VBStr|string The NPC's talk message. If this is not an empty string, an exclamation point will appear above the NPC when the player gets close.
 --- @field noblockcollision boolean Override for the noblockcollision config flag. Toggles per-NPC block collision.
 --- @field isProjectile boolean If true, the NPC currently is in the projectile state (thrown, shot out of a generator).
 --- @field isGenerator boolean If true, the NPC is a generator NPC.
@@ -377,8 +377,8 @@ function NPC:mem(offset, type, value) end
 
 --- Harms the NPC, inflicting damage upon it. Can optionally specify a harm type, the amount of damage dealt, and the score combo multiplier. Damage is ignored by NPCs that die in one hit. Returns the new score combo multiplier.
 --- @param harmType ExtendedEnemyHarmType The type of harm to inflict.
---- @param damage number The amount of damage to inflict.
---- @param multiplier number The score multiplier.
+--- @param damage number? The amount of damage to inflict.
+--- @param multiplier number? The score multiplier.
 --- @return number multiplier Returns the updated score combo multiplier.
 function NPC:harm(harmType, damage, multiplier) end
 

@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 ---Used to describe section weather effects.
 ---@alias WeatherEffect

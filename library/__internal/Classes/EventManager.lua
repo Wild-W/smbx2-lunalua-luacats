@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 ---@class APIListener
 local APIListener = {}
@@ -24,51 +24,54 @@ EventManager.userListeners = {}
 ---@type table<boolean, table<string, APIListener[]>>
 EventManager.apiListeners = {}
 
+---@class EventQueueEntry
+--- @field eventName EventName
+--- @field parameters any[]
+
+---@type EventQueueEntry[]
 EventManager.queuedEvents = {}
 
----@param ... unknown
----@return ...
-function EventManager.removeAPIListener(...) end
+---@param apiTable table
+---@param event EventName
+---@param eventHandler EventName?
+function EventManager.removeAPIListener(apiTable, event, eventHandler) end
 
----@param ... unknown
----@return ...
-function EventManager.manageEventObj(...) end
+---@param args any[]
+function EventManager.manageEventObj(args) end
 
----@param ... unknown
----@return ...
-function EventManager.queueEvent(...) end
+---@param name EventName
+---@param parameters any[]
+function EventManager.queueEvent(name, parameters) end
 
----@param ... unknown
----@return ...
-function EventManager.callEvent(...) end
+---@param name EventName
+---@param ...any
+function EventManager.callEvent(name, ...) end
 
----@param ... unknown
----@return ...
-function EventManager.callEventInternal(...) end
+---@param name EventName
+---@param args any[]
+function EventManager.callEventInternal(name, args) end
 
----@param ... unknown
----@return ...
-function EventManager.addAPIListener(...) end
+---@param thisTable table
+---@param event EventName
+---@param eventHandler EventName?
+---@param beforeMainCall boolean?
+function EventManager.addAPIListener(thisTable, event, eventHandler, beforeMainCall) end
 
----@param ... unknown
----@return ...
-function EventManager.registerClassicEventHandler(...) end
+---@param handler fun()
+function EventManager.registerClassicEventHandler(handler) end
 
----@param ... unknown
----@return ...
-function EventManager.addUserListener(...) end
+---@param listenerObject _G
+function EventManager.addUserListener(listenerObject) end
 
----@param ... unknown
----@return ...
-function EventManager.doQueue(...) end
+function EventManager.doQueue() end
 
----@param ... unknown
----@return ...
-function EventManager.clearAPIListeners(...) end
+---@param apiTable table
+function EventManager.clearAPIListeners(apiTable) end
 
----@param ... unknown
----@return ...
-function EventManager.callApiListeners(...) end
+---@param name EventName
+---@param isBefore boolean
+---@param args any[]
+function EventManager.callApiListeners(name, isBefore, args) end
 
 ---@type boolean
 EventManager.onStartRan = nil

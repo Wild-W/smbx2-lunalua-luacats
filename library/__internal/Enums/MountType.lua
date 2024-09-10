@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 ---Constants for mounts and mount types.
 ---@alias MountType

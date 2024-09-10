@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 --- Provides methods and properties for managing path objects on the overworld.
 Path = {}

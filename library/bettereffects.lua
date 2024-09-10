@@ -1,4 +1,4 @@
----@meta
+---@meta bettereffects
 
 ---Bettereffects is the library managing X2-specific [effects](https://docs.codehaus.moe/#/reference/effect). In some cases, it is necessary to load bettereffects, as Effect.get and its sibling functions are currently restricted to 1.3 effects.
 local bfx = {}

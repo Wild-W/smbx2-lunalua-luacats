@@ -1,4 +1,4 @@
----@meta
+---@meta click
 
 local click = {}
 

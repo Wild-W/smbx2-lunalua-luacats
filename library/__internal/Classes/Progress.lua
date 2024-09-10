@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 ---The progress class exposes fields and functions for accessing and manipulating per-episode progression information.
 ---

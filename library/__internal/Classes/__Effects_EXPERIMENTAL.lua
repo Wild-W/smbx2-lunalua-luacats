@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 __Effects_EXPERIMENTAL = {}
 

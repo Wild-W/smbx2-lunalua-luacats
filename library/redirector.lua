@@ -1,4 +1,4 @@
----@meta
+---@meta redirector
 
 local redirector = {
 	UP = 191,
