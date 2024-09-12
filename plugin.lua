@@ -1,12 +1,10 @@
-local vm = require("vm")
-local log = require("log")
-local guide = require("parser.guide")
-local fs = require("bee.filesystem")
-local furi = require("file-uri")
-local inspect = require("inspect")
-
-local args = { ... }
-local LUNALUA_EVENTS_URI = args[2] .. "/library/__internal/LunaLuaEvents.lua"
+local vm = require "vm"
+local log = require "log"
+local guide = require "parser.guide"
+local fs = require "bee.filesystem"
+local furi = require "file-uri"
+local config = require "config"
+local scope = require "workspace.scope"
 
 log.info("Starting LunaLua Event Plugin")
 
@@ -353,8 +351,8 @@ local function OnCompileFunctionParam(next, func, param)
 		end
 	end
 
-	vm.setNode(func, vm.declareGlobal("type", funcName, LUNALUA_EVENTS_URI))
-	return true
+    vm.setNode(func, vm.declareGlobal("type", funcName))
+    return true
 end
 
 VM = { OnCompileFunctionParam = OnCompileFunctionParam }
@@ -362,8 +360,6 @@ VM = { OnCompileFunctionParam = OnCompileFunctionParam }
 --[[
     Case insensitive file system (SMBX2 only runs on Windows)
 ]]
-
-local libRoot = fs.current_path() / "library"
 
 local function resolveCaseInsensitive(root, moduleName)
 	for file in fs.pairs(root) do
@@ -380,18 +376,27 @@ end
 ---@param  name string # Argument of require()
 ---@return string[]?
 function ResolveRequire(uri, name)
-	local libModuleFile = resolveCaseInsensitive(libRoot, name)
-	local localModuleFile = resolveCaseInsensitive(fs.path(furi.decode(uri)), name)
+    local localModuleFile = resolveCaseInsensitive(fs.path(furi.decode(uri)), name)
 
-	local result = {}
-	if libModuleFile then
-		result[#result + 1] = furi.encode(libModuleFile)
-	end
-	if localModuleFile then
-		result[#result + 1] = furi.encode(localModuleFile)
-	end
+    local result = {}
+    if localModuleFile then
+        result[#result+1] = furi.encode(localModuleFile)
+    end
 
-	if #result ~= 0 then
-		return result
-	end
+    local scp = scope.getScope(uri)
+    if scp.uri then
+        local workspacePaths = config.get(scp.uri, "Lua.workspace.library")
+        if workspacePaths then
+            for _, workspacePath in ipairs(workspacePaths) do
+                local libModuleFile = resolveCaseInsensitive(workspacePath, name)
+                if libModuleFile then
+                    result[#result+1] = furi.encode(libModuleFile)
+                end
+            end
+        end
+    end
+
+    if #result ~= 0 then
+        return result
+    end
 end
