@@ -1,10 +1,10 @@
-local vm = require "vm"
-local log = require "log"
-local guide = require "parser.guide"
-local fs = require "bee.filesystem"
-local furi = require "file-uri"
-local config = require "config"
-local scope = require "workspace.scope"
+local vm = require("vm")
+local log = require("log")
+local guide = require("parser.guide")
+local fs = require("bee.filesystem")
+local furi = require("file-uri")
+local config = require("config")
+local scope = require("workspace.scope")
 
 log.info("Starting LunaLua Event Plugin")
 
@@ -351,8 +351,8 @@ local function OnCompileFunctionParam(next, func, param)
 		end
 	end
 
-    vm.setNode(func, vm.declareGlobal("type", funcName))
-    return true
+	vm.setNode(func, vm.declareGlobal("type", funcName))
+	return true
 end
 
 VM = { OnCompileFunctionParam = OnCompileFunctionParam }
@@ -376,27 +376,27 @@ end
 ---@param  name string # Argument of require()
 ---@return string[]?
 function ResolveRequire(uri, name)
-    local localModuleFile = resolveCaseInsensitive(fs.path(furi.decode(uri)), name)
+	local localModuleFile = resolveCaseInsensitive(fs.path(furi.decode(uri)), name)
 
-    local result = {}
-    if localModuleFile then
-        result[#result+1] = furi.encode(localModuleFile)
-    end
+	local result = {}
+	if localModuleFile then
+		result[#result + 1] = furi.encode(localModuleFile)
+	end
 
-    local scp = scope.getScope(uri)
-    if scp.uri then
-        local workspacePaths = config.get(scp.uri, "Lua.workspace.library")
-        if workspacePaths then
-            for _, workspacePath in ipairs(workspacePaths) do
-                local libModuleFile = resolveCaseInsensitive(workspacePath, name)
-                if libModuleFile then
-                    result[#result+1] = furi.encode(libModuleFile)
-                end
-            end
-        end
-    end
+	local scp = scope.getScope(uri)
+	if scp.uri then
+		local workspacePaths = config.get(scp.uri, "Lua.workspace.library")
+		if workspacePaths then
+			for _, workspacePath in ipairs(workspacePaths) do
+				local libModuleFile = resolveCaseInsensitive(workspacePath, name)
+				if libModuleFile then
+					result[#result + 1] = furi.encode(libModuleFile)
+				end
+			end
+		end
+	end
 
-    if #result ~= 0 then
-        return result
-    end
+	if #result ~= 0 then
+		return result
+	end
 end
