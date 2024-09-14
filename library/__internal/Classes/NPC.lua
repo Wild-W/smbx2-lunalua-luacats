@@ -294,7 +294,7 @@ NPC.config = {}
 ---@type table<integer, boolean>
 NPC.spinjumpSafe = {}
 
----@class NPC : CollisionObject
+---@class NPC : CollisionObject, LuaHelperClass
 --- @field isValid boolean Validates that the NPC object exists. (Read-only)
 --- @field idx integer The NPC's index in the internal list of NPCs. (Read-only)
 --- @field id integer The NPC's ID.
@@ -365,8 +365,6 @@ NPC.spinjumpSafe = {}
 --- @field lightSource Light The Light Source attached to the NPC.
 --- @field _weightContainers WeightContainer[] A list of all weights attached to the NPC.
 local NPC = {}
-
-NPC.__type = "NPC"
 
 --- Returns a value of the NPC struct at a specific memory address-offset. If a value is provided, sets the value at the specified memory offset.
 --- @param offset number|NPCMemoryOffset Memory offset to access or modify.

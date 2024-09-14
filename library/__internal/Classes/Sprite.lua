@@ -82,8 +82,8 @@ function Sprite.circle(args) end
 --- @field position Vector2 The local position of the Sprite.
 --- @field rotation number The local rotation of the Sprite, in degrees.
 --- @field scale number The local scale of the Sprite.
---- @field texture Texture The image displayed on the Sprite.
---- @field image Texture The image displayed on the Sprite.
+--- @field texture LuaImageResource The image displayed on the Sprite.
+--- @field image LuaImageResource The image displayed on the Sprite.
 --- @field width number The width of a Box-shaped Sprite.
 --- @field height number The height of a Box-shaped Sprite.
 --- @field radius number The radius of a Circle-shaped Sprite.
@@ -95,8 +95,8 @@ function Sprite.circle(args) end
 --- @field align Vector2 The relative pivot position of the Sprite object (between (0,0) and (1,1)). This is unused in Poly-shaped Sprite objects.
 --- @field texpivot Vector2 The relative pivot position of the texture on the Sprite (between (0,0) and (1,1)).
 --- @field texalign Vector2 The relative pivot position of the texture on the Sprite (between (0,0) and (1,1)).
---- @field bordertexture Texture The image displayed on the Sprite's border, if one exists. This is unused in Poly-shaped Sprite objects.
---- @field borderimage Texture The image displayed on the Sprite's border, if one exists. This is unused in Poly-shaped Sprite objects.
+--- @field bordertexture LuaImageResource The image displayed on the Sprite's border, if one exists. This is unused in Poly-shaped Sprite objects.
+--- @field borderimage LuaImageResource The image displayed on the Sprite's border, if one exists. This is unused in Poly-shaped Sprite objects.
 --- @field borderwidth number The width of the Sprite border. 0 can be used to disable the border entirely. This is unused in Poly-shaped Sprite objects.
 --- @field frames number|number[] The number of frames the texture contains. If assigned to a single number, the frames will be assumed to stack vertically. Otherwise, if a two-number table is assigned, the first number will provide the horizontal frame count and the second will provide the vertical frame count.
 --- @field transform Transform The Transform object that defines the Sprite's position, rotation, and scale.
@@ -140,7 +140,7 @@ function Sprite:texrotate(angle, worldspace) end
 function Sprite:textranslate(vector2, worldspace) end
 
 ---@class SpriteBar : Sprite
----@field bgbordertexture Texture? The image displayed on the Bar background's border. If set to `nil`, the `bgtexture` field will be used.
----@field bgborderimage Texture? The image displayed on the Bar background's border. If set to `nil`, the `bgtexture` field will be used.
----@field bgtexture Texture The image displayed on the Bar background.
----@field bgimage Texture The image displayed on the Bar background.
+---@field bgbordertexture LuaImageResource? The image displayed on the Bar background's border. If set to `nil`, the `bgtexture` field will be used.
+---@field bgborderimage LuaImageResource? The image displayed on the Bar background's border. If set to `nil`, the `bgtexture` field will be used.
+---@field bgtexture LuaImageResource The image displayed on the Bar background.
+---@field bgimage LuaImageResource The image displayed on the Bar background.

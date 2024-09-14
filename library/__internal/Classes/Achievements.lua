@@ -101,10 +101,10 @@ Achievement.collected = false
 ---@type boolean Whether the achievement has already had its popup shown.
 Achievement.popupShown = false
 
----@type Texture The icon for the achievement.
+---@type LuaImageResource The icon for the achievement.
 Achievement.icon = nil
 
----@type Texture The alternative icon for the achievement while it has not yet been collected.
+---@type LuaImageResource The alternative icon for the achievement while it has not yet been collected.
 Achievement.icon = nil
 
 ---@type AchievementCondition[] The table of conditions for this achievement.

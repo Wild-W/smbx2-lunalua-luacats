@@ -59,10 +59,8 @@ player = {}
 ---@type Player?
 player2 = {}
 
----@class Player : CollisionObject
+---@class Player : CollisionObject, LuaHelperClass
 local PlayerInstance = {}
-
-PlayerInstance.__type = "Player"
 
 PlayerInstance.data = {
 	_basegame = {},
@@ -187,7 +185,7 @@ function PlayerInstance:setFrame(x, y) end
 
 --- Gets the player's current frame as a spritesheet frame.
 --- @param frame number The frame to retrieve.
---- @return number The current frame.
+--- @return number frame The current frame.
 function PlayerInstance:getFrame(frame) end
 
 --- Gets the player's current frame as x and y coordinates on the spritesheet.

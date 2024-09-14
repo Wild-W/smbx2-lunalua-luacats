@@ -15,6 +15,6 @@
 ---    Graphics.drawImage(myImage, 0, 0)
 ---end
 ---```
----@class Texture
----@field width number # The width of the texture.
----@field height number # The height of the texture.
+---@class LuaImageResource : LuaHelperClass
+--- @field width number # The width of the texture.
+--- @field height number # The height of the texture.

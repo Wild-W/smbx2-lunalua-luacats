@@ -1,7 +1,6 @@
 ---@meta _
 
 ---Allows you to play and manipulate sound effects.
----@class SFX
 SFX = {}
 
 ---An audio source type that originates from a single point.
@@ -62,6 +61,7 @@ SFX.FALLOFF_SQUARE = nil
 --- @param args AudioSourceArgs A table containing the arguments for the audio source.
 --- @return AudioSource source The created audio source.
 function SFX.create(args) end
+SFX.Create = SFX.create
 
 --- Plays a sound effect once.
 --- @param sound number|string|SFXArgs|MixChunk|SFXList The sound ID/file path/object to play.
@@ -88,14 +88,30 @@ function SFX.play(sound, volume, loops) end
 --- @param delay number The buffer delay before the same sound effect can be played again.
 --- @return SoundEffect sound The sound effect being played.
 function SFX.play(sound, volume, loops, delay) end
+SFX.Play = SFX.play
+SFX.playSound = SFX.play
+SFX.PlaySound = SFX.play
 
 --- Loads a sound file into a MixChunk.
 --- @param path string The path to the sound file.
 --- @return MixChunk soundObject The loaded sound object.
 function SFX.open(path) end
 
----@class SFX
-SFX = {}
+--- Internal event.
+---@type onDraw
+function SFX.onDraw() end
+
+--- Internal event.
+---@type onCameraDraw
+function SFX.onCameraDraw(...) end
+
+--- Internal event.
+---@type onExitLevel
+function SFX.onExitLevel(...) end
+
+--- Internal event.
+---@type onInitAPI
+function SFX.onInitAPI() end
 
 --- Should the audio from AudioSource objects be listened to from the player (`SFX.LISTEN_PLAYER`) or the camera (`SFX.LISTEN_CAMERA`)?
 ---@type number
@@ -109,13 +125,16 @@ SFX.volume = {}
 local AudioSource = {}
 
 --- Resumes this audio source, if it was paused.
-function AudioSource:play() end
+function AudioSource:Play() end
+AudioSource.play = AudioSource.Play
 
 --- Pauses the audio source, if it is playing.
-function AudioSource:stop() end
+function AudioSource:Stop() end
+AudioSource.stop = AudioSource.Stop
 
 --- Destroys the audio source, stopping it playing and preventing it from being referenced again.
-function AudioSource:destroy() end
+function AudioSource:Destroy() end
+AudioSource.destroy = AudioSource.Destroy
 
 ---@type number The X coordinate of the audio source.
 AudioSource.x = 0
@@ -170,28 +189,38 @@ local SoundEffect = {}
 
 --- Pauses the sound effect.
 function SoundEffect:pause() end
+SoundEffect.Pause = SoundEffect.pause
 
 --- Resumes the paused sound effect.
 function SoundEffect:resume() end
+SoundEffect.Resume = SoundEffect.resume
 
 --- Stops the sound effect completely, effectively ending it early.
 function SoundEffect:stop() end
+SoundEffect.Stop = SoundEffect.stop
 
 --- Stops the sound effect after the specified number of frames.
 --- @param frames number The number of frames after which the sound effect will stop.
 function SoundEffect:expire(frames) end
+SoundEffect.Expire = SoundEffect.expire
 
 --- Fades out the sound effect over the specified number of milliseconds (seconds * 1000).
 --- @param milliseconds number The number of milliseconds over which to fade out the sound.
 function SoundEffect:fadeout(milliseconds) end
+SoundEffect.FadeOut = SoundEffect.fadeout
+SoundEffect.fadeOut = SoundEffect.fadeout
 
 --- Returns `true` if the sound is currently playing.
 --- @return boolean playing Whether the sound is currently playing.
 function SoundEffect:isplaying() end
+SoundEffect.IsPlaying = SoundEffect.isplaying
+SoundEffect.isPlaying = SoundEffect.isplaying
 
 --- Returns `true` if the sound is currently paused.
 --- @return boolean paused Whether the sound is currently paused.
 function SoundEffect:ispaused() end
+SoundEffect.IsPaused = SoundEffect.ispaused
+SoundEffect.isPaused = SoundEffect.ispaused
 
 --- Returns `true` if the sound is currently fading out.
 --- @return boolean fading Whether the sound is currently fading out.
@@ -200,8 +229,14 @@ function SoundEffect:isfading() end
 ---@type number The volume of the sound effect.
 SoundEffect.volume = 1
 
+---@type number The volume of the sound effect.
+SoundEffect.vol = 1
+
 ---@type number The panning of the sound effect.
 SoundEffect.pan = 0
+
+---@type number The panning of the sound effect.
+SoundEffect.panning = 0
 
 ---@type string[] A list of the tags associated with this sound effect.
 SoundEffect.tags = {}

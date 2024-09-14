@@ -11,7 +11,6 @@
 ---    local defaultLayer = Layer.get("Default")
 ---end
 ---```
----@class LayerManager
 Layer = {}
 
 --- Returns all existing layers.
@@ -28,11 +27,6 @@ function Layer.get(layerName) end
 ---@return table layers A table of Layer objects whose names contain the substring.
 function Layer.find(substring) end
 
---- Constructs a Layer object from its index in the global layer table.
----@param index number The index of the layer in the global layer table.
----@return Layer layer The Layer object at the specified index.
-function Layer(index) end
-
 --- Returns the number of Layers in the level.
 ---@return number count The total number of layers.
 function Layer.count() end
@@ -40,6 +34,11 @@ function Layer.count() end
 --- Checks if any layer's movement has been paused.
 ---@return boolean isPaused True if any layer's movement is paused, false otherwise.
 function Layer.isPaused() end
+
+--- Constructs a Layer object from its index in the global layer table.
+---@param index number The index of the layer in the global layer table.
+---@return Layer layer The Layer object at the specified index.
+function Layer(index) end
 
 --- The Layer class in SMBX for manipulating layer properties.
 ---@class Layer : userdata

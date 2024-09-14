@@ -2,9 +2,12 @@
 
 ---Effects are visual effects that happen when NPCs die, blocks break, and various other actions are performed.
 ---Currently, effects are split into two systems: The SMBX 1.3 system, used for effect IDs 1-161, and the SMBX2 effects system, used for effect IDs 162 onwards.
----@class EffectManager
----@field config table<number, EffectConfig|table<string, any>> Lua representation of all Effect config. The way to access individual fields is as follows: `Effect.config[id].field`. (ex. Effect.config[1].width = 5). Fields can be read and set.
 Effect = {}
+Animation = Effect
+
+---Lua representation of all Effect config. The way to access individual fields is as follows: `Effect.config[id].field`. (ex. Effect.config[1].width = 5). Fields can be read and set.
+---@type table<number, EffectConfig|table<string, any>>
+Effect.config = nil
 
 ---Returns the number of 1.3 effects currently active.
 ---@return number count Number of effects
@@ -46,6 +49,16 @@ function Effect.spawn(id, x, y, variant, npcID, drawOnlyMask) end
 ---@return Effect effect
 function Effect.spawn(id, target, variant, npcID, drawOnlyMask) end
 
+---Constructor that initializes an animation/effect with an index.
+---@param idx number Index of the animation/effect.
+---@return Effect
+function Effect(idx) end
+
+---Constructor that initializes an animation/effect with an index.
+---@param idx number Index of the animation/effect.
+---@return Effect
+function Animation(idx) end
+
 ---@class Effect
 --- @field id number The Effect's ID.
 --- @field x number The Effect's x coordinate.
@@ -54,6 +67,16 @@ function Effect.spawn(id, target, variant, npcID, drawOnlyMask) end
 --- @field height number The Effect's height. If this is a spawner, defaults to its first spawned effect's height.
 local EffectInstance = {}
 
+---@param offset number The memory offset from the Animation class.
+---@param field_type MemoryFieldType The type of memory to interpret the field as.
+---@param value any The value to set to the field.
+function EffectInstance:mem(offset, field_type, value) end
+
+---@param offset number The memory offset from the Animation class.
+---@param field_type MemoryFieldType The type of the field to retrieve.
+---@return any value The value retrieved from the specified field.
+function EffectInstance:mem(offset, field_type) end
+
 ---Kills the effect instantly.
 function EffectInstance:kill() end
 
@@ -61,7 +84,7 @@ function EffectInstance:kill() end
 ---@class EffectSpawner : Effect
 --- @field xOffset number|table<any, number> Override for the xOffset config property.
 --- @field yOffset number|table<any, number> Override for the yOffset config property.
---- @field sound SFX Override for the sound config property. Sound to play when an effect spawns.
+--- @field sound SoundEffect Override for the sound config property. Sound to play when an effect spawns.
 --- @field spawnerSpeedX number The Effect spawner's horizontal speed. Distinct from speedX, which applies as the config value override for the spawned effect object.
 --- @field spawnerSpeedY number The Effect spawner's vertical speed. Distinct from speedX, which applies as the config value override for the spawned effect object.
 --- @field lastX number Last frame's position of the spawner, for updating the position of the spawner's particles.
@@ -92,7 +115,7 @@ function EffectInstance:kill() end
 --- @field variants number The number of variants the effect has.
 --- @field parent table Stores the spawner's parent values.
 --- @field isHidden boolean If true, the Effect's execution is halted and the Effect is invisible.
---- @field img Texture The image that is drawn for the Effect.
+--- @field img LuaImageResource The image that is drawn for the Effect.
 --- @field priority number The Effect's render priority.
 --- @field animationFrame number The Effect's animation frame.
 --- @field animationTimer number The Effect's animation timer.

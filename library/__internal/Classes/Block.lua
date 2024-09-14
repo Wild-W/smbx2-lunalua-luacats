@@ -186,7 +186,7 @@ Block.SLOPE_LR_CEIL_MAP = {}
 ---@type table<integer, BlockClassification>
 Block.classifications = {}
 
----@class Block : CollisionObject
+---@class Block : CollisionObject, LuaHelperClass
 local Block = {}
 
 ---@param ... unknown
@@ -367,8 +367,6 @@ Block.collisionGroup = nil
 
 ---@type number
 Block.collisionGroupIndex = 0
-
-Block.__type = "Block"
 
 ---@alias BlockMemoryOffset
 --- | `0x00` # Toggles block slipperiness. Use field slippery.
