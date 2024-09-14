@@ -35,14 +35,11 @@ git push origin your-branch-name
 * [Sprite.lua](/library/Classes/Sprite.lua)
 * [Darkness.lua](/library/Classes/Darkness.lua)
 * [Particles.lua](/library/Classes/Particles.lua)
-* [require_utils.lua](/library/Classes/require_utils.lua)
 * [FileFormats.lua](/library/Classes/FileFormats.lua)
 * [Events.lua](/library/Classes/Events.lua)
-* [EventManager.lua](/library/Classes/EventManager.lua)
 * [Block.lua](/library/Classes/Block.lua) (Field offsets don't state the FIELD_TYPE like other field offset types do)
 * [BGO.lua](/library/Classes/BGO.lua) (Descriptions for the fields)
 * [Background.lua](/library/Classes/Background.lua)
-* [API.lua](/library/Classes/API.lua)
 * Anywhere else you see functions or fields that are undocumented
 
 ### Unimplemented
