@@ -1,6 +1,5 @@
 ---@meta _
 
----@class LegacyRNG
 LegacyRNG = {}
 
 ---Generates a random decimal number between 0 (inclusive) and 1 (exclusive) with the SMBX 1.3 RNG.

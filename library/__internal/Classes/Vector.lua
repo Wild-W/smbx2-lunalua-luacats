@@ -326,159 +326,159 @@ function vector.randomInSphere(radius) end
 function vector.randomDir3() end
 
 ---@class number : Lerpable
----@operator add(Vector2): number
----@operator add(Vector3): number
----@operator add(Vector4): number
----@operator add(Mat2): number
----@operator add(Mat3): number
----@operator add(Mat4): number
----@operator add(Quaternion): number
----@operator sub(Vector2): number
----@operator sub(Vector3): number
----@operator sub(Vector4): number
----@operator sub(Mat2): number
----@operator sub(Mat3): number
----@operator sub(Mat4): number
----@operator sub(Quaternion): number
----@operator mul(Vector2): number
----@operator mul(Vector3): number
----@operator mul(Vector4): number
----@operator mul(Mat2): number
----@operator mul(Mat3): number
----@operator mul(Mat4): number
----@operator mul(Quaternion): number
----@operator div(Vector2): number
----@operator div(Vector3): number
----@operator div(Vector4): number
----@operator div(Mat2): number
----@operator div(Mat3): number
----@operator div(Mat4): number
----@operator div(Quaternion): number
+--- @operator add(Vector2): number
+--- @operator add(Vector3): number
+--- @operator add(Vector4): number
+--- @operator add(Mat2): number
+--- @operator add(Mat3): number
+--- @operator add(Mat4): number
+--- @operator add(Quaternion): number
+--- @operator sub(Vector2): number
+--- @operator sub(Vector3): number
+--- @operator sub(Vector4): number
+--- @operator sub(Mat2): number
+--- @operator sub(Mat3): number
+--- @operator sub(Mat4): number
+--- @operator sub(Quaternion): number
+--- @operator mul(Vector2): number
+--- @operator mul(Vector3): number
+--- @operator mul(Vector4): number
+--- @operator mul(Mat2): number
+--- @operator mul(Mat3): number
+--- @operator mul(Mat4): number
+--- @operator mul(Quaternion): number
+--- @operator div(Vector2): number
+--- @operator div(Vector3): number
+--- @operator div(Vector4): number
+--- @operator div(Mat2): number
+--- @operator div(Mat3): number
+--- @operator div(Mat4): number
+--- @operator div(Quaternion): number
 
 ---@class Vector2 : Lerpable
----@field x number
----@field y number
----@field sqrlength number
----@field length number
----@operator add(Vector2): Vector2
----@operator add(number): Vector2
----@operator sub(Vector2): Vector2
----@operator sub(number): Vector2
----@operator mul(Vector2): Vector2
----@operator mul(number): Vector2
----@operator div(Vector2): Vector2
----@operator div(number): Vector2
----@operator concat(Vector2): Vector2
----@operator pow(Vector2): Vector2
----@operator mod(Vector2): Vector2
+--- @field x number
+--- @field y number
+--- @field sqrlength number
+--- @field length number
+--- @operator add(Vector2): Vector2
+--- @operator add(number): Vector2
+--- @operator sub(Vector2): Vector2
+--- @operator sub(number): Vector2
+--- @operator mul(Vector2): Vector2
+--- @operator mul(number): Vector2
+--- @operator div(Vector2): Vector2
+--- @operator div(number): Vector2
+--- @operator concat(Vector2): Vector2
+--- @operator pow(Vector2): Vector2
+--- @operator mod(Vector2): Vector2
 local Vector2 = {}
 
 ---@class Vector3 : Lerpable
----@field x number
----@field y number
----@field z number
----@field sqrlength number
----@field length number
----@operator add(Vector3): Vector3
----@operator add(number): Vector3
----@operator sub(Vector3): Vector3
----@operator sub(number): Vector3
----@operator mul(Vector3): Vector3
----@operator mul(number): Vector3
----@operator div(Vector3): Vector3
----@operator div(number): Vector3
----@operator concat(Vector3): Vector3
----@operator pow(Vector3): Vector3
----@operator mod(Vector3): Vector3
+--- @field x number
+--- @field y number
+--- @field z number
+--- @field sqrlength number
+--- @field length number
+--- @operator add(Vector3): Vector3
+--- @operator add(number): Vector3
+--- @operator sub(Vector3): Vector3
+--- @operator sub(number): Vector3
+--- @operator mul(Vector3): Vector3
+--- @operator mul(number): Vector3
+--- @operator div(Vector3): Vector3
+--- @operator div(number): Vector3
+--- @operator concat(Vector3): Vector3
+--- @operator pow(Vector3): Vector3
+--- @operator mod(Vector3): Vector3
 local Vector3 = {}
 
 ---@class Vector4 : Lerpable
----@field x number
----@field y number
----@field z number
----@field w number
----@field sqrlength number
----@field length number
----@operator add(Vector4): Vector4
----@operator add(number): Vector4
----@operator sub(Vector4): Vector4
----@operator sub(number): Vector4
----@operator mul(Vector4): Vector4
----@operator mul(number): Vector4
----@operator div(Vector4): Vector4
----@operator div(number): Vector4
----@operator concat(Vector4): Vector4
----@operator pow(Vector4): Vector4
----@operator mod(Vector4): Vector4
+--- @field x number
+--- @field y number
+--- @field z number
+--- @field w number
+--- @field sqrlength number
+--- @field length number
+--- @operator add(Vector4): Vector4
+--- @operator add(number): Vector4
+--- @operator sub(Vector4): Vector4
+--- @operator sub(number): Vector4
+--- @operator mul(Vector4): Vector4
+--- @operator mul(number): Vector4
+--- @operator div(Vector4): Vector4
+--- @operator div(number): Vector4
+--- @operator concat(Vector4): Vector4
+--- @operator pow(Vector4): Vector4
+--- @operator mod(Vector4): Vector4
 local Vector4 = {}
 
 ---@class Mat2
----@field det number
----@field trace number
----@field inverse Mat2
----@field transpose Mat2
----@operator add(Mat2): Mat2
----@operator add(number): Mat2
----@operator sub(Mat2): Mat2
----@operator sub(number): Mat2
----@operator mul(Mat2): Mat2
----@operator mul(number): Mat2
----@operator mul(Vector2): Mat2
----@operator div(Vector2): Mat2
----@operator div(number): Mat2
----@operator div(Mat2): Mat2
+--- @field det number
+--- @field trace number
+--- @field inverse Mat2
+--- @field transpose Mat2
+--- @operator add(Mat2): Mat2
+--- @operator add(number): Mat2
+--- @operator sub(Mat2): Mat2
+--- @operator sub(number): Mat2
+--- @operator mul(Mat2): Mat2
+--- @operator mul(number): Mat2
+--- @operator mul(Vector2): Mat2
+--- @operator div(Vector2): Mat2
+--- @operator div(number): Mat2
+--- @operator div(Mat2): Mat2
 local Mat2 = {}
 
 ---@class Mat3
----@field det number
----@field trace number
----@field inverse Mat3
----@field transpose Mat3
----@operator add(Mat3): Mat3
----@operator add(number): Mat3
----@operator sub(Mat3): Mat3
----@operator sub(number): Mat3
----@operator mul(Mat3): Mat3
----@operator mul(number): Mat3
----@operator mul(Vector3): Mat3
----@operator div(Vector3): Mat3
----@operator div(number): Mat3
----@operator div(Mat3): Mat3
+--- @field det number
+--- @field trace number
+--- @field inverse Mat3
+--- @field transpose Mat3
+--- @operator add(Mat3): Mat3
+--- @operator add(number): Mat3
+--- @operator sub(Mat3): Mat3
+--- @operator sub(number): Mat3
+--- @operator mul(Mat3): Mat3
+--- @operator mul(number): Mat3
+--- @operator mul(Vector3): Mat3
+--- @operator div(Vector3): Mat3
+--- @operator div(number): Mat3
+--- @operator div(Mat3): Mat3
 local Mat3 = {}
 
 ---@class Mat4
----@field det number
----@field trace number
----@field inverse Mat4
----@field transpose Mat4
----@operator add(Mat3): Mat3
----@operator add(number): Mat3
----@operator sub(Mat3): Mat3
----@operator sub(number): Mat3
----@operator mul(Mat3): Mat3
----@operator mul(number): Mat3
----@operator mul(Vector3): Mat3
----@operator div(Vector3): Mat3
----@operator div(number): Mat3
----@operator div(Mat3): Mat3
+--- @field det number
+--- @field trace number
+--- @field inverse Mat4
+--- @field transpose Mat4
+--- @operator add(Mat3): Mat3
+--- @operator add(number): Mat3
+--- @operator sub(Mat3): Mat3
+--- @operator sub(number): Mat3
+--- @operator mul(Mat3): Mat3
+--- @operator mul(number): Mat3
+--- @operator mul(Vector3): Mat3
+--- @operator div(Vector3): Mat3
+--- @operator div(number): Mat3
+--- @operator div(Mat3): Mat3
 local Mat4 = {}
 
 ---@class Quaternion
----@field inverse Quaternion
----@field sqrnorm number
----@field norm number
----@field euler Vector3
----@field normalized Quaternion
----@operator add(Quaternion): Quaternion
----@operator add(number): Quaternion
----@operator sub(Quaternion): Quaternion
----@operator sub(number): Quaternion
----@operator mul(Quaternion): Quaternion
----@operator mul(number): Quaternion
----@operator mul(Vector3): Quaternion
----@operator div(Quaternion): Quaternion
----@operator div(number): Quaternion
----@operator concat(Quaternion): Quaternion
+--- @field inverse Quaternion
+--- @field sqrnorm number
+--- @field norm number
+--- @field euler Vector3
+--- @field normalized Quaternion
+--- @operator add(Quaternion): Quaternion
+--- @operator add(number): Quaternion
+--- @operator sub(Quaternion): Quaternion
+--- @operator sub(number): Quaternion
+--- @operator mul(Quaternion): Quaternion
+--- @operator mul(number): Quaternion
+--- @operator mul(Vector3): Quaternion
+--- @operator div(Quaternion): Quaternion
+--- @operator div(number): Quaternion
+--- @operator concat(Quaternion): Quaternion
 local Quaternion = {}
 
 ---@return Vector2

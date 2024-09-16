@@ -1,6 +1,5 @@
 ---@meta _
 
----@class Audio
 Audio = {}
 
 ---@class (exact) MixChunk
