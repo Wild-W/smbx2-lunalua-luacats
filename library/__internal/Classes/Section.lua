@@ -1,7 +1,6 @@
 ---@meta _
 
 ---Sections are arbitrary subdivisions within the level's scene space coordinate system. They can be configured in the editor through the Section Settings window, and manipulated in code through this class.
----@class SectionManager
 Section = {}
 
 --- Returns the number of sections (21).
@@ -16,11 +15,6 @@ function Section.get() end
 --- @param index number The index of the section (1-based).
 --- @return Section section The section at the given index.
 function Section.get(index) end
-
---- Constructor for a Section object, using a 0-based index.
---- @param index number The index of the section (0-based).
---- @return Section section The section at the given index.
-function Section(index) end
 
 --- Returns a table of indices of sections with players in them.
 --- @return number[] indices A table of indices of active sections.
@@ -64,6 +58,11 @@ function Section.getWeatherEffect(type) end
 ---@param ... unknown
 ---@return ...
 function Section.makeDefaultSettings(...) end
+
+--- Constructor for a Section object, using a 0-based index.
+--- @param index number The index of the section (0-based).
+--- @return Section section The section at the given index.
+function Section(index) end
 
 ---@class Section
 --- Validates that the section object exists. (Read-only)

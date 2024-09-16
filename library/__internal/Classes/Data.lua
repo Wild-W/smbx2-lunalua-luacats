@@ -12,9 +12,9 @@ Data.DATA_WORLD = 1
 Data.DATA_GLOBAL = 2
 
 ---@alias DataType
----| `Data.DATA_LEVEL`
----| `Data.DATA_WORLD`
----| `Data.DATA_GLOBAL`
+--- | `Data.DATA_LEVEL`
+--- | `Data.DATA_WORLD`
+--- | `Data.DATA_GLOBAL`
 
 ---## Usage
 ---```lua

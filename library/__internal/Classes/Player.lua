@@ -53,13 +53,136 @@ function Player.getCostume(character) end
 
 --- The first player object.
 ---@type Player
-player = {}
+player = nil
 
 --- The second player object, or `nil` if only one player is in the level.
 ---@type Player?
-player2 = {}
+player2 = nil
 
 ---@class Player : CollisionObject, LuaHelperClass
+--- @field ToadDoubleJReady integer # Equivalent to `Player:mem(0x0, FIELD_WORD)`.
+--- @field SparklingEffect integer # Equivalent to `Player:mem(0x2, FIELD_WORD)`.
+--- @field UnknownCTRLLock1 integer # Equivalent to `Player:mem(0x4, FIELD_WORD)`.
+--- @field UnknownCTRLLock2 integer # Equivalent to `Player:mem(0x6, FIELD_WORD)`.
+--- @field QuicksandEffectTimer integer # Equivalent to `Player:mem(0x8, FIELD_WORD)`.
+--- @field OnSlipperyGround integer # Equivalent to `Player:mem(0xa, FIELD_WORD)`.
+--- @field IsAFairy integer # Equivalent to `Player:mem(0xc, FIELD_WORD)`.
+--- @field FairyAlreadyInvoked integer # Equivalent to `Player:mem(0xe, FIELD_WORD)`.
+--- @field FairyFramesLeft integer # Equivalent to `Player:mem(0x10, FIELD_WORD)`.
+--- @field SheathHasKey integer # Equivalent to `Player:mem(0x12, FIELD_WORD)`.
+--- @field SheathAttackCooldown integer # Equivalent to `Player:mem(0x14, FIELD_WORD)`.
+--- @field Hearts integer # Equivalent to `Player:mem(0x16, FIELD_WORD)`.
+--- @field PeachHoverAvailable integer # Equivalent to `Player:mem(0x18, FIELD_WORD)`.
+--- @field PressingHoverButton integer # Equivalent to `Player:mem(0x1a, FIELD_WORD)`.
+--- @field PeachHoverTimer integer # Equivalent to `Player:mem(0x1c, FIELD_WORD)`.
+--- @field Unused1 integer # Equivalent to `Player:mem(0x1e, FIELD_WORD)`.
+--- @field PeachHoverTrembleSpeed number # Equivalent to `Player:mem(0x20, FIELD_FLOAT)`.
+--- @field PeachHoverTrembleDir integer # Equivalent to `Player:mem(0x24, FIELD_WORD)`.
+--- @field ItemPullupTimer integer # Equivalent to `Player:mem(0x26, FIELD_WORD)`.
+--- @field ItemPullupMomentumSave number # Equivalent to `Player:mem(0x28, FIELD_FLOAT)`.
+--- @field Unused2 integer # Equivalent to `Player:mem(0x2c, FIELD_WORD)`.
+--- @field UnkClimbing1 integer # Equivalent to `Player:mem(0x2e, FIELD_WORD)`.
+--- @field UnkClimbing2 integer # Equivalent to `Player:mem(0x30, FIELD_WORD)`.
+--- @field UnkClimbing3 integer # Equivalent to `Player:mem(0x32, FIELD_WORD)`.
+--- @field WaterState integer # Equivalent to `Player:mem(0x34, FIELD_WORD)`.
+--- @field WaterOrQuicksandState integer # Equivalent to `Player:mem(0x34, FIELD_WORD)`.
+--- @field IsInWater integer # Equivalent to `Player:mem(0x36, FIELD_WORD)`.
+--- @field WaterStrokeTimer integer # Equivalent to `Player:mem(0x38, FIELD_WORD)`.
+--- @field UnknownHoverTimer integer # Equivalent to `Player:mem(0x3a, FIELD_WORD)`.
+--- @field SlidingState integer # Equivalent to `Player:mem(0x3c, FIELD_WORD)`.
+--- @field SlidingGroundPuffs integer # Equivalent to `Player:mem(0x3e, FIELD_WORD)`.
+--- @field ClimbingState integer # Equivalent to `Player:mem(0x40, FIELD_WORD)`.
+--- @field UnknownTimer integer # Equivalent to `Player:mem(0x42, FIELD_WORD)`.
+--- @field UnknownFlag integer # Equivalent to `Player:mem(0x44, FIELD_WORD)`.
+--- @field UnknownPowerupState integer # Equivalent to `Player:mem(0x46, FIELD_WORD)`.
+--- @field SlopeRelated integer # Equivalent to `Player:mem(0x48, FIELD_WORD)`.
+--- @field TanookiStatueActive integer # Equivalent to `Player:mem(0x4a, FIELD_WORD)`.
+--- @field TanookiMorphCooldown integer # Equivalent to `Player:mem(0x4c, FIELD_WORD)`.
+--- @field TanookiActiveFrameCount integer # Equivalent to `Player:mem(0x4e, FIELD_WORD)`.
+--- @field IsSpinjumping integer # Equivalent to `Player:mem(0x50, FIELD_WORD)`.
+--- @field SpinjumpStateCounter integer # Equivalent to `Player:mem(0x52, FIELD_WORD)`.
+--- @field SpinjumpLandDirection integer # Equivalent to `Player:mem(0x54, FIELD_WORD)`.
+--- @field CurrentKillCombo integer # Equivalent to `Player:mem(0x56, FIELD_WORD)`.
+--- @field GroundSlidingPuffsState integer # Equivalent to `Player:mem(0x58, FIELD_WORD)`.
+--- @field WarpNearby integer # Equivalent to `Player:mem(0x5a, FIELD_WORD)`.
+--- @field NearbyWarpIndex integer # Equivalent to `Player:mem(0x5a, FIELD_WORD)`.
+--- @field Unknown5C integer # Equivalent to `Player:mem(0x5c, FIELD_WORD)`.
+--- @field Unknown5E integer # Equivalent to `Player:mem(0x5e, FIELD_WORD)`.
+--- @field HasJumped integer # Equivalent to `Player:mem(0x60, FIELD_WORD)`.
+--- @field CurXPos number # Equivalent to `Player:mem(0xc0, FIELD_DFLOAT)`.
+--- @field CurYPos number # Equivalent to `Player:mem(0xc8, FIELD_DFLOAT)`.
+--- @field Height number # Equivalent to `Player:mem(0xd0, FIELD_DFLOAT)`.
+--- @field Width number # Equivalent to `Player:mem(0xd8, FIELD_DFLOAT)`.
+--- @field CurXSpeed number # Equivalent to `Player:mem(0xe0, FIELD_DFLOAT)`.
+--- @field CurYSpeed number # Equivalent to `Player:mem(0xe8, FIELD_DFLOAT)`.
+--- @field Identity integer # Equivalent to `Player:mem(0xf0, FIELD_WORD)`.
+--- @field UKeyState integer # Equivalent to `Player:mem(0xf2, FIELD_WORD)`.
+--- @field DKeyState integer # Equivalent to `Player:mem(0xf4, FIELD_WORD)`.
+--- @field LKeyState integer # Equivalent to `Player:mem(0xf6, FIELD_WORD)`.
+--- @field RKeyState integer # Equivalent to `Player:mem(0xf8, FIELD_WORD)`.
+--- @field JKeyState integer # Equivalent to `Player:mem(0xfa, FIELD_WORD)`.
+--- @field SJKeyState integer # Equivalent to `Player:mem(0xfc, FIELD_WORD)`.
+--- @field XKeyState integer # Equivalent to `Player:mem(0xfe, FIELD_WORD)`.
+--- @field RNKeyState integer # Equivalent to `Player:mem(0x100, FIELD_WORD)`.
+--- @field SELKeyState integer # Equivalent to `Player:mem(0x102, FIELD_WORD)`.
+--- @field STRKeyState integer # Equivalent to `Player:mem(0x104, FIELD_WORD)`.
+--- @field MountType integer # Equivalent to `Player:mem(0x108, FIELD_WORD)`.
+--- @field MountColor integer # Equivalent to `Player:mem(0x10a, FIELD_WORD)`.
+--- @field MountState integer # Equivalent to `Player:mem(0x10c, FIELD_WORD)`.
+--- @field MountHeightOffset integer # Equivalent to `Player:mem(0x10e, FIELD_WORD)`.
+--- @field MountGfxIndex integer # Equivalent to `Player:mem(0x110, FIELD_WORD)`.
+--- @field CurrentPowerup integer # Equivalent to `Player:mem(0x112, FIELD_WORD)`.
+--- @field CurrentPlayerSprite integer # Equivalent to `Player:mem(0x114, FIELD_WORD)`.
+--- @field Unused116 integer # Equivalent to `Player:mem(0x116, FIELD_WORD)`.
+--- @field GfxMirrorX number # Equivalent to `Player:mem(0x118, FIELD_FLOAT)`.
+--- @field UpwardJumpingForce integer # Equivalent to `Player:mem(0x11c, FIELD_WORD)`.
+--- @field JumpButtonHeld integer # Equivalent to `Player:mem(0x11e, FIELD_WORD)`.
+--- @field SpinjumpButtonHeld integer # Equivalent to `Player:mem(0x120, FIELD_WORD)`.
+--- @field ForcedAnimationState integer # Equivalent to `Player:mem(0x122, FIELD_WORD)`.
+--- @field ForcedAnimationTimer number # Equivalent to `Player:mem(0x124, FIELD_DFLOAT)`.
+--- @field DownButtonMirror integer # Equivalent to `Player:mem(0x12c, FIELD_WORD)`.
+--- @field InDuckingPosition integer # Equivalent to `Player:mem(0x12e, FIELD_WORD)`.
+--- @field SelectButtonMirror integer # Equivalent to `Player:mem(0x130, FIELD_WORD)`.
+--- @field Unknown132 integer # Equivalent to `Player:mem(0x132, FIELD_WORD)`.
+--- @field DownButtonTapped integer # Equivalent to `Player:mem(0x134, FIELD_WORD)`.
+--- @field Unknown136 integer # Equivalent to `Player:mem(0x136, FIELD_WORD)`.
+--- @field XMomentumPush number # Equivalent to `Player:mem(0x138, FIELD_FLOAT)`.
+--- @field DeathState integer # Equivalent to `Player:mem(0x13c, FIELD_WORD)`.
+--- @field DeathTimer integer # Equivalent to `Player:mem(0x13e, FIELD_WORD)`.
+--- @field BlinkTimer integer # Equivalent to `Player:mem(0x140, FIELD_WORD)`.
+--- @field BlinkState integer # Equivalent to `Player:mem(0x142, FIELD_WORD)`.
+--- @field Unknown144 integer # Equivalent to `Player:mem(0x144, FIELD_WORD)`.
+--- @field LayerStateStanding integer # Equivalent to `Player:mem(0x146, FIELD_WORD)`.
+--- @field LayerStateLeftContact integer # Equivalent to `Player:mem(0x148, FIELD_WORD)`.
+--- @field LayerStateTopContact integer # Equivalent to `Player:mem(0x14a, FIELD_WORD)`.
+--- @field LayerStateRightContact integer # Equivalent to `Player:mem(0x14c, FIELD_WORD)`.
+--- @field PushedByMovingLayer integer # Equivalent to `Player:mem(0x14e, FIELD_WORD)`.
+--- @field Unused150 integer # Equivalent to `Player:mem(0x150, FIELD_WORD)`.
+--- @field Unused152 integer # Equivalent to `Player:mem(0x152, FIELD_WORD)`.
+--- @field HeldNPCIndex integer # Equivalent to `Player:mem(0x154, FIELD_WORD)`.
+--- @field Unused182 integer # Equivalent to `Player:mem(0x182, FIELD_WORD)`.
+--- @field Unused180 integer # Equivalent to `Player:mem(0x180, FIELD_WORD)`.
+--- @field Unused17E integer # Equivalent to `Player:mem(0x17e, FIELD_WORD)`.
+--- @field Unused17C integer # Equivalent to `Player:mem(0x17c, FIELD_WORD)`.
+--- @field Unknown17A integer # Equivalent to `Player:mem(0x17a, FIELD_WORD)`.
+--- @field Unknown178 integer # Equivalent to `Player:mem(0x178, FIELD_WORD)`.
+--- @field NPCBeingStoodOnIndex integer # Equivalent to `Player:mem(0x176, FIELD_WORD)`.
+--- @field HoldingFlightButton integer # Equivalent to `Player:mem(0x174, FIELD_WORD)`.
+--- @field HoldingFlightRunButton integer # Equivalent to `Player:mem(0x172, FIELD_WORD)`.
+--- @field FlightTimeRemaining integer # Equivalent to `Player:mem(0x170, FIELD_WORD)`.
+--- @field IsFlying integer # Equivalent to `Player:mem(0x16e, FIELD_WORD)`.
+--- @field CanFly integer # Equivalent to `Player:mem(0x16c, FIELD_WORD)`.
+--- @field TakeoffSpeed number # Equivalent to `Player:mem(0x168, FIELD_FLOAT)`.
+--- @field Unknown166 integer # Equivalent to `Player:mem(0x166, FIELD_WORD)`.
+--- @field TailswipeTimer integer # Equivalent to `Player:mem(0x164, FIELD_WORD)`.
+--- @field ProjectileTimer2 integer # Equivalent to `Player:mem(0x162, FIELD_WORD)`.
+--- @field ProjectileTimer1 integer # Equivalent to `Player:mem(0x160, FIELD_WORD)`.
+--- @field TargetWarpIndex integer # Equivalent to `Player:mem(0x15e, FIELD_WORD)`.
+--- @field WarpCooldownTimer integer # Equivalent to `Player:mem(0x15c, FIELD_WORD)`.
+--- @field WarpTimer integer # Equivalent to `Player:mem(0x15c, FIELD_WORD)`.
+--- @field CurrentSection integer # Equivalent to `Player:mem(0x15a, FIELD_WORD)`.
+--- @field PowerupBoxContents integer # Equivalent to `Player:mem(0x158, FIELD_WORD)`.
+--- @field Unknown156 integer # Equivalent to `Player:mem(0x156, FIELD_WORD)`.
 local PlayerInstance = {}
 
 PlayerInstance.data = {

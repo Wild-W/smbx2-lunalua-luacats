@@ -175,5 +175,5 @@ Warp.allowItems = nil
 Warp.starsRequired = nil
 
 ---@alias WarpMemoryOffset
----|`0x8A` # Number of stars collected in the level the warp leads to. `FIELD_WORD`
----|`0x8C` # Total number of stars in the level the warp leads to. `FIELD_WORD`
+--- |`0x8A` # Number of stars collected in the level the warp leads to. `FIELD_WORD`
+--- |`0x8C` # Total number of stars in the level the warp leads to. `FIELD_WORD`

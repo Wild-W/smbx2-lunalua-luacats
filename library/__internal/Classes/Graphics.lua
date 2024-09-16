@@ -219,41 +219,41 @@ function Graphics.placeSprite(type, img, xPos, yPos, extra, time) end
 function Graphics.glDrawTriangles(vertexCoords, textureCoords, vertexCount) end
 
 ---@alias GLType
----| `GL_DOUBLE_VEC3`
----| `GL_DOUBLE_VEC2`
----| `GL_FLOAT`
----| `GL_FLOAT_VEC2`
----| `GL_FLOAT_VEC3`
----| `GL_FLOAT_VEC4`
----| `GL_FLOAT_MAT2`
----| `GL_FLOAT_MAT3`
----| `GL_FLOAT_MAT4`
----| `GL_FLOAT_MAT2x3`
----| `GL_FLOAT_MAT2x4`
----| `GL_FLOAT_MAT3x2`
----| `GL_FLOAT_MAT3x4`
----| `GL_FLOAT_MAT4x2`
----| `GL_FLOAT_MAT4x3`
----| `GL_INT`
----| `GL_INT_VEC2`
----| `GL_INT_VEC3`
----| `GL_INT_VEC4`
----| `GL_UNSIGNED_INT`
----| `GL_UNSIGNED_INT_VEC2`
----| `GL_UNSIGNED_INT_VEC3`
----| `GL_UNSIGNED_INT_VEC4`
----| `GL_DOUBLE_MAT4x3`
----| `GL_DOUBLE_MAT3x4`
----| `GL_DOUBLE_MAT3x2`
----| `GL_DOUBLE_MAT2x3`
----| `GL_DOUBLE_MAT3`
----| `GL_DOUBLE_MAT2`
----| `GL_DOUBLE_VEC4`
----| `GL_DOUBLE`
----| `GL_DOUBLE_MAT4`
----| `GL_SAMPLER_2D`
----| `GL_DOUBLE_MAT4x2`
----| `GL_DOUBLE_MAT2x4`
+--- | `GL_DOUBLE_VEC3`
+--- | `GL_DOUBLE_VEC2`
+--- | `GL_FLOAT`
+--- | `GL_FLOAT_VEC2`
+--- | `GL_FLOAT_VEC3`
+--- | `GL_FLOAT_VEC4`
+--- | `GL_FLOAT_MAT2`
+--- | `GL_FLOAT_MAT3`
+--- | `GL_FLOAT_MAT4`
+--- | `GL_FLOAT_MAT2x3`
+--- | `GL_FLOAT_MAT2x4`
+--- | `GL_FLOAT_MAT3x2`
+--- | `GL_FLOAT_MAT3x4`
+--- | `GL_FLOAT_MAT4x2`
+--- | `GL_FLOAT_MAT4x3`
+--- | `GL_INT`
+--- | `GL_INT_VEC2`
+--- | `GL_INT_VEC3`
+--- | `GL_INT_VEC4`
+--- | `GL_UNSIGNED_INT`
+--- | `GL_UNSIGNED_INT_VEC2`
+--- | `GL_UNSIGNED_INT_VEC3`
+--- | `GL_UNSIGNED_INT_VEC4`
+--- | `GL_DOUBLE_MAT4x3`
+--- | `GL_DOUBLE_MAT3x4`
+--- | `GL_DOUBLE_MAT3x2`
+--- | `GL_DOUBLE_MAT2x3`
+--- | `GL_DOUBLE_MAT3`
+--- | `GL_DOUBLE_MAT2`
+--- | `GL_DOUBLE_VEC4`
+--- | `GL_DOUBLE`
+--- | `GL_DOUBLE_MAT4`
+--- | `GL_SAMPLER_2D`
+--- | `GL_DOUBLE_MAT4x2`
+--- | `GL_DOUBLE_MAT2x4`
 
 GL_DOUBLE_VEC3 = 36861
 GL_DOUBLE_VEC2 = 36860
@@ -575,13 +575,13 @@ Graphics.GL_MAX_COMPUTE_WORK_GROUP_COUNT = nil
 Graphics.GL_MAX_COMPUTE_WORK_GROUP_SIZE = nil
 
 ---@alias PrimitiveType
----| `Graphics.GL_POINTS` # Individual vertices.
----| `Graphics.GL_LINES` # 2 vertices per line.
----| `Graphics.GL_LINE_STRIP` # Lines that follow the vertices in order.
----| `Graphics.GL_LINE_LOOP` # Lines that follow the vertices in order and loop back to the first.
----| `Graphics.GL_TRIANGLES` # 3 vertices per triangle.
----| `Graphics.GL_TRIANGLE_FAN` # Number of vertices must be 3 or greater. The first vertex of a triangle fan acts like a hub. The vertices following connect with the previous non-starting vertex and the hub.
----| `Graphics.GL_TRIANGLE_FAN` # Every 3 adjacent vertices will generate a triangle. Like with triangle fans, the number of vertices must be 3 or greater, but can be any number otherwise. For N vertices in a stream, triangle strips will generate N-2 triangles.
+--- | `Graphics.GL_POINTS` # Individual vertices.
+--- | `Graphics.GL_LINES` # 2 vertices per line.
+--- | `Graphics.GL_LINE_STRIP` # Lines that follow the vertices in order.
+--- | `Graphics.GL_LINE_LOOP` # Lines that follow the vertices in order and loop back to the first.
+--- | `Graphics.GL_TRIANGLES` # 3 vertices per triangle.
+--- | `Graphics.GL_TRIANGLE_FAN` # Number of vertices must be 3 or greater. The first vertex of a triangle fan acts like a hub. The vertices following connect with the previous non-starting vertex and the hub.
+--- | `Graphics.GL_TRIANGLE_FAN` # Every 3 adjacent vertices will generate a triangle. Like with triangle fans, the number of vertices must be 3 or greater, but can be any number otherwise. For N vertices in a stream, triangle strips will generate N-2 triangles.
 
 Graphics.HUD_NONE = 0
 
@@ -841,6 +841,6 @@ Graphics.GL_MAX_COMBINED_FRAGMENT_UNIFORM_COMPONENTS = nil
 Graphics.GL_MAX_SERVER_WAIT_TIMEOUT = nil
 
 ---@alias HUDType
----| `Graphics.HUD_NONE` # Neither hearts nor itembox are used.
----| `Graphics.HUD_HEARTS` # Heart-based HUD.
----| `Graphics.HUD_ITEMBOX` # Itembox-based HUD.
+--- | `Graphics.HUD_NONE` # Neither hearts nor itembox are used.
+--- | `Graphics.HUD_HEARTS` # Heart-based HUD.
+--- | `Graphics.HUD_ITEMBOX` # Itembox-based HUD.

@@ -1,157 +1,157 @@
 ---@meta _
 
 ---@alias VirtualKeyCode
----| `VK_LBUTTON` # Left mouse button
----| `VK_RBUTTON` # Right mouse button
----| `VK_CANCEL` # Control-break processing
----| `VK_MBUTTON` # Middle mouse button
----| `VK_XBUTTON1` # X1 mouse button
----| `VK_XBUTTON2` # X2 mouse button
----| `VK_BACK` # BACKSPACE key
----| `VK_TAB` # TAB key
----| `VK_CLEAR` # CLEAR key
----| `VK_RETURN` # ENTER key
----| `VK_SHIFT` # SHIFT key
----| `VK_CONTROL` # CTRL key
----| `VK_MENU` # ALT key
----| `VK_PAUSE` # PAUSE key
----| `VK_CAPITAL` # CAPS LOCK key
----| `VK_HANGUL` # IME Hangul mode
----| `VK_JUNJA` # IME Junja mode
----| `VK_FINAL` # IME final mode
----| `VK_HANJA` # IME Hanja mode
----| `VK_ESCAPE` # ESC key
----| `VK_CONVERT` # IME convert
----| `VK_NONCONVERT` # IME nonconvert
----| `VK_ACCEPT` # IME accept
----| `VK_MODECHANGE` # IME mode change request
----| `VK_SPACE` # SPACEBAR
----| `VK_PRIOR` # PAGE UP key
----| `VK_NEXT` # PAGE DOWN key
----| `VK_END` # END key
----| `VK_HOME` # HOME key
----| `VK_LEFT` # LEFT ARROW key
----| `VK_UP` # UP ARROW key
----| `VK_RIGHT` # RIGHT ARROW key
----| `VK_DOWN` # DOWN ARROW key
----| `VK_SELECT` # SELECT key
----| `VK_PRINT` # PRINT key
----| `VK_EXECUTE` # EXECUTE key
----| `VK_SNAPSHOT` # PRINT SCREEN key
----| `VK_INSERT` # INS key
----| `VK_DELETE` # DEL key
----| `VK_HELP` # HELP key
----| `VK_0` # 0 key
----| `VK_1` # 1 key
----| `VK_2` # 2 key
----| `VK_3` # 3 key
----| `VK_4` # 4 key
----| `VK_5` # 5 key
----| `VK_6` # 6 key
----| `VK_7` # 7 key
----| `VK_8` # 8 key
----| `VK_9` # 9 key
----| `VK_A` # A key
----| `VK_B` # B key
----| `VK_C` # C key
----| `VK_D` # D key
----| `VK_E` # E key
----| `VK_F` # F key
----| `VK_G` # G key
----| `VK_H` # H key
----| `VK_I` # I key
----| `VK_J` # J key
----| `VK_K` # K key
----| `VK_L` # L key
----| `VK_M` # M key
----| `VK_N` # N key
----| `VK_O` # O key
----| `VK_P` # P key
----| `VK_Q` # Q key
----| `VK_R` # R key
----| `VK_S` # S key
----| `VK_T` # T key
----| `VK_U` # U key
----| `VK_V` # V key
----| `VK_W` # W key
----| `VK_X` # X key
----| `VK_Y` # Y key
----| `VK_Z` # Z key
----| `VK_LWIN` # Left Windows key
----| `VK_RWIN` # Right Windows key
----| `VK_APPS` # Applications key
----| `VK_SLEEP` # Computer Sleep key
----| `VK_NUMPAD0` # Numeric keypad 0 key
----| `VK_NUMPAD1` # Numeric keypad 1 key
----| `VK_NUMPAD2` # Numeric keypad 2 key
----| `VK_NUMPAD3` # Numeric keypad 3 key
----| `VK_NUMPAD4` # Numeric keypad 4 key
----| `VK_NUMPAD5` # Numeric keypad 5 key
----| `VK_NUMPAD6` # Numeric keypad 6 key
----| `VK_NUMPAD7` # Numeric keypad 7 key
----| `VK_NUMPAD8` # Numeric keypad 8 key
----| `VK_NUMPAD9` # Numeric keypad 9 key
----| `VK_MULTIPLY` # Multiply key
----| `VK_ADD` # Add key
----| `VK_SEPARATOR` # Separator key
----| `VK_SUBTRACT` # Subtract key
----| `VK_DECIMAL` # Decimal key
----| `VK_DIVIDE` # Divide key
----| `VK_F1` # F1 key
----| `VK_F2` # F2 key
----| `VK_F3` # F3 key
----| `VK_F4` # F4 key
----| `VK_F5` # F5 key
----| `VK_F6` # F6 key
----| `VK_F7` # F7 key
----| `VK_F8` # F8 key
----| `VK_F9` # F9 key
----| `VK_F10` # F10 key
----| `VK_F11` # F11 key
----| `VK_F12` # F12 key
----| `VK_F13` # F13 key
----| `VK_F14` # F14 key
----| `VK_F15` # F15 key
----| `VK_F16` # F16 key
----| `VK_F17` # F17 key
----| `VK_F18` # F18 key
----| `VK_F19` # F19 key
----| `VK_F20` # F20 key
----| `VK_F21` # F21 key
----| `VK_F22` # F22 key
----| `VK_F23` # F23 key
----| `VK_F24` # F24 key
----| `VK_NUMLOCK` # NUM LOCK key
----| `VK_SCROLL` # SCROLL LOCK key
----| `VK_LSHIFT` # Left SHIFT key
----| `VK_RSHIFT` # Right SHIFT key
----| `VK_LCONTROL` # Left CONTROL key
----| `VK_RCONTROL` # Right CONTROL key
----| `VK_LMENU` # Left ALT key
----| `VK_RMENU` # Right ALT key
----| `VK_BROWSER_BACK` # Browser Back key
----| `VK_BROWSER_FORWARD` # Browser Forward key
----| `VK_BROWSER_REFRESH` # Browser Refresh key
----| `VK_BROWSER_STOP` # Browser Stop key
----| `VK_BROWSER_SEARCH` # Browser Search key
----| `VK_BROWSER_FAVORITES` # Browser Favorites key
----| `VK_BROWSER_HOME` # Browser Start and Home key
----| `VK_VOLUME_MUTE` # Volume Mute key
----| `VK_VOLUME_DOWN` # Volume Down key
----| `VK_VOLUME_UP` # Volume Up key
----| `VK_MEDIA_NEXT_TRACK` # Next Track key
----| `VK_MEDIA_PREV_TRACK` # Previous Track key
----| `VK_MEDIA_STOP` # Stop Media key
----| `VK_MEDIA_PLAY_PAUSE` # Play/Pause Media key
----| `VK_LAUNCH_MAIL` # Start Mail key
----| `VK_LAUNCH_MEDIA_SELECT` # Select Media key
----| `VK_LAUNCH_APP1` # Start Application 1 key
----| `VK_LAUNCH_APP2` # Start Application 2 key
----| `VK_OEM_NEC_EQUAL` # OEM specific
----| `VK_OEM_FJ_MASSHOU` # OEM specific
----| `VK_OEM_FJ_TOUROKU` # OEM specific
----| `VK_OEM_FJ_LOYA` # OEM specific
----| `VK_OEM_FJ_ROYA` # OEM specific
+--- | `VK_LBUTTON` # Left mouse button
+--- | `VK_RBUTTON` # Right mouse button
+--- | `VK_CANCEL` # Control-break processing
+--- | `VK_MBUTTON` # Middle mouse button
+--- | `VK_XBUTTON1` # X1 mouse button
+--- | `VK_XBUTTON2` # X2 mouse button
+--- | `VK_BACK` # BACKSPACE key
+--- | `VK_TAB` # TAB key
+--- | `VK_CLEAR` # CLEAR key
+--- | `VK_RETURN` # ENTER key
+--- | `VK_SHIFT` # SHIFT key
+--- | `VK_CONTROL` # CTRL key
+--- | `VK_MENU` # ALT key
+--- | `VK_PAUSE` # PAUSE key
+--- | `VK_CAPITAL` # CAPS LOCK key
+--- | `VK_HANGUL` # IME Hangul mode
+--- | `VK_JUNJA` # IME Junja mode
+--- | `VK_FINAL` # IME final mode
+--- | `VK_HANJA` # IME Hanja mode
+--- | `VK_ESCAPE` # ESC key
+--- | `VK_CONVERT` # IME convert
+--- | `VK_NONCONVERT` # IME nonconvert
+--- | `VK_ACCEPT` # IME accept
+--- | `VK_MODECHANGE` # IME mode change request
+--- | `VK_SPACE` # SPACEBAR
+--- | `VK_PRIOR` # PAGE UP key
+--- | `VK_NEXT` # PAGE DOWN key
+--- | `VK_END` # END key
+--- | `VK_HOME` # HOME key
+--- | `VK_LEFT` # LEFT ARROW key
+--- | `VK_UP` # UP ARROW key
+--- | `VK_RIGHT` # RIGHT ARROW key
+--- | `VK_DOWN` # DOWN ARROW key
+--- | `VK_SELECT` # SELECT key
+--- | `VK_PRINT` # PRINT key
+--- | `VK_EXECUTE` # EXECUTE key
+--- | `VK_SNAPSHOT` # PRINT SCREEN key
+--- | `VK_INSERT` # INS key
+--- | `VK_DELETE` # DEL key
+--- | `VK_HELP` # HELP key
+--- | `VK_0` # 0 key
+--- | `VK_1` # 1 key
+--- | `VK_2` # 2 key
+--- | `VK_3` # 3 key
+--- | `VK_4` # 4 key
+--- | `VK_5` # 5 key
+--- | `VK_6` # 6 key
+--- | `VK_7` # 7 key
+--- | `VK_8` # 8 key
+--- | `VK_9` # 9 key
+--- | `VK_A` # A key
+--- | `VK_B` # B key
+--- | `VK_C` # C key
+--- | `VK_D` # D key
+--- | `VK_E` # E key
+--- | `VK_F` # F key
+--- | `VK_G` # G key
+--- | `VK_H` # H key
+--- | `VK_I` # I key
+--- | `VK_J` # J key
+--- | `VK_K` # K key
+--- | `VK_L` # L key
+--- | `VK_M` # M key
+--- | `VK_N` # N key
+--- | `VK_O` # O key
+--- | `VK_P` # P key
+--- | `VK_Q` # Q key
+--- | `VK_R` # R key
+--- | `VK_S` # S key
+--- | `VK_T` # T key
+--- | `VK_U` # U key
+--- | `VK_V` # V key
+--- | `VK_W` # W key
+--- | `VK_X` # X key
+--- | `VK_Y` # Y key
+--- | `VK_Z` # Z key
+--- | `VK_LWIN` # Left Windows key
+--- | `VK_RWIN` # Right Windows key
+--- | `VK_APPS` # Applications key
+--- | `VK_SLEEP` # Computer Sleep key
+--- | `VK_NUMPAD0` # Numeric keypad 0 key
+--- | `VK_NUMPAD1` # Numeric keypad 1 key
+--- | `VK_NUMPAD2` # Numeric keypad 2 key
+--- | `VK_NUMPAD3` # Numeric keypad 3 key
+--- | `VK_NUMPAD4` # Numeric keypad 4 key
+--- | `VK_NUMPAD5` # Numeric keypad 5 key
+--- | `VK_NUMPAD6` # Numeric keypad 6 key
+--- | `VK_NUMPAD7` # Numeric keypad 7 key
+--- | `VK_NUMPAD8` # Numeric keypad 8 key
+--- | `VK_NUMPAD9` # Numeric keypad 9 key
+--- | `VK_MULTIPLY` # Multiply key
+--- | `VK_ADD` # Add key
+--- | `VK_SEPARATOR` # Separator key
+--- | `VK_SUBTRACT` # Subtract key
+--- | `VK_DECIMAL` # Decimal key
+--- | `VK_DIVIDE` # Divide key
+--- | `VK_F1` # F1 key
+--- | `VK_F2` # F2 key
+--- | `VK_F3` # F3 key
+--- | `VK_F4` # F4 key
+--- | `VK_F5` # F5 key
+--- | `VK_F6` # F6 key
+--- | `VK_F7` # F7 key
+--- | `VK_F8` # F8 key
+--- | `VK_F9` # F9 key
+--- | `VK_F10` # F10 key
+--- | `VK_F11` # F11 key
+--- | `VK_F12` # F12 key
+--- | `VK_F13` # F13 key
+--- | `VK_F14` # F14 key
+--- | `VK_F15` # F15 key
+--- | `VK_F16` # F16 key
+--- | `VK_F17` # F17 key
+--- | `VK_F18` # F18 key
+--- | `VK_F19` # F19 key
+--- | `VK_F20` # F20 key
+--- | `VK_F21` # F21 key
+--- | `VK_F22` # F22 key
+--- | `VK_F23` # F23 key
+--- | `VK_F24` # F24 key
+--- | `VK_NUMLOCK` # NUM LOCK key
+--- | `VK_SCROLL` # SCROLL LOCK key
+--- | `VK_LSHIFT` # Left SHIFT key
+--- | `VK_RSHIFT` # Right SHIFT key
+--- | `VK_LCONTROL` # Left CONTROL key
+--- | `VK_RCONTROL` # Right CONTROL key
+--- | `VK_LMENU` # Left ALT key
+--- | `VK_RMENU` # Right ALT key
+--- | `VK_BROWSER_BACK` # Browser Back key
+--- | `VK_BROWSER_FORWARD` # Browser Forward key
+--- | `VK_BROWSER_REFRESH` # Browser Refresh key
+--- | `VK_BROWSER_STOP` # Browser Stop key
+--- | `VK_BROWSER_SEARCH` # Browser Search key
+--- | `VK_BROWSER_FAVORITES` # Browser Favorites key
+--- | `VK_BROWSER_HOME` # Browser Start and Home key
+--- | `VK_VOLUME_MUTE` # Volume Mute key
+--- | `VK_VOLUME_DOWN` # Volume Down key
+--- | `VK_VOLUME_UP` # Volume Up key
+--- | `VK_MEDIA_NEXT_TRACK` # Next Track key
+--- | `VK_MEDIA_PREV_TRACK` # Previous Track key
+--- | `VK_MEDIA_STOP` # Stop Media key
+--- | `VK_MEDIA_PLAY_PAUSE` # Play/Pause Media key
+--- | `VK_LAUNCH_MAIL` # Start Mail key
+--- | `VK_LAUNCH_MEDIA_SELECT` # Select Media key
+--- | `VK_LAUNCH_APP1` # Start Application 1 key
+--- | `VK_LAUNCH_APP2` # Start Application 2 key
+--- | `VK_OEM_NEC_EQUAL` # OEM specific
+--- | `VK_OEM_FJ_MASSHOU` # OEM specific
+--- | `VK_OEM_FJ_TOUROKU` # OEM specific
+--- | `VK_OEM_FJ_LOYA` # OEM specific
+--- | `VK_OEM_FJ_ROYA` # OEM specific
 
 ---Left mouse button
 VK_LBUTTON = 0x1

@@ -2,22 +2,22 @@
 
 ---Constants for the character names.
 ---@alias CharacterType
----| `CHARACTER_MARIO` # Mario.
----| `CHARACTER_LUIGI` # Luigi.
----| `CHARACTER_PEACH` # Peach.
----| `CHARACTER_TOAD` # Toad.
----| `CHARACTER_LINK` # Link.
----| `CHARACTER_MEGAMAN` # Megaman.
----| `CHARACTER_WARIO` # Wario.
----| `CHARACTER_BOWSER` # Bowser.
----| `CHARACTER_KLONOA` # Klonoa.
----| `CHARACTER_NINJABOMBERMAN` # Ninja Bomberman.
----| `CHARACTER_ROSALINA` # Rosalina.
----| `CHARACTER_SNAKE` # Snake.
----| `CHARACTER_ZELDA` # Zelda.
----| `CHARACTER_ULTIMATERINKA` # Ultimate Rinka.
----| `CHARACTER_UNCLEBROADSWORD` # Uncle Broadsword.
----| `CHARACTER_SAMUS` # Samus.
+--- | `CHARACTER_MARIO` # Mario.
+--- | `CHARACTER_LUIGI` # Luigi.
+--- | `CHARACTER_PEACH` # Peach.
+--- | `CHARACTER_TOAD` # Toad.
+--- | `CHARACTER_LINK` # Link.
+--- | `CHARACTER_MEGAMAN` # Megaman.
+--- | `CHARACTER_WARIO` # Wario.
+--- | `CHARACTER_BOWSER` # Bowser.
+--- | `CHARACTER_KLONOA` # Klonoa.
+--- | `CHARACTER_NINJABOMBERMAN` # Ninja Bomberman.
+--- | `CHARACTER_ROSALINA` # Rosalina.
+--- | `CHARACTER_SNAKE` # Snake.
+--- | `CHARACTER_ZELDA` # Zelda.
+--- | `CHARACTER_ULTIMATERINKA` # Ultimate Rinka.
+--- | `CHARACTER_UNCLEBROADSWORD` # Uncle Broadsword.
+--- | `CHARACTER_SAMUS` # Samus.
 
 ---Mario.
 CHARACTER_MARIO = 1

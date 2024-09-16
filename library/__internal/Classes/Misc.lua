@@ -644,9 +644,9 @@ function Misc._playerHarm(...) end
 Misc.groupsCollide = nil
 
 ---@alias PowType
----| `Misc.powType.LEGACY`
----| `Misc.powType.SMB2`
----| `Misc.powType.SMW`
+--- | `Misc.powType.LEGACY`
+--- | `Misc.powType.SMB2`
+--- | `Misc.powType.SMW`
 
 Misc.powType = {}
 Misc.powType.LEGACY = 1
