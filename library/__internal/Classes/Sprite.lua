@@ -3,14 +3,14 @@
 -- This file needs a lot of work.
 
 ---The Sprite class is designed for more in-depth drawing functions, without the use of Graphics.glDraw. It is used to create objects that can be moved, rotated, animated, stretched, and applied to an object hierarchy using Transforms.
----@class SpriteManager
 Sprite = {}
 
-Sprite.barscale = {}
-
-Sprite.barscale.BOTH = 0
-Sprite.barscale.HORIZONTAL = 1
-Sprite.barscale.VERTICAL = -1
+---@enum Sprite.ScaleType
+Sprite.barscale = {
+    BOTH = 0,
+    HORIZONTAL = 1,
+    VERTICAL = -1,
+}
 
 Sprite.align = {}
 
@@ -47,11 +47,6 @@ Sprite.align.CENTRE = nil
 ---@type Vector2
 Sprite.align.BOTTOM = nil
 
----Creates a new Sprite object. The supplied arguments will determine the shape of the object.
----@param args table
----@return Sprite sprite
-function Sprite(args) end
-
 ---Creates a new Progress Bar.
 ---@param args table
 ---@return SpriteBar bar
@@ -75,6 +70,11 @@ function Sprite.poly(args) end
 ---@param args table
 ---@return Sprite sprite
 function Sprite.circle(args) end
+
+---Creates a new Sprite object. The supplied arguments will determine the shape of the object.
+---@param args table
+---@return Sprite sprite
+function Sprite(args) end
 
 ---@class Sprite : Transformable
 --- @field x number The local x coordinate of the Sprite.
@@ -131,16 +131,16 @@ function Sprite:draw(args) end
 function Sprite:texrotate(angle, worldspace) end
 
 ---Moves the texture by the given vector.
----@param vector2 Vector2 The motion vector to apply.
----@param worldspace boolean? Whether the motion should be applied in world-space. Defaults to `false`.
 ---## Usage
 ---```lua
 ---mySprite:textranslate(vector.up2, true)
 ---```
+---@param vector2 Vector2 The motion vector to apply.
+---@param worldspace boolean? Whether the motion should be applied in world-space. Defaults to `false`.
 function Sprite:textranslate(vector2, worldspace) end
 
 ---@class SpriteBar : Sprite
----@field bgbordertexture LuaImageResource? The image displayed on the Bar background's border. If set to `nil`, the `bgtexture` field will be used.
----@field bgborderimage LuaImageResource? The image displayed on the Bar background's border. If set to `nil`, the `bgtexture` field will be used.
----@field bgtexture LuaImageResource The image displayed on the Bar background.
----@field bgimage LuaImageResource The image displayed on the Bar background.
+--- @field bgbordertexture LuaImageResource? The image displayed on the Bar background's border. If set to `nil`, the `bgtexture` field will be used.
+--- @field bgborderimage LuaImageResource? The image displayed on the Bar background's border. If set to `nil`, the `bgtexture` field will be used.
+--- @field bgtexture LuaImageResource The image displayed on the Bar background.
+--- @field bgimage LuaImageResource The image displayed on the Bar background.

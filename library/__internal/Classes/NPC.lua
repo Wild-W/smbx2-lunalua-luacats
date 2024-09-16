@@ -1,98 +1,98 @@
 ---@meta _
 
 ---@alias NPCMemoryOffset
----|`0x00` # Attached layer name. Use field attachedLayerObj or attachedLayerName. `FIELD_STRING`
----|`0x04` # 2 when the NPC is inside quicksand, 1 on the frame the NPC leaves quicksand. `FIELD_WORD`
----|`0x06` # Respawn delay. Counts down each frame and prevents the NPC from spawning while over 0. Only ever set in battle mode. `FIELD_WORD`
----|`0x08` # True if the NPC should bounce on the floor. Held/thrown by Toad/Peach or knocked forward by Link stab. Resets when touching the ground, but does not reset if Peach or Toad dropped the NPC without throwing it. `FIELD_BOOL`
----|`0x0A` # Set to 2 when touching a block below and briefly immediately after being thrown by the player. Use field collidesBlockBottom. `FIELD_WORD`
----|`0x0C` # Set to 2 when touching a block to the left. Use field collidesBlockLeft. `FIELD_WORD`
----|`0x0E` # Set to 2 when touching a block above. Use field collidesBlockUp. `FIELD_WORD`
----|`0x10` # Set to 2 when touching a block to the right. Use field collidesBlockRight. `FIELD_WORD`
----|`0x12` # Set to 2 when pushed by a layer or another NPC. Needs to be set in order to crush the NPC. `FIELD_WORD`
----|`0x14` # Unused Timeout for Held NPCs in Online Play. `FIELD_WORD`
----|`0x18` # Speed X value without "speed" config modifier. Horizontal speed is copied into here before processing the speed config, and copied back after movement occurs. `FIELD_FLOAT`
----|`0x1C` # Water countdown timer. Normally set to 2 when in water and will count down to 0. Integer values from -1 through 3 may have distinct effects in various cases. `FIELD_WORD`
----|`0x1E` # Unused Settings (?). `FIELD_WORD`
----|`0x20` # True if the NPC should not create a lava splash effect. `FIELD_BOOL`
----|`0x22` # Block-array index of slope currently stood on. `FIELD_WORD`
----|`0x24` # Hit counter for score calculation. `FIELD_WORD`
----|`0x26` # Invincibility frame countdown for sword attacks and tail swipes. Use field invincibleToSword. `FIELD_WORD`
----|`0x28` # Whether to only draw the NPC's silhouette and let it pass through walls. Use field drawOnlyMask. `FIELD_BOOL`
----|`0x2C` # Name of the Activate-Event. Use field activateEventName. `FIELD_STRING`
----|`0x30` # Name of the Death-Event. Use field deathEventName. `FIELD_STRING`
----|`0x34` # Name of the Talk-Event. Use field talkEventName. `FIELD_STRING`
----|`0x38` # Name of the Empty-Layer-Event. Use field noMoreObjInLayer. `FIELD_STRING`
----|`0x3C` # Name of the NPC's layer. Use field layerName. `FIELD_STRING`
----|`0x40` # Whether or not the NPC is currently hidden. Use field isHidden. `FIELD_BOOL`
----|`0x42` # Whether or not the legacyBoss flag is enabled. Use field legacyBoss. `FIELD_BOOL`
----|`0x44` # True if the exclamation mark for talking to the NPC is being displayed. `FIELD_BOOL`
----|`0x46` # Whether or not the NPC is friendly. Use field friendly. `FIELD_BOOL`
----|`0x48` # True if the NPC is set to not move. Use field dontMove. `FIELD_BOOL`
----|`0x4A` # True if the Dont Move flag was initially set. `FIELD_BOOL`
----|`0x4C` # The NPC's talk message. Use field msg. `FIELD_STRING`
----|`0x50` # Horizontal force exerted on the NPC to push it out of a block. `FIELD_FLOAT`
----|`0x5C` # Horizontal force exerted on the NPC by a touched NPC or layer. `FIELD_FLOAT`
----|`0x60` # Index of the clown car-riding player the NPC is standing on. `FIELD_WORD`
----|`0x62` # Y-Coordinate of the clown car-riding player the NPC is standing on. `FIELD_WORD`
----|`0x64` # True for generators. Use field isGenerator. `FIELD_BOOL`
----|`0x68` # A generator NPC's spawn interval. Use field generatorInterval. `FIELD_FLOAT`
----|`0x6C` # Generator timer. Use field generatorTimer. `FIELD_FLOAT`
----|`0x70` # A generator NPC's spawn direction. Use field generatorDirection. `FIELD_WORD`
----|`0x72` # A generator NPC's type. Use field generatorType. `FIELD_WORD`
----|`0x74` # Whether or not the generator can fire. Does not account for objects blocking the generator's spawn position. `FIELD_BOOL`
----|`0x76` # Something to do with players standing on NPCs (?). `FIELD_BOOL`
----|`0x78` # NPC X-Position. Use field x. `FIELD_DFLOAT`
----|`0x80` # NPC Y-Position. Use field y. `FIELD_DFLOAT`
----|`0x88` # NPC Width. Use field width. `FIELD_DFLOAT`
----|`0x90` # NPC Height. Use field height. `FIELD_DFLOAT`
----|`0x98` # NPC X-Speed. Use field speedX. `FIELD_DFLOAT`
----|`0xA0` # NPC Y-Speed. Use field speedY. `FIELD_DFLOAT`
----|`0xA8` # NPC Spawn X-Position. Use field spawnX. `FIELD_DFLOAT`
----|`0xB0` # NPC Spawn Y-Position. Use field spawnY. `FIELD_DFLOAT`
----|`0xB8` # NPC Spawn Width. Use field spawnWidth. `FIELD_DFLOAT`
----|`0xC0` # NPC Spawn Height. Use field spawnHeight. `FIELD_DFLOAT`
----|`0xC8` # NPC Spawn X-Speed. Use field spawnSpeedX. `FIELD_DFLOAT`
----|`0xD0` # NPC Spawn Y-Speed. Use field spawnSpeedY. `FIELD_DFLOAT`
----|`0xD8` # Direction the NPC is spawned in. Use field spawnDirection. `FIELD_FLOAT`
----|`0xDC` # ID which the NPC spawns as. 0 means doesn't respawn. Use field spawnId. `FIELD_WORD`
----|`0xDE` # ai1 value on respawn. Contains ID of the "contained NPC" for container NPCs. Use field spawnAi1. `FIELD_WORD`
----|`0xE0` # ai2 value on respawn. Other ai values are always reset to 0. Use field spawnAi2. `FIELD_WORD`
----|`0xE2` # The NPC's ID. Use field id. `FIELD_WORD`
----|`0xE4` # The NPC's animationFrame. Use field animationFrame. `FIELD_WORD`
----|`0xE6` # The NPC's array index in the NPC array. Use field idx. `FIELD_WORD`
----|`0xE8` # The NPC's animation timer. Use field animationTimer. `FIELD_FLOAT`
----|`0xEC` # The NPC's facing direction. Use field direction. `FIELD_FLOAT`
----|`0xF0` # The NPC's ai1 value. Use field ai1. `FIELD_DFLOAT`
----|`0xF8` # The NPC's ai2 value. Use field ai2. `FIELD_DFLOAT`
----|`0x100` # The NPC's ai3 value. Use field ai3. `FIELD_DFLOAT`
----|`0x108` # The NPC's ai4 value. Use field ai4. `FIELD_DFLOAT`
----|`0x110` # The NPC's ai5 value. Use field ai5. `FIELD_DFLOAT`
----|`0x118` # A rarely used 6th ai value. Used by Larry, Ludwig, Toad's Boomerang, SMW Lakitu, and the glitchy airship piece NPC. Use field ai6. `FIELD_DFLOAT`
----|`0x120` # True if the NPC is scheduled to turn around. `FIELD_BOOL`
----|`0x11C` # Y-Speed influence through player input (used by glitchy airship piece NPC). `FIELD_FLOAT`
----|`0x122` # True if the NPC is scheduled to die with a given harm type. Use field killFlag. `FIELD_WORD`
----|`0x124` # This is set to false when an NPC resets its respawn position, but will not spawn itself fully because it's still visible by the player. Note: Must be set to true when enforcing a respawn. `FIELD_BOOL`
----|`0x126` # Whether or not the NPC is onscreen on the first or only camera. `FIELD_BOOL`
----|`0x128` # Whether or not the NPC is onscreen on the second or only camera. `FIELD_BOOL`
----|`0x12A` # The NPC's despawn timer. Use field despawnTimer. `FIELD_WORD`
----|`0x12C` # The index of the player grabbing the NPC. Defaults to 0 when not grabbed, setting to 1 or higher deactivates block collision when grabbed but causes the respective player to drop other objects. Use field heldIndex. `FIELD_WORD`
----|`0x12E` # Countdown timer during which thrown NPCs are unable to hurt the throwing player. Set to 30 when thrown. `FIELD_WORD`
----|`0x130` # Index of grabbing player which should be marked as un-harmable while 0x12E is above 0. `FIELD_WORD`
----|`0x132` # Which Player threw the NPC. Resets when NPC resumes normal behaviour. Used in Battle Mode. `FIELD_WORD`
----|`0x134` # Used for NPC's being crushed. If inside a block while this is greater than or equal to 5, most NPC's will die (with exceptions, such as springs). Forcing to 0 can prevent the NPC from dying when thrown into a wall. `FIELD_WORD`
----|`0x136` # If true, the NPC can harm other NPC's. Usually true for thrown NPCs and projectile-generated NPCs. Use field isProjectile. `FIELD_BOOL`
----|`0x138` # The NPC's forced state/contained within value. See the table below for details. Use field forcedState. `FIELD_WORD`
----|`0x13C` # General purpose "timer" for forced states. See 0x138 for how each state uses it. Use field forcedCounter1. `FIELD_DFLOAT`
----|`0x144` # General purpose "timer" for forced states. See 0x138 for how each state uses it. Use field forcedCounter2. `FIELD_WORD`
----|`0x146` # The NPC's section. Use field section. `FIELD_WORD`
----|`0x148` # Boss Hit count. Counts up until a per-boss hardcoded kill thereshold is reached. Does not always start at 0 depending on NPC config. `FIELD_FLOAT`
----|`0x14C` # Index of camera that just spawned the NPC. `FIELD_WORD`
----|`0x14E` # ID of the block the NPC was created from due to an ongoing P-Switch effect. `FIELD_WORD`
----|`0x150` # Index of NPC in an array involving blocks. Appears to only count for NPCs affected by the npcblocktop flag (?). `FIELD_WORD`
----|`0x152` # Likely used for an internal bug fix related to collisions next to walls. `FIELD_BOOL`
----|`0x154` # Is set to true when an NPC in a "No Turn Back" section is spawned. The "No Turn Back"-Effect is only capable of permanently killing NPCs with this flag set to true. `FIELD_BOOL`
----|`0x156` # Invincibility frame countdown for all sources of harm. `FIELD_WORD`
+---| `0x00` # Attached layer name. Use field attachedLayerObj or attachedLayerName. `FIELD_STRING`
+---| `0x04` # 2 when the NPC is inside quicksand, 1 on the frame the NPC leaves quicksand. `FIELD_WORD`
+---| `0x06` # Respawn delay. Counts down each frame and prevents the NPC from spawning while over 0. Only ever set in battle mode. `FIELD_WORD`
+---| `0x08` # True if the NPC should bounce on the floor. Held/thrown by Toad/Peach or knocked forward by Link stab. Resets when touching the ground, but does not reset if Peach or Toad dropped the NPC without throwing it. `FIELD_BOOL`
+---| `0x0A` # Set to 2 when touching a block below and briefly immediately after being thrown by the player. Use field collidesBlockBottom. `FIELD_WORD`
+---| `0x0C` # Set to 2 when touching a block to the left. Use field collidesBlockLeft. `FIELD_WORD`
+---| `0x0E` # Set to 2 when touching a block above. Use field collidesBlockUp. `FIELD_WORD`
+---| `0x10` # Set to 2 when touching a block to the right. Use field collidesBlockRight. `FIELD_WORD`
+---| `0x12` # Set to 2 when pushed by a layer or another NPC. Needs to be set in order to crush the NPC. `FIELD_WORD`
+---| `0x14` # Unused Timeout for Held NPCs in Online Play. `FIELD_WORD`
+---| `0x18` # Speed X value without "speed" config modifier. Horizontal speed is copied into here before processing the speed config, and copied back after movement occurs. `FIELD_FLOAT`
+---| `0x1C` # Water countdown timer. Normally set to 2 when in water and will count down to 0. Integer values from -1 through 3 may have distinct effects in various cases. `FIELD_WORD`
+---| `0x1E` # Unused Settings (?). `FIELD_WORD`
+---| `0x20` # True if the NPC should not create a lava splash effect. `FIELD_BOOL`
+---| `0x22` # Block-array index of slope currently stood on. `FIELD_WORD`
+---| `0x24` # Hit counter for score calculation. `FIELD_WORD`
+---| `0x26` # Invincibility frame countdown for sword attacks and tail swipes. Use field invincibleToSword. `FIELD_WORD`
+---| `0x28` # Whether to only draw the NPC's silhouette and let it pass through walls. Use field drawOnlyMask. `FIELD_BOOL`
+---| `0x2C` # Name of the Activate-Event. Use field activateEventName. `FIELD_STRING`
+---| `0x30` # Name of the Death-Event. Use field deathEventName. `FIELD_STRING`
+---| `0x34` # Name of the Talk-Event. Use field talkEventName. `FIELD_STRING`
+---| `0x38` # Name of the Empty-Layer-Event. Use field noMoreObjInLayer. `FIELD_STRING`
+---| `0x3C` # Name of the NPC's layer. Use field layerName. `FIELD_STRING`
+---| `0x40` # Whether or not the NPC is currently hidden. Use field isHidden. `FIELD_BOOL`
+---| `0x42` # Whether or not the legacyBoss flag is enabled. Use field legacyBoss. `FIELD_BOOL`
+---| `0x44` # True if the exclamation mark for talking to the NPC is being displayed. `FIELD_BOOL`
+---| `0x46` # Whether or not the NPC is friendly. Use field friendly. `FIELD_BOOL`
+---| `0x48` # True if the NPC is set to not move. Use field dontMove. `FIELD_BOOL`
+---| `0x4A` # True if the Dont Move flag was initially set. `FIELD_BOOL`
+---| `0x4C` # The NPC's talk message. Use field msg. `FIELD_STRING`
+---| `0x50` # Horizontal force exerted on the NPC to push it out of a block. `FIELD_FLOAT`
+---| `0x5C` # Horizontal force exerted on the NPC by a touched NPC or layer. `FIELD_FLOAT`
+---| `0x60` # Index of the clown car-riding player the NPC is standing on. `FIELD_WORD`
+---| `0x62` # Y-Coordinate of the clown car-riding player the NPC is standing on. `FIELD_WORD`
+---| `0x64` # True for generators. Use field isGenerator. `FIELD_BOOL`
+---| `0x68` # A generator NPC's spawn interval. Use field generatorInterval. `FIELD_FLOAT`
+---| `0x6C` # Generator timer. Use field generatorTimer. `FIELD_FLOAT`
+---| `0x70` # A generator NPC's spawn direction. Use field generatorDirection. `FIELD_WORD`
+---| `0x72` # A generator NPC's type. Use field generatorType. `FIELD_WORD`
+---| `0x74` # Whether or not the generator can fire. Does not account for objects blocking the generator's spawn position. `FIELD_BOOL`
+---| `0x76` # Something to do with players standing on NPCs (?). `FIELD_BOOL`
+---| `0x78` # NPC X-Position. Use field x. `FIELD_DFLOAT`
+---| `0x80` # NPC Y-Position. Use field y. `FIELD_DFLOAT`
+---| `0x88` # NPC Width. Use field width. `FIELD_DFLOAT`
+---| `0x90` # NPC Height. Use field height. `FIELD_DFLOAT`
+---| `0x98` # NPC X-Speed. Use field speedX. `FIELD_DFLOAT`
+---| `0xA0` # NPC Y-Speed. Use field speedY. `FIELD_DFLOAT`
+---| `0xA8` # NPC Spawn X-Position. Use field spawnX. `FIELD_DFLOAT`
+---| `0xB0` # NPC Spawn Y-Position. Use field spawnY. `FIELD_DFLOAT`
+---| `0xB8` # NPC Spawn Width. Use field spawnWidth. `FIELD_DFLOAT`
+---| `0xC0` # NPC Spawn Height. Use field spawnHeight. `FIELD_DFLOAT`
+---| `0xC8` # NPC Spawn X-Speed. Use field spawnSpeedX. `FIELD_DFLOAT`
+---| `0xD0` # NPC Spawn Y-Speed. Use field spawnSpeedY. `FIELD_DFLOAT`
+---| `0xD8` # Direction the NPC is spawned in. Use field spawnDirection. `FIELD_FLOAT`
+---| `0xDC` # ID which the NPC spawns as. 0 means doesn't respawn. Use field spawnId. `FIELD_WORD`
+---| `0xDE` # ai1 value on respawn. Contains ID of the "contained NPC" for container NPCs. Use field spawnAi1. `FIELD_WORD`
+---| `0xE0` # ai2 value on respawn. Other ai values are always reset to 0. Use field spawnAi2. `FIELD_WORD`
+---| `0xE2` # The NPC's ID. Use field id. `FIELD_WORD`
+---| `0xE4` # The NPC's animationFrame. Use field animationFrame. `FIELD_WORD`
+---| `0xE6` # The NPC's array index in the NPC array. Use field idx. `FIELD_WORD`
+---| `0xE8` # The NPC's animation timer. Use field animationTimer. `FIELD_FLOAT`
+---| `0xEC` # The NPC's facing direction. Use field direction. `FIELD_FLOAT`
+---| `0xF0` # The NPC's ai1 value. Use field ai1. `FIELD_DFLOAT`
+---| `0xF8` # The NPC's ai2 value. Use field ai2. `FIELD_DFLOAT`
+---| `0x100` # The NPC's ai3 value. Use field ai3. `FIELD_DFLOAT`
+---| `0x108` # The NPC's ai4 value. Use field ai4. `FIELD_DFLOAT`
+---| `0x110` # The NPC's ai5 value. Use field ai5. `FIELD_DFLOAT`
+---| `0x118` # A rarely used 6th ai value. Used by Larry, Ludwig, Toad's Boomerang, SMW Lakitu, and the glitchy airship piece NPC. Use field ai6. `FIELD_DFLOAT`
+---| `0x120` # True if the NPC is scheduled to turn around. `FIELD_BOOL`
+---| `0x11C` # Y-Speed influence through player input (used by glitchy airship piece NPC). `FIELD_FLOAT`
+---| `0x122` # True if the NPC is scheduled to die with a given harm type. Use field killFlag. `FIELD_WORD`
+---| `0x124` # This is set to false when an NPC resets its respawn position, but will not spawn itself fully because it's still visible by the player. Note: Must be set to true when enforcing a respawn. `FIELD_BOOL`
+---| `0x126` # Whether or not the NPC is onscreen on the first or only camera. `FIELD_BOOL`
+---| `0x128` # Whether or not the NPC is onscreen on the second or only camera. `FIELD_BOOL`
+---| `0x12A` # The NPC's despawn timer. Use field despawnTimer. `FIELD_WORD`
+---| `0x12C` # The index of the player grabbing the NPC. Defaults to 0 when not grabbed, setting to 1 or higher deactivates block collision when grabbed but causes the respective player to drop other objects. Use field heldIndex. `FIELD_WORD`
+---| `0x12E` # Countdown timer during which thrown NPCs are unable to hurt the throwing player. Set to 30 when thrown. `FIELD_WORD`
+---| `0x130` # Index of grabbing player which should be marked as un-harmable while 0x12E is above 0. `FIELD_WORD`
+---| `0x132` # Which Player threw the NPC. Resets when NPC resumes normal behaviour. Used in Battle Mode. `FIELD_WORD`
+---| `0x134` # Used for NPC's being crushed. If inside a block while this is greater than or equal to 5, most NPC's will die (with exceptions, such as springs). Forcing to 0 can prevent the NPC from dying when thrown into a wall. `FIELD_WORD`
+---| `0x136` # If true, the NPC can harm other NPC's. Usually true for thrown NPCs and projectile-generated NPCs. Use field isProjectile. `FIELD_BOOL`
+---| `0x138` # The NPC's forced state/contained within value. See the table below for details. Use field forcedState. `FIELD_WORD`
+---| `0x13C` # General purpose "timer" for forced states. See 0x138 for how each state uses it. Use field forcedCounter1. `FIELD_DFLOAT`
+---| `0x144` # General purpose "timer" for forced states. See 0x138 for how each state uses it. Use field forcedCounter2. `FIELD_WORD`
+---| `0x146` # The NPC's section. Use field section. `FIELD_WORD`
+---| `0x148` # Boss Hit count. Counts up until a per-boss hardcoded kill thereshold is reached. Does not always start at 0 depending on NPC config. `FIELD_FLOAT`
+---| `0x14C` # Index of camera that just spawned the NPC. `FIELD_WORD`
+---| `0x14E` # ID of the block the NPC was created from due to an ongoing P-Switch effect. `FIELD_WORD`
+---| `0x150` # Index of NPC in an array involving blocks. Appears to only count for NPCs affected by the npcblocktop flag (?). `FIELD_WORD`
+---| `0x152` # Likely used for an internal bug fix related to collisions next to walls. `FIELD_BOOL`
+---| `0x154` # Is set to true when an NPC in a "No Turn Back" section is spawned. The "No Turn Back"-Effect is only capable of permanently killing NPCs with this flag set to true. `FIELD_BOOL`
+---| `0x156` # Invincibility frame countdown for all sources of harm. `FIELD_WORD`
 
 ---NPCs (Non Player Characters) are interactive level elements. This includes enemies, powerups, platforms and various miscellaneous other objects.
 NPC = {}

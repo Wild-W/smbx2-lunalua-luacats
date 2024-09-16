@@ -50,9 +50,6 @@ function Warp:mem(offset, type) end
 --- @param value any The value to set at the specified memory address-offset.
 function Warp:mem(offset, type, value) end
 
----@class Warp
-local Warp = {}
-
 --- X-Coordinate of the warp's entrance.
 ---@type number
 Warp.entranceX = nil

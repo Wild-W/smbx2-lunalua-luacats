@@ -37,13 +37,13 @@ world.levelTitle = ""
 ---@type Level?
 world.levelObj = nil
 
---- Returns a value of the Player struct at a specific memory address-offset.
+--- Returns a value of the World struct at a specific memory address-offset.
 --- @param offset number The memory address-offset.
 --- @param type MemoryFieldType The type of the field.
 --- @return any value The value at the specified memory address-offset.
 function world:mem(offset, type) end
 
---- Sets a value of the Player struct at a specific memory address-offset.
+--- Sets a value of the World struct at a specific memory address-offset.
 --- @param offset number The memory address-offset.
 --- @param type MemoryFieldType The type of the field.
 --- @param value any The value to set at the specified memory address-offset.

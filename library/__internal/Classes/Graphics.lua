@@ -841,6 +841,6 @@ Graphics.GL_MAX_COMBINED_FRAGMENT_UNIFORM_COMPONENTS = nil
 Graphics.GL_MAX_SERVER_WAIT_TIMEOUT = nil
 
 ---@alias HUDType
----|`Graphics.HUD_NONE` # Neither hearts nor itembox are used.
----|`Graphics.HUD_HEARTS` # Heart-based HUD.
----|`Graphics.HUD_ITEMBOX` # Itembox-based HUD.
+---| `Graphics.HUD_NONE` # Neither hearts nor itembox are used.
+---| `Graphics.HUD_HEARTS` # Heart-based HUD.
+---| `Graphics.HUD_ITEMBOX` # Itembox-based HUD.
