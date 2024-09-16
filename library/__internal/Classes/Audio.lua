@@ -530,5 +530,5 @@ function PlayingSfxInstance:__getMuteForAlias(alias) end
 function PlayingSfxInstance:__getChunkForAlias(alias) end
 
 ---@class SoundOverride
----@field sfx MixChunk The currrent sound effect audio
----@field muted boolean Whether the sound effect is muted
+--- @field sfx MixChunk The currrent sound effect audio
+--- @field muted boolean Whether the sound effect is muted

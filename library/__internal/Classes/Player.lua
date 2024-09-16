@@ -51,14 +51,6 @@ function Player.setCostume(character, costumeName, volatile) end
 --- @return string costumeName The name of the costume.
 function Player.getCostume(character) end
 
---- The first player object.
----@type Player
-player = nil
-
---- The second player object, or `nil` if only one player is in the level.
----@type Player?
-player2 = nil
-
 ---@class Player : CollisionObject, LuaHelperClass
 --- @field ToadDoubleJReady integer # Equivalent to `Player:mem(0x0, FIELD_WORD)`.
 --- @field SparklingEffect integer # Equivalent to `Player:mem(0x2, FIELD_WORD)`.
@@ -322,9 +314,9 @@ function PlayerInstance:getFrame(absolute) end
 --- @param bottomCenterAligned boolean? If `true`, aligns the bottom center of the player's hitbox with the coordinates; otherwise, aligns the top left corner.
 function PlayerInstance:teleport(x, y, bottomCenterAligned) end
 
---- The player's index in the internal list of players.
+--- The player's index in the internal list of players. Read only.
 ---@type number
-PlayerInstance.idx = 0
+PlayerInstance.idx = nil
 
 --- If the player instance is valid.
 --- @type boolean
@@ -336,35 +328,35 @@ PlayerInstance.FacingDirection = nil
 
 --- The player's x coordinate (left edge of the hitbox).
 ---@type number
-PlayerInstance.x = 0
+PlayerInstance.x = nil
 
 --- The player's y coordinate (top edge of the hitbox).
 ---@type number
-PlayerInstance.y = 0
+PlayerInstance.y = nil
 
 --- The width of the player's hitbox.
 ---@type number
-PlayerInstance.width = 0
+PlayerInstance.width = nil
 
 --- The height of the player's hitbox.
 ---@type number
-PlayerInstance.height = 0
+PlayerInstance.height = nil
 
 --- The player's horizontal speed.
 ---@type number
-PlayerInstance.speedX = 0
+PlayerInstance.speedX = nil
 
 --- The player's vertical speed.
 ---@type number
-PlayerInstance.speedY = 0
+PlayerInstance.speedY = nil
 
 --- The number of frames the player has been sliding while not colliding with a slope.
 ---@type number
-PlayerInstance.slidingTimeSinceOnSlope = 0
+PlayerInstance.slidingTimeSinceOnSlope = nil
 
 --- The player's facing direction. Can be either -1 or 1.
----@type number
-PlayerInstance.direction = 1
+---@type 1|-1
+PlayerInstance.direction = nil
 
 --- Returns a RECT of the distance between the player and the edges of the camera.
 ---@type RECT
@@ -372,7 +364,7 @@ PlayerInstance.screen = nil
 
 --- The index of the section the player is in.
 ---@type number
-PlayerInstance.section = 0
+PlayerInstance.section = nil
 
 --- Gets a reference to the section the player is in.
 ---@type Section
@@ -380,27 +372,27 @@ PlayerInstance.sectionObj = nil
 
 --- The player's current powerup state.
 ---@type number
-PlayerInstance.powerup = 0
+PlayerInstance.powerup = nil
 
 --- ID of the NPC in the player's reserve item box.
 ---@type number
-PlayerInstance.reservePowerup = 0
+PlayerInstance.reservePowerup = nil
 
 --- Whether the player is currently in the Mega Mushroom state.
 ---@type boolean
-PlayerInstance.isMega = false
+PlayerInstance.isMega = nil
 
 --- Whether the player should keep their Tier 2 Powerup when transforming into the Mega state.
 ---@type boolean
-PlayerInstance.keepPowerOnMega = false
+PlayerInstance.keepPowerOnMega = nil
 
 --- Whether the player is currently affected by a Starman's invulnerability.
 ---@type boolean
-PlayerInstance.hasStarman = false
+PlayerInstance.hasStarman = nil
 
 --- The player's current character index.
 ---@type number
-PlayerInstance.character = 0
+PlayerInstance.character = nil
 
 --- The NPC currently held by the player. If the player is not holding an NPC, this value is nil.
 ---@type NPC?
@@ -420,27 +412,27 @@ PlayerInstance.climbingBGO = nil
 
 --- Mirror to isClimbing().
 ---@type boolean
-PlayerInstance.climbing = false
+PlayerInstance.climbing = nil
 
 --- Ignores collision with blocks.
 ---@type boolean
-PlayerInstance.noblockcollision = false
+PlayerInstance.noblockcollision = nil
 
 --- Ignores collision with NPCs.
 ---@type boolean
-PlayerInstance.nonpcinteraction = false
+PlayerInstance.nonpcinteraction = nil
 
 --- Ignores collision with other Players.
 ---@type boolean
-PlayerInstance.noplayerinteraction = false
+PlayerInstance.noplayerinteraction = nil
 
 --- If the player is currently in a clear pipe.
 ---@type boolean
-PlayerInstance.inClearPipe = false
+PlayerInstance.inClearPipe = nil
 
 --- If the player is currently in a launch barrel.
 ---@type boolean
-PlayerInstance.inLaunchBarrel = false
+PlayerInstance.inLaunchBarrel = nil
 
 --- The type of mount currently mounted by the player.
 ---@type MountType
@@ -452,11 +444,11 @@ PlayerInstance.mountColor = nil
 
 --- The player's death timer. If >0, the player has died.
 ---@type number
-PlayerInstance.deathTimer = 0
+PlayerInstance.deathTimer = nil
 
 --- The player's current animation frame. Values correspond to a specific chart.
 ---@type number
-PlayerInstance.frame = 0
+PlayerInstance.frame = nil
 
 --- The player's current forced state.
 ---@type PlayerForcedState
@@ -464,7 +456,7 @@ PlayerInstance.forcedState = nil
 
 --- The timer related to the player's current forced state.
 ---@type number
-PlayerInstance.forcedTimer = 0
+PlayerInstance.forcedTimer = nil
 
 ---@class PlayerKeysMap
 local playerKeys = {
@@ -507,55 +499,55 @@ PlayerInstance.rawKeys = nil
 
 --- Whether the player is currently pressing up.
 ---@type boolean
-PlayerInstance.upKeyPressing = false
+PlayerInstance.upKeyPressing = nil
 
 --- Whether the player is currently pressing down.
 ---@type boolean
-PlayerInstance.downKeyPressing = false
+PlayerInstance.downKeyPressing = nil
 
 --- Whether the player is currently pressing left.
 ---@type boolean
-PlayerInstance.leftKeyPressing = false
+PlayerInstance.leftKeyPressing = nil
 
 --- Whether the player is currently pressing right.
 ---@type boolean
-PlayerInstance.rightKeyPressing = false
+PlayerInstance.rightKeyPressing = nil
 
 --- Whether the player is currently pressing jump.
 ---@type boolean
-PlayerInstance.jumpKeyPressing = false
+PlayerInstance.jumpKeyPressing = nil
 
 --- Whether the player is currently pressing altJump.
 ---@type boolean
-PlayerInstance.altJumpKeyPressing = false
+PlayerInstance.altJumpKeyPressing = nil
 
 --- Whether the player is currently pressing altRun.
 ---@type boolean
-PlayerInstance.altRunKeyPressing = false
+PlayerInstance.altRunKeyPressing = nil
 
 --- Whether the player is currently pressing run.
 ---@type boolean
-PlayerInstance.runKeyPressing = false
+PlayerInstance.runKeyPressing = nil
 
 --- Whether the player is currently pressing dropItem.
 ---@type boolean
-PlayerInstance.dropItemKeyPressing = false
+PlayerInstance.dropItemKeyPressing = nil
 
 --- Whether the player is currently pressing pause.
 ---@type boolean
-PlayerInstance.pauseKeyPressing = false
+PlayerInstance.pauseKeyPressing = nil
 
 --- The collision group this player belongs to.
 ---@type string
-PlayerInstance.collisionGroup = ""
+PlayerInstance.collisionGroup = nil
 
 --- The numerical index of the collision group this player belongs to. Used internally to make collision checks faster.
 ---@type number
-PlayerInstance.collisionGroupIndex = 0
+PlayerInstance.collisionGroupIndex = nil
 
 --- A list of all weights attached to the player.
 ---@type WeightContainer[]
-PlayerInstance._weightContainers = {}
+PlayerInstance._weightContainers = nil
 
 ---@alias PlayerMemoryOffset
 --- | `0x00` # Can Toad use his double jump? Use field `canDoubleJump`. `FIELD_BOOL`
@@ -628,3 +620,11 @@ PlayerInstance._weightContainers = {}
 --- | `0xBA` # Index of the player currently on the tongue (0 if no player). `FIELD_WORD`
 --- | `0xBC` # Mounting cooldown. `FIELD_WORD`
 --- | `0xBE` # Unused. `FIELD_WORD`
+
+--- The first player object.
+---@type Player
+player = nil
+
+--- The second player object, or `nil` if only one player is in the level.
+---@type Player?
+player2 = nil

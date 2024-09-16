@@ -28,3 +28,5 @@ function lunatime.toTicks(seconds) end
 ---@param ticks number
 ---@return number seconds
 function lunatime.toSeconds(ticks) end
+
+LunaTime = lunatime
