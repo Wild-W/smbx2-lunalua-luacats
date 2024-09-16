@@ -427,7 +427,7 @@ function Graphics.unplaceSprites(img) end
 --- @deprecated
 function Graphics.unplaceSprites(img, xPos, yPos) end
 
----@class GLDrawArgs
+---@class GL.DrawArgs
 --- @field vertexCoords number[] # A list of alternating x and y coordinates used to define the vertices of the drawn primitive.
 --- @field primitive PrimitiveType? # The type of primitive to render.
 --- @field texture CaptureBuffer|LuaImageResource? # The texture to draw. Can be a capture buffer.
@@ -442,10 +442,10 @@ function Graphics.unplaceSprites(img, xPos, yPos) end
 --- @field target CaptureBuffer? # The render target/capture buffer to draw to.
 
 --- Draws an image according to the values of the named arguments using OpenGL.
----@param args GLDrawArgs Named arguments for OpenGL rendering.
+---@param args GL.DrawArgs Named arguments for OpenGL rendering.
 function Graphics.glDraw(args) end
 
----@class DrawBoxArgs : GLDrawArgs
+---@class GL.DrawBoxArgs : GL.DrawArgs
 --- @field x number # x-Coordinate.
 --- @field y number # y-Coordinate.
 --- @field width number? # Width of the drawn image.
@@ -460,10 +460,10 @@ function Graphics.glDraw(args) end
 --- @field centered boolean? # If true, x and y are interpreted as the center of the image.
 
 --- A wrapper for glDraw that makes drawing rectangular images easier.
----@param args DrawBoxArgs Named arguments for rectangular drawing.
+---@param args GL.DrawBoxArgs Named arguments for rectangular drawing.
 function Graphics.drawBox(args) end
 
----@class DrawScreenArgs : GLDrawArgs
+---@class GL.DrawScreenArgs : GL.DrawArgs
 --- @field camera Camera? # Camera to render to. If none is provided, the first camera is used.
 --- @field cam Camera? # Camera to render to. If none is provided, the first camera is used.
 --- @field sourceX number? # Left edge of the texture's drawn area.
@@ -472,10 +472,10 @@ function Graphics.drawBox(args) end
 --- @field sourceHeight number? # Height of the segment of the source image section to draw.
 
 --- A wrapper for glDraw that makes drawing over the entire screen easier.
----@param args DrawScreenArgs Named arguments for screen-wide drawing.
+---@param args GL.DrawScreenArgs Named arguments for screen-wide drawing.
 function Graphics.drawScreen(args) end
 
----@class DrawLineArgs : GLDrawArgs
+---@class GL.DrawLineArgs : GL.DrawArgs
 --- @field start Vector2? # Vector (or table with 2 entries) specifying x1 and y1.
 --- @field stop Vector2? # Vector (or table with 2 entries) specifying x2 and y2.
 --- @field x1 number? # Starting x-coordinate.
@@ -484,10 +484,10 @@ function Graphics.drawScreen(args) end
 --- @field y2 number? # Ending y-coordinate.
 
 --- A wrapper for glDraw that makes drawing lines easier.
----@param args DrawLineArgs Named arguments for line drawing.
+---@param args GL.DrawLineArgs Named arguments for line drawing.
 function Graphics.drawLine(args) end
 
----@class DrawCircleArgs : GLDrawArgs
+---@class GL.DrawCircleArgs : GL.DrawArgs
 --- @field x number # x-coordinate at the center of the circle.
 --- @field y number # y-coordinate at the center of the circle.
 --- @field radius number # Radius of the circle.
@@ -498,10 +498,10 @@ function Graphics.drawLine(args) end
 --- @field sourceHeight number? # Height of the texture's drawn area.
 
 --- A wrapper for glDraw that makes drawing circles easier.
----@param args DrawCircleArgs Named arguments for circle drawing.
+---@param args GL.DrawCircleArgs Named arguments for circle drawing.
 function Graphics.drawCircle(args) end
 
----@class BasicDrawArgs
+---@class GL.BasicDrawArgs
 --- @field x number # x-coordinate.
 --- @field y number # y-coordinate.
 --- @field type RenderType # Drawing type.
@@ -510,11 +510,11 @@ function Graphics.drawCircle(args) end
 --- @field sceneCoords boolean? # Whether to draw to the scene coordinate space. False by default.
 --- @field priority number? # The render priority. Defaults to 1 for images and 3 for text.
 
----@class TextDrawArgs : BasicDrawArgs
+---@class GL.TextDrawArgs : GL.BasicDrawArgs
 --- @field text string # The text to display.
 --- @field fontType number? # The font type to use (between 1 and 4). Font 2 can only display numbers. Defaults to 3.
 
----@class ImageDrawArgs : BasicDrawArgs
+---@class GL.ImageDrawArgs : GL.BasicDrawArgs
 --- @field image LuaImageResource # The texture to draw.
 --- @field sourceX number? # Left edge of source image section to draw.
 --- @field sourceY number? # Top edge of source image section to draw.
@@ -523,7 +523,7 @@ function Graphics.drawCircle(args) end
 --- @field opacity number? # Opacity of the image drawn (between 0 and 1).
 
 --- Draws an image or text according to the values of the named arguments.
----@param args TextDrawArgs|ImageDrawArgs Named arguments for drawing images or text.
+---@param args GL.TextDrawArgs|GL.ImageDrawArgs Named arguments for drawing images or text.
 function Graphics.draw(args) end
 
 --- Represents a capture buffer that can be used as a texture.

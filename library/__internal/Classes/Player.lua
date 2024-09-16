@@ -184,14 +184,14 @@ function PlayerInstance:setFrame(frame) end
 function PlayerInstance:setFrame(x, y) end
 
 --- Gets the player's current frame as a spritesheet frame.
---- @param frame number The frame to retrieve.
+--- @param absolute boolean?
 --- @return number frame The current frame.
-function PlayerInstance:getFrame(frame) end
+function PlayerInstance:getFrame(absolute) end
 
 --- Gets the player's current frame as x and y coordinates on the spritesheet.
---- @param frame number The frame to retrieve.
+--- @param absolute boolean?
 --- @return number x, number y The x and y coordinates on the spritesheet for the frame.
-function PlayerInstance:getFrame(frame) end
+function PlayerInstance:getFrame(absolute) end
 
 --- Instantly teleports the player to the target position.
 --- @param x number The x-coordinate of the target position.

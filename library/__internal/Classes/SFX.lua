@@ -30,7 +30,7 @@ SFX.FALLOFF_LINEAR = nil
 ---@type FalloffMode
 SFX.FALLOFF_SQUARE = nil
 
----@class AudioSourceArgs
+---@class AudioSource.Args
 --- @field x number? The X position of the audio source.
 --- @field y number? The Y position of the audio source.
 --- @field falloffRadius number? The distance from the source that the listener needs to be before the sound is silent.
@@ -48,7 +48,7 @@ SFX.FALLOFF_SQUARE = nil
 --- @field sourceHeight number? The height of the audio source box. Only if type is `BOX`.
 --- @field sourceVector Vector2? The vector describing the source line. Only if type is `LINE`.
 
----@class SFXArgs
+---@class SFX.Args
 --- @field sound number|string|MixChunk|SFXList The sound ID/file path/object to play.
 --- @field loops number? The number of loops for this sound to play for. Defaults to `1`.
 --- @field volume number? The volume of this audio source. Defaults to `1`.
@@ -58,13 +58,13 @@ SFX.FALLOFF_SQUARE = nil
 --- @field delay number? The number of frames before the same sound effect can be played again. Defaults to `4`.
 
 --- Creates a new physical audio source in the world.
---- @param args AudioSourceArgs A table containing the arguments for the audio source.
+--- @param args AudioSource.Args A table containing the arguments for the audio source.
 --- @return AudioSource source The created audio source.
 function SFX.create(args) end
 SFX.Create = SFX.create
 
 --- Plays a sound effect once.
---- @param sound number|string|SFXArgs|MixChunk|SFXList The sound ID/file path/object to play.
+--- @param sound number|string|SFX.Args|MixChunk|SFXList The sound ID/file path/object to play.
 --- @return SoundEffect sound The sound effect being played.
 function SFX.play(sound) end
 

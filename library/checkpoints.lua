@@ -1,18 +1,18 @@
 ---@meta checkpoints
 
----@class NewCheckpointFields
----@field x number
----@field y number
----@field section number # Section to spawn to.
----@field actions function? # Callback function that runs when the player spawns to this checkpoint. `nil` if not used.
----@field powerup unknown? # Powerup filter to boost the player up to when they collect this checkpoint. `nil` if not used.
----@field sound string|number? # Sound effect to play when the player collects this checkpoint. `nil` if not used.
+---@class NewCheckpoint.Fields
+--- @field x number
+--- @field y number
+--- @field section number # Section to spawn to.
+--- @field actions function? # Callback function that runs when the player spawns to this checkpoint. `nil` if not used.
+--- @field powerup unknown? # Powerup filter to boost the player up to when they collect this checkpoint. `nil` if not used.
+--- @field sound string|number? # Sound effect to play when the player collects this checkpoint. `nil` if not used.
 
----@class NewCheckpointArgs : NewCheckpointFields
----@field ignoreTierCheck boolean
+---@class NewCheckpoint.Args : NewCheckpoint.Fields
+--- @field ignoreTierCheck boolean
 
----@class NewCheckpoint : NewCheckpointFields
----@field collected boolean # READ ONLY. Whether the checpoint has been collected.
+---@class NewCheckpoint : NewCheckpoint.Fields
+--- @field collected boolean # READ ONLY. Whether the checpoint has been collected.
 local NewCheckpoint = {}
 
 --- Reset the checkpoint to allow it to be collected again.
@@ -23,11 +23,11 @@ function NewCheckpoint:reset() end
 function NewCheckpoint:collect(player) end
 
 ---@class NewCheckpointsManager
----@overload fun(args: NewCheckpointArgs): NewCheckpoint
+--- @overload fun(args: NewCheckpoint.Args): NewCheckpoint # Create a new checkpoint object.
 local checkpoints = {}
 
 ---Create a new checkpoint object.
----@param args NewCheckpointArgs
+---@param args NewCheckpoint.Args
 ---@return NewCheckpoint
 function checkpoints.create(args) end
 
@@ -49,16 +49,19 @@ function checkpoints.getActive() end
 function checkpoints.getActiveIndex() end
 
 --- Internal event.
-function checkpoints.onExitLevel() end
+--- @type onExitLevel
+function checkpoints.onExitLevel(levelWinType) end
 
 --- Internal event.
+--- @type onInitAPI
 function checkpoints.onInitAPI() end
 
 --- Internal event.
+--- @type onStart
 function checkpoints.onStart() end
 
 ---Supported: sound, powerup
----@param ids unknown?
+---@param ids number|number[]?
 ---@param extraSettingsFieldNames unknown?
 ---@return ...
 function checkpoints.registerNPC(ids, extraSettingsFieldNames) end
