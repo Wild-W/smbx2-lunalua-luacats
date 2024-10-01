@@ -118,11 +118,6 @@ function jumpheightBounce() end
 --- @deprecated Use Defines.jumpheight_bounce instead.
 function jumpheightBounce(value) end
 
---- Triggers an event by name.
---- @param eventName string
---- @deprecated Use Misc.triggerEvent instead.
-function triggerEvent(eventName) end
-
 --- Returns all blocks.
 --- @return table<number, Block>
 --- @deprecated Use Block.get instead.

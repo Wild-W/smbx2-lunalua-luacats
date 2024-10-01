@@ -102,9 +102,19 @@ __customFolderPath = nil
 
 ---Id of the npc if this file's name adheres to the npc-file name format.
 ---
----Example: `npc-799.lua` means this is equal to `799`
+---Example: `npc-799.lua` means this value is equal to `799`.
 ---@type integer
 NPC_ID = nil
+
+---Id of the block if this file's name adheres to the block-file name format.
+---
+---Example: `block-799.lua` means this value is equal to `799`.
+---@type integer
+BLOCK_ID = nil
+
+--- Triggers an event by name.
+--- @param eventName string
+function triggerEvent(eventName) end
 
 ---@param ... unknown
 ---@return ...

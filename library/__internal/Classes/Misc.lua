@@ -113,12 +113,6 @@ function Misc.isPausedByLua() end
 --- @return number score
 function Misc.score() end
 
---- Triggers an SMBX event by the given name.
---- @param eventName string
----
---- Level only
-function Misc.triggerEvent(eventName) end
-
 --### Static gameplay manipulation functions
 
 --- Toggles the synced switch state.
