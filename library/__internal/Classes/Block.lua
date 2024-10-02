@@ -54,6 +54,43 @@ function Block.iterateByFilterMap(idMap) end
 --- @return Block block The spawned Block.
 function Block.spawn(id, x, y) end
 
+---@return number count # The total count of sizables
+function Block.countSizable() end
+
+---@return number count # The total count of sizeables
+function Block.countSizeable() end
+
+---@return number count # The total count of blocks
+function Block.count() end
+
+---@param ... unknown
+---@return ...
+function Block.getColliding(...) end
+
+Block.collide = Colliders.collide
+
+---@param ... unknown
+---@return ...
+function Block.iterateSizeable(...) end
+
+---@param ... unknown
+---@return ...
+function Block.iterateSizable(...) end
+
+---Register an event on a Block.
+---@param id number
+---@param tbl table
+---@param eventName BlockEventName
+---@param libEventName string?
+function Block.registerEvent(id, tbl, eventName, libEventName) end
+
+---@param value boolean
+function Block._SetVanillaSizableRenderFlag(value) end
+
+---@param getterFuncName string
+---@return fun(id: number): table
+function Block.makeDefaultSettings(getterFuncName) end
+
 ---@alias BlockClassification
 --- | `Block.SOLID`
 --- | `Block.NONSOLID`
@@ -189,26 +226,6 @@ Block.classifications = {}
 ---@class Block : CollisionObject, LuaHelperClass
 local Block = {}
 
----@param ... unknown
----@return ...
-function Block.countSizable(...) end
-
----@param ... unknown
----@return ...
-function Block.makeDefaultSettings(...) end
-
----@param ... unknown
----@return ...
-function Block.getColliding(...) end
-
----@param ... unknown
----@return ...
-function Block.registerEvent(...) end
-
----@param ... unknown
----@return ...
-function Block.count(...) end
-
 --- Returns a value of the Block struct at a specific memory address-offset.
 --- @param offset integer|BlockMemoryOffset The memory address-offset.
 --- @param type MemoryFieldType The type of the field.
@@ -246,26 +263,6 @@ function Block:hit(fromUpSide, hittingPlayer, hitCount) end
 --- @param fromUpSide boolean Whether the block is hit from above.
 --- @param hitCount number The number of times the block is hit.
 function Block:hitWithoutPlayer(fromUpSide, hitCount) end
-
----@param ... unknown
----@return ...
-function Block.iterateSizeable(...) end
-
----@param ... unknown
----@return ...
-function Block.iterateSizable(...) end
-
----@param ... unknown
----@return ...
-function Block.countSizeable(...) end
-
----@param ... unknown
----@return ...
-function Block.collide(...) end
-
----@param ... unknown
----@return ...
-function Block._SetVanillaSizableRenderFlag(...) end
 
 --- Bumps the block. May optionally be bumped from the top. A strong bump causes the block to be bumped twice as strongly.
 --- @param fromUpSide boolean Whether the block is bumped from the top.
@@ -401,35 +398,35 @@ Block.collisionGroupIndex = 0
 
 --- Configuration class for customizing block behavior and appearance in-game.
 ---@class BlockConfig : LightConfig
----@field frames number Number of frames of the block animation. For blocks, frames are defined to be a fixed 32 pixels tall. Default: 1
----@field framespeed number The amount of ticks it takes for the block animation frame to change. Lower numbers = faster animation. Default: 8
----@field width number The width of the block. Default: Inferred from sprite
----@field height number The height of the block. Default: Inferred from sprite
----@field sizable boolean Whether or not the block is sizable. Sizables are always considered semisolid. Default: false
----@field semisolid boolean Whether or not the block is a semisolid. Default: false
----@field passthrough boolean If true, the block has no collision. Default: false
----@field lava boolean If true, the block acts as lava. Default: false
----@field floorslope number -1, 0, and 1 depending on the direction of the floor slope. Default: 0
----@field ceilingslope number -1, 0, and 1 depending on the direction of the ceiling slope. Default: 0
----@field walkpaststair boolean A player approaching a semisolid slope setting this flag to true will not ascend the slope if the slope is touching ground. Default: false
----@field bumpable boolean If true, the block can be bumped by players and NPCs. Default: false
----@field playerfilter CharacterType Character ID that is allowed to pass through this block. -1 means all character IDs. Default: 0
----@field npcfilter number NPC ID that is allowed to pass through this block. -1 means all NPC IDs. Default: 0
----@field pswitchable boolean If true, the block turns into a coin when a P-Switch is hit. Default: false
----@field smashable number Determines how durable the block should be with regards to certain NPCs that break blocks. Can be a number between 0 and 3. Default: 0
----@field customhurt boolean Set to true to register your block as part of the list of harmful blocks. Default: false
----@field noshadows boolean If set to true, the block will not be able to cast shadows in dark sections. Default: false
----@field ediblebyvine boolean If set to true, the block can be eaten by Mutant Vine NPCs. Default: false
----@field flashcolor Color The color the TNT or Nitro block flashes in. Default: white
----@field randomflashes boolean Whether flashes should randomly occur during gameplay. Default: false
----@field randomjumps boolean Whether the block should randomly appear to jump in place. Default: false
----@field speed number A positive value representing the conveyor speed. Default: 0
----@field direction DirectionType The direction the conveyor should push. Default: 0
----@field ignoreplayers boolean If true, players are unable to trigger the brittle block. Default: false
----@field ignorenpcs boolean If true, NPCs are unable to trigger the brittle block. Default: false
----@field triggerweight number The minimum weight an object needs to trigger the destruction animation. Default: 2
----@field effectid number The ID of the effect to spawn once the block is removed. Default: 0
----@field hitid number The Block ID to turn into once hit. Default: No change
----@field offswitchid number The Block ID of the "off" switch state. Default: /
----@field onswitchid number The Block ID of the "on" switch state. Default: /
----@field color string String representation of the color to use. Unrecognized color names will be registered as new colors. Default: /
+--- @field frames number Number of frames of the block animation. For blocks, frames are defined to be a fixed 32 pixels tall. Default: 1
+--- @field framespeed number The amount of ticks it takes for the block animation frame to change. Lower numbers = faster animation. Default: 8
+--- @field width number The width of the block. Default: Inferred from sprite
+--- @field height number The height of the block. Default: Inferred from sprite
+--- @field sizable boolean Whether or not the block is sizable. Sizables are always considered semisolid. Default: false
+--- @field semisolid boolean Whether or not the block is a semisolid. Default: false
+--- @field passthrough boolean If true, the block has no collision. Default: false
+--- @field lava boolean If true, the block acts as lava. Default: false
+--- @field floorslope number -1, 0, and 1 depending on the direction of the floor slope. Default: 0
+--- @field ceilingslope number -1, 0, and 1 depending on the direction of the ceiling slope. Default: 0
+--- @field walkpaststair boolean A player approaching a semisolid slope setting this flag to true will not ascend the slope if the slope is touching ground. Default: false
+--- @field bumpable boolean If true, the block can be bumped by players and NPCs. Default: false
+--- @field playerfilter CharacterType Character ID that is allowed to pass through this block. -1 means all character IDs. Default: 0
+--- @field npcfilter number NPC ID that is allowed to pass through this block. -1 means all NPC IDs. Default: 0
+--- @field pswitchable boolean If true, the block turns into a coin when a P-Switch is hit. Default: false
+--- @field smashable number Determines how durable the block should be with regards to certain NPCs that break blocks. Can be a number between 0 and 3. Default: 0
+--- @field customhurt boolean Set to true to register your block as part of the list of harmful blocks. Default: false
+--- @field noshadows boolean If set to true, the block will not be able to cast shadows in dark sections. Default: false
+--- @field ediblebyvine boolean If set to true, the block can be eaten by Mutant Vine NPCs. Default: false
+--- @field flashcolor Color The color the TNT or Nitro block flashes in. Default: white
+--- @field randomflashes boolean Whether flashes should randomly occur during gameplay. Default: false
+--- @field randomjumps boolean Whether the block should randomly appear to jump in place. Default: false
+--- @field speed number A positive value representing the conveyor speed. Default: 0
+--- @field direction DirectionType The direction the conveyor should push. Default: 0
+--- @field ignoreplayers boolean If true, players are unable to trigger the brittle block. Default: false
+--- @field ignorenpcs boolean If true, NPCs are unable to trigger the brittle block. Default: false
+--- @field triggerweight number The minimum weight an object needs to trigger the destruction animation. Default: 2
+--- @field effectid number The ID of the effect to spawn once the block is removed. Default: 0
+--- @field hitid number The Block ID to turn into once hit. Default: No change
+--- @field offswitchid number The Block ID of the "off" switch state. Default: /
+--- @field onswitchid number The Block ID of the "on" switch state. Default: /
+--- @field color string String representation of the color to use. Unrecognized color names will be registered as new colors. Default: /
