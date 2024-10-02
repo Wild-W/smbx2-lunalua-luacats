@@ -1,5 +1,7 @@
 ---@meta blockmanager
 
+local blockeventmanager = require "game.blockeventmanager"
+
 local blockManager = {}
 
 ---@param settingsArray unknown[]
@@ -23,8 +25,8 @@ function blockManager.deregisterDefines(id, typelist) end
 ---@param libEventName string?
 function blockManager.registerEvent(id, tbl, eventName, libEventName) end
 
-blockManager.refreshEvents = eventmanager.refreshEvents
-blockManager.callExternalEvent = eventmanager.callExternalEvent
+blockManager.refreshEvents = blockeventmanager.refreshEvents
+blockManager.callExternalEvent = blockeventmanager.callExternalEvent
 
 function blockManager.loadBlockCode() end
 
