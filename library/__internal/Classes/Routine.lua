@@ -1,11 +1,6 @@
 ---@meta _
 
----@class Routines
 Routine = {}
-
----@param ...unknown
----@return ...
-function Routine.waitSeconds(...) end
 
 --- Creates a new coroutine and runs it. Additional arguments are passed to the function f. The `status` and `msg` return values store error messages and information about the coroutine, which are not necessary for most use cases.
 --- @param f function The function to run in the coroutine.
@@ -20,6 +15,7 @@ function Routine.run(f, ...) end
 --- @param whilePaused boolean? Whether to continue counting down while the game is paused.
 --- @return any yield The yield object.
 function Routine.wait(seconds, whilePaused) end
+Routine.waitSeconds = Routine.wait
 
 --- Exits the current coroutine, resuming it after the specified number of frames. If `whilePaused` is set to `true`, this timer will continue to count down even while the game is paused. By default, `whilePaused` is false.
 --- @param frames number The number of frames to wait.

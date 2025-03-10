@@ -2,27 +2,27 @@
 
 ---Constants for mounts and mount types.
 ---@alias MountType
----| `MOUNT_NONE` # No mount.
----| `MOUNT_BOOT` # Any boot.
----| `MOUNT_CLOWNCAR` # Clown car.
----| `MOUNT_YOSHI` # Any Yoshi.
+--- | `MOUNT_NONE` # No mount.
+--- | `MOUNT_BOOT` # Any boot.
+--- | `MOUNT_CLOWNCAR` # Clown car.
+--- | `MOUNT_YOSHI` # Any Yoshi.
 
 ---Values for the player.mountColor field while in a boot.
 ---@alias BootColor
----| `BOOTCOLOR_GREEN` # Kuribo's (regular) Shoe.
----| `BOOTCOLOR_RED` # Podoboo's (lavaproof) Shoe.
----| `BOOTCOLOR_BLUE` # Lakitu's (flying) Shoe.
+--- | `BOOTCOLOR_GREEN` # Kuribo's (regular) Shoe.
+--- | `BOOTCOLOR_RED` # Podoboo's (lavaproof) Shoe.
+--- | `BOOTCOLOR_BLUE` # Lakitu's (flying) Shoe.
 
 ---Values for the player.mountColor field while riding Yoshi.
 ---@alias YoshiColor
----| `YOSHICOLOR_GREEN` # Green (regular) Yoshi.
----| `YOSHICOLOR_BLUE` # Blue (flying) Yoshi.
----| `YOSHICOLOR_YELLOW` # Yellow (stomping) Yoshi.
----| `YOSHICOLOR_RED` # Red (fire-breathing) Yoshi.
----| `YOSHICOLOR_BLACK` # Black (flying, stomping, fire-breathing) Yoshi.
----| `YOSHICOLOR_PURPLE` # Purple (ground-pounding) Yoshi.
----| `YOSHICOLOR_PINK` # Pink (vegetable-breathing) Yoshi.
----| `YOSHICOLOR_CYAN` # Cyan (ice) Yoshi.
+--- | `YOSHICOLOR_GREEN` # Green (regular) Yoshi.
+--- | `YOSHICOLOR_BLUE` # Blue (flying) Yoshi.
+--- | `YOSHICOLOR_YELLOW` # Yellow (stomping) Yoshi.
+--- | `YOSHICOLOR_RED` # Red (fire-breathing) Yoshi.
+--- | `YOSHICOLOR_BLACK` # Black (flying, stomping, fire-breathing) Yoshi.
+--- | `YOSHICOLOR_PURPLE` # Purple (ground-pounding) Yoshi.
+--- | `YOSHICOLOR_PINK` # Pink (vegetable-breathing) Yoshi.
+--- | `YOSHICOLOR_CYAN` # Cyan (ice) Yoshi.
 
 ---No mount.
 MOUNT_NONE = 0

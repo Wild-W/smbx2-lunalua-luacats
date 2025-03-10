@@ -54,13 +54,13 @@ function Liquid:mem(offset, type) end
 function Liquid:mem(offset, type, value) end
 
 ---@alias LiquidMemoryOffset
----| `0x00` # Name of the layer the liquid box belongs to. `FIELD_STRING`
----| `0x04` # Whether or not this liquid box is hidden. `FIELD_BOOL`
----| `0x06` # Unused. `FIELD_FLOAT`
----| `0x0C` # Whether or not this liquid box is quicksand. `FIELD_WORD`
----| `0x10` # Current x-position. `FIELD_DFLOAT`
----| `0x18` # Current y-position. `FIELD_DFLOAT`
----| `0x20` # Height. `FIELD_DFLOAT`
----| `0x28` # Width. `FIELD_DFLOAT`
----| `0x30` # Current x-speed. `FIELD_DFLOAT`
----| `0x38` #` Current y-speed. `FIELD_DFLOAT
+--- | `0x00` # Name of the layer the liquid box belongs to. `FIELD_STRING`
+--- | `0x04` # Whether or not this liquid box is hidden. `FIELD_BOOL`
+--- | `0x06` # Unused. `FIELD_FLOAT`
+--- | `0x0C` # Whether or not this liquid box is quicksand. `FIELD_WORD`
+--- | `0x10` # Current x-position. `FIELD_DFLOAT`
+--- | `0x18` # Current y-position. `FIELD_DFLOAT`
+--- | `0x20` # Height. `FIELD_DFLOAT`
+--- | `0x28` # Width. `FIELD_DFLOAT`
+--- | `0x30` # Current x-speed. `FIELD_DFLOAT`
+--- | `0x38` #` Current y-speed. `FIELD_DFLOAT

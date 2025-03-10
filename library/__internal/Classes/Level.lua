@@ -150,11 +150,13 @@ function LevelManager.winTypeToEndState(winType) end
 ---@param iniFilename string The INI configuration file for hitboxes.
 function LevelManager.loadPlayerHitBoxes(characterId, powerup, iniFilename) end
 
----@deprecated Sets the end state of the level, alias for `Level.endState`.
+---Sets the end state of the level.
+---@deprecated Alias for `Level.endState`
 ---@param endState LevelEndState The end state to set.
 function LevelManager.winState(endState) end
 
----@deprecated Gets the current end state of the level, alias for `Level.endState`.
+---Gets the current end state of the level.
+---@deprecated Alias for `Level.endState`
 ---@return LevelEndState endState The current end state.
 function LevelManager.winState() end
 

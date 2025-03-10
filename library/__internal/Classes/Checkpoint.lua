@@ -9,7 +9,7 @@ Checkpoint = {}
 --- @return Checkpoint checkpoint The checkpoint with the specified ID, or nil if none exists.
 function Checkpoint(id) end
 
----@class CheckpointArgs
+---@class Checkpoint.Args
 --- @field x number The X coordinate to spawn the player at when respawning from this checkpoint.
 --- @field y number The Y coordinate to spawn the player at when respawning from this checkpoint.
 --- @field section number The section number to spawn the player at when respawning from this checkpoint.
@@ -18,7 +18,7 @@ function Checkpoint(id) end
 --- @field powerup number A powerup value to boost the player up to when this checkpoint is collected.
 
 --- Creates a new checkpoint object in the current level.
---- @param args CheckpointArgs A table containing the arguments for the checkpoint.
+--- @param args Checkpoint.Args A table containing the arguments for the checkpoint.
 --- @return Checkpoint newCheckpoint The newly created checkpoint object.
 function Checkpoint(args) end
 

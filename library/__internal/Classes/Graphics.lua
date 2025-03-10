@@ -91,36 +91,36 @@ function Graphics.drawVanillaOverworldHUD(priority) end
 
 --- Loads an image by a given filename. Relative strings are based in the current level folder.
 ---@param fileName string
----@return Texture
+---@return LuaImageResource
 function Graphics.loadImage(fileName) end
 
 --- Loads an image by a given filename. Performs a call to Misc.resolveGraphicsFile internally.
 ---@param fileName string
----@return Texture
+---@return LuaImageResource
 function Graphics.loadImageResolved(fileName) end
 
 --- Extracts all image data from the image in an array in BGRA-Format.
----@param image Texture
+---@param image LuaImageResource
 ---@return number[] BGRAPixelValues
 ---@return number width
 ---@return number height
 function Graphics.getPixelData(image) end
 
 --- Draws the given image for a frame at the given coordinates relative to screen space.
----@param image Texture
+---@param image LuaImageResource
 ---@param x number
 ---@param y number
 function Graphics.drawImage(image, x, y, opacity) end
 
 --- Draws the given image for a frame at the given coordinates relative to screen space. Additionally the opacity (between 0 and 1) can be specified.
----@param image Texture
+---@param image LuaImageResource
 ---@param x number
 ---@param y number
 ---@param opacity number
 function Graphics.drawImage(image, x, y, opacity) end
 
 --- Draws the given image for a frame at the given coordinates relative to screen space. Additionally, a rectangle to draw from the source image can be specified using the source parameters. By varying the parameters across frames, animation can be created.
----@param image Texture
+---@param image LuaImageResource
 ---@param x number
 ---@param y number
 ---@param sourceX number
@@ -130,7 +130,7 @@ function Graphics.drawImage(image, x, y, opacity) end
 function Graphics.drawImage(image, x, y, sourceX, sourceY, sourceWidth, sourceHeight, opacity) end
 
 --- Draws the given image for a frame at the given coordinates relative to screen space. Additionally, a rectangle to draw from the source image can be specified using the source parameters. By varying the parameters across frames, animation can be created. Additionally, the opacity (between 0 and 1) can be specified.
----@param image Texture
+---@param image LuaImageResource
 ---@param x number
 ---@param y number
 ---@param sourceX number
@@ -141,20 +141,20 @@ function Graphics.drawImage(image, x, y, sourceX, sourceY, sourceWidth, sourceHe
 function Graphics.drawImage(image, x, y, sourceX, sourceY, sourceWidth, sourceHeight, opacity) end
 
 --- Draws the given image for a frame at the given coordinates relative to scene space.
----@param image Texture
+---@param image LuaImageResource
 ---@param x number
 ---@param y number
 function Graphics.drawImageToScene(image, x, y) end
 
 --- Draws the given image for a frame at the given coordinates relative to scene space. Additionally, the opacity (between 0 and 1) can be specified.
----@param image Texture
+---@param image LuaImageResource
 ---@param x number
 ---@param y number
 ---@param opacity number
 function Graphics.drawImageToScene(image, x, y, opacity) end
 
 --- Draws the given image for a frame at the given coordinates relative to scene space. Additionally, a rectangle to draw from the source image can be specified using the source parameters. By varying the parameters across frames, animation can be created.
----@param image Texture
+---@param image LuaImageResource
 ---@param x number
 ---@param y number
 ---@param sourceX number
@@ -164,7 +164,7 @@ function Graphics.drawImageToScene(image, x, y, opacity) end
 function Graphics.drawImageToScene(image, x, y, sourceX, sourceY, sourceWidth, sourceHeight) end
 
 --- Draws the given image for a frame at the given coordinates relative to scene space. Additionally, a rectangle to draw from the source image can be specified using the source parameters. By varying the parameters across frames, animation can be created. Additionally, the opacity (between 0 and 1) can be specified.
----@param image Texture
+---@param image LuaImageResource
 ---@param x number
 ---@param y number
 ---@param sourceX number
@@ -187,7 +187,7 @@ function Graphics.getFrameStats() end
 
 --- Places a sprite from the resource memory at 'xPos', 'yPos'.
 --- @param type number
---- @param img Texture
+--- @param img LuaImageResource
 --- @param xPos number
 --- @param yPos number
 --- @deprecated Use Graphics.draw or Graphics.drawImageWP instead.
@@ -195,7 +195,7 @@ function Graphics.placeSprite(type, img, xPos, yPos) end
 
 --- Places a sprite from the resource memory at 'xPos', 'yPos'.
 --- @param type number
---- @param img Texture
+--- @param img LuaImageResource
 --- @param xPos number
 --- @param yPos number
 --- @param extra string
@@ -204,7 +204,7 @@ function Graphics.placeSprite(type, img, xPos, yPos, extra) end
 
 --- Places a sprite from the resource memory at 'xPos', 'yPos'.
 --- @param type number
---- @param img Texture
+--- @param img LuaImageResource
 --- @param xPos number
 --- @param yPos number
 --- @param extra string
@@ -219,41 +219,41 @@ function Graphics.placeSprite(type, img, xPos, yPos, extra, time) end
 function Graphics.glDrawTriangles(vertexCoords, textureCoords, vertexCount) end
 
 ---@alias GLType
----| `GL_DOUBLE_VEC3`
----| `GL_DOUBLE_VEC2`
----| `GL_FLOAT`
----| `GL_FLOAT_VEC2`
----| `GL_FLOAT_VEC3`
----| `GL_FLOAT_VEC4`
----| `GL_FLOAT_MAT2`
----| `GL_FLOAT_MAT3`
----| `GL_FLOAT_MAT4`
----| `GL_FLOAT_MAT2x3`
----| `GL_FLOAT_MAT2x4`
----| `GL_FLOAT_MAT3x2`
----| `GL_FLOAT_MAT3x4`
----| `GL_FLOAT_MAT4x2`
----| `GL_FLOAT_MAT4x3`
----| `GL_INT`
----| `GL_INT_VEC2`
----| `GL_INT_VEC3`
----| `GL_INT_VEC4`
----| `GL_UNSIGNED_INT`
----| `GL_UNSIGNED_INT_VEC2`
----| `GL_UNSIGNED_INT_VEC3`
----| `GL_UNSIGNED_INT_VEC4`
----| `GL_DOUBLE_MAT4x3`
----| `GL_DOUBLE_MAT3x4`
----| `GL_DOUBLE_MAT3x2`
----| `GL_DOUBLE_MAT2x3`
----| `GL_DOUBLE_MAT3`
----| `GL_DOUBLE_MAT2`
----| `GL_DOUBLE_VEC4`
----| `GL_DOUBLE`
----| `GL_DOUBLE_MAT4`
----| `GL_SAMPLER_2D`
----| `GL_DOUBLE_MAT4x2`
----| `GL_DOUBLE_MAT2x4`
+--- | `GL_DOUBLE_VEC3`
+--- | `GL_DOUBLE_VEC2`
+--- | `GL_FLOAT`
+--- | `GL_FLOAT_VEC2`
+--- | `GL_FLOAT_VEC3`
+--- | `GL_FLOAT_VEC4`
+--- | `GL_FLOAT_MAT2`
+--- | `GL_FLOAT_MAT3`
+--- | `GL_FLOAT_MAT4`
+--- | `GL_FLOAT_MAT2x3`
+--- | `GL_FLOAT_MAT2x4`
+--- | `GL_FLOAT_MAT3x2`
+--- | `GL_FLOAT_MAT3x4`
+--- | `GL_FLOAT_MAT4x2`
+--- | `GL_FLOAT_MAT4x3`
+--- | `GL_INT`
+--- | `GL_INT_VEC2`
+--- | `GL_INT_VEC3`
+--- | `GL_INT_VEC4`
+--- | `GL_UNSIGNED_INT`
+--- | `GL_UNSIGNED_INT_VEC2`
+--- | `GL_UNSIGNED_INT_VEC3`
+--- | `GL_UNSIGNED_INT_VEC4`
+--- | `GL_DOUBLE_MAT4x3`
+--- | `GL_DOUBLE_MAT3x4`
+--- | `GL_DOUBLE_MAT3x2`
+--- | `GL_DOUBLE_MAT2x3`
+--- | `GL_DOUBLE_MAT3`
+--- | `GL_DOUBLE_MAT2`
+--- | `GL_DOUBLE_VEC4`
+--- | `GL_DOUBLE`
+--- | `GL_DOUBLE_MAT4`
+--- | `GL_SAMPLER_2D`
+--- | `GL_DOUBLE_MAT4x2`
+--- | `GL_DOUBLE_MAT2x4`
 
 GL_DOUBLE_VEC3 = 36861
 GL_DOUBLE_VEC2 = 36860
@@ -303,9 +303,9 @@ function Graphics.getMainFramebufferSize() end
 ---@class Bits32 : ffi.cdata*
 --- @field __data ffi.cdata*
 --- @field __maxidx number
---- @field __resImgRef Texture
+--- @field __resImgRef LuaImageResource
 
----@param image Texture
+---@param image LuaImageResource
 ---@return Bits32|integer[] bits32
 function Graphics.getBits32(image) end
 
@@ -323,14 +323,14 @@ function Graphics.setMainFramebufferSize(width, height) end
 function Graphics.loadAnimatedImage(...) end
 
 ---Draws the given image for a frame at the given coordinates relative to screen space at a given priority.
----@param image Texture
+---@param image LuaImageResource
 ---@param x number
 ---@param y number
 ---@param priority number
 function Graphics.drawImageWP(image, x, y, priority) end
 
 ---Draws the given image for a frame at the given coordinates relative to screen space at a given priority. Additionally, the opacity (between 0 and 1) can be specified.
----@param image Texture
+---@param image LuaImageResource
 ---@param x number
 ---@param y number
 ---@param opacity number
@@ -338,7 +338,7 @@ function Graphics.drawImageWP(image, x, y, priority) end
 function Graphics.drawImageWP(image, x, y, opacity, priority) end
 
 ---Draws the given image for a frame at the given coordinates relative to screen space at a given priority. Additionally, a rectangle to draw from the source image can be specified using the source parameters. By varying the parameters across frames, animation can be created.
----@param image Texture
+---@param image LuaImageResource
 ---@param x number
 ---@param y number
 ---@param sourceX number
@@ -349,7 +349,7 @@ function Graphics.drawImageWP(image, x, y, opacity, priority) end
 function Graphics.drawImageWP(image, x, y, sourceX, sourceY, sourceWidth, sourceHeight, priority) end
 
 ---Draws the given image for a frame at the given coordinates relative to screen space at a given priority. Additionally, a rectangle to draw from the source image can be specified using the source parameters. By varying the parameters across frames, animation can be created. Additionally, the opacity (between 0 and 1) can be specified.
----@param image Texture
+---@param image LuaImageResource
 ---@param x number
 ---@param y number
 ---@param sourceX number
@@ -360,11 +360,11 @@ function Graphics.drawImageWP(image, x, y, sourceX, sourceY, sourceWidth, source
 ---@param priority number
 function Graphics.drawImageWP(image, x, y, sourceX, sourceY, sourceWidth, sourceHeight, opacity, priority) end
 
----@param image Texture?
+---@param image LuaImageResource?
 ---@param hue number
 function Graphics.glSetTexture(image, hue) end
 
----@param image Texture?
+---@param image LuaImageResource?
 ---@param hue number
 function Graphics.glSetTextureRGBA(image, hue) end
 
@@ -373,14 +373,14 @@ function Graphics.glSetTextureRGBA(image, hue) end
 function Graphics.isOpenGLEnabled() end
 
 ---Draws the given image for a frame at the given coordinates relative to scene space at a given priority.
----@param image Texture
+---@param image LuaImageResource
 ---@param x number
 ---@param y number
 ---@param priority number
 function Graphics.drawImageToSceneWP(image, x, y, priority) end
 
 ---Draws the given image for a frame at the given coordinates relative to scene space at a given priority. Additionally, the opacity (between 0 and 1) can be specified.
----@param image Texture
+---@param image LuaImageResource
 ---@param x number
 ---@param y number
 ---@param opacity number
@@ -388,7 +388,7 @@ function Graphics.drawImageToSceneWP(image, x, y, priority) end
 function Graphics.drawImageToSceneWP(image, x, y, opacity, priority) end
 
 ---Draws the given image for a frame at the given coordinates relative to scene space at a given priority. Additionally, a rectangle to draw from the source image can be specified using the source parameters. By varying the parameters across frames, animation can be created.
----@param image Texture
+---@param image LuaImageResource
 ---@param x number
 ---@param y number
 ---@param sourceX number
@@ -399,7 +399,7 @@ function Graphics.drawImageToSceneWP(image, x, y, opacity, priority) end
 function Graphics.drawImageToSceneWP(image, x, y, priority, sourceX, sourceY, sourceWidth, sourceHeight) end
 
 ---Draws the given image for a frame at the given coordinates relative to scene space at a given priority. Additionally, a rectangle to draw from the source image can be specified using the source parameters. By varying the parameters across frames, animation can be created. Additionally, the opacity (between 0 and 1) can be specified.
----@param image Texture
+---@param image LuaImageResource
 ---@param x number
 ---@param y number
 ---@param sourceX number
@@ -416,36 +416,36 @@ function Graphics.drawImageToSceneWP(image, x, y, opacity, priority, sourceX, so
 function Graphics.__copyDrawTable(args, rtrn) end
 
 --- Removes all placed sprites with the same img resource.
---- @param img Texture
+--- @param img LuaImageResource
 --- @deprecated
 function Graphics.unplaceSprites(img) end
 
 --- Removes all placed sprites with the same img resource and x-pos, y-pos.
---- @param img Texture
+--- @param img LuaImageResource
 --- @param xPos number
 --- @param yPos number
 --- @deprecated
 function Graphics.unplaceSprites(img, xPos, yPos) end
 
----@class GLDrawArgs
+---@class GL.DrawArgs
 --- @field vertexCoords number[] # A list of alternating x and y coordinates used to define the vertices of the drawn primitive.
 --- @field primitive PrimitiveType? # The type of primitive to render.
---- @field texture CaptureBuffer|Texture? # The texture to draw. Can be a capture buffer.
+--- @field texture CaptureBuffer|LuaImageResource? # The texture to draw. Can be a capture buffer.
 --- @field textureCoords number[]? # A list of alternating x and y coordinates used to define the UV-coordinates of the texture to draw. All coordinates are clamped between 0 (top/left edge of image) and 1 (bottom/right edge of image).
 --- @field color Color|RGBA? # Color tint to apply to the whole image.
 --- @field vertexColors number[]? # A flat list of RGBA color values for each vertex.
 --- @field priority number? # The render priority. Defaults to 1.
 --- @field sceneCoords boolean? # Whether to draw to the scene coordinate space. False by default.
 --- @field shader Shader? # The shader to use.
---- @field uniforms table<string, number|Texture|Vector2|Vector3|number[]>? # A table where the key is the name of the uniform and the value is that uniform's value. Table values are converted to arrays for the shader.
+--- @field uniforms table<string, number|LuaImageResource|Vector2|Vector3|number[]>? # A table where the key is the name of the uniform and the value is that uniform's value. Table values are converted to arrays for the shader.
 --- @field attributes table<string, number[]>? # A table where the key is the name of the attribute and the value is a an array containing all required values. Keep in mind that this is per-vertex, so you the number of values you pass in that array depends on the number for vertices you use.
 --- @field target CaptureBuffer? # The render target/capture buffer to draw to.
 
 --- Draws an image according to the values of the named arguments using OpenGL.
----@param args GLDrawArgs Named arguments for OpenGL rendering.
+---@param args GL.DrawArgs Named arguments for OpenGL rendering.
 function Graphics.glDraw(args) end
 
----@class DrawBoxArgs : GLDrawArgs
+---@class GL.DrawBoxArgs : GL.DrawArgs
 --- @field x number # x-Coordinate.
 --- @field y number # y-Coordinate.
 --- @field width number? # Width of the drawn image.
@@ -461,10 +461,10 @@ function Graphics.glDraw(args) end
 --- @field additive number|boolean?
 
 --- A wrapper for glDraw that makes drawing rectangular images easier.
----@param args DrawBoxArgs Named arguments for rectangular drawing.
+---@param args GL.DrawBoxArgs Named arguments for rectangular drawing.
 function Graphics.drawBox(args) end
 
----@class DrawScreenArgs : GLDrawArgs
+---@class GL.DrawScreenArgs : GL.DrawArgs
 --- @field camera Camera? # Camera to render to. If none is provided, the first camera is used.
 --- @field cam Camera? # Camera to render to. If none is provided, the first camera is used.
 --- @field sourceX number? # Left edge of the texture's drawn area.
@@ -474,10 +474,10 @@ function Graphics.drawBox(args) end
 --- @field additive number|boolean?
 
 --- A wrapper for glDraw that makes drawing over the entire screen easier.
----@param args DrawScreenArgs Named arguments for screen-wide drawing.
+---@param args GL.DrawScreenArgs Named arguments for screen-wide drawing.
 function Graphics.drawScreen(args) end
 
----@class DrawLineArgs : GLDrawArgs
+---@class GL.DrawLineArgs : GL.DrawArgs
 --- @field start Vector2? # Vector (or table with 2 entries) specifying x1 and y1.
 --- @field stop Vector2? # Vector (or table with 2 entries) specifying x2 and y2.
 --- @field x1 number? # Starting x-coordinate.
@@ -487,10 +487,10 @@ function Graphics.drawScreen(args) end
 --- @field additive number|boolean?
 
 --- A wrapper for glDraw that makes drawing lines easier.
----@param args DrawLineArgs Named arguments for line drawing.
+---@param args GL.DrawLineArgs Named arguments for line drawing.
 function Graphics.drawLine(args) end
 
----@class DrawCircleArgs : GLDrawArgs
+---@class GL.DrawCircleArgs : GL.DrawArgs
 --- @field x number # x-coordinate at the center of the circle.
 --- @field y number # y-coordinate at the center of the circle.
 --- @field radius number # Radius of the circle.
@@ -502,10 +502,10 @@ function Graphics.drawLine(args) end
 --- @field additive number|boolean?
 
 --- A wrapper for glDraw that makes drawing circles easier.
----@param args DrawCircleArgs Named arguments for circle drawing.
+---@param args GL.DrawCircleArgs Named arguments for circle drawing.
 function Graphics.drawCircle(args) end
 
----@class BasicDrawArgs
+---@class GL.BasicDrawArgs
 --- @field x number # x-coordinate.
 --- @field y number # y-coordinate.
 --- @field type RenderType # Drawing type.
@@ -514,12 +514,12 @@ function Graphics.drawCircle(args) end
 --- @field sceneCoords boolean? # Whether to draw to the scene coordinate space. False by default.
 --- @field priority number? # The render priority. Defaults to 1 for images and 3 for text.
 
----@class TextDrawArgs : BasicDrawArgs
+---@class GL.TextDrawArgs : GL.BasicDrawArgs
 --- @field text string # The text to display.
 --- @field fontType number? # The font type to use (between 1 and 4). Font 2 can only display numbers. Defaults to 3.
 
----@class ImageDrawArgs : BasicDrawArgs
---- @field image Texture # The texture to draw.
+---@class GL.ImageDrawArgs : GL.BasicDrawArgs
+--- @field image LuaImageResource # The texture to draw.
 --- @field sourceX number? # Left edge of source image section to draw.
 --- @field sourceY number? # Top edge of source image section to draw.
 --- @field sourceWidth number? # Width of the segment of the source image section to draw.
@@ -527,11 +527,11 @@ function Graphics.drawCircle(args) end
 --- @field opacity number? # Opacity of the image drawn (between 0 and 1).
 
 --- Draws an image or text according to the values of the named arguments.
----@param args TextDrawArgs|ImageDrawArgs Named arguments for drawing images or text.
+---@param args GL.TextDrawArgs|GL.ImageDrawArgs Named arguments for drawing images or text.
 function Graphics.draw(args) end
 
 --- Represents a capture buffer that can be used as a texture.
----@class CaptureBuffer : Texture
+---@class CaptureBuffer : LuaImageResource
 local CaptureBuffer = {}
 
 --- Causes the capture buffer to capture the screen at the given render priority.
@@ -549,7 +549,7 @@ function CaptureBuffer:clear(priority) end
 function Graphics.CaptureBuffer(width, height) end
 
 ---@class SpriteOverride
----@field img Texture
+---@field img LuaImageResource
 
 --- Contains references to images currently used by the game.
 ---@type table<string, SpriteOverride[]>
@@ -579,13 +579,13 @@ Graphics.GL_MAX_COMPUTE_WORK_GROUP_COUNT = nil
 Graphics.GL_MAX_COMPUTE_WORK_GROUP_SIZE = nil
 
 ---@alias PrimitiveType
----| `Graphics.GL_POINTS` # Individual vertices.
----| `Graphics.GL_LINES` # 2 vertices per line.
----| `Graphics.GL_LINE_STRIP` # Lines that follow the vertices in order.
----| `Graphics.GL_LINE_LOOP` # Lines that follow the vertices in order and loop back to the first.
----| `Graphics.GL_TRIANGLES` # 3 vertices per triangle.
----| `Graphics.GL_TRIANGLE_FAN` # Number of vertices must be 3 or greater. The first vertex of a triangle fan acts like a hub. The vertices following connect with the previous non-starting vertex and the hub.
----| `Graphics.GL_TRIANGLE_FAN` # Every 3 adjacent vertices will generate a triangle. Like with triangle fans, the number of vertices must be 3 or greater, but can be any number otherwise. For N vertices in a stream, triangle strips will generate N-2 triangles.
+--- | `Graphics.GL_POINTS` # Individual vertices.
+--- | `Graphics.GL_LINES` # 2 vertices per line.
+--- | `Graphics.GL_LINE_STRIP` # Lines that follow the vertices in order.
+--- | `Graphics.GL_LINE_LOOP` # Lines that follow the vertices in order and loop back to the first.
+--- | `Graphics.GL_TRIANGLES` # 3 vertices per triangle.
+--- | `Graphics.GL_TRIANGLE_FAN` # Number of vertices must be 3 or greater. The first vertex of a triangle fan acts like a hub. The vertices following connect with the previous non-starting vertex and the hub.
+--- | `Graphics.GL_TRIANGLE_FAN` # Every 3 adjacent vertices will generate a triangle. Like with triangle fans, the number of vertices must be 3 or greater, but can be any number otherwise. For N vertices in a stream, triangle strips will generate N-2 triangles.
 
 Graphics.HUD_NONE = 0
 
@@ -845,6 +845,6 @@ Graphics.GL_MAX_COMBINED_FRAGMENT_UNIFORM_COMPONENTS = nil
 Graphics.GL_MAX_SERVER_WAIT_TIMEOUT = nil
 
 ---@alias HUDType
----|`Graphics.HUD_NONE` # Neither hearts nor itembox are used.
----|`Graphics.HUD_HEARTS` # Heart-based HUD.
----|`Graphics.HUD_ITEMBOX` # Itembox-based HUD.
+--- | `Graphics.HUD_NONE` # Neither hearts nor itembox are used.
+--- | `Graphics.HUD_HEARTS` # Heart-based HUD.
+--- | `Graphics.HUD_ITEMBOX` # Itembox-based HUD.

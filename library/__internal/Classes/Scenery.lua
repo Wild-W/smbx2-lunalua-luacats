@@ -49,11 +49,11 @@ function Scenery:mem(offset, type, value) end
 
 --- Memory offsets for Scenery instance fields.
 ---@alias SceneryMemoryOffset
----| `0x00` # Scenery X-Position. Use field `x`. `FIELD_DFLOAT`
----| `0x08` # Scenery Y-Position. Use field `y`. `FIELD_DFLOAT`
----| `0x10` # Scenery Width. Use field `width`. `FIELD_DFLOAT`
----| `0x18` # Scenery Height. Use field `height`. `FIELD_DFLOAT`
----| `0x20` # Scenery X-Speed (no effect). `FIELD_DFLOAT`
----| `0x28` # Scenery Y-Speed (no effect). `FIELD_DFLOAT`
----| `0x30` # The ID of the scenery. Use field `id`. `FIELD_WORD`
----| `0x32` # Whether the scenery is currently visible. `FIELD_BOOL`
+--- | `0x00` # Scenery X-Position. Use field `x`. `FIELD_DFLOAT`
+--- | `0x08` # Scenery Y-Position. Use field `y`. `FIELD_DFLOAT`
+--- | `0x10` # Scenery Width. Use field `width`. `FIELD_DFLOAT`
+--- | `0x18` # Scenery Height. Use field `height`. `FIELD_DFLOAT`
+--- | `0x20` # Scenery X-Speed (no effect). `FIELD_DFLOAT`
+--- | `0x28` # Scenery Y-Speed (no effect). `FIELD_DFLOAT`
+--- | `0x30` # The ID of the scenery. Use field `id`. `FIELD_WORD`
+--- | `0x32` # Whether the scenery is currently visible. `FIELD_BOOL`

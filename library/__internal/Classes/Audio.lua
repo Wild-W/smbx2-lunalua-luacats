@@ -1,6 +1,7 @@
 ---@meta _
 
----@class Audio
+---`Audio` is used for manipulation of the game's background music. It used to be also responsible for sound effects.
+--- However, sound effect handling has since been moved to `SFX`.
 Audio = {}
 
 ---@class (exact) MixChunk
@@ -505,9 +506,10 @@ function PlayingSfxInstance:SetDistance(distance) end
 
 --- This effect emulates a simple 3D audio effect.
 --- By giving it the angle and distance from the camera's point of view, the effect pans and attenuates volumes.
+---
+--- Using angle and distance of 0 will undo the effect.
 --- @param angle number The angle from the camera's point of view.
 --- @param distance number The distance from the camera.
---- @note Using angle and distance of 0 will undo the effect.
 function PlayingSfxInstance:Set3DPosition(angle, distance) end
 
 --- Simple reverse stereo, swaps left and right channel sound.
@@ -531,5 +533,5 @@ function PlayingSfxInstance:__getMuteForAlias(alias) end
 function PlayingSfxInstance:__getChunkForAlias(alias) end
 
 ---@class SoundOverride
----@field sfx MixChunk The currrent sound effect audio
----@field muted boolean Whether the sound effect is muted
+--- @field sfx MixChunk The currrent sound effect audio
+--- @field muted boolean Whether the sound effect is muted

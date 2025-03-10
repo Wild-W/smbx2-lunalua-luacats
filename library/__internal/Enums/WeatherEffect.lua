@@ -2,13 +2,13 @@
 
 ---Used to describe section weather effects.
 ---@alias WeatherEffect
----| `WEATHER_NONE`
----| `WEATHER_RAIN`
----| `WEATHER_SNOW`
----| `WEATHER_FOG`
----| `WEATHER_SANDSTORM`
----| `WEATHER_CINDERS`
----| `WEATHER_WISPS`
+--- | `WEATHER_NONE`
+--- | `WEATHER_RAIN`
+--- | `WEATHER_SNOW`
+--- | `WEATHER_FOG`
+--- | `WEATHER_SANDSTORM`
+--- | `WEATHER_CINDERS`
+--- | `WEATHER_WISPS`
 
 WEATHER_NONE = 0
 WEATHER_RAIN = 1

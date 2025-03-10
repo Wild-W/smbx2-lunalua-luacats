@@ -1,7 +1,7 @@
 ---@meta _
 
---- Configuration settings for visual and behavioral aspects of effects in the game environment.
---- @class EffectConfig
+---Configuration settings for visual and behavioral aspects of effects in the game environment.
+---@class EffectConfig
 --- @field img number ID of the effect image to use. Default is the same as the effect file ID.
 --- @field delay number Number of frames after the effect is spawned before this layer should spawn. Default: 0
 --- @field xAlign number Horizontal position of the layer's X coordinate relative to the sprite, also the anchor of rotation. Default: 0 (LEFT)
@@ -35,46 +35,46 @@
 --- @field rotation number The effect's rotation per frame. Default: 0
 
 ---@alias EffectConfigInitFunction
----|"INIT_LEGACYBOSS" # Handles NPC spawning for legacy boss NPCs (Boom Boom).
----|"INIT_SETDIR" # Sets the effect's direction to -1 if speed is positive, 1 if negative.
----|"INIT_BABYYOSHI" # Initializes a Baby Yoshi effect.
----|"INIT_GLASSSHARDS" # Randomizes the variant of the mother brain glass shards.
----|"INIT_1INDEXED" # Correction function for 1-indexed variants in Redigit code.
+--- | "INIT_LEGACYBOSS" # Handles NPC spawning for legacy boss NPCs (Boom Boom).
+--- | "INIT_SETDIR" # Sets the effect's direction to -1 if speed is positive, 1 if negative.
+--- | "INIT_BABYYOSHI" # Initializes a Baby Yoshi effect.
+--- | "INIT_GLASSSHARDS" # Randomizes the variant of the mother brain glass shards.
+--- | "INIT_1INDEXED" # Correction function for 1-indexed variants in Redigit code.
 
 ---@alias EffectConfigTickFunction
----|"TICK_EGG" # Runs per-frame logic for eggs.
----|"TICK_WIGGLE" # Handles the wiggle of a wiggling effect.
----|"TICK_STARCOIN" # The Star Coin's bounce movement.
----|"TICK_TURNBLOCK" # Prevents the effect from dying while the player is overlapping. Syncs frame with all other effects of this ID.
----|"TICK_SLEEP" # Per-frame logic for Rip van Fish's sleep effect.
----|"TICK_SLOWDOWN" # Gradually slows down y-speed.
----|"TICK_BOMB_SMB3" # Spawns a lot of bomb effects.
----|"TICK_PINGPONG" # Plays the animation forwards, then backwards. Used by the door AI.
----|"TICK_SINGLE" # Forces the effect to die after one animation cycle.
----|"TICK_DOUBLESPEED" # Forces the effect to die after one animation cycle. Doubles the speed of the effect.
----|"TICK_WATERBUBBLE" # Movement of the breathing bubble.
----|"TICK_WATERSPLASH" # Logic for the water splash effect.
----|"TICK_MOTHER" # Spawns a lot of Mother Brain explosion effects.
----|"TICK_SINGLE_DOUBLESPEED" # Uses TICK_SINGLE and doubles X-Speed.
----|"TICK_SLIDEPUFF" # Uses TICK_SINGLE and gently moves the effect upwards.
----|"TICK_FIREBALL" # Uses TICK_SINGLE and randomizes position every frame.
----|"TICK_PEACHBOMB" # Uses TICK_SINGLE and spawns random sparkles.
----|"TICK_ARC" # Gradually slows down speedX.
----|"TICK_LARRY" # The movement of Larry's death effect.
----|"TICK_BLAARG" # The movement of Blaaarg's eyes.
----|"TICK_RESERVESPARK" # The movement of the reserve item block's spark.
----|"TICK_COIN" # The coin-out-of-block effect's logic.
----|"TICK_CHUCK" # Logic for a Chargin' Chuck hurt effect. Tries to turn back into a Chuck when finished.
----|"TICK_CRASHSWITCH" # The movement of the exclamation mark of the crash switch.
+--- | "TICK_EGG" # Runs per-frame logic for eggs.
+--- | "TICK_WIGGLE" # Handles the wiggle of a wiggling effect.
+--- | "TICK_STARCOIN" # The Star Coin's bounce movement.
+--- | "TICK_TURNBLOCK" # Prevents the effect from dying while the player is overlapping. Syncs frame with all other effects of this ID.
+--- | "TICK_SLEEP" # Per-frame logic for Rip van Fish's sleep effect.
+--- | "TICK_SLOWDOWN" # Gradually slows down y-speed.
+--- | "TICK_BOMB_SMB3" # Spawns a lot of bomb effects.
+--- | "TICK_PINGPONG" # Plays the animation forwards, then backwards. Used by the door AI.
+--- | "TICK_SINGLE" # Forces the effect to die after one animation cycle.
+--- | "TICK_DOUBLESPEED" # Forces the effect to die after one animation cycle. Doubles the speed of the effect.
+--- | "TICK_WATERBUBBLE" # Movement of the breathing bubble.
+--- | "TICK_WATERSPLASH" # Logic for the water splash effect.
+--- | "TICK_MOTHER" # Spawns a lot of Mother Brain explosion effects.
+--- | "TICK_SINGLE_DOUBLESPEED" # Uses TICK_SINGLE and doubles X-Speed.
+--- | "TICK_SLIDEPUFF" # Uses TICK_SINGLE and gently moves the effect upwards.
+--- | "TICK_FIREBALL" # Uses TICK_SINGLE and randomizes position every frame.
+--- | "TICK_PEACHBOMB" # Uses TICK_SINGLE and spawns random sparkles.
+--- | "TICK_ARC" # Gradually slows down speedX.
+--- | "TICK_LARRY" # The movement of Larry's death effect.
+--- | "TICK_BLAARG" # The movement of Blaaarg's eyes.
+--- | "TICK_RESERVESPARK" # The movement of the reserve item block's spark.
+--- | "TICK_COIN" # The coin-out-of-block effect's logic.
+--- | "TICK_CHUCK" # Logic for a Chargin' Chuck hurt effect. Tries to turn back into a Chuck when finished.
+--- | "TICK_CRASHSWITCH" # The movement of the exclamation mark of the crash switch.
 
 ---@alias EffectConfigDeathFunction
----|"DEATH_TURNBLOCK" # Turns the turn block effect back into a block.
----|"DEATH_COIN" # Spawns a score effect and adds to the score and coin counters.
----|"DEATH_EGG" # Spawns an NPC or a Baby Yoshi effect.
----|"DEATH_SMOKE" # Spawns a smoke puff.
----|"DEATH_SHELL" # Spawns a shell hit star effect.
----|"DEATH_SPAWNNPCID" # Spawns an NPC of the npcID stored in the effect.
----|"DEATH_LEGACYBOSS" # Spawns the legacy boss's goal item.
+--- | "DEATH_TURNBLOCK" # Turns the turn block effect back into a block.
+--- | "DEATH_COIN" # Spawns a score effect and adds to the score and coin counters.
+--- | "DEATH_EGG" # Spawns an NPC or a Baby Yoshi effect.
+--- | "DEATH_SMOKE" # Spawns a smoke puff.
+--- | "DEATH_SHELL" # Spawns a shell hit star effect.
+--- | "DEATH_SPAWNNPCID" # Spawns an NPC of the npcID stored in the effect.
+--- | "DEATH_LEGACYBOSS" # Spawns the legacy boss's goal item.
 
 ---@alias EffectConfigTable
 ---```lua
@@ -85,7 +85,7 @@
 ---	maxSpeedY=10
 ---}
 ---```
----|"AI_DROP"
+--- | "AI_DROP"
 ---```lua
 -----pow block pulse
 ---AI_PULSE = {
@@ -96,7 +96,7 @@
 ---	gravity = 0
 ---}
 ---```
----|"AI_PULSE"
+--- | "AI_PULSE"
 ---```lua
 -----stomped
 ---AI_STOMPED = {
@@ -104,7 +104,7 @@
 ---	--sound=2
 ---}
 ---```
----|"AI_STOMPED"
+--- | "AI_STOMPED"
 ---```lua
 -----for effects that only play once
 ---AI_SINGLE = {
@@ -114,7 +114,7 @@
 ---	lifetime = 100
 ---}
 ---```
----|"AI_SINGLE"
+--- | "AI_SINGLE"
 ---```lua
 -----for effects that only play once but for some reason don't follow speedY rules
 ---AI_SLIDEPUFF = {
@@ -124,7 +124,7 @@
 ---	lifetime = 20
 ---}
 ---```
----|"AI_SLIDEPUFF"
+--- | "AI_SLIDEPUFF"
 ---```lua
 -----for effects that only play once but have twice the speed
 ---AI_SINGLE_DOUBLESPEED = {
@@ -134,7 +134,7 @@
 ---	lifetime = 65
 ---}
 ---```
----|"AI_SINGLE_DOUBLESPEED"
+--- | "AI_SINGLE_DOUBLESPEED"
 ---```lua
 -----door
 ---AI_DOOR = {
@@ -144,7 +144,7 @@
 ---	sound = 46
 ---}
 ---```
----|"AI_DOOR"
+--- | "AI_DOOR"
 ---```lua
 -----player death
 ---AI_PLAYER = {
@@ -154,7 +154,7 @@
 ---	sound = 8
 ---}
 ---```
----|"AI_PLAYER"
+--- | "AI_PLAYER"
 ---```lua
 -----performs an arc similar to most items when knocked
 ---AI_ARC = {
@@ -166,7 +166,7 @@
 ---	maxSpeedY = 10
 ---}
 ---```
----|"AI_ARC"
+--- | "AI_ARC"
 ---```lua
 -----executes the yoshi egg ai as closely as possible (wip)
 ---AI_EGG = {
@@ -177,7 +177,7 @@
 ---	img = 56
 ---}
 ---```
----|"AI_EGG"
+--- | "AI_EGG"
 ---```lua
 -----spinjump does some weird stuff
 ---AI_SPINJUMP = {
@@ -187,7 +187,7 @@
 ---	onTick = "TICK_DOUBLESPEED",
 ---}
 ---```
----|"AI_SPINJUMP"
+--- | "AI_SPINJUMP"
 ---```lua
 -----wiggler piece ai
 ---AI_WIGGLE = {
@@ -197,7 +197,7 @@
 ---	gravity = 0.25
 ---}
 ---```
----|"AI_WIGGLE"
+--- | "AI_WIGGLE"
 ---```lua
 -----twister cloud ai
 ---AI_TWISTER = {
@@ -206,7 +206,7 @@
 ---	gravity = 0
 ---}
 ---```
----|"AI_TWISTER"
+--- | "AI_TWISTER"
 ---```lua
 -----starcoin bounce
 ---AI_STARCOIN = {
@@ -217,7 +217,7 @@
 ---	onTick = "TICK_STARCOIN"
 ---}
 ---```
----|"AI_STARCOIN"
+--- | "AI_STARCOIN"
 ---```lua
 -----coin effect
 ---AI_COIN = {
@@ -229,7 +229,7 @@
 ---	speedY = -8
 ---}
 ---```
----|"AI_COIN"
+--- | "AI_COIN"
 ---```lua
 -----rip van fish ZZZs
 ---AI_SLEEP = {
@@ -240,7 +240,7 @@
 ---	speedY = -.4
 ---}
 ---```
----|"AI_SLEEP"
+--- | "AI_SLEEP"
 ---```lua
 -----fireballs
 ---AI_FIREBALL = {
@@ -251,7 +251,7 @@
 ---	variants = 5
 ---}
 ---```
----|"AI_FIREBALL"
+--- | "AI_FIREBALL"
 ---```lua
 -----iceballs
 ---AI_ICEBALL = {
@@ -260,7 +260,7 @@
 ---	frames = 3
 ---}
 ---```
----|"AI_ICEBALL"
+--- | "AI_ICEBALL"
 ---```lua
 -----baby binch
 ---AI_BABYYOSHI = {
@@ -271,7 +271,7 @@
 ---	variants = 8
 ---}
 ---```
----|"AI_BABYYOSHI"
+--- | "AI_BABYYOSHI"
 ---```lua
 -----turb block
 ---AI_TURNBLOCK = {
@@ -282,7 +282,7 @@
 ---	onInit = "INIT_EMPTY"
 ---}
 ---```
----|"AI_TURNBLOCK"
+--- | "AI_TURNBLOCK"
 ---```lua
 -----yknow
 ---AI_PEACHBOMB = {
@@ -291,7 +291,7 @@
 ---	framespeed = 3
 ---}
 ---```
----|"AI_PEACHBOMB"
+--- | "AI_PEACHBOMB"
 ---```lua
 -----yknow
 ---AI_LARRY = {
@@ -301,7 +301,7 @@
 ---	lifetime = 200
 ---}
 ---```
----|"AI_LARRY"
+--- | "AI_LARRY"
 ---```lua
 -----yknow
 ---AI_MOTHER = {
@@ -310,7 +310,7 @@
 ---	lifetime = 300
 ---}
 ---```
----|"AI_MOTHER"
+--- | "AI_MOTHER"
 ---```lua
 -----yknow
 ---AI_BOMB_SMB3 = {
@@ -318,7 +318,7 @@
 ---	lifetime=42
 ---}
 ---```
----|"AI_BOMB_SMB3"
+--- | "AI_BOMB_SMB3"
 ---```lua
 -----yknow
 ---AI_WATERBUBBLE = {
@@ -328,7 +328,7 @@
 ---	framespeed=3
 ---}
 ---```
----|"AI_WATERBUBBLE"
+--- | "AI_WATERBUBBLE"
 ---```lua
 -----yknow
 ---AI_WATERSPLASH = {
@@ -338,7 +338,7 @@
 ---	framespeed=8
 ---}
 ---```
----|"AI_WATERSPLASH"
+--- | "AI_WATERSPLASH"
 ---```lua
 -----yknow
 ---AI_RESERVESPARK = {
@@ -350,7 +350,7 @@
 ---	yAlign=0,
 ---}
 ---```
----|"AI_RESERVESPARK"
+--- | "AI_RESERVESPARK"
 ---```lua
 -----yknow
 ---AI_CRASHSWITCH = {
@@ -358,7 +358,7 @@
 ---	lifetime=100
 ---}
 ---```
----|"AI_CRASHSWITCH"
+--- | "AI_CRASHSWITCH"
 ---```lua
 -----RADIAL TIMER
 ---AI_RADIALTIMER = {
@@ -366,4 +366,4 @@
 ---    onInit = "INIT_RADIALTIMER"
 ---}
 ---```
----|"AI_RADIALTIMER"
+--- | "AI_RADIALTIMER"

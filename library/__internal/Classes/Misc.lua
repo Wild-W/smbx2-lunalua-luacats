@@ -113,12 +113,6 @@ function Misc.isPausedByLua() end
 --- @return number score
 function Misc.score() end
 
---- Triggers an SMBX event by the given name.
---- @param eventName string
----
---- Level only
-function Misc.triggerEvent(eventName) end
-
 --### Static gameplay manipulation functions
 
 --- Toggles the synced switch state.
@@ -168,7 +162,7 @@ function Misc.cheatBuffer(value) end
 function Misc.getCursorPosition() end
 
 --- Sets the cursor appearance.
---- @param image Texture|false|nil The cursor image. Set to nil to reset to default, or false to hide the cursor.
+--- @param image LuaImageResource|false|nil The cursor image. Set to nil to reset to default, or false to hide the cursor.
 --- @param xHotspot number? The x-coordinate of the cursor hotspot.
 --- @param yHotspot number? The y-coordinate of the cursor hotspot.
 function Misc.setCursor(image, xHotspot, yHotspot) end
@@ -419,7 +413,7 @@ function Misc.warn(warningMessage, severity) end
 function Misc.setWindowTitle(title) end
 
 --- Sets the icon of the game window.
---- @param icon Texture The icon of the game window.
+--- @param icon LuaImageResource The icon of the game window.
 function Misc.setWindowIcon(icon) end
 
 --### Static file path and name functions
@@ -653,9 +647,9 @@ function Misc.GetSelectedControllerStickPosition(playerNum) end
 Misc.groupsCollide = nil
 
 ---@alias PowType
----|`Misc.powType.LEGACY`
----|`Misc.powType.SMB2`
----|`Misc.powType.SMW`
+--- | `Misc.powType.LEGACY`
+--- | `Misc.powType.SMB2`
+--- | `Misc.powType.SMW`
 
 Misc.powType = {}
 Misc.powType.LEGACY = 1

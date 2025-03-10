@@ -1,7 +1,6 @@
 ---@meta _
 
 ---Sections are arbitrary subdivisions within the level's scene space coordinate system. They can be configured in the editor through the Section Settings window, and manipulated in code through this class.
----@class SectionManager
 Section = {}
 
 --- Returns the number of sections (21).
@@ -16,11 +15,6 @@ function Section.get() end
 --- @param index number The index of the section (1-based).
 --- @return Section section The section at the given index.
 function Section.get(index) end
-
---- Constructor for a Section object, using a 0-based index.
---- @param index number The index of the section (0-based).
---- @return Section section The section at the given index.
-function Section(index) end
 
 --- Returns a table of indices of sections with players in them.
 --- @return number[] indices A table of indices of active sections.
@@ -64,6 +58,11 @@ function Section.getWeatherEffect(type) end
 ---@param ... unknown
 ---@return ...
 function Section.makeDefaultSettings(...) end
+
+--- Constructor for a Section object, using a 0-based index.
+--- @param index number The index of the section (0-based).
+--- @return Section section The section at the given index.
+function Section(index) end
 
 ---@class Section
 --- Validates that the section object exists. (Read-only)
@@ -112,25 +111,25 @@ local Section = {}
 function Section.drawScreenEffect(screenEffect, camera) end
 
 ---The SectionSettings table contains information about options chosen in the section settings editor window. The following fields are available:
---- @class SectionSettings
+---@class SectionSettings
 --- @field darkness SectionDarkness The darkness configuration used by the section.
 --- @field effects SectionEffects The weather and screen effects used by the section.
 --- @field beat SectionBeatOptions The beat timer configuration used by the section.
 
 ---The SectionDarkness table contains information about the darkness effect used by the section.
---- @class SectionDarkness
+---@class SectionDarkness
 --- @field effect DarknessField The darkness effect itself.
 --- @field playerLightEffects Light[] A table of lights used for the players, if player light is enabled.
 --- @field enabled boolean Whether or not the darkness effect is enabled.
 --- @field playerLightEnabled boolean Whether or not the darkness effect's player lights are enabled.
 
 ---The SectionEffects table contains information about weather and screen effects used in the section.
---- @class SectionEffects
+---@class SectionEffects
 --- @field weather WeatherEffect The used weather effect.
 --- @field screenEffect ScreenEffect The used screen effect.
 
 ---The SectionBeatOptions table contains information about the beat timer used in the section.
---- @class SectionBeatOptions
+---@class SectionBeatOptions
 --- @field enabled boolean Whether the beat timer is enabled.
 --- @field useMusicClock boolean Whether the music clock should be used for the timer.
 --- @field bpm number The current BPM.

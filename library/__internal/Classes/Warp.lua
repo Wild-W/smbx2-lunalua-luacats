@@ -50,9 +50,6 @@ function Warp:mem(offset, type) end
 --- @param value any The value to set at the specified memory address-offset.
 function Warp:mem(offset, type, value) end
 
----@class Warp
-local Warp = {}
-
 --- X-Coordinate of the warp's entrance.
 ---@type number
 Warp.entranceX = nil
@@ -178,5 +175,5 @@ Warp.allowItems = nil
 Warp.starsRequired = nil
 
 ---@alias WarpMemoryOffset
----|`0x8A` # Number of stars collected in the level the warp leads to. `FIELD_WORD`
----|`0x8C` # Total number of stars in the level the warp leads to. `FIELD_WORD`
+--- |`0x8A` # Number of stars collected in the level the warp leads to. `FIELD_WORD`
+--- |`0x8C` # Total number of stars in the level the warp leads to. `FIELD_WORD`

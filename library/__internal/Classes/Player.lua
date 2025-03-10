@@ -51,18 +51,131 @@ function Player.setCostume(character, costumeName, volatile) end
 --- @return string costumeName The name of the costume.
 function Player.getCostume(character) end
 
---- The first player object.
----@type Player
-player = {}
-
---- The second player object, or `nil` if only one player is in the level.
----@type Player?
-player2 = {}
-
----@class Player : CollisionObject
+---@class Player : CollisionObject, LuaHelperClass
+--- @field ToadDoubleJReady integer # Equivalent to `Player:mem(0x0, FIELD_WORD)`.
+--- @field SparklingEffect integer # Equivalent to `Player:mem(0x2, FIELD_WORD)`.
+--- @field UnknownCTRLLock1 integer # Equivalent to `Player:mem(0x4, FIELD_WORD)`.
+--- @field UnknownCTRLLock2 integer # Equivalent to `Player:mem(0x6, FIELD_WORD)`.
+--- @field QuicksandEffectTimer integer # Equivalent to `Player:mem(0x8, FIELD_WORD)`.
+--- @field OnSlipperyGround integer # Equivalent to `Player:mem(0xa, FIELD_WORD)`.
+--- @field IsAFairy integer # Equivalent to `Player:mem(0xc, FIELD_WORD)`.
+--- @field FairyAlreadyInvoked integer # Equivalent to `Player:mem(0xe, FIELD_WORD)`.
+--- @field FairyFramesLeft integer # Equivalent to `Player:mem(0x10, FIELD_WORD)`.
+--- @field SheathHasKey integer # Equivalent to `Player:mem(0x12, FIELD_WORD)`.
+--- @field SheathAttackCooldown integer # Equivalent to `Player:mem(0x14, FIELD_WORD)`.
+--- @field Hearts integer # Equivalent to `Player:mem(0x16, FIELD_WORD)`.
+--- @field PeachHoverAvailable integer # Equivalent to `Player:mem(0x18, FIELD_WORD)`.
+--- @field PressingHoverButton integer # Equivalent to `Player:mem(0x1a, FIELD_WORD)`.
+--- @field PeachHoverTimer integer # Equivalent to `Player:mem(0x1c, FIELD_WORD)`.
+--- @field Unused1 integer # Equivalent to `Player:mem(0x1e, FIELD_WORD)`.
+--- @field PeachHoverTrembleSpeed number # Equivalent to `Player:mem(0x20, FIELD_FLOAT)`.
+--- @field PeachHoverTrembleDir integer # Equivalent to `Player:mem(0x24, FIELD_WORD)`.
+--- @field ItemPullupTimer integer # Equivalent to `Player:mem(0x26, FIELD_WORD)`.
+--- @field ItemPullupMomentumSave number # Equivalent to `Player:mem(0x28, FIELD_FLOAT)`.
+--- @field Unused2 integer # Equivalent to `Player:mem(0x2c, FIELD_WORD)`.
+--- @field UnkClimbing1 integer # Equivalent to `Player:mem(0x2e, FIELD_WORD)`.
+--- @field UnkClimbing2 integer # Equivalent to `Player:mem(0x30, FIELD_WORD)`.
+--- @field UnkClimbing3 integer # Equivalent to `Player:mem(0x32, FIELD_WORD)`.
+--- @field WaterState integer # Equivalent to `Player:mem(0x34, FIELD_WORD)`.
+--- @field WaterOrQuicksandState integer # Equivalent to `Player:mem(0x34, FIELD_WORD)`.
+--- @field IsInWater integer # Equivalent to `Player:mem(0x36, FIELD_WORD)`.
+--- @field WaterStrokeTimer integer # Equivalent to `Player:mem(0x38, FIELD_WORD)`.
+--- @field UnknownHoverTimer integer # Equivalent to `Player:mem(0x3a, FIELD_WORD)`.
+--- @field SlidingState integer # Equivalent to `Player:mem(0x3c, FIELD_WORD)`.
+--- @field SlidingGroundPuffs integer # Equivalent to `Player:mem(0x3e, FIELD_WORD)`.
+--- @field ClimbingState integer # Equivalent to `Player:mem(0x40, FIELD_WORD)`.
+--- @field UnknownTimer integer # Equivalent to `Player:mem(0x42, FIELD_WORD)`.
+--- @field UnknownFlag integer # Equivalent to `Player:mem(0x44, FIELD_WORD)`.
+--- @field UnknownPowerupState integer # Equivalent to `Player:mem(0x46, FIELD_WORD)`.
+--- @field SlopeRelated integer # Equivalent to `Player:mem(0x48, FIELD_WORD)`.
+--- @field TanookiStatueActive integer # Equivalent to `Player:mem(0x4a, FIELD_WORD)`.
+--- @field TanookiMorphCooldown integer # Equivalent to `Player:mem(0x4c, FIELD_WORD)`.
+--- @field TanookiActiveFrameCount integer # Equivalent to `Player:mem(0x4e, FIELD_WORD)`.
+--- @field IsSpinjumping integer # Equivalent to `Player:mem(0x50, FIELD_WORD)`.
+--- @field SpinjumpStateCounter integer # Equivalent to `Player:mem(0x52, FIELD_WORD)`.
+--- @field SpinjumpLandDirection integer # Equivalent to `Player:mem(0x54, FIELD_WORD)`.
+--- @field CurrentKillCombo integer # Equivalent to `Player:mem(0x56, FIELD_WORD)`.
+--- @field GroundSlidingPuffsState integer # Equivalent to `Player:mem(0x58, FIELD_WORD)`.
+--- @field WarpNearby integer # Equivalent to `Player:mem(0x5a, FIELD_WORD)`.
+--- @field NearbyWarpIndex integer # Equivalent to `Player:mem(0x5a, FIELD_WORD)`.
+--- @field Unknown5C integer # Equivalent to `Player:mem(0x5c, FIELD_WORD)`.
+--- @field Unknown5E integer # Equivalent to `Player:mem(0x5e, FIELD_WORD)`.
+--- @field HasJumped integer # Equivalent to `Player:mem(0x60, FIELD_WORD)`.
+--- @field CurXPos number # Equivalent to `Player:mem(0xc0, FIELD_DFLOAT)`.
+--- @field CurYPos number # Equivalent to `Player:mem(0xc8, FIELD_DFLOAT)`.
+--- @field Height number # Equivalent to `Player:mem(0xd0, FIELD_DFLOAT)`.
+--- @field Width number # Equivalent to `Player:mem(0xd8, FIELD_DFLOAT)`.
+--- @field CurXSpeed number # Equivalent to `Player:mem(0xe0, FIELD_DFLOAT)`.
+--- @field CurYSpeed number # Equivalent to `Player:mem(0xe8, FIELD_DFLOAT)`.
+--- @field Identity integer # Equivalent to `Player:mem(0xf0, FIELD_WORD)`.
+--- @field UKeyState integer # Equivalent to `Player:mem(0xf2, FIELD_WORD)`.
+--- @field DKeyState integer # Equivalent to `Player:mem(0xf4, FIELD_WORD)`.
+--- @field LKeyState integer # Equivalent to `Player:mem(0xf6, FIELD_WORD)`.
+--- @field RKeyState integer # Equivalent to `Player:mem(0xf8, FIELD_WORD)`.
+--- @field JKeyState integer # Equivalent to `Player:mem(0xfa, FIELD_WORD)`.
+--- @field SJKeyState integer # Equivalent to `Player:mem(0xfc, FIELD_WORD)`.
+--- @field XKeyState integer # Equivalent to `Player:mem(0xfe, FIELD_WORD)`.
+--- @field RNKeyState integer # Equivalent to `Player:mem(0x100, FIELD_WORD)`.
+--- @field SELKeyState integer # Equivalent to `Player:mem(0x102, FIELD_WORD)`.
+--- @field STRKeyState integer # Equivalent to `Player:mem(0x104, FIELD_WORD)`.
+--- @field MountType integer # Equivalent to `Player:mem(0x108, FIELD_WORD)`.
+--- @field MountColor integer # Equivalent to `Player:mem(0x10a, FIELD_WORD)`.
+--- @field MountState integer # Equivalent to `Player:mem(0x10c, FIELD_WORD)`.
+--- @field MountHeightOffset integer # Equivalent to `Player:mem(0x10e, FIELD_WORD)`.
+--- @field MountGfxIndex integer # Equivalent to `Player:mem(0x110, FIELD_WORD)`.
+--- @field CurrentPowerup integer # Equivalent to `Player:mem(0x112, FIELD_WORD)`.
+--- @field CurrentPlayerSprite integer # Equivalent to `Player:mem(0x114, FIELD_WORD)`.
+--- @field Unused116 integer # Equivalent to `Player:mem(0x116, FIELD_WORD)`.
+--- @field GfxMirrorX number # Equivalent to `Player:mem(0x118, FIELD_FLOAT)`.
+--- @field UpwardJumpingForce integer # Equivalent to `Player:mem(0x11c, FIELD_WORD)`.
+--- @field JumpButtonHeld integer # Equivalent to `Player:mem(0x11e, FIELD_WORD)`.
+--- @field SpinjumpButtonHeld integer # Equivalent to `Player:mem(0x120, FIELD_WORD)`.
+--- @field ForcedAnimationState integer # Equivalent to `Player:mem(0x122, FIELD_WORD)`.
+--- @field ForcedAnimationTimer number # Equivalent to `Player:mem(0x124, FIELD_DFLOAT)`.
+--- @field DownButtonMirror integer # Equivalent to `Player:mem(0x12c, FIELD_WORD)`.
+--- @field InDuckingPosition integer # Equivalent to `Player:mem(0x12e, FIELD_WORD)`.
+--- @field SelectButtonMirror integer # Equivalent to `Player:mem(0x130, FIELD_WORD)`.
+--- @field Unknown132 integer # Equivalent to `Player:mem(0x132, FIELD_WORD)`.
+--- @field DownButtonTapped integer # Equivalent to `Player:mem(0x134, FIELD_WORD)`.
+--- @field Unknown136 integer # Equivalent to `Player:mem(0x136, FIELD_WORD)`.
+--- @field XMomentumPush number # Equivalent to `Player:mem(0x138, FIELD_FLOAT)`.
+--- @field DeathState integer # Equivalent to `Player:mem(0x13c, FIELD_WORD)`.
+--- @field DeathTimer integer # Equivalent to `Player:mem(0x13e, FIELD_WORD)`.
+--- @field BlinkTimer integer # Equivalent to `Player:mem(0x140, FIELD_WORD)`.
+--- @field BlinkState integer # Equivalent to `Player:mem(0x142, FIELD_WORD)`.
+--- @field Unknown144 integer # Equivalent to `Player:mem(0x144, FIELD_WORD)`.
+--- @field LayerStateStanding integer # Equivalent to `Player:mem(0x146, FIELD_WORD)`.
+--- @field LayerStateLeftContact integer # Equivalent to `Player:mem(0x148, FIELD_WORD)`.
+--- @field LayerStateTopContact integer # Equivalent to `Player:mem(0x14a, FIELD_WORD)`.
+--- @field LayerStateRightContact integer # Equivalent to `Player:mem(0x14c, FIELD_WORD)`.
+--- @field PushedByMovingLayer integer # Equivalent to `Player:mem(0x14e, FIELD_WORD)`.
+--- @field Unused150 integer # Equivalent to `Player:mem(0x150, FIELD_WORD)`.
+--- @field Unused152 integer # Equivalent to `Player:mem(0x152, FIELD_WORD)`.
+--- @field HeldNPCIndex integer # Equivalent to `Player:mem(0x154, FIELD_WORD)`.
+--- @field Unused182 integer # Equivalent to `Player:mem(0x182, FIELD_WORD)`.
+--- @field Unused180 integer # Equivalent to `Player:mem(0x180, FIELD_WORD)`.
+--- @field Unused17E integer # Equivalent to `Player:mem(0x17e, FIELD_WORD)`.
+--- @field Unused17C integer # Equivalent to `Player:mem(0x17c, FIELD_WORD)`.
+--- @field Unknown17A integer # Equivalent to `Player:mem(0x17a, FIELD_WORD)`.
+--- @field Unknown178 integer # Equivalent to `Player:mem(0x178, FIELD_WORD)`.
+--- @field NPCBeingStoodOnIndex integer # Equivalent to `Player:mem(0x176, FIELD_WORD)`.
+--- @field HoldingFlightButton integer # Equivalent to `Player:mem(0x174, FIELD_WORD)`.
+--- @field HoldingFlightRunButton integer # Equivalent to `Player:mem(0x172, FIELD_WORD)`.
+--- @field FlightTimeRemaining integer # Equivalent to `Player:mem(0x170, FIELD_WORD)`.
+--- @field IsFlying integer # Equivalent to `Player:mem(0x16e, FIELD_WORD)`.
+--- @field CanFly integer # Equivalent to `Player:mem(0x16c, FIELD_WORD)`.
+--- @field TakeoffSpeed number # Equivalent to `Player:mem(0x168, FIELD_FLOAT)`.
+--- @field Unknown166 integer # Equivalent to `Player:mem(0x166, FIELD_WORD)`.
+--- @field TailswipeTimer integer # Equivalent to `Player:mem(0x164, FIELD_WORD)`.
+--- @field ProjectileTimer2 integer # Equivalent to `Player:mem(0x162, FIELD_WORD)`.
+--- @field ProjectileTimer1 integer # Equivalent to `Player:mem(0x160, FIELD_WORD)`.
+--- @field TargetWarpIndex integer # Equivalent to `Player:mem(0x15e, FIELD_WORD)`.
+--- @field WarpCooldownTimer integer # Equivalent to `Player:mem(0x15c, FIELD_WORD)`.
+--- @field WarpTimer integer # Equivalent to `Player:mem(0x15c, FIELD_WORD)`.
+--- @field CurrentSection integer # Equivalent to `Player:mem(0x15a, FIELD_WORD)`.
+--- @field PowerupBoxContents integer # Equivalent to `Player:mem(0x158, FIELD_WORD)`.
+--- @field Unknown156 integer # Equivalent to `Player:mem(0x156, FIELD_WORD)`.
 local PlayerInstance = {}
-
-PlayerInstance.__type = "Player"
 
 PlayerInstance.data = {
 	_basegame = {},
@@ -186,14 +299,14 @@ function PlayerInstance:setFrame(frame) end
 function PlayerInstance:setFrame(x, y) end
 
 --- Gets the player's current frame as a spritesheet frame.
---- @param frame number The frame to retrieve.
---- @return number The current frame.
-function PlayerInstance:getFrame(frame) end
+--- @param absolute boolean?
+--- @return number frame The current frame.
+function PlayerInstance:getFrame(absolute) end
 
 --- Gets the player's current frame as x and y coordinates on the spritesheet.
---- @param frame number The frame to retrieve.
+--- @param absolute boolean?
 --- @return number x, number y The x and y coordinates on the spritesheet for the frame.
-function PlayerInstance:getFrame(frame) end
+function PlayerInstance:getFrame(absolute) end
 
 --- Instantly teleports the player to the target position.
 --- @param x number The x-coordinate of the target position.
@@ -207,9 +320,9 @@ function PlayerInstance:isUnderwater() end
 ---@return boolean isDead If the player is dead.
 function PlayerInstance:isDead() end
 
---- The player's index in the internal list of players.
+--- The player's index in the internal list of players. Read only.
 ---@type number
-PlayerInstance.idx = 0
+PlayerInstance.idx = nil
 
 --- If the player instance is valid.
 --- @type boolean
@@ -221,35 +334,35 @@ PlayerInstance.FacingDirection = nil
 
 --- The player's x coordinate (left edge of the hitbox).
 ---@type number
-PlayerInstance.x = 0
+PlayerInstance.x = nil
 
 --- The player's y coordinate (top edge of the hitbox).
 ---@type number
-PlayerInstance.y = 0
+PlayerInstance.y = nil
 
 --- The width of the player's hitbox.
 ---@type number
-PlayerInstance.width = 0
+PlayerInstance.width = nil
 
 --- The height of the player's hitbox.
 ---@type number
-PlayerInstance.height = 0
+PlayerInstance.height = nil
 
 --- The player's horizontal speed.
 ---@type number
-PlayerInstance.speedX = 0
+PlayerInstance.speedX = nil
 
 --- The player's vertical speed.
 ---@type number
-PlayerInstance.speedY = 0
+PlayerInstance.speedY = nil
 
 --- The number of frames the player has been sliding while not colliding with a slope.
 ---@type number
-PlayerInstance.slidingTimeSinceOnSlope = 0
+PlayerInstance.slidingTimeSinceOnSlope = nil
 
 --- The player's facing direction. Can be either -1 or 1.
----@type number
-PlayerInstance.direction = 1
+---@type 1|-1
+PlayerInstance.direction = nil
 
 --- Returns a RECT of the distance between the player and the edges of the camera.
 ---@type RECT
@@ -257,7 +370,7 @@ PlayerInstance.screen = nil
 
 --- The index of the section the player is in.
 ---@type number
-PlayerInstance.section = 0
+PlayerInstance.section = nil
 
 --- Gets a reference to the section the player is in.
 ---@type Section
@@ -265,27 +378,27 @@ PlayerInstance.sectionObj = nil
 
 --- The player's current powerup state.
 ---@type number
-PlayerInstance.powerup = 0
+PlayerInstance.powerup = nil
 
 --- ID of the NPC in the player's reserve item box.
 ---@type number
-PlayerInstance.reservePowerup = 0
+PlayerInstance.reservePowerup = nil
 
 --- Whether the player is currently in the Mega Mushroom state.
 ---@type boolean
-PlayerInstance.isMega = false
+PlayerInstance.isMega = nil
 
 --- Whether the player should keep their Tier 2 Powerup when transforming into the Mega state.
 ---@type boolean
-PlayerInstance.keepPowerOnMega = false
+PlayerInstance.keepPowerOnMega = nil
 
 --- Whether the player is currently affected by a Starman's invulnerability.
 ---@type boolean
-PlayerInstance.hasStarman = false
+PlayerInstance.hasStarman = nil
 
 --- The player's current character index.
 ---@type number
-PlayerInstance.character = 0
+PlayerInstance.character = nil
 
 --- The NPC currently held by the player. If the player is not holding an NPC, this value is nil.
 ---@type NPC?
@@ -305,27 +418,27 @@ PlayerInstance.climbingBGO = nil
 
 --- Mirror to isClimbing().
 ---@type boolean
-PlayerInstance.climbing = false
+PlayerInstance.climbing = nil
 
 --- Ignores collision with blocks.
 ---@type boolean
-PlayerInstance.noblockcollision = false
+PlayerInstance.noblockcollision = nil
 
 --- Ignores collision with NPCs.
 ---@type boolean
-PlayerInstance.nonpcinteraction = false
+PlayerInstance.nonpcinteraction = nil
 
 --- Ignores collision with other Players.
 ---@type boolean
-PlayerInstance.noplayerinteraction = false
+PlayerInstance.noplayerinteraction = nil
 
 --- If the player is currently in a clear pipe.
 ---@type boolean
-PlayerInstance.inClearPipe = false
+PlayerInstance.inClearPipe = nil
 
 --- If the player is currently in a launch barrel.
 ---@type boolean
-PlayerInstance.inLaunchBarrel = false
+PlayerInstance.inLaunchBarrel = nil
 
 --- The type of mount currently mounted by the player.
 ---@type MountType
@@ -337,11 +450,11 @@ PlayerInstance.mountColor = nil
 
 --- The player's death timer. If >0, the player has died.
 ---@type number
-PlayerInstance.deathTimer = 0
+PlayerInstance.deathTimer = nil
 
 --- The player's current animation frame. Values correspond to a specific chart.
 ---@type number
-PlayerInstance.frame = 0
+PlayerInstance.frame = nil
 
 --- The player's current forced state.
 ---@type PlayerForcedState
@@ -349,67 +462,98 @@ PlayerInstance.forcedState = nil
 
 --- The timer related to the player's current forced state.
 ---@type number
-PlayerInstance.forcedTimer = 0
+PlayerInstance.forcedTimer = nil
+
+---@class PlayerKeysMap
+local playerKeys = {
+	---@type PlayerKeyState
+	up = nil,
+	---@type PlayerKeyState
+	down = nil,
+	---@type PlayerKeyState
+	left = nil,
+	---@type PlayerKeyState
+	right = nil,
+	---@type PlayerKeyState
+	jump = nil,
+	---@type PlayerKeyState
+	altJump = nil,
+	---@type PlayerKeyState
+	run = nil,
+	---@type PlayerKeyState
+	altRun = nil,
+	---@type PlayerKeyState
+	dropItem = nil,
+	---@type PlayerKeyState
+	pause = nil,
+}
 
 --- A PlayerKeys object containing information on the player's current input. Individual key presses can be manipulated in order to control the player's movement.
----@type table<string, PlayerKeyState>
-PlayerInstance.keys = nil
+---@class PlayerKeys : PlayerKeysMap
+PlayerInstance.keys = {
+	---@type PlayerKeysMap
+	_last = nil,
+	---@type PlayerKeysMap
+	_now = nil,
+	---@type Player
+	_parent = nil,
+}
 
 --- A PlayerKeys object containing information on the player's current input. Unlike keys, rawKeys will always return the unaltered player input and cannot be manipulated directly.
----@type table<string, PlayerKeyState>
+---@type PlayerKeysMap
 PlayerInstance.rawKeys = nil
 
 --- Whether the player is currently pressing up.
 ---@type boolean
-PlayerInstance.upKeyPressing = false
+PlayerInstance.upKeyPressing = nil
 
 --- Whether the player is currently pressing down.
 ---@type boolean
-PlayerInstance.downKeyPressing = false
+PlayerInstance.downKeyPressing = nil
 
 --- Whether the player is currently pressing left.
 ---@type boolean
-PlayerInstance.leftKeyPressing = false
+PlayerInstance.leftKeyPressing = nil
 
 --- Whether the player is currently pressing right.
 ---@type boolean
-PlayerInstance.rightKeyPressing = false
+PlayerInstance.rightKeyPressing = nil
 
 --- Whether the player is currently pressing jump.
 ---@type boolean
-PlayerInstance.jumpKeyPressing = false
+PlayerInstance.jumpKeyPressing = nil
 
 --- Whether the player is currently pressing altJump.
 ---@type boolean
-PlayerInstance.altJumpKeyPressing = false
+PlayerInstance.altJumpKeyPressing = nil
 
 --- Whether the player is currently pressing altRun.
 ---@type boolean
-PlayerInstance.altRunKeyPressing = false
+PlayerInstance.altRunKeyPressing = nil
 
 --- Whether the player is currently pressing run.
 ---@type boolean
-PlayerInstance.runKeyPressing = false
+PlayerInstance.runKeyPressing = nil
 
 --- Whether the player is currently pressing dropItem.
 ---@type boolean
-PlayerInstance.dropItemKeyPressing = false
+PlayerInstance.dropItemKeyPressing = nil
 
 --- Whether the player is currently pressing pause.
 ---@type boolean
-PlayerInstance.pauseKeyPressing = false
+PlayerInstance.pauseKeyPressing = nil
 
 --- The collision group this player belongs to.
 ---@type string
-PlayerInstance.collisionGroup = ""
+PlayerInstance.collisionGroup = nil
 
 --- The numerical index of the collision group this player belongs to. Used internally to make collision checks faster.
 ---@type number
-PlayerInstance.collisionGroupIndex = 0
+PlayerInstance.collisionGroupIndex = nil
 
 --- A list of all weights attached to the player.
 ---@type WeightContainer[]
-PlayerInstance._weightContainers = {}
+PlayerInstance._weightContainers = nil
 
 ---@type boolean
 PlayerInstance.onSlipperyGround = nil
@@ -531,3 +675,11 @@ PlayerInstance.clearPipeDirection = nil
 --- | `0xBA` # Index of the player currently on the tongue (0 if no player). `FIELD_WORD`
 --- | `0xBC` # Mounting cooldown. `FIELD_WORD`
 --- | `0xBE` # Unused. `FIELD_WORD`
+
+--- The first player object.
+---@type Player
+player = nil
+
+--- The second player object, or `nil` if only one player is in the level.
+---@type Player?
+player2 = nil

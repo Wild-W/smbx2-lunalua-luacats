@@ -1,3 +1,4 @@
 test.lua
-.vscode
+.luarc.json
 test2.lua
+test/

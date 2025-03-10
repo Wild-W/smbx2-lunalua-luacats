@@ -10,10 +10,6 @@ SaveData = {}
 ---GameData is a table that persistently stores information. However unlike Savedata, GameData will never save this information into a save file, and the information will be lost once the game is closed. GameData should be used for information that doesn't need to be kept for future play sessions but is critical to have across level loads, such as whether a minigame is active, or whether something has already occured in this play session.
 GameData = {}
 
----Registers an event in the event loop. The libraryTable is the table which is contains the bound event.
----@param eventName string
-function triggerEvent(eventName) end
-
 ---Registers an event in the event loop.
 ---## Usage
 ---```
@@ -106,9 +102,19 @@ __customFolderPath = nil
 
 ---Id of the npc if this file's name adheres to the npc-file name format.
 ---
----Example: `npc-799.lua` means this is equal to `799`
+---Example: `npc-799.lua` means this value is equal to `799`.
 ---@type integer
 NPC_ID = nil
+
+---Id of the block if this file's name adheres to the block-file name format.
+---
+---Example: `block-799.lua` means this value is equal to `799`.
+---@type integer
+BLOCK_ID = nil
+
+--- Triggers an event by name.
+--- @param eventName string
+function triggerEvent(eventName) end
 
 ---@param ... unknown
 ---@return ...
