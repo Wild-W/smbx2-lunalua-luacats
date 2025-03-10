@@ -27,7 +27,7 @@
 --- | `0x62` # Whether the level is always visible. Use field `isAlwaysVisible`. `FIELD_BOOL`
 
 ---@type OverworldLevelManager | LevelManager
-Level = {}
+Level = nil
 
 ---@class OverworldLevelManager
 local OverworldLevelManager = {}

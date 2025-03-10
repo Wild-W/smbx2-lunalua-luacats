@@ -9,10 +9,10 @@ function Camera.get() end
 
 ---The first Camera object.
 ---@type Camera
-camera = {}
+camera = nil
 ---The second Camera object (or `nil`).
 ---@type Camera?
-camera2 = {}
+camera2 = nil
 
 ---@class Camera
 local CameraInstance = {}

@@ -244,29 +244,29 @@ function Colliders.collideNPCBlock(object, blockIds, sections, filter) end
 ---@return NPC[] collisions
 function Colliders.collideNPC(npcIds, secondObject, sections, filter) end
 
----@type table
+---@type integer[]
 Colliders.BLOCK_HURT = nil
----@type table
+---@type table<integer, boolean>
 Colliders.BLOCK_HURT_MAP = nil
----@type table
+---@type integer[]
 Colliders.BLOCK_LAVA = nil
----@type table
+---@type table<integer, boolean>
 Colliders.BLOCK_LAVA_MAP = nil
----@type table
+---@type integer[]
 Colliders.BLOCK_NONSOLID = nil
----@type table
+---@type table<integer, boolean>
 Colliders.BLOCK_NONSOLID_MAP = nil
----@type table
+---@type integer[]
 Colliders.BLOCK_PLAYER = nil
----@type table
+---@type table<integer, boolean>
 Colliders.BLOCK_PLAYER_MAP = nil
----@type table
+---@type integer[]
 Colliders.BLOCK_SEMISOLID = nil
----@type table
+---@type table<integer, boolean>
 Colliders.BLOCK_SEMISOLID_MAP = nil
----@type table
+---@type integer[]
 Colliders.BLOCK_SOLID = nil
----@type table
+---@type table<integer, boolean>
 Colliders.BLOCK_SOLID_MAP = nil
 
 ---@class Collider : CollisionObject
