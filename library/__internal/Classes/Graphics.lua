@@ -428,7 +428,7 @@ function Graphics.unplaceSprites(img) end
 function Graphics.unplaceSprites(img, xPos, yPos) end
 
 ---@class GL.DrawArgs
---- @field vertexCoords number[] # A list of alternating x and y coordinates used to define the vertices of the drawn primitive.
+--- @field vertexCoords number[]? # A list of alternating x and y coordinates used to define the vertices of the drawn primitive.
 --- @field primitive PrimitiveType? # The type of primitive to render.
 --- @field texture CaptureBuffer|LuaImageResource? # The texture to draw. Can be a capture buffer.
 --- @field textureCoords number[]? # A list of alternating x and y coordinates used to define the UV-coordinates of the texture to draw. All coordinates are clamped between 0 (top/left edge of image) and 1 (bottom/right edge of image).

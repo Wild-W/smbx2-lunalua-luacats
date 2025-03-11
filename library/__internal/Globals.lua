@@ -39,7 +39,7 @@ function registerCustomEvent(libraryTable, eventName) end
 --- ---
 ---@param memoryAddress number|GlobalMemoryOffset
 ---@param fieldType MemoryFieldType
----@return any
+---@return any value The value at the specified memory address-offset.
 function mem(memoryAddress, fieldType, newValue) end
 
 ---**WARNING:** Be careful when manipulating memory offsets directly! Doing so may yield unexpected results.

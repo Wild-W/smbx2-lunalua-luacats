@@ -174,6 +174,49 @@ Warp.allowItems = nil
 ---@type number
 Warp.starsRequired = nil
 
+--- Whether the warp allows items to be carried through.
+---@deprecated Use Warp.allowItems
+---@type boolean
+Warp.allowCarriedNPCs = nil
+
+--- Whether the warp is set to only be used as an entrance from another level.
+---@deprecated Use Warp.fromOtherLevel
+---@type boolean
+Warp.isLevelEntrance = nil
+
+--- Whether the warp is set to only be used as an exit to another level.
+---@deprecated Use Warp.toOtherLevel
+---@type boolean
+Warp.isLevelExit = nil
+
 ---@alias WarpMemoryOffset
---- |`0x8A` # Number of stars collected in the level the warp leads to. `FIELD_WORD`
---- |`0x8C` # Total number of stars in the level the warp leads to. `FIELD_WORD`
+--- | `0x00` # Accessed by `Warp.locked`. `FIELD_BOOL`
+--- | `0x02` # Accessed by `Warp.allowItems`. `FIELD_BOOL`
+--- | `0x04` # Accessed by `Warp.noYoshi`. `FIELD_BOOL`
+--- | `0x08` # Accessed by `Warp.layer`. `FIELD_STRING`
+--- | `0x08` # Accessed by `Warp.layerName`. `FIELD_STRING`
+--- | `0x0C` # Accessed by `Warp.isHidden`. `FIELD_BOOL`
+--- | `0x12` # Accessed by `Warp.starsRequired`. `FIELD_WORD`
+--- | `0x14` # Accessed by `Warp.entranceX`. `FIELD_DFLOAT`
+--- | `0x1C` # Accessed by `Warp.entranceY`. `FIELD_DFLOAT`
+--- | `0x24` # Accessed by `Warp.entranceHeight`. `FIELD_DFLOAT`
+--- | `0x2C` # Accessed by `Warp.entranceWidth`. `FIELD_DFLOAT`
+--- | `0x34` # Accessed by `Warp.entranceSpeedX`. `FIELD_DFLOAT`
+--- | `0x3C` # Accessed by `Warp.entranceSpeedY`. `FIELD_DFLOAT`
+--- | `0x44` # Accessed by `Warp.exitX`. `FIELD_DFLOAT`
+--- | `0x4C` # Accessed by `Warp.exitY`. `FIELD_DFLOAT`
+--- | `0x54` # Accessed by `Warp.exitHeight`. `FIELD_DFLOAT`
+--- | `0x5C` # Accessed by `Warp.exitWidth`. `FIELD_DFLOAT`
+--- | `0x64` # Accessed by `Warp.exitSpeedX`. `FIELD_DFLOAT`
+--- | `0x6C` # Accessed by `Warp.exitSpeedY`. `FIELD_DFLOAT`
+--- | `0x74` # Accessed by `Warp.warpType`. `FIELD_WORD`
+--- | `0x78` # Accessed by `Warp.levelFilename`. `FIELD_STRING`
+--- | `0x7C` # Accessed by `Warp.warpNumber`. `FIELD_WORD`
+--- | `0x84` # Accessed by `Warp.toOtherLevel`. `FIELD_BOOL`
+--- | `0x7E` # Accessed by `Warp.fromOtherLevel`. `FIELD_BOOL`
+--- | `0x80` # Accessed by `Warp.entranceDirection`. `FIELD_WORD`
+--- | `0x82` # Accessed by `Warp.exitDirection`. `FIELD_WORD`
+--- | `0x86` # Accessed by `Warp.worldMapX`. `FIELD_WORD`
+--- | `0x88` # Accessed by `Warp.worldMapY`. `FIELD_WORD`
+--- | `0x8A` # Number of stars collected in the level the warp leads to. `FIELD_WORD`
+--- | `0x8C` # Total number of stars in the level the warp leads to. `FIELD_WORD`
