@@ -12,14 +12,14 @@
 Explosion = {}
 
 ---@class Explosion
----@field friendly boolean # Whether it can hurt players.
----@field strong boolean # Whether it can break grey brick blocks (block-457).
----@field id number # ID of the explosion
----@field collider CircleCollider # A circle collider representing the explosion hitbox.
----@field x number # The X position of the explosion's centre.
----@field y number # The Y position of the explosion's centre.
----@field timer number
----@field effect Effect?
+--- @field friendly boolean # Whether it can hurt players.
+--- @field strong boolean # Whether it can break grey brick blocks (block-457).
+--- @field id number # ID of the explosion
+--- @field collider CircleCollider # A circle collider representing the explosion hitbox.
+--- @field x number # The X position of the explosion's centre.
+--- @field y number # The Y position of the explosion's centre.
+--- @field timer number
+--- @field effect Effect?
 
 ---@param x number
 ---@param y number

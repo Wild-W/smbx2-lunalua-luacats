@@ -355,7 +355,7 @@ function vector.randomDir3() end
 --- @operator div(Mat4): number
 --- @operator div(Quaternion): number
 
----@class Vector2 : Lerpable
+---@class Vector2 : Lerpable, LuaHelperClass
 --- @field x number
 --- @field y number
 --- @field sqrlength number
@@ -373,7 +373,7 @@ function vector.randomDir3() end
 --- @operator mod(Vector2): Vector2
 local Vector2 = {}
 
----@class Vector3 : Lerpable
+---@class Vector3 : Lerpable, LuaHelperClass
 --- @field x number
 --- @field y number
 --- @field z number
@@ -392,7 +392,7 @@ local Vector2 = {}
 --- @operator mod(Vector3): Vector3
 local Vector3 = {}
 
----@class Vector4 : Lerpable
+---@class Vector4 : Lerpable, LuaHelperClass
 --- @field x number
 --- @field y number
 --- @field z number
@@ -412,7 +412,7 @@ local Vector3 = {}
 --- @operator mod(Vector4): Vector4
 local Vector4 = {}
 
----@class Mat2
+---@class Mat2 : LuaHelperClass
 --- @field det number
 --- @field trace number
 --- @field inverse Mat2
@@ -429,7 +429,7 @@ local Vector4 = {}
 --- @operator div(Mat2): Mat2
 local Mat2 = {}
 
----@class Mat3
+---@class Mat3 : LuaHelperClass
 --- @field det number
 --- @field trace number
 --- @field inverse Mat3
@@ -446,7 +446,7 @@ local Mat2 = {}
 --- @operator div(Mat3): Mat3
 local Mat3 = {}
 
----@class Mat4
+---@class Mat4 : LuaHelperClass
 --- @field det number
 --- @field trace number
 --- @field inverse Mat4
@@ -463,7 +463,7 @@ local Mat3 = {}
 --- @operator div(Mat3): Mat3
 local Mat4 = {}
 
----@class Quaternion
+---@class Quaternion : LuaHelperClass
 --- @field inverse Quaternion
 --- @field sqrnorm number
 --- @field norm number

@@ -4,7 +4,7 @@
 --- However, sound effect handling has since been moved to `SFX`.
 Audio = {}
 
----@class (exact) MixChunk
+---@class (exact) Mix_Chunk : LuaHelperClass, userdata
 --- @field allocated integer|0|1 A boolean indicating whether to free abuf when the chunk is freed.
 --- @field abuf integer Pointer to the sample data, which is in the output format and sample rate.
 --- @field alen integer Length of abuf in bytes. Carefully modify this value, if you changed it, you should return initial value back on exiting from level or from world to avoid memory leak!
@@ -206,51 +206,51 @@ function Audio.playSFX(indexOrFileName) end
 Audio.sounds = {}
 
 --- Plays a sound file by chunk pointer with a defined number of loops.
---- @param sfxFile MixChunk The sound file chunk pointer.
+--- @param sfxFile Mix_Chunk The sound file chunk pointer.
 --- @param loops number The number of loops (0 for once, -1 for forever).
 --- @return PlayingSfxInstance instance An object to control the sound clip as it plays/loops.
 function Audio.SfxPlayObj(sfxFile, loops) end
 
 --- Plays a sound file by chunk pointer with a defined number of loops and initial volume value.
---- @param sfxFile MixChunk The sound file chunk pointer.
+--- @param sfxFile Mix_Chunk The sound file chunk pointer.
 --- @param loops number The number of loops (0 for once, -1 for forever).
 --- @param volume number The initial volume value.
 --- @return PlayingSfxInstance instance An object to control the sound clip as it plays/loops.
 function Audio.SfxPlayObjVol(sfxFile, loops, volume) end
 
 --- Plays a sound file by chunk pointer with a defined number of loops and time limit.
---- @param sfxFile MixChunk The sound file chunk pointer.
+--- @param sfxFile Mix_Chunk The sound file chunk pointer.
 --- @param loops number The number of loops (0 for once, -1 for forever).
 --- @param ticks number The time limit in milliseconds (-1 for forever).
 --- @return PlayingSfxInstance instance An object to control the sound clip as it plays/loops.
 function Audio.SfxPlayObjTimed(sfxFile, loops, ticks) end
 
 --- Plays a sound file by chunk pointer with a defined number of loops, time limit, and initial volume value.
---- @param sfxFile MixChunk The sound file chunk pointer.
+--- @param sfxFile Mix_Chunk The sound file chunk pointer.
 --- @param loops number The number of loops (0 for once, -1 for forever).
 --- @param ticks number The time limit in milliseconds (-1 for forever).
 --- @param volume number The initial volume value.
 --- @return PlayingSfxInstance instance An object to control the sound clip as it plays/loops.
 function Audio.SfxPlayObjTimedVol(sfxFile, loops, ticks, volume) end
 
---- Constructs a null Mix_Chunk pointer.
---- @return MixChunk chunk A null Mix_Chunk pointer.
+--- Returns nothing.
+--- @deprecated
 function Audio.newMix_Chunk() end
 
 --- Loads a sound effect file into the buffer and returns a pointer to it.
 --- @param fileName string The name of the sound effect file.
---- @return MixChunk chunk The pointer to the sound effect file.
+--- @return Mix_Chunk chunk The pointer to the sound effect file.
 function Audio.SfxOpen(fileName) end
 
 --- Plays a sound file by chunk pointer with a fade-in effect.
---- @param sfxFile MixChunk The sound file chunk pointer.
+--- @param sfxFile Mix_Chunk The sound file chunk pointer.
 --- @param loops number The number of loops (0 for once, -1 for forever).
 --- @param fade_ms number The fade-in duration in milliseconds.
 --- @return PlayingSfxInstance instance An object to control the sound clip as it plays/loops.
 function Audio.SfxFadeInObj(sfxFile, loops, fade_ms) end
 
 --- Plays a sound file by chunk pointer with a fade-in effect and initial volume value.
---- @param sfxFile MixChunk The sound file chunk pointer.
+--- @param sfxFile Mix_Chunk The sound file chunk pointer.
 --- @param loops number The number of loops (0 for once, -1 for forever).
 --- @param fade_ms number The fade-in duration in milliseconds.
 --- @param volume number The initial volume value.
@@ -258,7 +258,7 @@ function Audio.SfxFadeInObj(sfxFile, loops, fade_ms) end
 function Audio.SfxFadeInObjVol(sfxFile, loops, fade_ms, volume) end
 
 --- Plays a sound file by chunk pointer with a fade-in effect and time limit.
---- @param sfxFile MixChunk The sound file chunk pointer.
+--- @param sfxFile Mix_Chunk The sound file chunk pointer.
 --- @param loops number The number of loops (0 for once, -1 for forever).
 --- @param fade_ms number The fade-in duration in milliseconds.
 --- @param ticks number The time limit in milliseconds (-1 for forever).
@@ -266,7 +266,7 @@ function Audio.SfxFadeInObjVol(sfxFile, loops, fade_ms, volume) end
 function Audio.SfxFadeInObjTimed(sfxFile, loops, fade_ms, ticks) end
 
 --- Plays a sound file by chunk pointer with a fade-in effect, time limit, and initial volume value.
---- @param sfxFile MixChunk The sound file chunk pointer.
+--- @param sfxFile Mix_Chunk The sound file chunk pointer.
 --- @param loops number The number of loops (0 for once, -1 for forever).
 --- @param fade_ms number The fade-in duration in milliseconds.
 --- @param ticks number The time limit in milliseconds (-1 for forever).
@@ -276,14 +276,14 @@ function Audio.SfxFadeInObjTimedVol(sfxFile, loops, fade_ms, ticks, volume) end
 
 --- Plays a sound file by chunk pointer in a specific channel with a defined number of loops.
 --- @param Channel number The channel to play the sound in (-1 for any free channel).
---- @param sfxFile MixChunk The sound file chunk pointer.
+--- @param sfxFile Mix_Chunk The sound file chunk pointer.
 --- @param loops number The number of loops (0 for once, -1 for forever).
 --- @return number channel The channel the sample is played on.
 function Audio.SfxPlayCh(Channel, sfxFile, loops) end
 
 --- Plays a sound file by chunk pointer in a specific channel with a defined number of loops and initial volume value.
 --- @param Channel number The channel to play the sound in (-1 for any free channel).
---- @param sfxFile MixChunk The sound file chunk pointer.
+--- @param sfxFile Mix_Chunk The sound file chunk pointer.
 --- @param loops number The number of loops (0 for once, -1 for forever).
 --- @param volume number The initial volume value.
 --- @return number channel The channel the sample is played on.
@@ -291,7 +291,7 @@ function Audio.SfxPlayChVol(Channel, sfxFile, loops, volume) end
 
 --- Plays a sound file by chunk pointer in a specific channel with a defined number of loops and time limit.
 --- @param Channel number The channel to play the sound in (-1 for any free channel).
---- @param sfxFile MixChunk The sound file chunk pointer.
+--- @param sfxFile Mix_Chunk The sound file chunk pointer.
 --- @param loops number The number of loops (0 for once, -1 for forever).
 --- @param ticks number The time limit in milliseconds (-1 for forever).
 --- @return number channel The channel the sample is played on.
@@ -299,7 +299,7 @@ function Audio.SfxPlayChTimed(Channel, sfxFile, loops, ticks) end
 
 --- Plays a sound file by chunk pointer in a specific channel with a defined number of loops, time limit, and initial volume value.
 --- @param Channel number The channel to play the sound in (-1 for any free channel).
---- @param sfxFile MixChunk The sound file chunk pointer.
+--- @param sfxFile Mix_Chunk The sound file chunk pointer.
 --- @param loops number The number of loops (0 for once, -1 for forever).
 --- @param ticks number The time limit in milliseconds (-1 for forever).
 --- @param volume number The initial volume value.
@@ -308,7 +308,7 @@ function Audio.SfxPlayChTimedVol(Channel, sfxFile, loops, ticks, volume) end
 
 --- Plays a sound file by chunk pointer in a specific channel with a fade-in effect.
 --- @param Channel number The channel to play the sound in (-1 for any free channel).
---- @param sfxFile MixChunk The sound file chunk pointer.
+--- @param sfxFile Mix_Chunk The sound file chunk pointer.
 --- @param loops number The number of loops (0 for once, -1 for forever).
 --- @param fade_ms number The fade-in duration in milliseconds.
 --- @return number channel The channel the sample is played on.
@@ -316,7 +316,7 @@ function Audio.SfxFadeInCh(Channel, sfxFile, loops, fade_ms) end
 
 --- Plays a sound file by chunk pointer in a specific channel with a fade-in effect and initial volume value.
 --- @param Channel number The channel to play the sound in (-1 for any free channel).
---- @param sfxFile MixChunk The sound file chunk pointer.
+--- @param sfxFile Mix_Chunk The sound file chunk pointer.
 --- @param loops number The number of loops (0 for once, -1 for forever).
 --- @param fade_ms number The fade-in duration in milliseconds.
 --- @param volume number The initial volume value.
@@ -325,7 +325,7 @@ function Audio.SfxFadeInChVol(Channel, sfxFile, loops, fade_ms, volume) end
 
 --- Plays a sound file by chunk pointer in a specific channel with a fade-in effect and time limit.
 --- @param Channel number The channel to play the sound in (-1 for any free channel).
---- @param sfxFile MixChunk The sound file chunk pointer.
+--- @param sfxFile Mix_Chunk The sound file chunk pointer.
 --- @param loops number The number of loops (0 for once, -1 for forever).
 --- @param fade_ms number The fade-in duration in milliseconds.
 --- @param ticks number The time limit in milliseconds (-1 for forever).
@@ -334,7 +334,7 @@ function Audio.SfxFadeInChTimed(Channel, sfxFile, loops, fade_ms, ticks) end
 
 --- Plays a sound file by chunk pointer in a specific channel with a fade-in effect, time limit, and initial volume value.
 --- @param Channel number The channel to play the sound in (-1 for any free channel).
---- @param sfxFile MixChunk The sound file chunk pointer.
+--- @param sfxFile Mix_Chunk The sound file chunk pointer.
 --- @param loops number The number of loops (0 for once, -1 for forever).
 --- @param fade_ms number The fade-in duration in milliseconds.
 --- @param ticks number The time limit in milliseconds (-1 for forever).
@@ -521,7 +521,7 @@ function PlayingSfxInstance:SetReverseStereo(flip) end
 function PlayingSfxInstance:__setMuteForAlias(alias, muted) end
 
 ---@param alias string
----@param chunk MixChunk
+---@param chunk Mix_Chunk
 function PlayingSfxInstance:__setOverrideForAlias(alias, chunk) end
 
 ---@param alias string
@@ -529,9 +529,9 @@ function PlayingSfxInstance:__setOverrideForAlias(alias, chunk) end
 function PlayingSfxInstance:__getMuteForAlias(alias) end
 
 ---@param alias string
----@return MixChunk chunk
+---@return Mix_Chunk chunk
 function PlayingSfxInstance:__getChunkForAlias(alias) end
 
 ---@class SoundOverride
---- @field sfx MixChunk The currrent sound effect audio
+--- @field sfx Mix_Chunk The currrent sound effect audio
 --- @field muted boolean Whether the sound effect is muted

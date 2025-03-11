@@ -35,7 +35,7 @@ function Warp.getIntersectingEntrance(x1, y1, x2, y2) end
 ---@return Warp[]
 function Warp.getIntersectingExit(x1, y1, x2, y2) end
 
----@class Warp
+---@class Warp : LuaHelperClass
 local Warp = {}
 
 --- Returns a value of the Warp struct at a specific memory address-offset.

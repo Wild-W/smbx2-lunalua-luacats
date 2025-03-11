@@ -1,5 +1,6 @@
 ---@meta _
 
+---@class Events : LuaHelperClass
 Events = {}
 
 Events.waitingTimers = {}
@@ -41,6 +42,3 @@ function Events.addAction(...) end
 ---@param ... unknown
 ---@return ...
 function Events.mem(...) end
-
----@type string
-Events.__type = "Events"

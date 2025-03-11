@@ -6,7 +6,7 @@ Routine = {}
 --- @param f function The function to run in the coroutine.
 --- @param ... any Additional arguments passed to the function.
 --- @return Routine routine The created coroutine.
---- @return string status The status of the coroutine.
+--- @return boolean status The status of the coroutine.
 --- @return string msg The message of the coroutine.
 function Routine.run(f, ...) end
 
@@ -56,7 +56,7 @@ function Routine.yield() end
 
 --- Resumes a coroutine that was yielded via `Routine.yield`.
 --- @param routine Routine The coroutine to resume.
---- @return string status The status of the coroutine.
+--- @return boolean status The status of the coroutine.
 --- @return string msg The message of the coroutine.
 function Routine.continue(routine) end
 
@@ -102,22 +102,16 @@ function Routine.setRealTimer(seconds, f, repeated, whilePaused) end
 --- @param key KeyCode The key to wait for.
 --- @param f function The function to run when the key is pressed.
 --- @param consume boolean? Whether to consume the event after running once.
---- @return Routine routine The created routine.
+--- @return boolean success
 function Routine.registerKeyEvent(key, f, consume) end
 
 --- Creates an event that will run the function `f` when the specified vanilla SMBX event is triggered. If `consume` is set to true, the event will be destroyed after being run once, otherwise it will run every time the event is triggered. By default, `consume` is false.
 --- @param name string The name of the event to wait for.
 --- @param f function The function to run when the event is triggered.
 --- @param consume boolean? Whether to consume the event after running once.
---- @return Routine routine The created routine.
+--- @return boolean success
 function Routine.registerVanillaEvent(name, f, consume) end
-
---- Creates an event that will run the function `f` when the specified vanilla SMBX event is triggered. If `consume` is set to true, the event will be destroyed after being run once, otherwise it will run every time the event is triggered. By default, `consume` is false.
---- @param name string The name of the event to wait for.
---- @param f function The function to run when the event is triggered.
---- @param consume boolean? Whether to consume the event after running once.
---- @return Routine routine The created routine.
-function Routine.registerSMBXEvent(name, f, consume) end
+Routine.registerSMBXEvent = Routine.registerVanillaEvent
 
 --- Pauses the waiting timer for a coroutine that is currently waiting via `Routine.wait`, `Routine.waitFrames`, `Routine.waitRealSeconds`, or `Routine.waitSeconds`. This also applies to coroutines created using `Routine.setTimer`, `Routine.setFrameTimer`, and `Routine.setRealTimer`.
 --- @param routine Routine The coroutine to pause.
@@ -176,3 +170,9 @@ RoutineInstance.paused = false
 
 ---@type boolean `false` if the coroutine has finished or has been abandoned.
 RoutineInstance.isValid = false
+
+---@type integer ID of the coroutine.
+RoutineInstance.id = nil
+
+---@type thread
+RoutineInstance._coroutine = nil
