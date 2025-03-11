@@ -41,7 +41,7 @@ function Layer.isPaused() end
 function Layer(index) end
 
 --- The Layer class in SMBX for manipulating layer properties.
----@class Layer : userdata
+---@class Layer : LuaHelperClass
 ---@field name VBStr|string The name of the layer.
 ---@field layerName VBStr|string The name of the layer.
 ---@field idx number The index of the layer in the internal list.

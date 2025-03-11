@@ -134,7 +134,7 @@ function findblocks(ID) end
 function npcToCoins() end
 
 --- Returns all running animations.
---- @return table<number, Effect>
+--- @return table<number, Animation>
 --- @deprecated Use Effect.get instead.
 function animations() end
 
@@ -236,7 +236,7 @@ function spawnNPC(npcid, x, y, section, respawn, centered) end
 --- @param effectID number
 --- @param x number
 --- @param y number
---- @return Effect
+--- @return Animation
 --- @deprecated Use Effect.spawn instead.
 function spawnEffect(effectID, x, y) end
 
@@ -247,7 +247,7 @@ function spawnEffect(effectID, x, y) end
 --- @param x number
 --- @param y number
 --- @param animationFrame number
---- @return Effect
+--- @return Animation
 --- @deprecated Use Effect.spawn instead.
 function spawnEffect(effectID, x, y, animationFrame) end
 

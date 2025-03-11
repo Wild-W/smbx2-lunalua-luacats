@@ -51,7 +51,7 @@ function Player.setCostume(character, costumeName, volatile) end
 --- @return string costumeName The name of the costume.
 function Player.getCostume(character) end
 
----@class Player : CollisionObject, LuaHelperClass
+---@class Player : CollisionObject, TypeFieldedClass
 --- @field ToadDoubleJReady integer # Equivalent to `Player:mem(0x0, FIELD_WORD)`.
 --- @field SparklingEffect integer # Equivalent to `Player:mem(0x2, FIELD_WORD)`.
 --- @field UnknownCTRLLock1 integer # Equivalent to `Player:mem(0x4, FIELD_WORD)`.
@@ -364,8 +364,8 @@ PlayerInstance.slidingTimeSinceOnSlope = nil
 ---@type 1|-1
 PlayerInstance.direction = nil
 
---- Returns a RECT of the distance between the player and the edges of the camera.
----@type RECT
+--- A rectangle of the distance between the player and the edges of the camera.
+---@type rectangle
 PlayerInstance.screen = nil
 
 --- The index of the section the player is in.

@@ -14,12 +14,12 @@ Effect.config = nil
 function Effect.count() end
 
 ---Returns a table of references to all 1.3 effects in the level.
----@return table<number, Effect> effects
+---@return table<number, Animation> effects
 function Effect.get() end
 
 ---Returns a table of references to all 1.3 effects of the given id(s).
 ---@param ids number|number[] The ID(s) of the effects to retrieve.
----@return Effect[] effects
+---@return Animation[] effects
 function Effect.get(ids) end
 
 ---Returns a table of references to all 1.3 effects that are within the rectangle defined by the 4 coordinates.
@@ -27,7 +27,7 @@ function Effect.get(ids) end
 ---@param y1 number The y coordinate of the top-left corner of the rectangle.
 ---@param x2 number The x coordinate of the bottom-right corner of the rectangle.
 ---@param y2 number The y coordinate of the bottom-right corner of the rectangle.
----@return Effect[] effects
+---@return Animation[] effects
 function Effect.getIntersecting(x1, y1, x2, y2) end
 
 ---Spawns a new effect at the given location.
@@ -37,7 +37,7 @@ function Effect.getIntersecting(x1, y1, x2, y2) end
 ---@param variant number? The variant of the effect to use (optional).
 ---@param npcID number? The NPC ID to set on the effect (optional).
 ---@param drawOnlyMask boolean? If true, makes the effect silhouette render (only 1.3 effects).
----@return Effect effect
+---@return Animation|EffectSpawner effect
 function Effect.spawn(id, x, y, variant, npcID, drawOnlyMask) end
 
 ---Spawns a new effect at the location of the given object with x, y, width, and height fields (Player, NPC, Block, or other).
@@ -46,17 +46,17 @@ function Effect.spawn(id, x, y, variant, npcID, drawOnlyMask) end
 ---@param variant number? The variant of the effect to use (optional).
 ---@param npcID number? The NPC ID to set on the effect (optional).
 ---@param drawOnlyMask boolean? If true, makes the effect silhouette render (only 1.3 effects).
----@return Effect effect
+---@return Animation|EffectSpawner effect
 function Effect.spawn(id, target, variant, npcID, drawOnlyMask) end
 
 ---Constructor that initializes an animation/effect with an index.
 ---@param idx number Index of the animation/effect.
----@return Effect
+---@return Animation
 function Effect(idx) end
 
 ---Constructor that initializes an animation/effect with an index.
 ---@param idx number Index of the animation/effect.
----@return Effect
+---@return Animation
 function Animation(idx) end
 
 ---@class Effect
@@ -65,7 +65,18 @@ function Animation(idx) end
 --- @field y number The Effect's y coordinate.
 --- @field width number The Effect's width. If this is a spawner, defaults to its first spawned effect's width.
 --- @field height number The Effect's height. If this is a spawner, defaults to its first spawned effect's height.
+--- @field subTimer number Unused by any SMBX2 particles, but included for future compatibility.
+--- @field timer number Counts down from lifetime, towards 0. Manages the particle's lifetime and often parts of its logic.
+--- @field npcID number Used by some effects to spawn NPCs as part of their logic.
+--- @field drawOnlyMask boolean If true, the Effect is drawn all black. (only works for 1.3 effects right now)
 local EffectInstance = {}
+
+---@class Animation : Effect
+--- @field idx number
+--- @field speedX number The Effect's horizontal speed. Sums the spawner's spawnerSpeedX with the speedX config/override.
+--- @field speedY number The Effect's vertical speed. Sums the spawner's spawnerSpeedY with the speedY config/override.
+--- @field animationFrame number The sprite sheet animation frame offset caused by variants.
+--- @field isValid boolean
 
 ---@param offset number The memory offset from the Animation class.
 ---@param field_type MemoryFieldType The type of memory to interpret the field as.
@@ -90,18 +101,15 @@ function EffectInstance:kill() end
 --- @field lastX number Last frame's position of the spawner, for updating the position of the spawner's particles.
 --- @field lastY number Last frame's position of the spawner, for updating the position of the spawner's particles.
 --- @field skipPositionUpdate boolean If set to true, child effects will not move with their spawner.
---- @field timer number Counts up from 0. Used for spawning delayed effect particles.
 --- @field variant number The variant number passed from the Effect.spawn call.
 --- @field parent table Stores the x/y values, or the target's x/y/width/height/speedX/speedY from the Effect.spawn call.
 --- @field waitingToRemove boolean If true, the spawner is waiting for its effects to despawn, so that it can be safely removed.
---- @field effects Effect[] The list of spawned effect particles for this spawner.
+--- @field effects EffectParticle[] The list of spawned effect particles for this spawner.
 --- @field startTimes table<number, number> A map of effect particle layers to their delay values.
 --- @field finished table<number, boolean> A map of effect particle layers to whether or not they have already been spawned.
 
 ---The effect particle instance object. These fields are used by the effect's particle instance objects.
----@class EffectParticle : Effect
---- @field speedX number The Effect's horizontal speed. Sums the spawner's spawnerSpeedX with the speedX config/override.
---- @field speedY number The Effect's vertical speed. Sums the spawner's spawnerSpeedY with the speedY config/override.
+---@class EffectParticle : Animation
 --- @field maxSpeedX number The Effect's maximum horizontal speed.
 --- @field maxSpeedY number The Effect's maximum vertical speed.
 --- @field direction number The Effect's facing direction.
@@ -109,15 +117,12 @@ function EffectInstance:kill() end
 --- @field xAlign number Determines the horizontal sprite anchor for the Effect. Left is 0, Right is 1.
 --- @field yAlign number Determines the vertical sprite anchor for the Effect. Top is 0, Bottom is 1.
 --- @field lifetime number The particle's lifetime, expressed in frames.
---- @field timer number Counts down from lifetime, towards 0. Manages the particle's lifetime and often parts of its logic.
---- @field subTimer number Unused by any SMBX2 particles, but included for future compatibility.
 --- @field variant number The variant of the effect.
 --- @field variants number The number of variants the effect has.
 --- @field parent table Stores the spawner's parent values.
 --- @field isHidden boolean If true, the Effect's execution is halted and the Effect is invisible.
 --- @field img LuaImageResource The image that is drawn for the Effect.
 --- @field priority number The Effect's render priority.
---- @field animationFrame number The Effect's animation frame.
 --- @field animationTimer number The Effect's animation timer.
 --- @field frames number The number of frames the Effect has per direction per variant.
 --- @field framestyle number The framestyle of the Effect (0 or 1).
@@ -125,5 +130,3 @@ function EffectInstance:kill() end
 --- @field angle number The angle of the Effect.
 --- @field rotation number The per-frame change of angle of the Effect.
 --- @field frameOffset number The sprite sheet animation frame offset caused by variants.
---- @field npcID number Used by some effects to spawn NPCs as part of their logic.
---- @field drawOnlyMask boolean If true, the Effect is drawn all black. (only works for 1.3 effects right now)

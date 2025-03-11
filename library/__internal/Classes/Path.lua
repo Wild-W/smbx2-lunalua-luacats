@@ -24,7 +24,8 @@ function Path.get(ids) end
 --- @return Path[] paths A table of path objects intersecting the specified area.
 function Path.getIntersecting(x1, y1, x2, y2) end
 
----@class Path : userdata
+---@class Path : LuaHelperClass
+--- @field idx number
 --- @field id number The ID of the path object. Different IDs can be used to distinguish path types.
 --- @field x number The x position of the path object on the overworld.
 --- @field y number The y position of the path object on the overworld.

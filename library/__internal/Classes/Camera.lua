@@ -61,8 +61,8 @@ CameraInstance.renderX = 0
 ---@type number
 CameraInstance.renderY = 0
 
---- Returns a RECT consisting of the camera's left, top, right and bottom edges (relative to the scene).
----@type RECT
+--- Rectangle consisting of the camera's left, top, right and bottom edges (relative to the scene).
+---@type rectangle
 CameraInstance.bounds = nil
 
 --- Whether or not the camera is split (multiplayer).

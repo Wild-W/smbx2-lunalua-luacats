@@ -119,7 +119,7 @@ DarknessFieldInstance.uniforms = {}
 ---@type number
 DarknessFieldInstance.priorityType = Darkness.priority.DEFAULT
 
----@type RECT
+---@type rectangle
 DarknessFieldInstance.bounds = nil
 
 ---@type number

@@ -69,10 +69,10 @@ function Section(index) end
 --- @field isValid boolean
 --- The section's index in the internal list of sections. (Read-only)
 --- @field idx number
---- Returns a RECT containing the section's boundary.
---- @field boundary RECT
---- Returns a RECT containing the section's original boundary from the start of gameplay.
---- @field origBoundary RECT
+--- Rectangle containing the section's boundary.
+--- @field boundary rectangle
+--- Rectangle containing the section's original boundary from the start of gameplay.
+--- @field origBoundary rectangle
 --- The ID of the music used by the section.
 --- @field musicID number
 --- The path to the custom music used by the section. Unused if the custom ID isn't used.

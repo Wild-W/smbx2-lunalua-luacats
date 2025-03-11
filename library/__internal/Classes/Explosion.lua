@@ -19,7 +19,7 @@ Explosion = {}
 --- @field x number # The X position of the explosion's centre.
 --- @field y number # The Y position of the explosion's centre.
 --- @field timer number
---- @field effect Effect?
+--- @field effect Animation?
 
 ---@param x number
 ---@param y number

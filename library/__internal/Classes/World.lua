@@ -1,6 +1,6 @@
 ---@meta _
 
----@class World : userdata
+---@class World : LuaHelperClass
 world = {}
 ---The player's x-coordinate on the world map
 ---@type number

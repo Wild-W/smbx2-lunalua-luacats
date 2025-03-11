@@ -4,7 +4,7 @@
 --- However, sound effect handling has since been moved to `SFX`.
 Audio = {}
 
----@class (exact) Mix_Chunk : LuaHelperClass, userdata
+---@class (exact) Mix_Chunk : LuaHelperClass
 --- @field allocated integer|0|1 A boolean indicating whether to free abuf when the chunk is freed.
 --- @field abuf integer Pointer to the sample data, which is in the output format and sample rate.
 --- @field alen integer Length of abuf in bytes. Carefully modify this value, if you changed it, you should return initial value back on exiting from level or from world to avoid memory leak!
@@ -455,7 +455,7 @@ function MusicStopFadeOut(milliseconds) end
 --- @param volume number The volume level (from 0 to 128).
 function MusicVolume(volume) end
 
----@class PlayingSfxInstance
+---@class PlayingSfxInstance : LuaHelperClass
 local PlayingSfxInstance = {}
 
 --- Pauses the object's sound or loop.

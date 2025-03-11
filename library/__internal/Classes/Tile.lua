@@ -23,7 +23,7 @@ function Tile.get(ids) end
 ---@return Tile[] tiles A table containing tiles within the specified area.
 function Tile.getIntersecting(x1, y1, x2, y2) end
 
----@class Tile
+---@class Tile : LuaHelperClass
 local Tile = {}
 
 --- ID of the tile item.

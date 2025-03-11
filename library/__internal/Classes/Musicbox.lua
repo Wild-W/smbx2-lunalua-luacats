@@ -24,7 +24,7 @@ function Musicbox.get(ids) end
 --- @return Musicbox[] musicBoxes A table of musicbox items within the specified rectangle.
 function Musicbox.getIntersecting(x1, y1, x2, y2) end
 
----@class Musicbox : userdata
+---@class Musicbox : LuaHelperClass
 --- @field id number ID of the musicbox item. Different IDs play different music.
 --- @field x number X-Coordinate of the musicbox item.
 --- @field y number Y-Coordinate of the musicbox item.

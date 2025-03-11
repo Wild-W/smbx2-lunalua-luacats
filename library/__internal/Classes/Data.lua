@@ -48,7 +48,7 @@ function Data(dataType, key, sectionName) end
 ---@deprecated Use `GameData` or `SaveData` instead.
 function Data(dataType, key, sectionName, useSaveSlot) end
 
----@class Data
+---@class Data : LuaHelperClass
 local Data = {}
 
 ---Returns a table with a copy of the content. The key is the table-index while the value is the table-value. Use the tonumber() function to convert a string into a number.

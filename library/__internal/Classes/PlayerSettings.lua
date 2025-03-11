@@ -9,7 +9,7 @@ PlayerSettings = {}
 --- @return PlayerSettings settings The settings object for the character and powerup.
 function PlayerSettings.get(character, powerup) end
 
----@class PlayerSettings
+---@class PlayerSettings : LuaHelperClass
 --- Width of the player's hitbox. This value is consistent regardless of the player frame.
 --- @field hitboxWidth number
 --- Height of the player's hitbox when not ducking.
