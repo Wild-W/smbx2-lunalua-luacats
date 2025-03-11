@@ -634,8 +634,8 @@ function Misc._playerHarm(...) end
 function Misc.SetNPCCeilingBugFix(state) end
 
 ---For querying controller stick position.
----@param playerNum integer
----@return ...
+---@param playerNum? integer
+---@return number x, number y
 function Misc.GetSelectedControllerStickPosition(playerNum) end
 
 --### Static collision group variables

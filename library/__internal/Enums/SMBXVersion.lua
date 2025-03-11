@@ -1,6 +1,7 @@
 ---@meta _
 
 ---@alias SMBXVersion
+--- | `VER_BETA5_PATCH_3` # SMBX2b5p3
 --- | `VER_BETA5_PATCH_2` # SMBX2b5p2
 --- | `VER_BETA5_PATCH_1_2` # SMBX2b5p1.2
 --- | `VER_BETA5_PATCH_1_1` # SMBXb5p1.1
@@ -23,8 +24,10 @@
 
 ---Represents the current version.
 ---@type SMBXVersion
-SMBX_VERSION = 0
+SMBX_VERSION = nil
 
+---SMBX2b5p3
+VER_BETA5_PATCH_3 = 35184377266944
 ---SMBX2b5p2
 VER_BETA5_PATCH_2 = 35184377266688
 ---SMBX2b5p1.2

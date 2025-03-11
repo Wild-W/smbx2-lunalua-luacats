@@ -13,6 +13,11 @@ function clearpipe.unregisterNPC(id) end
 ---@param player Player
 function clearpipe.isInPipe(player) end
 
+-- Get the player's clear pipe direction
+---@param player Player
+---@return 1|0|-1 direction
+function clearpipe.playerDirection(player) end
+
 Player._inClearPipe = clearpipe.isInPipe
 
 --Enums for basic directions

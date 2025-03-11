@@ -564,13 +564,16 @@ PlayerInstance.isFairy = nil
 ---@type number
 PlayerInstance.slashTimer = nil
 
+---@type boolean
+PlayerInstance.slidingOnSlope = nil
+
 ---@type number
 PlayerInstance.grabTopTimer = nil
 
----@type unknown
+---@type boolean
 PlayerInstance.slidingQuickly = nil
 
----@type unknown
+---@type boolean
 PlayerInstance.rainbowShellSurfing = nil
 
 ---@type boolean
@@ -594,7 +597,7 @@ PlayerInstance.isDucking = nil
 ---@type number
 PlayerInstance.invincibilityTimer = nil
 
----@type unknown
+---@type boolean
 PlayerInstance.invincibilityFlash = nil
 
 ---@type number
