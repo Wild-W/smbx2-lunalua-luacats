@@ -101,10 +101,10 @@ function RNG.randomSign() end
 --- The RNG class in Lua, providing various methods for generating random numbers and elements.
 ---@class RNG
 local RNG = {
-    ---@type integer
-    [1] = nil,
-    ---@type integer
-    [2] = nil
+	---@type integer
+	[1] = nil,
+	---@type integer
+	[2] = nil,
 }
 
 ---Could be used to get a random direction (left or right).

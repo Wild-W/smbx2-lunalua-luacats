@@ -7,9 +7,9 @@ Sprite = {}
 
 ---@enum Sprite.ScaleType
 Sprite.barscale = {
-    BOTH = 0,
-    HORIZONTAL = 1,
-    VERTICAL = -1,
+	BOTH = 0,
+	HORIZONTAL = 1,
+	VERTICAL = -1,
 }
 
 Sprite.align = {}

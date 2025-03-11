@@ -1,6 +1,6 @@
 ---@meta blockmanager
 
-local blockeventmanager = require "game.blockeventmanager"
+local blockeventmanager = require("game.blockeventmanager")
 
 local blockManager = {}
 

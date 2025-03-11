@@ -4,22 +4,22 @@ Background = {}
 
 ---@enum ParalaxAlign
 Background.align = {
-    BOTTOM = 1,
-    CENTER = 0.5,
-    CENTRE = 0.5,
-    LEFT = 0,
-    MID = 0.5,
-    RIGHT = 1,
-    TOP = 0
+	BOTTOM = 1,
+	CENTER = 0.5,
+	CENTRE = 0.5,
+	LEFT = 0,
+	MID = 0.5,
+	RIGHT = 1,
+	TOP = 0,
 }
 
 ---@enum ParalaxDepth
 Background.depth = {
-    -- Infinity (`math.huge`)
-    INFINITE = math.huge,
-    -- Infinity (`math.huge`)
-    MAX = math.huge,
-    MIN = -200
+	-- Infinity (`math.huge`)
+	INFINITE = math.huge,
+	-- Infinity (`math.huge`)
+	MAX = math.huge,
+	MIN = -200,
 }
 
 --- Internal Event
